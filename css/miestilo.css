@@ -41,6 +41,10 @@ BODY{
 	margin-left: 10%;
 }
 
+.noticias a, a:active, a:hover{
+	text-decoration: none;
+}
+
 /*.img-footer{
 	width: 80%;
 	height: 40%;}

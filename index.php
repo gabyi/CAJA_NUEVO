@@ -31,6 +31,7 @@ session_start();
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
 	<!--script para mover carrussel-->
@@ -64,7 +65,7 @@ session_start();
 		  include 'logo.php';
 	?>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:25px; margin-top:25px;">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
@@ -112,57 +113,15 @@ session_start();
   </a>
 </div>
 
-
-  	<div class="container" style="margin-top:0.5%; width: 70%; height: 30%;"><!-- style aca porque el nav tiene class container-->
-		  <div class="row">
-
-			<div class="col-xs-4 col-md-4">
-			  <div class="thumbnail">
-				<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="imagenes/slider/bridge.jpg">
-				<div class="caption">
-				  <h4>Colecta Navideña</h4>
-				  <p>Colecta navideña para....</p>
-				  <a href="#" class="btn btn-primary" role="button">Botón</a>
-				</div>
-			  </div>
-			</div>
-
-
-			<div class="col-xs-4 col-md-4">
-			  <div class="thumbnail">
-				<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="imagenes/slider/leaf.jpg" border="5">
-				<div class="caption">
-				  <h5>BOLETIN N° 29</h5>
-				  <p>2das Jornadas de Prevision Social para Jovenes Profesionales</p>
-				  <p><a href="#" class="btn btn-primary" role="button">Botón</a> <a href="#" class="btn btn-default" role="button">Botón</a></p>
-				</div>
-			  </div>
-			</div>
-
-			<div class="col-xs-4 col-md-4">
-			  <div class="thumbnail">
-				<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="imagenes/slider/tree.jpg">
-				<div class="caption">
-				  <h6>BOLETIN INFORMATIVO N° 30</h6>
-				  <p>DGR y comunicaciones enviadas por mail - Convenio Caja Forense – Dirección General de Rentas
-					Cambios en las liquidaciones de Juicios con Beneficios de Litigar sin Gastos, a partir del 1° de noviembre del corriente año.</p>
-				  <p><a href="#" class="btn btn-primary" role="button">Botón</a> <a href="#" class="btn btn-default" role="button">Botón</a></p>
-				</div>
-			  </div>
-			</div>
-
-		  </div>
-		</div>
-
     <div class="row">
       <div class="thumbnails">
         <div class="col-sm-4 col-md4">
           <div class="thumbnail">
-            <img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
+            <a class="noticias" href="#"><img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
             <div class="caption">
               <h3>Boletin Oficial Nº 30</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id quam facilisis, pellentesque ex non, 
-                congue urna.</p>
+                congue urna.</p></a>
             </div>
           </div>
         </div>
@@ -171,11 +130,11 @@ session_start();
       <div class="thumbnails">
         <div class="col-sm-4 col-md4">
           <div class="thumbnail">
-            <img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
+            <a class="noticias" href="#"><img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
             <div class="caption">
               <h3>Boletin Oficial Nº 30</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id quam facilisis, pellentesque ex non, 
-                congue urna.</p>
+                congue urna.</p></a>
             </div>
           </div>
         </div>
@@ -184,11 +143,11 @@ session_start();
       <div class="thumbnails">
         <div class="col-sm-4 col-md4">
           <div class="thumbnail">
-            <img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
+            <a class="noticias" href="#"><img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
             <div class="caption">
               <h3>Boletin Oficial Nº 30</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id quam facilisis, pellentesque ex non, 
-                congue urna.</p>
+                congue urna.</p></a>
             </div>
           </div>
         </div>

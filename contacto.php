@@ -2,7 +2,10 @@
 session_start();
 ?>
 <?php
-	if($_SESSION['user']=="")
+
+
+
+	if($_SESSION['user']=="" && !isset($enviar))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
 	{
 		include'redir.php';
 	}else /*<!-- aca termina el if si no paso por el index*/
@@ -42,6 +45,16 @@ session_start();
 
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
+	<style type="text/css">
+      .footer {/* el estilo del div footer lo puse aca porque no le gusta imagen importada*/
+          background: url(prueba1.gif);
+          background-size: 70%;
+          background-repeat: no-repeat;
+          background-position: center;
+          height:250px;
+
+              }
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -135,10 +148,12 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 									</div>";
 					?>
 
-			</div>
-		</div>
-	</div>
+			    </div>
+		    </div>
+	    </div>
+    </div>
 </div>
+
 
 <?php
 
@@ -158,10 +173,15 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 						            print "<span class='glyphicon glyphicon-exclamation-sign'></span> ".$aviso." disculpe las molestias <a href='contacto.php' class='pull-right'> Volver </a>
 									</div>";
 								?>
+
+						</div>
 					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
+
+					
+
 
 <?php
 
@@ -176,10 +196,12 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 					        print "<span class='glyphicon glyphicon-check'></span> ".$aviso." <a href='contacto.php' class='pull-right'> Volver </a>
 									</div>";
 									?>
+						</div>
 					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
 
 <?php
 
@@ -249,19 +271,19 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								    </div>
  							</fieldset>
 						</form>
+					
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 	<?php
 
 		include 'footer.php';
-
-		print "</body> </html>";
 	}
 }
 
-session_unregister('user')
 ?> 
+</body> 
+</html>

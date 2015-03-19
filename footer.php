@@ -1,14 +1,7 @@
 <div class="footer">
 
         <div class="container">
-            <div class="row-menu">
-<!--
-            <div class="widget <col-xs-4 col-md-4">
-
-            	<img class="footer-logo" src="imagenes/logos/logo_neg.gif" alt="logo 40 aniversario">
-
-            </div>
--->
+            <div class="row" style="margin-left: 20%;">
 
             <div class="widget col-xs-4 col-md-4">
                 <h4 class="widget-title">Utilidades</h4>
