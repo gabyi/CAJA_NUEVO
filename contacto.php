@@ -63,6 +63,12 @@ session_start();
     <![endif]-->
   </head>
   <body>
+
+
+
+
+
+  	
  		<!-- barra de titulo -->
 
 		<!-- barra de titulo -->
