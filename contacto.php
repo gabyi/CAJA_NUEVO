@@ -144,7 +144,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 						{
 
 							print "<div class='alert bg-danger' role='alert'>";
-						    print "<span class='glyphicon glyphicon-exclamation-sign'></span> El codigo ingresado es incorrecto <a href='contacto.php' class='pull-right'> Volver </a>
+						    print "<a href='contacto.php'><span class='glyphicon glyphicon-exclamation-sign'></span> El codigo ingresado es incorrecto</a>
 									</div>";
 					?>
 
@@ -170,7 +170,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								if($aviso=="Su Mensaje no fue enviado")
 								{
 									print "<div class='alert bg-danger' role='alert'>";
-						            print "<span class='glyphicon glyphicon-exclamation-sign'></span> ".$aviso." disculpe las molestias <a href='contacto.php' class='pull-right'> Volver </a>
+						            print "<a href='contacto.php'><span class='glyphicon glyphicon-exclamation-sign'></span> ".$aviso." disculpe las molestias</a>
 									</div>";
 								?>
 
@@ -193,7 +193,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								}else
 								{
 							print "<div class='alert bg-success' role='alert'>";
-					        print "<span class='glyphicon glyphicon-check'></span> ".$aviso." <a href='contacto.php' class='pull-right'> Volver </a>
+					        print "<a href='contacto.php'><span class='glyphicon glyphicon-check'></span> ".$aviso."</a>
 									</div>";
 									?>
 						</div>
