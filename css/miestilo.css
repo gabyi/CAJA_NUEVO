@@ -45,50 +45,21 @@ BODY{
 	text-decoration: none;
 }
 
-/*.img-footer{
-	width: 80%;
-	height: 40%;}
-*/
 /* ================================================================================
 	#Footer
 ================================================================================ */
 
 /*.footer { padding-left: 25%; font-size: 16px; font-family: 'ProximaNova', sans-serif; color: #8793a9; background: #B2C5D3; }*/
-.footer p { margin: 0; }
-.footer .top { padding: 86px 0 102px; background: #292e38; }
-.footer .bottom { padding: 45px 0 30px; }
-.footer .bottom a { color: #b2baca; }
-.footer .bottom a:hover { color: #fff; }
-.footer .bottom strong { font-weight: 600; }
-.footer .bottom strong a { color: #fff; }
-.footer .bottom span { padding: 0 4px; }
-.footer .copyright { float: left; max-width: 500px; }
-.footer .credits { float: right; max-width: 400px; text-align: right; }
-.footer .credits img { margin-left: 6px; }
+.footer p { margin: 0;
+			text-align: center;
+		 }
 
-.footer .widget {width: 15%; margin-left: 10%; font-size: 18px; line-height: 1.2; }
-.footer .widget:first-child { margin-left: 0; }
-.footer .widget ul { list-style: none outside none; padding: 0; margin: 0; }
-.footer .widget ul li { padding-bottom: 8px; }
-.footer .widget a { color: #B18441; }
-.footer .widget a:hover { text-decoration: none; color: #A93531; }
-.footer .widget-title { padding: 5px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase; }
-.footer .widget.widget-double { width: 250px; }
-.footer .widget.widget-double ul { float: left; width: 50%; }
-.footer .widget.widget-connect { width: 254px; }
-.footer .widget.widget-connect p { padding-bottom: 13px; }
-.footer .widget.widget-connect .footer-logo { display: block; width: 212px; height: 54px; margin: 0 auto 46px; background: url("images/footer-logo.png") no-repeat 0 0; }
-.footer .widget.widget-connect .socials { font-size: 13px; font-weight: 300; text-align: center; }
-.footer .widget.widget-connect .socials ul { list-style: none outside none; font-size: 0; line-height: 0; }
-.footer .widget.widget-connect .socials ul li { display: inline; padding: 0 9px; }
-.footer .widget.widget-connect .socials ul li a { display: inline-block; width: 40px; height: 40px; border: 2px solid #737d90; border-radius: 50%; text-align: center; font-size: 14px; line-height: 40px; color: #b2baca; }
-.footer .widget.widget-connect .socials ul li .fa { line-height: 36px; }
-.footer .widget.widget-connect .socials ul li a:hover { color: #fff; border-color: #fff; }
-
-.footer-bar { padding: 26px 0 7px; background: #88b640; font-family: 'ProximaNova', sans-serif; font-size: 16px; color: #fff; }
-.footer-bar a { color: #fff; }
-.footer-bar .left { text-align: left; }
-.footer-bar .right { text-align: right; }
-.footer-bar .left .fa { margin-right: 8px; }
-.footer-bar .center {text-align: center; }
-.footer-bar .center .fa { margin-left: 10px; font-size: 18px; }
+.footer  {font-size: 18px; line-height: 1.2; }
+.footer ul { list-style: none outside none;text-align: center;}
+.footer ul li { padding-bottom: 8px;}
+.footer li {text-align: center;}
+.footer a { color: #B18441; }
+.footer a:hover { text-decoration: none; color: #A93531; }
+.widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
+.menu_double{ width: 200px;	text-align: center;	float: left; padding-left: 10px;}
+.row-menu{ text-align: center; padding-left: 450px;}

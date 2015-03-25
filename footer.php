@@ -1,37 +1,43 @@
 <div class="footer">
+<hr>
+  
+            <div class="row-menu">
+		
+		
+            <div class="thumbnails">
+        		<div class="col-sm-4 col-md-4">
+                	<h4 class="widget-title">Utilidades</h4>
+						<ul class="menu">
+                			<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
+   							<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
+							<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
+						</ul>
 
-        <div class="container">
-            <div class="row" style="margin-left: 20%;">
+            	</div><!-- /.widget -->
 
-            <div class="widget col-xs-4 col-md-4">
-                <h4 class="widget-title">Utilidades</h4>
-				<ul class="menu">
-                	<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
-   					<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
-					<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
-				</ul>
+			</div>
 
-            </div><!-- /.widget -->
-
-
-			 <div class="widget widget-double col-xs-4 col-md-4">
+			  <div class="thumbnails">
+		
+			 <div class="col-sm-4 col-md-4">
+		
                 <h4 class="widget-title">Links R&aacute;pidos</h4>
-
-                <ul class="menu">
+                <ul class="menu_double">
                 	<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
    					<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
 					<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
 				</ul>
-                <ul id="menu-double-right" class="menu">
-                	<li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></li>
-					<li class="menu-item"><a href="http://events.pearanalytics.com/">Events</a></li>
+				<ul class="menu_double">
+					<li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></a></li>
+					<li class="menu-item"><a href="">Events</a></li>
 					<li class="menu-item"><a href="/pricing/#get-assessment">Assessment</a></li>
 				</ul>
 			</div><!-- /.widget -->
+			
+			</div>
 
-         </div>
-       <!--  <img src="imagenes/logos/prueba1" alt="" style="width: 100%; height= 15%; margin-top: -14%;">  margin negativo porque subi la imagen ya que no podia ponerlo como background -->
-    </div><!-- /.container -->
+
+
 </div>
 <!--	<div id="MENU" class="container" style="font-size: 25px;">
 

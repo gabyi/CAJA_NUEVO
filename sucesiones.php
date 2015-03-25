@@ -7,7 +7,7 @@
 //// esto es lo mismo que antes
 function conectarse()
 {
-	if (!($link=mysql_connect("www.cforense.org","cfore2","ossur+wodge"))) {
+	if (!($link=mysql_connect("www.cforense.org","cfore2","O55ur+wodge"))) {
 		echo("Error al Conectarse al Servidor");
 		exit();
 	}
@@ -71,11 +71,11 @@ if ($consultar) {
   
    <label>
       <input type="radio" name="sel" value="1" checked="checked"/>
-      Actúa con Poder (Apoderado) </label>
+      ActÃºa con Poder (Apoderado) </label>
     <br />
     <label>
       <input type="radio" name="sel" value="2" />
-      Actúa por Derecho Propio (Letrado)</label>
+      ActÃºa por Derecho Propio (Letrado)</label>
     <br />
     <label>
 	<input type="checkbox" name="oficio" />Oficio Ley 22.172</label>
@@ -106,7 +106,7 @@ if ($consultar) {
 	echo("<p>&nbsp;</p><div align='center'><table border='2'><tr align='center'><th align='center' scope='row'><h2>Ingresos al inicio del proceso</h2>");
 	echo("<br/><u>Caja Forense de La Pampa</u>");
 	echo ('<table border="1" width="500" align="center">');		
-	if(mysql_result($result, 0, "bono_ley")>0) {echo "<tr width='328'><th scope='row'><p>Bono Ley N° 422:</th><td WIDTH='180' align='right'>$ ".number_format(mysql_result($result, 0, "bono_ley"),2)."</p></td></tr>"; 
+	if(mysql_result($result, 0, "bono_ley")>0) {echo "<tr width='328'><th scope='row'><p>Bono Ley NÂ° 422:</th><td WIDTH='180' align='right'>$ ".number_format(mysql_result($result, 0, "bono_ley"),2)."</p></td></tr>"; 
 	$vtotal=mysql_result($result, 0, "bono_ley");
 	}
 	
@@ -138,7 +138,7 @@ if ($consultar) {
 	echo('</table>');
 	 $vtotal = 0;
 
-	echo("<br/><u>Dirección General de Rentas</u>");
+	echo("<br/><u>DirecciÃ³n General de Rentas</u>");
 
 	echo ('<table border="1" width="500" align="center">');////////    aca
 	
@@ -171,16 +171,16 @@ echo ("</table></table>");
 	echo("<p>&nbsp;</p><div align='center'><table border='2'><tr align='center'><th align='center' scope='row'><h2>Ingresos previo a inscribirse los bienes</h2>");
 	
 	if ($sel < 2) {}		 
-		else {echo("<p>Actúa por Derecho Propio</p>");}
+		else {echo("<p>ActÃºa por Derecho Propio</p>");}
 
 	
 		if ($oficio) {echo ("<p>Oficio Ley 22.172</p>");}
-			else {echo ("<p>Actúa con Poder</p>");}			 
+			else {echo ("<p>ActÃºa con Poder</p>");}			 
 		
 
 
 
-	Echo ("<p><b>Honorarios M&iacute;nimos según Ley de Aranceles: $ ".number_format($vhonorarios,2)." </b></p>");
+	Echo ("<p><b>Honorarios M&iacute;nimos segÃºn Ley de Aranceles: $ ".number_format($vhonorarios,2)." </b></p>");
 	echo("<br/><u>Caja Forense de La Pampa</u>");
 	echo ('<table border="1" width="500" align="center">');
 	$vcontribuciones = ($bg1 + $bg2 + $bp1+$bp2)*0.005;
@@ -192,7 +192,7 @@ echo ("</table></table>");
 	
 	/// de Rentas
 	
-	echo("<br/><u>Dirección General de Rentas</u>");
+	echo("<br/><u>DirecciÃ³n General de Rentas</u>");
 	echo ('<table border="1" width="500" align="center">');
 	if ($oficio) {echo ("No Se debe Ingresar");}
 	else {

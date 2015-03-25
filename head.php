@@ -37,12 +37,14 @@
     
     <style type="text/css">
       .footer {/* el estilo del div footer lo puse aca porque no le gusta imagen importada*/
-          background: url(imagenes/logos/prueba1.gif);
-          background-size: 70%;
+          /*background: url(imagenes/logos/prueba1.gif);*/
+          background-color: #F8F8F8;
+          /*background-size: 70%;*/
           background-repeat: no-repeat;
           background-position: center;
-          height:250px;
-
+          /*height:250px;*/
+          border-top: 10px;
+          border-top-color: #5E5E5E;
               }
     </style>
 
