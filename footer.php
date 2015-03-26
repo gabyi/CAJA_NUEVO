@@ -24,11 +24,13 @@
 			 <div class="col-sm-4 col-md-4">
 
                 <h4 class="widget-title">Links R&aacute;pidos</h4>
+
                 <ul class="menu-double" style="margin-left: 15px;">
                 	<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
    					<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
 					<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
 				</ul>
+
 				<ul class="menu-double" style="margin-left: 40px;">
 
 					<li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></a></li>
