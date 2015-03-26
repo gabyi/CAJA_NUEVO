@@ -58,4 +58,4 @@ BODY{
 .footer a { color: #B18441; }
 .footer a:hover { text-decoration: none; color: #A93531; }
 .widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
-.menu-double{float: left;}
+.menu-double{}
