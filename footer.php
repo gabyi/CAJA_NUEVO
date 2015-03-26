@@ -4,7 +4,7 @@
             <div class="row-menu">
             	<!--Las 2 lineas estas las use para centrar-->
 <div class="thumbnails"><div class="col-sm-1 col-md-1"></div></div>
-<div class="thumbnails"><div class="col-sm-1 col-md-1"></div></div>
+
 
             <div class="thumbnails">
         		<div class="col-sm-4 col-md-4">
