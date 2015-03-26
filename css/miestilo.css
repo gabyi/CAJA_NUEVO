@@ -50,10 +50,7 @@ BODY{
 ================================================================================ */
 
 /*.footer { padding-left: 25%; font-size: 16px; font-family: 'ProximaNova', sans-serif; color: #8793a9; background: #B2C5D3; }*/
-.footer p { margin: 0;
-			text-align: center;
-		 }
-
+.footer p { text-align: center;}
 .footer  {font-size: 18px; line-height: 1.2; }
 .footer ul { list-style: none outside none;text-align: center;}
 .footer ul li { padding-bottom: 8px;}
@@ -61,5 +58,4 @@ BODY{
 .footer a { color: #B18441; }
 .footer a:hover { text-decoration: none; color: #A93531; }
 .widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
-.menu_double{ width: 200px;	text-align: center;	float: left; padding-left: 10px;}
-.row-menu{ text-align: center; padding-left: 450px;}
+.menu-double{float: left;}
