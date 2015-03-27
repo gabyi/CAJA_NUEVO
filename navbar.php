@@ -25,7 +25,7 @@
               <li><a href="#">Coordinadora de cajas</a></li>
             </ul>
         </li>
-			      <li><a href="#about">Costos de juicios</a></li>
+			      <li><a href="montosJuicios.php">Costos de juicios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->

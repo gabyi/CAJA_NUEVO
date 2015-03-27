@@ -1,10 +1,8 @@
 <div class="footer">
 <hr>
 
-            <div class="row-menu">
-            	<!--Las 2 lineas estas las use para centrar-->
-<div class="thumbnails"><div class="col-sm-1 col-md-1"></div></div>
-
+            <div class="row">
+<div class="col-sm-2 col-md-2"></div> <!--lo puse para alinear-->
 
             <div class="thumbnails">
         		<div class="col-sm-4 col-md-4">
