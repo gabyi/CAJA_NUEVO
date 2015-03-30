@@ -15,10 +15,6 @@ else
   	include 'head.php';
 
   	include 'conexion.php';
-/* Cargarlo antes del select*/
-
-  	$consulta="select * from ValoresCajaRentas";
-  	$result=mysql_query($consulta,$conexion);
 
   ?>
   <body>
@@ -62,7 +58,7 @@ else
 include 'logo.php';
 ?>
 
-<div class="container ">
+<div class="container " style="height: 380px; padding-top: 80px;">
 	
 	<div class="panel panel-default">
   		<div class="panel-heading">
@@ -75,7 +71,24 @@ include 'logo.php';
 								<div class="form-group">
 									<label class="col-md-3 col-sm-3 control-label" for="juicio">Tipo de Juicio</label>
 									<div class="col-md-4 col-sd-4">
-									<input id="juicio" name="juicio" title="Por favor ingrese tipo de juicio" type="text" placeholder="Ingrese Juicio" class="form-control" required autofocus>
+									<input id="juicio" name="juicio" title="Por favor ingrese tipo de juicio" 
+                  type="text" placeholder="Ingrese Juicio" class="form-control" list="juicios" required autofocus/>
+                    <datalist id="juicios">
+                      <?php
+
+                          $consulta="select * from ValoresCajaRentas";
+                          $result=mysql_query($consulta, $conexion);
+                          $n= mysql_num_rows($result);
+                          $i=0;
+
+                          for($i;$i<=$n;$i++)
+                          {
+                            $fila= mysql_fetch_array($result);
+                            print ('<option label="'.$fila["materia"].'" value="'.$fila["materia"].'"/>');
+                          }
+
+                      ?>
+                    </datalist>
 									</div>
 								</div>
 
@@ -87,8 +100,19 @@ include 'logo.php';
 									</div>
 								</div>
 
-							    <div class="form-horizontal">
-                                    <button type="submit" class="btn btn-info  btn-lg"" name='calcular'>Calcular</button>
+            
+                <input type="text" list="animales" id="caja"/>
+                  <datalist id="animales">
+                      <option label="Carnivoro" value="Perro" data-id="1"/>
+                      <option label="Herbivoro" value="Caballo" data-id="2"/>
+                      <option label="Carnivoro" value="Oso" data-id="3"/>
+                      <option label="Carnivoro" value="Mapache" data-id="4"/>
+                      <option label="Herbivoro" value="Reno" data-id="5"/>
+                  </datalist>
+
+
+							  <div class="form-horizontal">
+                  <button type="submit" class="btn btn-info  btn-lg"name='calcular'>Calcular</button>
 								</div>
  							
 						</form>
@@ -99,3 +123,4 @@ include 'logo.php';
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 ?>
+

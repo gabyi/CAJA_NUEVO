@@ -17,7 +17,7 @@
 include("titulo.php");
 function conectarse()
 {
-	if (!($link=mysql_connect("www.cforense.org","cfore2","ossur+wodge"))) {
+	if (!($link=mysql_connect("www.cforense.org","cfore2","O55ur+wodge"))) {
 		echo("Error al Conectarse al Servidor");
 		exit();
 	}
