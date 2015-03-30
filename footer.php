@@ -35,6 +35,7 @@
 
 
 </div>
+</div>
 <!--	<div id="MENU" class="container" style="font-size: 25px;">
 
 		<ul>
