@@ -9,7 +9,7 @@ else
 	{
 ?>
 
-<!DOCTYPE html:5>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -116,8 +116,6 @@ include 'logo.php';
 
 								<!-- Juicio input-->
 								<div class="form-group">
-                  <div class="col-sm-1 col-md-1"></div> <!--lo puse para alinear-->
-
 									<label class="col-md-3 col-sm-3 control-label" for="juicio">Tipo de Juicio</label>
 									<div class="col-md-4 col-sd-4">
 									<input id="juicio" name="juicio" title="Por favor ingrese tipo de juicio"
@@ -127,8 +125,7 @@ include 'logo.php';
 								</div>
 
 								<!-- Monto input-->
-								<div class="form-group" >
-                  <div class="col-sm-1 col-md-1"></div> <!--lo puse para alinear-->
+								<div class="form-group">
 									<label class="col-md-3 col-sm-3 control-label" for="monto">Monto del Juicio</label>
 									<div class="col-md-3 col-sm-3">
 
@@ -150,10 +147,9 @@ include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 ?>
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 var availableTags = [
 <?php
-
 $consulta="select * from ValoresCajaRentas order by materia asc";
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
@@ -164,10 +160,7 @@ $i=0;
   {
     $fila= mysql_fetch_array($result);
     if($fila["materia"]!="")
-    {
-
       print ('"'.$fila["materia"].'",');
-     }
   }
 ?>
 

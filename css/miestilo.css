@@ -48,8 +48,17 @@ BODY{
 /* ================================================================================
 	#Footer
 ================================================================================ */
-
-.footer { text-align: center;}
+ .footer {/* el estilo del div footer lo puse aca porque no le gusta imagen importada*/
+          /*background: url(imagenes/logos/prueba1.gif);*/
+          background-color: #F8F8F8;
+          /*background-size: 70%;*/
+          background-repeat: no-repeat;
+          background-position: center;
+          /*height:250px;*/
+          border-top: 10px;
+          border-top-color: #5E5E5E;
+          text-align: center;
+      }
 .footer p { text-align: center;}
 .footer  {font-size: 18px; line-height: 1.2; }
 .footer ul { list-style: none outside none;text-align: center;}
@@ -59,3 +68,5 @@ BODY{
 .footer a:hover { text-decoration: none; color: #A93531; }
 .widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
 .row-menu {margin-left: 0px;}
+.ui-autocomplete { height: 100px; overflow-y: scroll; overflow-x: hidden;} /*este estilo limita y pone un scroll
+en el j-query de los juicios*/

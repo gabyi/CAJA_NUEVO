@@ -23,9 +23,9 @@
                 <h4 class="widget-title">Links R&aacute;pidos</h4>
 
                 	<ul class="menu">
-                		<ul><li class="menu-item" style="float: left;text-align: center;width: 192px;"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li><li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></li></ul>
-   						<ul><li class="menu-item" style="float: left;text-align: center;width: 192px;"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li><li class="menu-item"><a href="">Events</a></li></ul>
-						<ul><li class="menu-item" style="float: left;text-align: center;width: 192px;"><a href="http://pearanalytics.com/locate-us/">Cálculo de intererses</a></li><li class="menu-item" ><a href="/pricing/#get-assessment">Assessment</a></li></ul>
+                		<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li><li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></li></ul>
+   						<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li><li class="menu-item"><a href="">Events</a></li></ul>
+						<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Cálculo de intererses</a></li><li class="menu-item" ><a href="/pricing/#get-assessment">Assessment</a></li></ul>
 					</ul>
 
 			</div><!-- /.widget -->
