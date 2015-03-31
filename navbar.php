@@ -15,9 +15,9 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Inicio</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Institucional <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Institucional <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
               <li><a href="#">Creacion y objetivos</a></li>
               <!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
               <li><a href="#">Autoridades</a></li>
