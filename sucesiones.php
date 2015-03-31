@@ -1,221 +1,245 @@
-
-<html>
-<h1><em><strong>Aplicativo para utilizar en los registro cuyo codmateria son (61, 62, 63, 119, 174, 400)</strong></em></h1>
-
 <?php
-
-//// esto es lo mismo que antes
-function conectarse()
-{
-	if (!($link=mysql_connect("www.cforense.org","cfore2","O55ur+wodge"))) {
-		echo("Error al Conectarse al Servidor");
-		exit();
-	}
-	if (!mysql_select_db("cfore2",$link)) {
-		echo "Error al seleccionar la Base de Datos";
-		exit();
-	}
-	return $link;
-}
-
-/// Datos Nuevos
-if ($consultar) {
-		?>	
-		<table border="1" width="500" align="center">
-	 		<tr><th><td><h2><u><p align="center">Acervo Hereditario</p> </u></h2></td></th></tr>
-	 	</table>	
-		  <table border="1" width="500" align="center">
-		    <tr>
-		      <th scope="row">&nbsp;</th>
-		      <td><em><strong>Bienes en la Provincia de La Pampa </strong></em></td>
-		      <td><em><strong>Bienes Extra&ntilde;a Jurisdicci&oacute;n </strong></em></td>
-		    </tr>
-		    <tr>
-		      <th scope="row">Bienes Gananciales: </th>
-		      <td><p align="right">$ <? echo number_format($bg1,2); ?> </p></td>
-		      <td><p align="right">$ <? echo number_format($bg2,2); ?> </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">Bienes Propios: </th>
-		      <td><p align="right">$ <? echo number_format($bp1,2); ?> </td>
-		      <td><p align="right">$ <? echo number_format($bp2,2); ?> </td>
-		    </tr>		  
-		  </table>
-  
-  <?php
-} else {
-	
+session_start();
 ?>
-	
-<form id="form1" name="form1" method="post" action="">
-  <h2><u>Acervo Hereditario:</u></h2>
- <h3><u>(Datos necesarios para calcular el costo)</u></h3>
-  <table width="200" border="1">
-    <tr>
-      <th scope="row">&nbsp;</th>
-      <td><em><strong>Bienes en la Provincia de La Pampa </strong></em></td>
-      <td><em><strong>Bienes Extra&ntilde;a Jurisdicci&oacute;n </strong></em></td>
-    </tr>
-    <tr>
-      <th scope="row">Bienes Gananciales: </th>
-      <td><input type="text" name="bg1" /></td>
-      <td><input type="text" name="bg2" /></td>
-    </tr>
-    <tr>
-      <th scope="row">Bienes Propios: </th>
-      <td><input type="text" name="bp1" /></td>
-      <td><input type="text" name="bp2" /></td>
-    </tr>
-  </table>
-  <p>&nbsp;</p>
-  
-   <label>
-      <input type="radio" name="sel" value="1" checked="checked"/>
-      Actúa con Poder (Apoderado) </label>
-    <br />
-    <label>
-      <input type="radio" name="sel" value="2" />
-      Actúa por Derecho Propio (Letrado)</label>
-    <br />
-    <label>
-	<input type="checkbox" name="oficio" />Oficio Ley 22.172</label>
-  
-  <p>&nbsp; </p>
-  
-    <label>
-      <input type="submit" name="consultar" value="Calcular" />
-    </label>
-  </p>
-</form>
+<?php
 
+
+
+  if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  {
+    include'redir.php';
+  }else /*<!-- aca termina el if si no paso por el index*/
+{
+?>
+
+<!DOCTYPE html:5>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="imagenes/logo.ico"/>
+
+    <title>Caja Forense de La Pampa</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--mi estilo -->
+    <link href="css/miestilo.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+     <!--Estos estan agregados para que minimece la barra movil-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
+
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+
+  </head>
+  <?php
+
+    	include 'conexion.php';
+
+  ?>
+  <body>
+
+  </body>
+
+  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+		        <a class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+
+		</div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Inicio</a></li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Institucional <span class="caret"></span></a>
+              	<ul class="dropdown-menu" role="menu">
+              		<li><a href="#">Creacion y objetivos</a></li>
+              		<!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
+              		<li><a href="#">Autoridades</a></li>
+              		<li><a href="#">Marco normativo y financiamiento</a></li>
+              		<li><a href="#">Coordinadora de cajas</a></li>
+             	  </ul>
+             </li>
+             <li><a href="montosJuicios.php">Costos de juicios</a></li>
+			       <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
+             <li><a href="contacto.php">Contacto</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+
+       </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+<?php
+include 'logo.php';
+
+    if(isset($calcular)) 
+      {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
+?> <!-- php para las sucesiones-->
+
+<div class="container " style="height: 380px; padding-top: 80px;">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Costos de Juicios</h3>
+          </div>
+
+          <div class="panel-body" id="montos">
+            <form class="form-horizontal" action="montosJuicios.php" method="post">
+            
+            </form>
+          </div>
+      </div>
+</div>
 
 <?php
-}
+/* sucesiones sin si hay*/
+} else { /*comienza si no hay*/
 
-/// datos nuevos
-if ($consultar) {	
+?>
+<div class="container" style="height: 380px; padding-top: 80px;">
+
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Costos de Juicios</h3>
+  		</div>
+  		<div class="panel-body" id="montos">
+    		<form class="form-horizontal" action="sucesiones.php" method="post">
+
+								<!-- Juicio input-->
+								<div class="form-group">                        
+                    <div class="col-sm-4 col-md-4">
+                      <h4>Acervo Hereditario</h4>
+                    </div>                        
+                      
+                      
+                    <div class="col-md-4 col-sm-4">         
+                      <h4>Bienes en la Provincia de La Pampa</h4>
+                    </div>
+                      
+                    <div class="col-sm-4 col-md-4">
+                    <h4>Bienes Estraña Jurisdicción</h4>
+                    </div>
+                  
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-md-4">
+                      <h4>Bienes Gananciales</h4>
+                    </div>                     
+                      
+                      
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name=""> 
+                    </div>                   
+
+                      
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-md-4">
+                      <h4>Bienes Gananciales</h4>
+                    </div>                     
+                      
+                      
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name=""> 
+                    </div>                   
+
+                      
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-md-4">
+                      <div class="checkbox">
+                        <label><input type="checkbox"> Oficio Ley 22.172 </label>
+                      </div>                      
+                    </div> 
+
+                    <div class="col-sm-4 col-md-4">
+                      <div class="radio">
+                        <label><input type="radio" name="poder" option="opcion1" checked> Actúa con poder (Apoderado) </label>
+                      </div>                      
+                    </div> 
+
+                    <div class="col-sm-4 col-md-4">
+                      <div class="radio">
+                        <label><input type="radio" name="poder" option="opcion2"> Actúa por derecho propio (Letrado) </label>
+                      </div>                      
+                    </div>                  
+                </div>
+
+                  
+							  <div class="form-group">
+                  <div class="col-sm-12 col-md-12" style="text-align:center;">
+                  <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular de Sucesiones</button>
+                  <a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>
+								</div>
+                </div>
+
+						</form>
+  		</div>
+	</div>
+</div>
+
+<?php
+    }/*termina el form de las sucesiones*/
+include 'footer.php';
+	}/*termina el else de que si no hay session disponible, o si no entro por el index */
+
+?>
+
+<script type="text/javascript">
+var juicios = [
+<?php
+
+$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*buca todo menos los que tenga suces*/
+$result=mysql_query($consulta, $conexion);
+$n= mysql_num_rows($result);
+$i=0;
 
 
-	$sql = "select * from ValoresCajaRentas where Materia = 'SUCESION AB-INTESTATO' order by Materia";
-	$link = conectarse();
-	$result = mysql_query($sql,$link); //consulta
-	$vtotal = 0;
-	
-		
-	// Muestra Resultados Caja Forense	
-	echo("<p>&nbsp;</p><div align='center'><table border='2'><tr align='center'><th align='center' scope='row'><h2>Ingresos al inicio del proceso</h2>");
-	echo("<br/><u>Caja Forense de La Pampa</u>");
-	echo ('<table border="1" width="500" align="center">');		
-	if(mysql_result($result, 0, "bono_ley")>0) {echo "<tr width='328'><th scope='row'><p>Bono Ley N° 422:</th><td WIDTH='180' align='right'>$ ".number_format(mysql_result($result, 0, "bono_ley"),2)."</p></td></tr>"; 
-	$vtotal=mysql_result($result, 0, "bono_ley");
-	}
-	
-	if(mysql_result($result, 0, "caja_inicio_aporte")>0) { echo "<tr><th scope='row'><p>Aportes:</th><td width0'180' align='right'>$ ".number_format(mysql_result($result, 0, "caja_inicio_aporte"),2)."</p></td></tr>";
-	$vtotal = $vtotal + mysql_result($result, 0, "caja_inicio_aporte");
-	}
-	if(mysql_result($result, 0, "caja_inicio_ap_porc")>0) {
-		echo "<tr><th scope='row'><p>Aportes:</th><td align='right'>$ ";
-		$vap = round(mysql_result($result, 0, "caja_inicio_ap_porc")/100*$monto, 2);
-		if ($vap > 60) {echo number_format($vap,2); $vtotal = $vtotal + $vap;} 
-		else { echo "60.00"; $vtotal = $vtotal + 60;}
-		echo "<td align='right'>(".mysql_result($result, 0, "caja_inicio_ap_porc")." %)</td></p></td></tr>";
-	}
-	
-	if(mysql_result($result, 0, "caja_inicio_cont_porc")>0) {
-		echo "<tr><th scope='row'><p>Contribuciones:</th><td align='right'>$ ";
-		$vap = round(mysql_result($result, 0, "caja_inicio_cont_porc")/100*$monto, 2);
-		if ($vap > 40) {echo number_format($vap,2); $vtotal = $vtotal + $vap;} else {echo "40.00"; $vtotal = $vtotal + 40;}
-		echo " <td align='right'>(".mysql_result($result, 0, "caja_inicio_cont_porc")." %)</td></p></td></tr>";
-	}
-	
-	if(mysql_result($result, 0, "caja_inicio_cont")>0) {
-		echo "<tr><th scope='row'><p>Contribuciones: </th><td align='right'>$ ".number_format(mysql_result($result, 0, "caja_inicio_cont"),2)."</p></td></tr>";
-		$vtotal = $vtotal + mysql_result($result, 0, "caja_inicio_cont");
-	}
-	
-	echo "<tr><th scope='row'><p><h3>Total: </h3></th><td align='right'><h3>$ ".number_format($vtotal,2)."</h3>";
-	
-	echo('</table>');
-	 $vtotal = 0;
+  for($i;$i<=$n;$i++)
+  {
+    $fila= mysql_fetch_array($result);
+    if($fila["materia"]!="")
+    {
 
-	echo("<br/><u>Dirección General de Rentas</u>");
+      print ('"'.$fila["materia"].'",');
+     }
+  }
+?>
 
-	echo ('<table border="1" width="500" align="center">');////////    aca
-	
-	if(mysql_result($result, 0, "rentas_inicio_general")>0) { echo "<tr width='328'><th scope='row'><p>Tasa General: </th><td width='180' align='right'>$ ".number_format(mysql_result($result, 0,"rentas_inicio_general"),2)."</p></td></tr>";
-	$vtotal = $vtotal + mysql_result($result, 0,"rentas_inicio_general");
-	}
-
-	if(mysql_result($result, 0, "rentas_inicio_tfija")>0) { echo "<tr width='328'><th scope='row'><p>Tasa Especial Fija:</th><td WIDTH='180' align='right'> $ ".number_format(mysql_result($result, 0,"rentas_inicio_tfija"),2)."</p></td></tr>";
-	$vtotal = $vtotal + mysql_result($result, 0,"rentas_inicio_tfija");
-	}
-	
-	
-	if(mysql_result($result, 0, "rentas_inicio_tvariable")>0) {
-		echo "<tr><th scope='row'><p>Tasa Especial Variable: </th><td align='right'>$";
-		$vap = round(mysql_result($result, 0, "rentas_inicio_tvariable")/100*$monto, 2);
-		$vtotal = $vtotal + $vap;	
-		echo number_format($vap,2)."<td align='right'> (".mysql_result($result, 0, "rentas_inicio_tvariable")." %)</td></p></td></tr>";
-	}
-	
-	echo "<tr><th scope='row'><p><h3>Total: </h3></th><td align='right'><h3>$ ".number_format($vtotal,2)."</h3>";
-echo ("</table></table>");	
-
-
-
-
-	if ($oficio) {$sel = 1;}
-	if ($sel < 2) {$vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0693 + ($bp1 + ($bp2 / 3 * 2)) * 0.0924;
-	if ($oficio) {$vhonorarios = $vhonorarios / 3;}}
-		else {$vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0495 + ($bp1 + ($bp2 / 3 * 2)) * 0.066;}
-	echo("<p>&nbsp;</p><div align='center'><table border='2'><tr align='center'><th align='center' scope='row'><h2>Ingresos previo a inscribirse los bienes</h2>");
-	
-	if ($sel < 2) {}		 
-		else {echo("<p>Actúa por Derecho Propio</p>");}
-
-	
-		if ($oficio) {echo ("<p>Oficio Ley 22.172</p>");}
-			else {echo ("<p>Actúa con Poder</p>");}			 
-		
-
-
-
-	Echo ("<p><b>Honorarios M&iacute;nimos según Ley de Aranceles: $ ".number_format($vhonorarios,2)." </b></p>");
-	echo("<br/><u>Caja Forense de La Pampa</u>");
-	echo ('<table border="1" width="500" align="center">');
-	$vcontribuciones = ($bg1 + $bg2 + $bp1+$bp2)*0.005;
-	
-	echo ("<tr width='328'><td><p align='center'><b>Contribuciones: </b></p></td><td><p align='right'>$ ".number_format($vcontribuciones,2)." </p></td></tr>");
-	$vaportes = $vhonorarios*0.15;	
-	Echo ("<tr><td><p align='center'><b>Aportes: </b></td><td><p align='right'>$ ".number_format($vaportes,2)." </p></td></tr>");
-	Echo ("<tr><td><p align='center'><b>Total:</b></td><td><p align='right'>$ ".number_format($vaportes + $vcontribuciones,2)." </b></p></td></tr></table>");
-	
-	/// de Rentas
-	
-	echo("<br/><u>Dirección General de Rentas</u>");
-	echo ('<table border="1" width="500" align="center">');
-	if ($oficio) {echo ("No Se debe Ingresar");}
-	else {
-			if(mysql_result($result, 0, "rentas_fin_general")>0) {echo "<tr><td><p>* Tasa General: $ ".number_format(mysql_result($result, 0, "rentas_fin_general"),2)."</p></tr></td>"; 
-				}
-			
-			
-			if(mysql_result($result, 0, "rentas_fin_tfija")>0) {
-				echo "<tr width='450'><td><p align='center'><b>Tasa Especial Fija: </b></p></td><td><p align='right'> $";
-				$vap = round(mysql_result($result, 0, "rentas_fin_tfija")/100*($bg1+$bp1), 2);	
-				echo number_format($vap,2)." (".mysql_result($result, 0, "rentas_fin_tfija")." %)</p></td></tr>";
-			}
-			
-			if(mysql_result($result, 0, "rentas_fin_tvariable")>0) {
-				echo "<p>* Tasa Especial Variable:  $";
-				$vap = round(mysql_result($result, 0, "rentas_fin_tvariable")/100*($bg1+$bp1), 2);	
-				echo number_format($vap,2)." (".mysql_result($result, 0, "rentas_fin_tvariable")." %)";}
-		}
-		echo("</table>");
-	}
-
-echo("</table>")
-
-?>   
-
-</html>
+];
+$( "#juicio" ).autocomplete({
+  source: juicios
+});
+</script>

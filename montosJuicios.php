@@ -1,12 +1,15 @@
 <?php
 session_start();
+?>
+<?php
 
-if($_SESSION['user']=="")
+
+
+  if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  {
+    include'redir.php';
+  }else /*<!-- aca termina el if si no paso por el index*/
 {
-		include'redir.php';
-}
-else
-	{
 ?>
 
 <!DOCTYPE html:5>
@@ -46,18 +49,6 @@ else
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-  <!--script para mover carrussel-->
-    <script>
-    $(document).ready(function(){
-        $('.myCarousel').carousel()
-    });
-    </script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <?php
 
@@ -95,7 +86,8 @@ else
              	</ul>
              </li>
 			      <li class="active"><a href="montosJuicios.php">Costos de juicios</a></li>
-                  <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="sucesiones.php">Costos de sucesiones</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
 
@@ -103,8 +95,38 @@ else
     </nav><!-- /.navbar -->
 <?php
 include 'logo.php';
-?>
 
+    if(isset($calcular) && (stristr($_REQUEST ['juicio'], 'SUCESION') !== FALSE || stristr($_REQUEST ['juicio'], 'SUCESORIO') !== FALSE)) 
+      {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
+?> <!-- php para las sucesiones-->
+
+<div class="container " style="height: 380px; padding-top: 80px;">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Costos de Juicios</h3>
+          </div>
+
+          <div class="panel-body" id="montos">
+            <form class="form-horizontal" action="montosJuicios.php" method="post">
+                <table class="table" id="sucesiones">
+                  <tr>
+                    <th>Acervo Hereditario</th>
+                    <th>Bienes en la Provincia de La Pampa</th>
+                    <th>Bienes Estraña Jurisdicción</th>
+                  </tr>
+                  
+                </table>
+
+            </form>
+          </div>
+      </div>
+</div>
+
+<?php
+/* sucesiones sin si hay*/
+} else { /*comienza si no hay*/
+
+?>
 <div class="container " style="height: 380px; padding-top: 80px;">
 
 	<div class="panel panel-default">
@@ -112,7 +134,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form class="form-horizontal" action="contacto.php" method="post">
+    		<form class="form-horizontal" action="montosJuicios.php" method="post">
 
 								<!-- Juicio input-->
 								<div class="form-group">
@@ -121,7 +143,7 @@ include 'logo.php';
 									<label class="col-md-3 col-sm-3 control-label" for="juicio">Tipo de Juicio</label>
 									<div class="col-md-4 col-sd-4">
 									<input id="juicio" name="juicio" title="Por favor ingrese tipo de juicio"
-                  type="text" placeholder="Ingrese Juicio" class="form-control" list="juicios" required autofocus/>
+                  type="text" placeholder="Ingrese Juicio" class="form-control" list="juicios" value="" required autofocus/>
 
 									</div>
 								</div>
@@ -132,13 +154,14 @@ include 'logo.php';
 									<label class="col-md-3 col-sm-3 control-label" for="monto">Monto del Juicio</label>
 									<div class="col-md-3 col-sm-3">
 
-										<input type="text" id="monto" name="monto" title="Ingrese Monto"  placeholder="Monto" class="form-control" required>
+                    <input type="text" id="monto" name="monto" title="Ingrese Monto"  placeholder="Monto" class="form-control" required>
 
                   </div>
 								</div>
-
+                  
 							  <div class="form-horizontal">
-                  <button type="submit" class="btn btn-info  btn-lg"name='calcular'>Calcular</button>
+                  <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular Juicio</button>
+                  <a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>
 								</div>
 
 						</form>
@@ -146,15 +169,17 @@ include 'logo.php';
 	</div>
 </div>
 <?php
+    }/*termina el form de las sucesiones*/
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
+
 ?>
 
 <script type="text/javascript">
-var availableTags = [
+var juicios = [
 <?php
 
-$consulta="select * from ValoresCajaRentas order by materia asc";
+$consulta="select * from ValoresCajaRentas where materia NOT LIKE '%SUCES%' order by materia asc"; /*buca todo menos los que tenga suces*/
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
 $i=0;
@@ -173,6 +198,6 @@ $i=0;
 
 ];
 $( "#juicio" ).autocomplete({
-  source: availableTags
+  source: juicios
 });
 </script>

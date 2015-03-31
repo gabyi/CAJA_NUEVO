@@ -82,7 +82,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 
 ?>
 
-	<div class="container ">
+	<div class="container" style='margin-top: 50px; margin-bottom: 50px;'>
 	<div class="col-md-3">
 		<!--Este div es para centrar el formulario de contacto deltro del container well-->
 	</div>
@@ -98,7 +98,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 						if(isset($enviar) && $codigo!="bien")
 						{
 
-							print "<div class='alert bg-danger' role='alert'>";
+							print "<div class='alert bg-danger' role='alert' style='margin-top: 80px; margin-bottom: 80px;'>";
 						    print "<a href='contacto.php'><span class='glyphicon glyphicon-exclamation-sign'></span> El codigo ingresado es incorrecto</a>
 									</div>";
 					?>
@@ -124,7 +124,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 							{
 								if($aviso=="Su Mensaje no fue enviado")
 								{
-									print "<div class='alert bg-danger' role='alert'>";
+									print "<div class='alert bg-danger' role='alert' style='margin-top: 80px; margin-bottom: 80px;'>";
 						            print "<a href='contacto.php'><span class='glyphicon glyphicon-exclamation-sign'></span> ".$aviso." disculpe las molestias</a>
 									</div>";
 								?>
@@ -147,7 +147,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 					<?php
 								}else
 								{
-							print "<div class='alert bg-success' role='alert'>";
+							print "<div class='alert bg-success' role='alert' style='margin-top: 80px; margin-bottom: 80px;'>";
 					        print "<a href='contacto.php'><span class='glyphicon glyphicon-check'></span> ".$aviso."</a>
 									</div>";
 									?>

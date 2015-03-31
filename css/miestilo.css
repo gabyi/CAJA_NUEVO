@@ -58,9 +58,10 @@ BODY{
           border-top: 10px;
           border-top-color: #5E5E5E;
           text-align: center;
+          margin-top: 20px;
       }
 .footer p { text-align: center;}
-.footer  {font-size: 18px; line-height: 1.2; }
+.footer  {font-size: 18px; line-height: 1.2; margin-top: 50px; }
 .footer ul { list-style: none outside none;text-align: center;}
 .footer ul li { padding-bottom: 8px;}
 .footer li {text-align: center;}
