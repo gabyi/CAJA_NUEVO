@@ -77,7 +77,7 @@ session_start();
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
              <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Institucional <span class="caret"></span></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional <span class="caret"></span></a>
               	<ul class="dropdown-menu" role="menu">
               		<li><a href="#">Creacion y objetivos</a></li>
               		<!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
@@ -86,8 +86,14 @@ session_start();
               		<li><a href="#">Coordinadora de cajas</a></li>
              	  </ul>
              </li>
-             <li><a href="montosJuicios.php">Costos de juicios</a></li>
-			       <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
+             <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="montosJuicios.php">Costos de juicios</a></li>
+                  <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
+                </ul>
+              </li>
+
              <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
@@ -249,7 +255,7 @@ include 'logo.php';
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular de Sucesiones</button>
-                  <a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>
+                  <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
 

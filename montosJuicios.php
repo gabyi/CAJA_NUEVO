@@ -86,8 +86,13 @@ session_start();
               		<li><a href="#">Coordinadora de cajas</a></li>
              	</ul>
              </li>
-			      <li class="active"><a href="montosJuicios.php">Costos de juicios</a></li>
-            <li><a href="sucesiones.php">Costos de sucesiones</a></li>
+			      <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li  class="active"><a href="montosJuicios.php">Costos de juicios</a></li>
+                  <li><a href="sucesiones.php">Costos de sucesiones</a></li>
+                </ul>
+            </li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
@@ -162,7 +167,7 @@ include 'logo.php';
 
 							  <div class="form-horizontal">
                   <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular Juicio</button>
-                  <a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>
+                  <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>-->
 								</div>
 
 						</form>

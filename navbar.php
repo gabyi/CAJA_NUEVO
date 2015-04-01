@@ -25,8 +25,14 @@
               <li><a href="#">Coordinadora de cajas</a></li>
             </ul>
         </li>
-			      <li><a href="montosJuicios.php">Costos de juicios</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
+			      <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="montosJuicios.php">Costos de juicios</a></li>
+                  <li><a href="sucesiones.php">Costos de sucesiones</a></li>
+                </ul>
+              </li>
+              <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
 
