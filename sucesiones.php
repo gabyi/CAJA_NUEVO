@@ -12,7 +12,7 @@ session_start();
 {
 ?>
 
-<!DOCTYPE html:5>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -43,6 +43,7 @@ session_start();
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
     <link href="css/jquery-ui.css" rel="stylesheet">
@@ -57,7 +58,7 @@ session_start();
   ?>
   <body>
 
-  </body>
+
 
   <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
       <div class="container">
@@ -127,7 +128,54 @@ include 'logo.php';
   		</div>
   		<div class="panel-body" id="montos">
     		<form class="form-horizontal" action="sucesiones.php" method="post">
+          <table class="table" style="margin-left: auto;
+  margin-right: auto;">
+              <tr>
+                <td>
+                  
+                    <h4>Acervo Hereditario</h4>
+                
+                </td>
 
+                <td>
+                           
+                    <h4>Bienes en la Provincia de La Pampa</h4>
+                  
+                </td>
+
+                <td>
+                  
+                    <h4>Bienes Estraña Jurisdicción</h4>
+                  
+                </td>
+              </tr>
+
+              <tr>
+                    <td>
+                      <h4>Bienes Gananciales</h4>
+
+                    </td>
+                    
+                    <td>
+                      <input type="text" class="form-control" id="" name=""> 
+
+                    </td>
+                     
+                    <td>
+                      <input type="text" class="form-control" id="" name="">
+                    </td>
+
+              </tr>
+          </table>
+
+
+
+
+
+
+
+
+<!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 								<div class="form-group">                        
                     <div class="col-sm-4 col-md-4">
@@ -216,7 +264,8 @@ include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
-
+  </body>
+  </html>
 <script type="text/javascript">
 var juicios = [
 <?php
