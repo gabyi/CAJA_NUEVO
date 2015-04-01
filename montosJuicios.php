@@ -12,7 +12,7 @@ session_start();
 {
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html:5>
 <html lang="en">
 
   <head>
@@ -58,7 +58,7 @@ session_start();
   ?>
   <body>
 
- 
+
 
   <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
       <div class="container">
@@ -97,7 +97,7 @@ session_start();
 <?php
 include 'logo.php';
 
-    if(isset($calcular) && (stristr($_REQUEST ['juicio'], 'SUCESION') !== FALSE || stristr($_REQUEST ['juicio'], 'SUCESORIO') !== FALSE)) 
+    if(isset($calcular) && (stristr($_REQUEST ['juicio'], 'SUCESION') !== FALSE || stristr($_REQUEST ['juicio'], 'SUCESORIO') !== FALSE))
       {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
 ?> <!-- php para las sucesiones-->
 
@@ -115,7 +115,7 @@ include 'logo.php';
                     <th>Bienes en la Provincia de La Pampa</th>
                     <th>Bienes Estraña Jurisdicción</th>
                   </tr>
-                  
+
                 </table>
 
             </form>
@@ -128,7 +128,7 @@ include 'logo.php';
 } else { /*comienza si no hay*/
 
 ?>
-<div class="container " style="height: 380px; padding-top: 80px;">
+<div class="container " style="padding-top: 80px;">
 
 	<div class="panel panel-default">
   		<div class="panel-heading">
@@ -159,7 +159,7 @@ include 'logo.php';
 
                   </div>
 								</div>
-                  
+
 							  <div class="form-horizontal">
                   <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular Juicio</button>
                   <a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>
@@ -174,7 +174,7 @@ include 'logo.php';
     }/*termina el form de las sucesiones*/
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
- 
+
 ?>
 </body>
 </html>

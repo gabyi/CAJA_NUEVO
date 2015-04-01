@@ -97,11 +97,11 @@ session_start();
 <?php
 include 'logo.php';
 
-    if(isset($calcular)) 
+    if(isset($calcular))
       {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
 ?> <!-- php para las sucesiones-->
 
-<div class="container " style="height: 380px; padding-top: 80px;">
+<div class="container " style="">
       <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Costos de Juicios</h3>
@@ -109,7 +109,7 @@ include 'logo.php';
 
           <div class="panel-body" id="montos">
             <form class="form-horizontal" action="montosJuicios.php" method="post">
-            
+
             </form>
           </div>
       </div>
@@ -120,7 +120,7 @@ include 'logo.php';
 } else { /*comienza si no hay*/
 
 ?>
-<div class="container" style="height: 380px; padding-top: 80px;">
+<div class="container" style="margin-top: 80px;">
 
 	<div class="panel panel-default">
   		<div class="panel-heading">
@@ -132,21 +132,21 @@ include 'logo.php';
   margin-right: auto;">
               <tr>
                 <td>
-                  
+
                     <h4>Acervo Hereditario</h4>
-                
+
                 </td>
 
                 <td>
-                           
+
                     <h4>Bienes en la Provincia de La Pampa</h4>
-                  
+
                 </td>
 
                 <td>
-                  
+
                     <h4>Bienes Estraña Jurisdicción</h4>
-                  
+
                 </td>
               </tr>
 
@@ -155,12 +155,12 @@ include 'logo.php';
                       <h4>Bienes Gananciales</h4>
 
                     </td>
-                    
+
                     <td>
-                      <input type="text" class="form-control" id="" name=""> 
+                      <input type="text" class="form-control" id="" name="">
 
                     </td>
-                     
+
                     <td>
                       <input type="text" class="form-control" id="" name="">
                     </td>
@@ -177,33 +177,33 @@ include 'logo.php';
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
-								<div class="form-group">                        
+								<div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <h4>Acervo Hereditario</h4>
-                    </div>                        
-                      
-                      
-                    <div class="col-md-4 col-sm-4">         
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4">
                       <h4>Bienes en la Provincia de La Pampa</h4>
                     </div>
-                      
+
                     <div class="col-sm-4 col-md-4">
                     <h4>Bienes Estraña Jurisdicción</h4>
                     </div>
-                  
+
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <h4>Bienes Gananciales</h4>
-                    </div>                     
-                      
-                      
-                    <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name=""> 
-                    </div>                   
+                    </div>
 
-                      
+
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name="">
+                    </div>
+
+
                     <div class="col-sm-4 col-md-4">
                       <input type="text" class="form-control" id="" name="">
                     </div>
@@ -212,14 +212,14 @@ include 'logo.php';
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <h4>Bienes Gananciales</h4>
-                    </div>                     
-                      
-                      
-                    <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name=""> 
-                    </div>                   
+                    </div>
 
-                      
+
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="" name="">
+                    </div>
+
+
                     <div class="col-sm-4 col-md-4">
                       <input type="text" class="form-control" id="" name="">
                     </div>
@@ -229,23 +229,23 @@ include 'logo.php';
                     <div class="col-sm-4 col-md-4">
                       <div class="checkbox">
                         <label><input type="checkbox"> Oficio Ley 22.172 </label>
-                      </div>                      
-                    </div> 
+                      </div>
+                    </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
                         <label><input type="radio" name="poder" option="opcion1" checked> Actúa con poder (Apoderado) </label>
-                      </div>                      
-                    </div> 
+                      </div>
+                    </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
                         <label><input type="radio" name="poder" option="opcion2"> Actúa por derecho propio (Letrado) </label>
-                      </div>                      
-                    </div>                  
+                      </div>
+                    </div>
                 </div>
 
-                  
+
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular de Sucesiones</button>

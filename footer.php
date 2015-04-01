@@ -1,5 +1,5 @@
-<div class="footer">
-
+<div class="footer"  style="">
+<footer>
 <hr>
 
             <div class="row">
@@ -36,6 +36,7 @@
 
 
 </div>
+</footer>
 </div>
 <!--	<div id="MENU" class="container" style="font-size: 25px;">
 
