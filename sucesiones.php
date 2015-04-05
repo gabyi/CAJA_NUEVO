@@ -134,70 +134,9 @@ include 'logo.php';
   		</div>
   		<div class="panel-body" id="montos">
     		<form class="form-horizontal" action="sucesiones.php" method="post">
-          <table class="table" style="margin-left: auto;
-  margin-right: auto;">
-              <tr>
-                <td>
-
-                    <h4>Acervo Hereditario</h4>
-
-                </td>
-
-                <td>
-
-                    <h4>Bienes en la Provincia de La Pampa</h4>
-
-                </td>
-
-                <td>
-
-                    <h4>Bienes Estraña Jurisdicción</h4>
-
-                </td>
-              </tr>
-
-              <tr>
-                    <td>
-                      <h4>Bienes Gananciales</h4>
-
-                    </td>
-
-                    <td>
-                      <input type="text" class="form-control" id="" name="">
-
-                    </td>
-
-                    <td>
-                      <input type="text" class="form-control" id="" name="">
-                    </td>
-
-              </tr>
-          </table>
-
-
-
-
-
-
-
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
-								<div class="form-group">
-                    <div class="col-sm-4 col-md-4">
-                      <h4>Acervo Hereditario</h4>
-                    </div>
-
-
-                    <div class="col-md-4 col-sm-4">
-                      <h4>Bienes en la Provincia de La Pampa</h4>
-                    </div>
-
-                    <div class="col-sm-4 col-md-4">
-                    <h4>Bienes Estraña Jurisdicción</h4>
-                    </div>
-
-                </div>
 
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
@@ -206,28 +145,28 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="">
+                      <input type="text" class="form-control" id="" name="" placeholder="En la Provincia de La Pampa">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="">
+                      <input type="text" class="form-control" id="" name="" placeholder="Extraña Jurisdicción">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
-                      <h4>Bienes Gananciales</h4>
+                      <h4>Bienes Propios</h4>
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="">
+                      <input type="text" class="form-control" id="" name="" placeholder="En la Provincia de La Pampa">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="">
+                      <input type="text" class="form-control" id="" name="" placeholder="Extraña Jurisdicción">
                     </div>
                 </div>
 
