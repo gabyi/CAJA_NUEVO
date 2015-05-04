@@ -1,5 +1,6 @@
 BODY{
 	background: linear-gradient(rgba(178,197,211,1), rgba(178,197,211,0) );
+	background-repeat: none;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2C5D3', endColorstr='#FFFFFF',GradientType=0 );/*graadient para IE*/
 }
 
