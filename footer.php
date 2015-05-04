@@ -18,9 +18,9 @@
 
 			</div>
 
-			  <div class="thumbnails">
+			<div class="thumbnails">
 
-			 <div class="col-sm-4 col-md-4">
+			 	<div class="col-sm-4 col-md-4">
                 <h4 class="widget-title">Links R&aacute;pidos</h4>
 
                 	<ul class="menu">
@@ -29,7 +29,7 @@
 						<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Cálculo de intererses</a></li><li class="menu-item" ><a href="/pricing/#get-assessment">Assessment</a></li></ul>
 					</ul>
 
-			</div><!-- /.widget -->
+				</div><!-- /.widget -->
 
 			</div>
 
