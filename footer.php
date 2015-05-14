@@ -3,17 +3,15 @@
 <hr>
 
             <div class="row">
-            <div class="col-sm-3 col-md-3">
-            	
-            </div> <!--lo puse para alinear-->
+            <div class="col-sm-2 col-md-2"></div> <!--lo puse para alinear-->
 
             <div class="thumbnails">
-        		<div class="col-sm-3 col-md-3">
+        		<div class="col-sm-4 col-md-4">
                 	<h4 class="widget-title">Utilidades</h4>
 						<ul class="menu">
-                			<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
-   							<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Cálculo de intereses</a></li>
-							<li class="menu-item"><a href="http://webmail.cforense.org/webmail2">Ingreso a su cuenta de mail</a></li>
+                			<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
+   							<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
+							<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
 						</ul>
 
             	</div><!-- /.widget -->
@@ -22,14 +20,14 @@
 
 			<div class="thumbnails">
 
-			 	<div class="col-sm-3 col-md-3">
-                <h4 class="widget-title">Otros links</h4>
+			 	<div class="col-sm-4 col-md-4">
+                <h4 class="widget-title">Links R&aacute;pidos</h4>
 
                 	<ul class="menu">
-                			<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li>
-   							<li class="menu-item"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li>
-							<li class="menu-item"><a href="/meet-the-team">Cálculo de intererses</a></li>
-						</ul>
+                		<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Novedades</a></li><li class="menu-item"><a href="/internet-marketing-case-studies">Case Studies</a></li></ul>
+   						<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Tasa mix</a></li><li class="menu-item"><a href="">Events</a></li></ul>
+						<ul><li class="menu-item" style="float: left;text-align: center;width: 128px;"><a href="http://pearanalytics.com/locate-us/">Cálculo de intererses</a></li><li class="menu-item" ><a href="/pricing/#get-assessment">Assessment</a></li></ul>
+					</ul>
 
 				</div><!-- /.widget -->
 
