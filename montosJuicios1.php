@@ -13,7 +13,7 @@ session_start();
 ?>
 
 <!DOCTYPE html:5>
-<html lang="es">
+<html lang="en">
 
   <head>
     <meta charset="utf-8">
@@ -102,8 +102,37 @@ session_start();
 <?php
 include 'logo.php';
 
-?>
+    if(isset($calcular) && (stristr($_REQUEST ['juicio'], 'SUCESION') !== FALSE || stristr($_REQUEST ['juicio'], 'SUCESORIO') !== FALSE))
+      {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
+?> <!-- php para las sucesiones-->
 
+<div class="container " style="height: 380px; padding-top: 80px;">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Costos de Juicios</h3>
+          </div>
+
+          <div class="panel-body" id="montos">
+            <form class="form-horizontal" action="montosJuicios.php" method="post">
+                <table class="table" id="sucesiones">
+                  <tr>
+                    <th>Acervo Hereditario</th>
+                    <th>Bienes en la Provincia de La Pampa</th>
+                    <th>Bienes Estraña Jurisdicción</th>
+                  </tr>
+
+                </table>
+
+            </form>
+          </div>
+      </div>
+</div>
+
+<?php
+/* sucesiones sin si hay*/
+} else { /*comienza si no hay*/
+
+?>
 <div class="container " style="padding-top: 80px;">
 
 	<div class="panel panel-default">
@@ -111,7 +140,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form class="form-horizontal" action="tabla.php" method="post">
+    		<form class="form-horizontal" action="montosJuicios.php" method="post">
 
 								<!-- Juicio input-->
 								<div class="form-group">
@@ -147,7 +176,7 @@ include 'logo.php';
 </div>
 
 <?php
-    
+    }/*termina el form de las sucesiones*/
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
@@ -159,7 +188,7 @@ include 'footer.php';
 var juicios = [
 <?php
 
-$consulta="select * from ValoresCajaRentas where materia NOT LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
+$consulta="select * from ValoresCajaRentas where materia NOT LIKE '%SUCES%' order by materia asc"; /*buca todo menos los que tenga suces*/
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
 $i=0;

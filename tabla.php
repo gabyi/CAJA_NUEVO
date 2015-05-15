@@ -3,8 +3,6 @@ session_start();
 ?>
 <?php
 
-
-
   if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
@@ -13,7 +11,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
     <meta charset="utf-8">
@@ -54,7 +52,9 @@ session_start();
   <?php
 
     	include 'conexion.php';
-
+      $juicio= $_REQUEST ['juicio'];
+      $monto= $_REQUEST ['monto'];
+      $consulta= mysql_query("select * from VeloresCajaRentas where materia=".$juicio);
   ?>
   <body>
 
@@ -107,76 +107,56 @@ include 'logo.php';
       {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
 ?> <!-- php para las sucesiones-->
 
-<div class="container " style="">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Costos de Juicios</h3>
-          </div>
-
-          <div class="panel-body" id="montos">
-            <form class="form-horizontal" action="montosJuicios.php" method="post">
-
-            </form>
-          </div>
-      </div>
-</div>
-
-<?php
-/* sucesiones sin si hay*/
-} else { /*comienza si no hay*/
-
-?>
 <div class="container" style="margin-top: 80px;">
 
-	<div class="panel panel-default">
-  		<div class="panel-heading">
-    		<h3 class="panel-title">Costos de Juicios: INCIDENTE DE ADMINISTRACION. Monto: $100,00.</h3>
-  		</div>
-  		<div class="panel-body" id="montos" style="text_align:center;">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+      
+        <?php
+         print "<h3 class='panel-title'>Costos de Juicios: ".$juicio.". Monto: $ ".$monto.".</h3>";
+        ?> 
+        
+      </div>
+      <div class="panel-body" id="montos" style="text_align:center;">
+ 
  <div class="col-sm-6 col-md-6">
+
   <CAPTION><h4>Costo de Iniciacion</h4></CAPTION>
-  <table class="table-striped">
-  <tr><th>Caja Forense de La Pampa</th></tr>
+
+    <table class="table-striped">
+
+      <tr><th>Caja Forense de La Pampa</th></tr>  
+      <tr><td>Bono Ley Nº 422</td><td>125.00</td>
+      <tr><td>Aportes</td><td>340,00</td><td style="align:right;padding-left:50px;">0.588000%</td></tr>
+      <tr><td>Contribuciones</td><td>250,00</td></tr>  
+      <tr style="border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;"><th>Total Caja Forense: </th><th>715,00</th></tr>
   
-  <tr><td>Bono Ley Nº 422</td><td>125.00</td>
-  <tr><td>Aportes</td><td>340,00</td><td style="align:right;padding-left:50px;">0.588000%</td></tr>
-  <tr><td>Contribuciones</td><td>250,00</td></tr>  
-  <tr style="border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;"><th>Total Caja Forense: </th><th>715,00</th></tr>
-  
-</table></div>
+    </table>
+ </div>
         
 
 
-        <div class="col-sm-6 col-md-6">
+<div class="col-sm-6 col-md-6">
 
-
-
-
-<caption><h4>Costo de Finalizacion</h4></caption>
-<table class="table-striped">
+    <caption><h4>Costo de Finalizacion</h4></caption>
+      <table class="table-striped">
   
-  <tr><th>Direccion General de Rentas</th></tr>
-  <tr><td style="align:left;">Aportes</td><td style="align:right;">340.00</td><td></td><td style="align:right;padding-left:50px;">0.588000%</td></tr>
+        <tr><th>Direccion General de Rentas</th></tr>
+        <tr><td style="align:left;">Aportes</td><td style="align:right;">340.00</td><td></td><td style="align:right;padding-left:50px;">0.588000%</td></tr>  
   
-  
-</table>
+      </table>
 
 </div>
 
-
-<!-- =================================================================================================================================-->
-								<!-- Juicio input-->
-
-                
-                
-</div>
-						
-  		</div>
-	</div>
 </div>
 
+</div>
+
+</div>
+?>
+		
 <?php
-    }/*termina el form de las sucesiones*/
+ }//aca termina else de isset calcular
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
@@ -187,7 +167,7 @@ include 'footer.php';
 var juicios = [
 <?php
 
-$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*buca todo menos los que tenga suces*/
+$consulta="select * from ValoresCajaRentas where materia NOT LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
 $i=0;
