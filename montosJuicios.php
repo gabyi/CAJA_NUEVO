@@ -16,7 +16,7 @@ session_start();
 <html lang="es">
 
   <head>
-    <meta charset="utf-8">
+    <!--<meta charset="utf-8"> se lo saque para que tome las ñ en la busqueda de los juicios-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -147,7 +147,7 @@ include 'logo.php';
 </div>
 
 <?php
-    
+
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
