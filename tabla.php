@@ -14,7 +14,7 @@ session_start();
 <html lang="es">
 
   <head>
-     <!--<meta charset="utf-8"> se lo saque para que tome las ñ en la busqueda de los juicios-->
+    <meta charset="utf8_general_ci"><!--para que aparezca la ñ-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -52,9 +52,35 @@ session_start();
   <?php
 
     	include 'conexion.php';
-      $juicio= $_REQUEST ['juicio'];
+      $materia=$_REQUEST ['juicio'];
       $monto= $_REQUEST ['monto'];
-      $consulta= mysql_query("select * from VeloresCajaRentas where materia=".$juicio);
+      $consulta= mysql_query("select * from ValoresCajaRentas where materia= '".$materia."'") or die ("No se pudo realizar la consulta");
+      //consulto la ultima fila de los minimos para sacar el valor actualizado
+      $consultaMinimos= mysql_query("select * from minimos") or die ("No se puedo realizar consulta de minimos");
+
+      $nfilas= mysql_num_rows($consultaMinimos);
+
+      for($i=0;$nfilas>$i;$i++)
+        {
+          $filaMinimos= mysql_fetch_array($consultaMinimos);
+        }
+      $fila= mysql_fetch_array($consulta);
+      $caja_inicio_aporte= $fila ['caja_inicio_aporte'];
+      $caja_inicio_cont= $fila ['caja_inicio_cont'];
+      $bono_ley= $fila ['bono_ley'];
+      $sumaCForense=$caja_inicio_aporte+$caja_inicio_cont+$bono_ley;
+      $caja_inicio_ap_porc= $fila ['caja_inicio_ap_porc'];
+      
+      function verifica($a,$b,$minimo)
+      {
+        $valor1=$a * ($b/100);
+
+        if($valor1>$minimo)
+          return $valor1;
+        else
+          return $minimo;
+      }
+    
   ?>
   <body>
 
@@ -113,7 +139,7 @@ include 'logo.php';
       <div class="panel-heading">
 
         <?php
-         print "<h3 class='panel-title'>Costos de Juicios: ".$juicio.". Monto: $ ".$monto.".</h3>";
+         print "<h3 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".$monto.".</h3>";
         ?>
 
       </div>
@@ -121,16 +147,27 @@ include 'logo.php';
 
  <div class="col-sm-6 col-md-6">
 
-  <CAPTION><h4>Costo de Iniciacion</h4></CAPTION>
-
+  <h4>Costo de Iniciacion</h4>
+ 
     <table class="table-striped">
 
-      <tr><th>Caja Forense de La Pampa</th></tr>
-      <tr><td>Bono Ley Nº 422</td><td>125.00</td>
-      <tr><td>Aportes</td><td>340,00</td><td style="align:right;padding-left:50px;">0.588000%</td></tr>
-      <tr><td>Contribuciones</td><td>250,00</td></tr>
-      <tr style="border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;"><th>Total Caja Forense: </th><th>715,00</th></tr>
+      <?php
+      if($sumaCForense>0)
+      {
 
+        print "<caption>Caja Forense de La Pampa</caption>";
+          
+          if($bono_ley>0)
+          print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:60px;'>".$bono_ley."</td>";
+      
+          print "<tr><td>Aportes</td><td style='align:right;padding-left:60px;'>".verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_inicio_aporte'])."</td><td style='align:right;padding-left:60px;'>".$caja_inicio_ap_porc." %</td></tr>";
+        
+       /* <tr><td>Contribuciones</td><td>250,00</td></tr>
+        <tr style="border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;"><th>Total Caja Forense: </th><th>715,00</th></tr>
+*/
+      }
+
+      ?>
     </table>
  </div>
 
@@ -138,7 +175,7 @@ include 'logo.php';
 
 <div class="col-sm-6 col-md-6">
 
-    <caption><h4>Costo de Finalizacion</h4></caption>
+    <h4>Costo de Finalizacion</h4>
       <table class="table-striped">
 
         <tr><th>Direccion General de Rentas</th></tr>
@@ -153,7 +190,7 @@ include 'logo.php';
 </div>
 
 </div>
-?>
+ 
 
 <?php
  }//aca termina else de isset calcular
