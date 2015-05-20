@@ -82,23 +82,31 @@ session_start();
       //redondeo suma de aportes y contribuciones a 2 decimales  
       $sumaCForense= number_format((float)$sumaCForense, 2, '.', '');
 
-      $rentas_inicio_general= $fila ['rentas_inicio_general'];
-      $rentas_inicio_tasa_variable= $fila ['rentas_inicio_tasa_variable'];
-      //$caja_fin_aportes= $fila ['caja_fin_aportes'];
-      //$caja_fin_cont= $fila ['caja_fin_cont'];
-      $caja_fin_ap_porc= $fila ['caja_fin_ap_porc'];
-      $caja_fin_cont_porc= $fila ['caja_fin_cont_porc'];
+      // valores rentas inicio
 
-      //verifico si hay que pagar aportes al finalizar
+      if($fila ['rentas_inicio_general'] != 0.00)
+      {
+         $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
+      }
 
-      if($caja_inicio_ap_porc != '')
-          {
-            $caja_fin_aportes= verifica ($monto, $caja_fin_aportes, $filaMinimos ['caja_inicio_aporte']);
-          }else
-          {
-            $caja_fin_aportes= $filaMinimos ['caja_inicio_aporte'];
-          }
+      $rentas_inicio_tfija= $fila ['rentas_inicio_tfija'];
 
+      //verifico valor de tasa variable rentas
+
+      if($fila ['rentas_inicio_tvariable']!= 0.00)
+      {
+         $rentas_inicio_tasa_variable= verifica ($monto, $fila ['rentas_inicio_tvariable'], $filaMinimos ['rentas_minimo']);
+      }
+
+      $sumaDGR=$rentas_inicio_general+$rentas_inicio_tasa_variable+$rentas_inicio_tfija;
+
+      $sumaDGR=number_format((float)$sumaDGR, 2,'.','');
+
+      //total de inicio
+
+      $sumaInicio= $sumaCForense+$sumaDGR;
+
+      $sumaInicio= number_format((float)$sumaInicio, 2, '.','');
 
   ?>
   <body>
@@ -158,11 +166,11 @@ include 'logo.php';
       <div class="panel-heading">
 
         <?php
-         print "<h3 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".$monto.".</h3>";
+         print "<h3 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".$monto."</h3>";
         ?>
 
       </div>
-      <div class="panel-body" id="montos" style="text_align:center;">
+<div class="panel-body" id="montos" style="text_align:center;">
 
  <div class="col-sm-6 col-md-6">
 
@@ -177,32 +185,34 @@ include 'logo.php';
         print "<caption>Caja Forense de La Pampa</caption>";
           
           if($bono_ley>0)
-          print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:60px;'>".$bono_ley."</td>";
+          print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
           
           if($caja_inicio_ap_porc == '')
           {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:60px;'>".$caja_inicio_aporte;
+            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
           }else
           {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:60px;'>".$caja_inicio_aporte.
-            "</td><td style='align:right;padding-left:60px;'>".$caja_inicio_ap_porc." %</td></tr>";
+            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte.
+            "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_ap_porc." %</td></tr>";
           }
           
           if($caja_inicio_cont_porc == '')
           {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:60px;'>".$caja_inicio_cont."</td></tr>";
+            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
           }else
           {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:60px;'>".$caja_inicio_cont.
-            "</td><td style='align:right;padding-left:60px;'>".$caja_inicio_cont_porc." %</td></tr>";
+            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont.
+            "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont_porc." %</td></tr>";
           }
           
           if ($sumaCForense>0)
           {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th><th style='align:right;padding-left:60px;'>".$sumaCForense."</th></tr>";    
+            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";    
           }else
           {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th><th style='align:right;padding-left:60px;'>".$sumaCForense."</th></tr>";    
+            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";    
           }
         
 
@@ -212,32 +222,46 @@ include 'logo.php';
       ?>
     </table>
     
-    <table class="table-striped">
+   
 
       <?php
+               //verifico si rentas inicio tiene monto fijo o variable para mostrar la tabla
+
+      if($sumaDGR!=0.00)
+      {
+        print "<table class='table-striped'>";
+
         print "<caption>Direcci&oacute;n General de Rentas</caption>";
 
-        if($sumaDGR>0)
+        if($rentas_inicio_general != 0.00)
         {
-          print        }
+          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$filaMinimos ['rentas_inicio_general']."</td></tr>";        
+        }
 
+        if($rentas_inicio_tasa_variable != 0.00)
+        {
+          print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tasa_variable."</td>
+          <td style='align:right;padding-left:30px;'>".$fila ['rentas_inicio_tvariable']." %</td></tr>";;      
+        }
+
+        if($rentas_inicio_tfija != 0.00)
+        {
+          print "<tr><td>Tasa Especial Fija</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tfija."</td></tr>";
+        }
+
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+          <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";        
+        print "</table>";
+      }
+
+      print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
       ?>
-    </table>
+      
  </div>
 
 
 
-<div class="col-sm-6 col-md-6">
 
-    <h4>Costo de Finalizacion</h4>
-      <table class="table-striped">
-
-        <tr><th>Direccion General de Rentas</th></tr>
-        <tr><td style="align:left;">Aportes</td><td style="align:right;">340.00</td><td></td><td style="align:right;padding-left:50px;">0.588000%</td></tr>
-
-      </table>
-
-</div>
 
 </div>
 
@@ -285,16 +309,6 @@ $i=0;
           return $minimo;
       } 
 
-//funcion de modulo para corregir la suma
-      function modulo($a)
-      {
-        $result= $a % 10 ;
-
-        if($result ==0)
-          return $result.".00";
-        else
-          return $result.".00";
-      }
 ?>
 
 ];

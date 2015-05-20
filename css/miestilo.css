@@ -4,14 +4,14 @@ BODY{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2C5D3', endColorstr='#FFFFFF',GradientType=0 );/*graadient para IE*/
 }
 
-.logo{
+#logo{
     margin-top: 60px;
     margin-bottom: 10px;/*dejo 10px porque lo tapa el menu*/
 	text-align: center;
 }
 
 .imagelogo{
-	width: 70%;
+	width: 100%;
 	border-radius: 15px;
 }
 
@@ -37,13 +37,23 @@ BODY{
 	text-align: center;
 }
 
-.row{
+#noticias-index{
 	width: 80%;
 	margin-left: 10%;
 }
 
 .noticias a, a:active, a:hover{
 	text-decoration: none;
+}
+
+.ui-autocomplete { height: 100px; overflow-y: scroll; overflow-x: hidden;} /*este estilo limita y pone un scroll
+en el j-query de los juicios*/
+
+#total-IniFin{
+	margin-top:15px;
+	font-weight: bold;
+	background-color: #D1E8D7;
+	width: 95%; 
 }
 
 /* ================================================================================
@@ -69,6 +79,4 @@ BODY{
 .footer a { color: #B18441; }
 .footer a:hover { text-decoration: none; color: #A93531; }
 .widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
-.row-menu {margin-left: 0px;}
-.ui-autocomplete { height: 100px; overflow-y: scroll; overflow-x: hidden;} /*este estilo limita y pone un scroll
-en el j-query de los juicios*/
+

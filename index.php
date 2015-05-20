@@ -65,7 +65,7 @@ session_start();
   </a>
 </div>
 
-    <div class="row">
+    <div class="row" id="noticias-index">
       <div class="thumbnails">
         <div class="col-sm-4 col-md4">
           <div class="thumbnail">
