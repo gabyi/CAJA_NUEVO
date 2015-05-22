@@ -42,7 +42,7 @@ session_start();
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
-    
+
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
     <link href="css/jquery-ui.css" rel="stylesheet">
@@ -76,11 +76,11 @@ session_start();
 
       //redondeo aportes a 2 decimales
       $caja_inicio_aporte=number_format((float)$caja_inicio_aporte, 2, '.', '');
-      
+
       //redondeo contibuciones a 2 decimales
-      $caja_inicio_cont=number_format((float)$caja_inicio_cont, 2, '.', '');      
-    
-      //redondeo suma de aportes y contribuciones a 2 decimales  
+      $caja_inicio_cont=number_format((float)$caja_inicio_cont, 2, '.', '');
+
+      //redondeo suma de aportes y contribuciones a 2 decimales
       $sumaCForense= number_format((float)$sumaCForense, 2, '.', '');
 
       // valores rentas inicio
@@ -109,16 +109,18 @@ session_start();
 
       $sumaInicio= number_format((float)$sumaInicio, 2, '.','');
 
-      //Verifico que haya valores para 
+      //Verifico que haya valores para
 
       if($fila ['caja_fin_aportes']!= '')
       {
         $caja_fin_aportes=$fila['caja_fin_aportes'];
+        $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
       }else
       {
         if($fila ['caja_fin_ap_porc']!='')
         {
           $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_aporte']);
+          $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
           $caja_fin_ap_porc= $fila ['caja_fin_ap_porc'];
         }else
         {
@@ -193,7 +195,7 @@ include 'logo.php';
 
     if(isset($calcular))
       {
-?> 
+?>
 
 <div class="container" style="margin-top: 80px;">
 
@@ -218,11 +220,11 @@ include 'logo.php';
  {
   print "<div class='col-sm-6 col-md-6 col-md-offset-3'>";
  }
- 
+
  ?>
 
   <h4>Costo de Iniciaci&oacute;n</h4>
- 
+
     <table class="table-striped">
 
       <?php
@@ -230,10 +232,10 @@ include 'logo.php';
       {
 
         print "<caption>Caja Forense de La Pampa</caption>";
-          
+
           if($bono_ley>0)
           print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
-          
+
           if($caja_inicio_ap_porc == '')
           {
             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
@@ -242,7 +244,7 @@ include 'logo.php';
             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte.
             "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_ap_porc." %</td></tr>";
           }
-          
+
           if($caja_inicio_cont_porc == '')
           {
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
@@ -251,25 +253,25 @@ include 'logo.php';
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont.
             "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont_porc." %</td></tr>";
           }
-          
+
           if ($sumaCForense>0)
           {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";    
+            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
           }else
           {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";    
+            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
           }
-        
+
 
       }
 
 
       ?>
     </table>
-    
-   
+
+
 
       <?php
                //verifico si rentas inicio tiene monto fijo o variable para mostrar la tabla
@@ -282,13 +284,13 @@ include 'logo.php';
 
         if($rentas_inicio_general != 0.00)
         {
-          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$filaMinimos ['rentas_inicio_general']."</td></tr>";        
+          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$filaMinimos ['rentas_inicio_general']."</td></tr>";
         }
 
         if($rentas_inicio_tasa_variable != 0.00)
         {
           print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tasa_variable."</td>
-          <td style='align:right;padding-left:30px;'>".$fila ['rentas_inicio_tvariable']." %</td></tr>";;      
+          <td style='align:right;padding-left:30px;'>".$fila ['rentas_inicio_tvariable']." %</td></tr>";;
         }
 
         if($rentas_inicio_tfija != 0.00)
@@ -297,13 +299,13 @@ include 'logo.php';
         }
 
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-          <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";        
+          <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";
         print "</table>";
       }
 
       print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
       ?>
-      
+
  </div>
 <!--=================================================================================================================================================================================-->
 <!--Comienzo de la tabla de finalizacion de Juicios-->
@@ -316,7 +318,7 @@ include 'logo.php';
     <div class="col-sm-6 col-md-6">
 
     <h4>Costo de Finalizaci&oacute;n</h4>
- 
+
     <table class="table-striped">
 
       <?php
@@ -324,9 +326,9 @@ include 'logo.php';
       {
 
         print "<caption>Caja Forense de La Pampa</caption>";
-          
+
         if($caja_fin_ap_porc != ''|| $caja_fin_aporte != 0.00)
-        {      
+        {
           if($caja_fin_aporte != 0.00)
           {
             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
@@ -339,7 +341,7 @@ include 'logo.php';
             }
           }
         }
-          
+
           if($caja_fin_cont_porc == '')
           {
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
@@ -348,24 +350,24 @@ include 'logo.php';
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont.
             "</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont_porc." %</td></tr>";
           }
-          
+
           if ($sumaCForense>0)
           {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";    
+            <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
           }else
           {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaFinalJuicio."</th></tr>";    
+            <th style='align:right;padding-left:30px;'>".$sumaFinalJuicio."</th></tr>";
           }
-        
+
 
       }
 
 
       ?>
     </table>
-    
+
 
     <?php
     print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaFinalJuicio."</div>";
@@ -378,7 +380,7 @@ include 'logo.php';
 </div>
 
 </div>
- 
+
 
 <?php
  }//aca termina else de isset calcular
@@ -417,7 +419,7 @@ $i=0;
           return $valor1;
         else
           return $minimo;
-      } 
+      }
 
 ?>
 
