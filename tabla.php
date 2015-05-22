@@ -42,6 +42,7 @@ session_start();
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+    
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
     <link href="css/jquery-ui.css" rel="stylesheet">
@@ -108,6 +109,40 @@ session_start();
 
       $sumaInicio= number_format((float)$sumaInicio, 2, '.','');
 
+      //Verifico que haya valores para 
+
+      if($fila ['caja_fin_aportes']!= '')
+      {
+        $caja_fin_aportes=$fila['caja_fin_aportes'];
+      }else
+      {
+        if($fila ['caja_fin_ap_porc']!='')
+        {
+          $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_aporte']);
+          $caja_fin_ap_porc= $fila ['caja_fin_ap_porc'];
+        }else
+        {
+          $caja_fin_aportes= 0.00;
+        }
+      }
+
+      if($fila ['caja_fin_cont'] != '')
+      {
+        $caja_fin_cont= $filaMinimos ['caja_fin_cont'];
+      }else
+      {
+        if($fila ['caja_fin_cont_porc'])
+        {
+          $caja_fin_cont= verifica ($mont, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_cont']);
+          $caja_fin_cont_porc= $fila ['caja_fin_cont_porc'];
+        }else
+        $caja_fin_cont= 0.00;
+      }
+
+      $sumaFinCajaForense= $caja_fin_aportes+$caja_fin_cont;
+      $sumaFinCajaForense= number_format((float)$sumaFinCajaForense, 2, '.','');
+      $sumaFinalJuicio=$sumaFinCajaForense;
+
   ?>
   <body>
 
@@ -158,11 +193,12 @@ include 'logo.php';
 
     if(isset($calcular))
       {
-?> <!-- php para las sucesiones-->
+?> 
 
 <div class="container" style="margin-top: 80px;">
 
-  <div class="panel panel-default">
+  <!--<div class="panel panel-default" id="tabla-juicios" style="width:50%">-->
+  <div class="panel panel-default" id="tabla-juicios">
       <div class="panel-heading">
 
         <?php
@@ -170,11 +206,22 @@ include 'logo.php';
         ?>
 
       </div>
-<div class="panel-body" id="montos" style="text_align:center;">
+<div class="panel-body" id="montos">
+<?php
 
- <div class="col-sm-6 col-md-6">
+//Si no hay finalizacion de juicio las tablas se centran en el panel
 
-  <h4>Costo de Iniciacion</h4>
+ if($sumaFinCajaForense != 0.00)
+ {
+  print "<div class='col-sm-6 col-md-6'>";
+ }else
+ {
+  print "<div class='col-sm-6 col-md-6 col-md-offset-3'>";
+ }
+ 
+ ?>
+
+  <h4>Costo de Iniciaci&oacute;n</h4>
  
     <table class="table-striped">
 
@@ -258,10 +305,73 @@ include 'logo.php';
       ?>
       
  </div>
+<!--=================================================================================================================================================================================-->
+<!--Comienzo de la tabla de finalizacion de Juicios-->
+<!--=================================================================================================================================================================================-->
+
+<?php
+  if ($sumaFinCajaForense!=0.00)
+  {
+    ?>
+    <div class="col-sm-6 col-md-6">
+
+    <h4>Costo de Finalizaci&oacute;n</h4>
+ 
+    <table class="table-striped">
+
+      <?php
+      if($sumaCForense>0)
+      {
+
+        print "<caption>Caja Forense de La Pampa</caption>";
+          
+        if($caja_fin_ap_porc != ''|| $caja_fin_aporte != 0.00)
+        {      
+          if($caja_fin_aporte != 0.00)
+          {
+            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
+          }else
+          {
+            if($caja_fin_ap_porc != '')
+            {
+              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes.
+              "</td><td style='align:right;padding-left:30px;'>".$caja_fin_ap_porc." %</td></tr>";
+            }
+          }
+        }
+          
+          if($caja_fin_cont_porc == '')
+          {
+            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
+          }else
+          {
+            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont.
+            "</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont_porc." %</td></tr>";
+          }
+          
+          if ($sumaCForense>0)
+          {
+            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+            <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";    
+          }else
+          {
+            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+            <th style='align:right;padding-left:30px;'>".$sumaFinalJuicio."</th></tr>";    
+          }
+        
+
+      }
 
 
+      ?>
+    </table>
+    
 
-
+    <?php
+    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaFinalJuicio."</div>";
+  }
+?>
+</div>
 
 </div>
 
