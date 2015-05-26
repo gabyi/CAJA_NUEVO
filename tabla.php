@@ -197,7 +197,9 @@ include 'logo.php';
       {
 ?>
 
-<div class="container" style="margin-top: 80px;">
+
+<div class="container" style="margin-top: 20px; height:620px;">
+
 
   <!--<div class="panel panel-default" id="tabla-juicios" style="width:50%">-->
   <div class="panel panel-default" id="tabla-juicios">
@@ -373,22 +375,30 @@ include 'logo.php';
     print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaFinalJuicio."</div>";
   }
 ?>
+   
 </div>
 
 </div>
 
 </div>
-
+<div class="panel panel-default">
+  <div class="panel-body">
+   <button type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'imprime ()'>Imprimir</button>
+   <button type='button' class='btn btn-info  btn-lg' name='volver' onclick= 'volver ()' style='margin-left:15px;'>Volver</button>
+  </div>
+</div>
 </div>
 
+
+
+</body>
 
 <?php
  }//aca termina else de isset calcular
-include 'footer.php';
-	}/*termina el else de que si no hay session disponible, o si no entro por el index */
+
+}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
-  </body>
   </html>
 <script type="text/javascript">
 var juicios = [
@@ -427,4 +437,15 @@ $i=0;
 $( "#juicio" ).autocomplete({
   source: juicios
 });
+
+function imprime ()
+{
+  window.print();
+}
+
+function volver()
+{
+  window.history.back();
+}
+
 </script>

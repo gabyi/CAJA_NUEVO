@@ -100,11 +100,12 @@ session_start();
        </div><!-- /.container -->
     </nav><!-- /.navbar -->
 <?php
+
 include 'logo.php';
 
 ?>
 
-<div class="container " style="padding-top: 80px;">
+<div class="container" style="padding-top: 90px; padding-bottom:60px;">
 
 	<div class="panel panel-default">
   		<div class="panel-heading">
