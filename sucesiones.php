@@ -133,7 +133,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form class="form-horizontal" action="sucesiones.php" method="post">
+    		<form class="form-horizontal" action="tabla1.php" method="post">
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -150,7 +150,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="Extraña Jurisdicción">
+                      <input type="text" class="form-control" id="" name="" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
                     </div>
                 </div>
 
@@ -166,7 +166,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="Extraña Jurisdicción">
+                      <input type="text" class="form-control" id="" name="" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
                     </div>
                 </div>
 
@@ -179,13 +179,13 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" name="poder" option="opcion1" checked> Actúa con poder (Apoderado) </label>
+                        <label><input type="radio" name="poder" option="opcion1" checked> Act&uacute;a con poder (Apoderado) </label>
                       </div>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" name="poder" option="opcion2"> Actúa por derecho propio (Letrado) </label>
+                        <label><input type="radio" name="poder" option="opcion2"> Act&uacute;a por derecho propio (Letrado) </label>
                       </div>
                     </div>
                 </div>
@@ -211,6 +211,7 @@ include 'footer.php';
 ?>
   </body>
   </html>
+
 <script type="text/javascript">
 var juicios = [
 <?php

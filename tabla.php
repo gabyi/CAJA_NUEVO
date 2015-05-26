@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php
 
-  if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  if( $_SESSION ['juicio']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
   }else /*<!-- aca termina el if si no paso por el index*/
@@ -198,7 +198,7 @@ include 'logo.php';
 ?>
 
 
-<div class="container" style="margin-top: 20px; height:620px;">
+<div class="container" style="margin-top: 30px; height: 600px;">
 
 
   <!--<div class="panel panel-default" id="tabla-juicios" style="width:50%">-->
@@ -379,15 +379,18 @@ include 'logo.php';
 </div>
 
 </div>
+<div id="noprint" class="panel-footer">
+
+ 
+   <button type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
+   <button type='button' class='btn btn-info  btn-lg' name='volver' onclick= 'volver ()' style='margin-left:15px;'>Volver</button>
+ 
 
 </div>
-<div class="panel panel-default">
-  <div class="panel-body">
-   <button type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'imprime ()'>Imprimir</button>
-   <button type='button' class='btn btn-info  btn-lg' name='volver' onclick= 'volver ()' style='margin-left:15px;'>Volver</button>
-  </div>
 </div>
 </div>
+
+
 
 
 
@@ -438,14 +441,17 @@ $( "#juicio" ).autocomplete({
   source: juicios
 });
 
-function imprime ()
+function volver ()
 {
-  window.print();
+ window.history.back();
 }
 
-function volver()
-{
-  window.history.back();
-}
+
+function doPrint(){
+ document.all.item("noprint").style.visibility="hidden"
+ window.print()
+ document.all.item("noprint").style.visibility="visible"
+ 
+ }
 
 </script>

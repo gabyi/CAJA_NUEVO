@@ -14,7 +14,7 @@
 
 <body>
 <?php
-include("titulo.php");
+
 function conectarse()
 {
 	if (!($link=mysql_connect("www.cforense.org","cfore2","O55ur+wodge"))) {
