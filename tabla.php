@@ -3,9 +3,16 @@ session_start();
 ?>
 <?php
 
+if(isset($calcular))
+{
+  $juicio= "juicio";
+  session_register ("juicio");
+}
+
   if( $_SESSION ['juicio']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
+
   }else /*<!-- aca termina el if si no paso por el index*/
 {
 ?>
@@ -201,7 +208,6 @@ include 'logo.php';
 <div class="container" style="margin-top: 30px; height: 600px;">
 
 
-  <!--<div class="panel panel-default" id="tabla-juicios" style="width:50%">-->
   <div class="panel panel-default" id="tabla-juicios">
       <div class="panel-heading">
 
@@ -308,7 +314,7 @@ include 'logo.php';
       print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
       ?>
 
- </div>
+
 <!--=================================================================================================================================================================================-->
 <!--Comienzo de la tabla de finalizacion de Juicios-->
 <!--=================================================================================================================================================================================-->
@@ -317,6 +323,8 @@ include 'logo.php';
   if ($sumaFinCajaForense!=0.00)
   {
     ?>
+    </div>
+
     <div class="col-sm-6 col-md-6">
 
     <h4>Costo de Finalizaci&oacute;n</h4>
@@ -372,7 +380,7 @@ include 'logo.php';
 
 
     <?php
-    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaFinalJuicio."</div>";
+    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFinalJuicio."</div>";
   }
 ?>
    
@@ -455,3 +463,9 @@ function doPrint(){
  }
 
 </script>
+
+<?php
+  
+  session_unregister ("juicio");
+
+?>

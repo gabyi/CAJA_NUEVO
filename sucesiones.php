@@ -103,29 +103,8 @@ session_start();
 <?php
 include 'logo.php';
 
-    if(isset($calcular))
-      {/*si se envian datos de sucesion, stristr( $string_donde_buscar, $string_que_se_busca) y se pone === para igual y !== para desigual */
 ?> <!-- php para las sucesiones-->
 
-<div class="container " style="">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Costos de Juicios</h3>
-          </div>
-
-          <div class="panel-body" id="montos">
-            <form class="form-horizontal" action="montosJuicios.php" method="post">
-
-            </form>
-          </div>
-      </div>
-</div>
-
-<?php
-/* sucesiones sin si hay*/
-} else { /*comienza si no hay*/
-
-?>
 <div class="container" style="margin-top: 80px;">
 
 	<div class="panel panel-default">
@@ -133,7 +112,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form class="form-horizontal" action="tabla1.php" method="post">
+    		<form id="form-sus" class="form-horizontal" method="post">
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -145,12 +124,12 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="En la Provincia de La Pampa">
+                      <input type="text" class="form-control" id="bg1" name="bg1" placeholder="En la Provincia de La Pampa">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
+                      <input type="text" class="form-control" id="bg2" name="bg2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
                     </div>
                 </div>
 
@@ -161,12 +140,12 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="En la Provincia de La Pampa">
+                      <input type="text" class="form-control" id="bp1" name="bp1" placeholder="En la Provincia de La Pampa">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="" name="" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
+                      <input type="text" class="form-control" id="bp2" name="bp2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
                     </div>
                 </div>
 
@@ -193,7 +172,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular de Sucesiones</button>
+                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick="doSend ()">Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
@@ -201,10 +180,11 @@ include 'logo.php';
 						</form>
   		</div>
 	</div>
+
 </div>
 
 <?php
-    }/*termina el form de las sucesiones*/
+
 include 'footer.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
@@ -237,4 +217,19 @@ $i=0;
 $( "#juicio" ).autocomplete({
   source: juicios
 });
+
+function doSend(){
+
+  var bg1=document.getElementById("bg1").value;
+  var bg2=document.getElementById("bg2").value;
+  var bp1=document.getElementById("bp1").value;
+  var bp1=document.getElementById("bp2").value;
+
+  if()
+
+  document.all.item("form-sus").action="tabla1.php"
+
+ 
+ }
+
 </script>

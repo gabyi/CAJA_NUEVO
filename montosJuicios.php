@@ -182,14 +182,10 @@ $( "#juicio" ).autocomplete({
   source: juicios
 });
 </script>
-
-<?php
-
+<?PHP
 if(isset($calcular))
 {
   $juicio= "juicio";
   session_register ("juicio");
 }
-
-
 ?>
