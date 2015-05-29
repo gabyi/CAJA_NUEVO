@@ -77,18 +77,18 @@ if(isset($calcular))
       $bono_ley= $fila ['bono_ley'];
       $caja_inicio_ap_porc= $fila ['caja_inicio_ap_porc'];
       $caja_inicio_cont_porc= $fila ['caja_inicio_cont_porc'];
-      $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_inicio_aporte']);
-      $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_inicio_cont']);
+      $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_min_aporte']);
+      $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_min_cont']);
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
 
       //redondeo aportes a 2 decimales
-      $caja_inicio_aporte=number_format((float)$caja_inicio_aporte, 2, '.', '');
+      $caja_inicio_aporte=number_format($caja_inicio_aporte, 2);
 
       //redondeo contibuciones a 2 decimales
-      $caja_inicio_cont=number_format((float)$caja_inicio_cont, 2, '.', '');
+      $caja_inicio_cont=number_format($caja_inicio_cont, 2);
 
       //redondeo suma de aportes y contribuciones a 2 decimales
-      $sumaCForense= number_format((float)$sumaCForense, 2, '.', '');
+      $sumaCForense= number_format($sumaCForense, 2);
 
       // valores rentas inicio
 
@@ -106,28 +106,30 @@ if(isset($calcular))
          $rentas_inicio_tasa_variable= verifica ($monto, $fila ['rentas_inicio_tvariable'], $filaMinimos ['rentas_minimo']);
       }
 
+      $rentas_inicio_tasa_variable= number_format($rentas_inicio_tasa_variable,2);
+
       $sumaDGR=$rentas_inicio_general+$rentas_inicio_tasa_variable+$rentas_inicio_tfija;
 
-      $sumaDGR=number_format((float)$sumaDGR, 2,'.','');
+      $sumaDGR=number_format($sumaDGR, 2);
 
       //total de inicio
 
       $sumaInicio= $sumaCForense+$sumaDGR;
 
-      $sumaInicio= number_format((float)$sumaInicio, 2, '.','');
+      $sumaInicio= number_format($sumaInicio, 2);
 
       //Verifico que haya valores para
 
       if($fila ['caja_fin_aportes']!= '')
       {
         $caja_fin_aportes=$fila['caja_fin_aportes'];
-        $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
+        $caja_fin_aportes=number_format($caja_fin_aportes,2);
       }else
       {
         if($fila ['caja_fin_ap_porc']!='')
         {
-          $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_aporte']);
-          $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
+          $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_min_aporte']);
+          $caja_fin_aportes=number_format($caja_fin_aportes,2);
           $caja_fin_ap_porc= $fila ['caja_fin_ap_porc'];
         }else
         {
@@ -137,19 +139,19 @@ if(isset($calcular))
 
       if($fila ['caja_fin_cont'] != '')
       {
-        $caja_fin_cont= $filaMinimos ['caja_fin_cont'];
+        $caja_fin_cont= $filaMinimos ['caja_min_cont'];
       }else
       {
         if($fila ['caja_fin_cont_porc'])
         {
-          $caja_fin_cont= verifica ($mont, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_cont']);
+          $caja_fin_cont= verifica ($mont, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_min_cont']);
           $caja_fin_cont_porc= $fila ['caja_fin_cont_porc'];
         }else
         $caja_fin_cont= 0.00;
       }
 
       $sumaFinCajaForense= $caja_fin_aportes+$caja_fin_cont;
-      $sumaFinCajaForense= number_format((float)$sumaFinCajaForense, 2, '.','');
+      $sumaFinCajaForense= number_format($sumaFinCajaForense, 2);
       $sumaFinalJuicio=$sumaFinCajaForense;
 
   ?>
@@ -207,7 +209,6 @@ include 'logo.php';
 
 <div class="container" style="margin-top: 30px; height: 600px;">
 
-
   <div class="panel panel-default" id="tabla-juicios">
       <div class="panel-heading">
 
@@ -218,7 +219,6 @@ include 'logo.php';
       </div>
 <div class="panel-body" id="montos">
 <?php
-
 //Si no hay finalizacion de juicio las tablas se centran en el panel
 
  if($sumaFinCajaForense != 0.00)
@@ -292,7 +292,7 @@ include 'logo.php';
 
         if($rentas_inicio_general != 0.00)
         {
-          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$filaMinimos ['rentas_inicio_general']."</td></tr>";
+          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_general."</td></tr>";
         }
 
         if($rentas_inicio_tasa_variable != 0.00)
@@ -387,6 +387,7 @@ include 'logo.php';
 </div>
 
 </div>
+
 <div id="noprint" class="panel-footer">
 
  

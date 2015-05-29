@@ -59,12 +59,53 @@ if(isset($calcular1))
   </head>
   <?php
 
-        include 'conexion.php';
+      include 'conexion.php';
       $materia=$_REQUEST ['juicio'];
       $monto= $_REQUEST ['monto'];
       $consulta= mysql_query("select * from ValoresCajaRentas where Materia = 'SUCESION AB-INTESTATO'") or die ("No se pudo realizar la consulta");
 
       
+      $nfilas= mysql_num_rows($consulta);
+
+
+      if ($oficio)
+        {
+          $sel = 1;
+        }
+
+      if ($sel == 1)
+       {
+        $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0693 + ($bp1 + ($bp2 / 3 * 2)) * 0.0924;
+
+          if ($oficio)
+            {
+              $vhonorarios = $vhonorarios / 3;
+            }
+        }else 
+        {
+          $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0495 + ($bp1 + ($bp2 / 3 * 2)) * 0.066;
+        }
+
+        $vhonorarios= number_format($vhonorarios, 2);
+
+        if ($sel == 1)
+        {
+          $poder="Act&uacute;a con Poder";
+        }else
+         {
+          $poder="Act&uacute;a por Derecho Propio";
+        }
+
+  
+        if ($oficio)
+          {
+            $poder=$poder." y Oficio Ley 22.172";
+          }
+
+          //consulto la ultima fila de los minimos para sacar el valor actualizado
+
+      $consultaMinimos= mysql_query("select * from minimos") or die ("No se puedo realizar consulta de minimos");
+
       $nfilas= mysql_num_rows($consultaMinimos);
 
       for($i=0;$nfilas>$i;$i++)
@@ -73,84 +114,13 @@ if(isset($calcular1))
         }
       $fila= mysql_fetch_array($consulta);
       $bono_ley= $fila ['bono_ley'];
-      $caja_inicio_ap_porc= $fila ['caja_inicio_ap_porc'];
-      $caja_inicio_cont_porc= $fila ['caja_inicio_cont_porc'];
       $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_inicio_aporte']);
       $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_inicio_cont']);
+      
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
 
-      //redondeo aportes a 2 decimales
-      $caja_inicio_aporte=number_format((float)$caja_inicio_aporte, 2, '.', '');
-
-      //redondeo contibuciones a 2 decimales
-      $caja_inicio_cont=number_format((float)$caja_inicio_cont, 2, '.', '');
-
-      //redondeo suma de aportes y contribuciones a 2 decimales
-      $sumaCForense= number_format((float)$sumaCForense, 2, '.', '');
-
-      // valores rentas inicio
-
-      if($fila ['rentas_inicio_general'] != 0.00)
-      {
-         $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
-      }
-
-      $rentas_inicio_tfija= $fila ['rentas_inicio_tfija'];
-
-      //verifico valor de tasa variable rentas
-
-      if($fila ['rentas_inicio_tvariable']!= 0.00)
-      {
-         $rentas_inicio_tasa_variable= verifica ($monto, $fila ['rentas_inicio_tvariable'], $filaMinimos ['rentas_minimo']);
-      }
-
-      $sumaDGR=$rentas_inicio_general+$rentas_inicio_tasa_variable+$rentas_inicio_tfija;
-
-      $sumaDGR=number_format((float)$sumaDGR, 2,'.','');
-
-      //total de inicio
-
-      $sumaInicio= $sumaCForense+$sumaDGR;
-
-      $sumaInicio= number_format((float)$sumaInicio, 2, '.','');
-
-      //Verifico que haya valores para
-
-      if($fila ['caja_fin_aportes']!= '')
-      {
-        $caja_fin_aportes=$fila['caja_fin_aportes'];
-        $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
-      }else
-      {
-        if($fila ['caja_fin_ap_porc']!='')
-        {
-          $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_aporte']);
-          $caja_fin_aportes=number_format((float)$caja_fin_aportes,2,',','');
-          $caja_fin_ap_porc= $fila ['caja_fin_ap_porc'];
-        }else
-        {
-          $caja_fin_aportes= 0.00;
-        }
-      }
-
-      if($fila ['caja_fin_cont'] != '')
-      {
-        $caja_fin_cont= $filaMinimos ['caja_fin_cont'];
-      }else
-      {
-        if($fila ['caja_fin_cont_porc'])
-        {
-          $caja_fin_cont= verifica ($mont, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_inicio_cont']);
-          $caja_fin_cont_porc= $fila ['caja_fin_cont_porc'];
-        }else
-        $caja_fin_cont= 0.00;
-      }
-
-      $sumaFinCajaForense= $caja_fin_aportes+$caja_fin_cont;
-      $sumaFinCajaForense= number_format((float)$sumaFinCajaForense, 2, '.','');
-      $sumaFinalJuicio=$sumaFinCajaForense;
-
-  ?>
+      
+?>
   <body>
 
 
@@ -210,7 +180,9 @@ include 'logo.php';
       <div class="panel-heading">
 
         <?php
-         print "<h3 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".$monto."</h3>";
+
+         print "<h3 class='panel-title'>Costos de Acervo Hereditario. Monto: $ ".$bg1.". ".$poder."</h3>";
+         
         ?>
 
       </div>
@@ -222,6 +194,7 @@ include 'logo.php';
  if($sumaFinCajaForense != 0.00)
  {
   print "<div class='col-sm-6 col-md-6'>";
+
  }else
  {
   print "<div class='col-sm-6 col-md-6 col-md-offset-3'>";
@@ -383,6 +356,10 @@ include 'logo.php';
 ?>
    
 </div>
+
+  <?php
+    print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
+  ?>
 
 </div>
 <div id="noprint" class="panel-footer">

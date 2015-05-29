@@ -112,7 +112,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form id="form-sus" class="form-horizontal" method="post">
+    		<form id="form-sus" class="form-horizontal" method="post" action="tabla1.php">
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -152,19 +152,19 @@ include 'logo.php';
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <div class="checkbox">
-                        <label><input type="checkbox"> Oficio Ley 22.172 </label>
+                        <label><input type="checkbox" name="oficio"> Oficio Ley 22.172 </label>
                       </div>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" name="poder" option="opcion1" checked> Act&uacute;a con poder (Apoderado) </label>
+                        <label><input type="radio" value="1" name="sel" option="opcion1" checked> Act&uacute;a con poder (Apoderado) </label>
                       </div>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" name="poder" option="opcion2"> Act&uacute;a por derecho propio (Letrado) </label>
+                        <label><input type="radio" value="2" name="sel" option="opcion2"> Act&uacute;a por derecho propio (Letrado) </label>
                       </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick="doSend ()">Calcular de Sucesiones</button>
+                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" >Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
@@ -225,7 +225,7 @@ function doSend(){
   var bp1=document.getElementById("bp1").value;
   var bp1=document.getElementById("bp2").value;
 
-  if()
+  
 
   document.all.item("form-sus").action="tabla1.php"
 
