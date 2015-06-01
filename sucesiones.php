@@ -112,7 +112,7 @@ include 'logo.php';
     		<h3 class="panel-title">Costos de Juicios</h3>
   		</div>
   		<div class="panel-body" id="montos">
-    		<form id="form-sus" class="form-horizontal" method="post" action="tabla1.php">
+    		<form name="form-sus" class="form-horizontal" method="post">
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -124,12 +124,12 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bg1" name="bg1" placeholder="En la Provincia de La Pampa">
+                      <input type="text" class="form-control" id="bg1" name="bg1" placeholder="En la Provincia de La Pampa" value="">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bg2" name="bg2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
+                      <input type="text" class="form-control" id="bg2" name="bg2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
                     </div>
                 </div>
 
@@ -140,12 +140,12 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp1" name="bp1" placeholder="En la Provincia de La Pampa">
+                      <input type="text" class="form-control" id="bp1" name="bp1" placeholder="En la Provincia de La Pampa" value="">
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp2" name="bp2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n">
+                      <input type="text" class="form-control" id="bp2" name="bp2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
                     </div>
                 </div>
 
@@ -172,7 +172,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" >Calcular de Sucesiones</button>
+                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()" >Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
@@ -193,6 +193,42 @@ include 'footer.php';
   </html>
 
 <script type="text/javascript">
+
+function doSend()
+{
+
+  var bg1 = document.getElementById("bg1").value;
+  var bg2 = document.getElementById("bg2").value;
+  var bp1 = document.getElementById("bp1").value;
+  var bp2 = document.getElementById("bp2").value;
+
+if(bg1 == "" && bg2 == "")
+{
+  var errorbg="";
+}else
+{
+  var errorbg="TRUE";
+}
+
+if(bp1 == "" && bp2 == "")
+{
+  var errorbp="";
+}else
+{
+  var errorbp="TRUE";
+}
+
+if(errorbp == "" && errorbg == "")
+{
+  document.all.item("form-sus").action="";
+}else
+{
+  document.all.item("form-sus").action="tabla1.php";
+}
+
+};
+
+
 var juicios = [
 <?php
 
@@ -218,18 +254,5 @@ $( "#juicio" ).autocomplete({
   source: juicios
 });
 
-function doSend(){
-
-  var bg1=document.getElementById("bg1").value;
-  var bg2=document.getElementById("bg2").value;
-  var bp1=document.getElementById("bp1").value;
-  var bp1=document.getElementById("bp2").value;
-
-  
-
-  document.all.item("form-sus").action="tabla1.php"
-
- 
- }
 
 </script>

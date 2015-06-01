@@ -61,12 +61,14 @@ if(isset($calcular1))
 
       include 'conexion.php';
       $materia=$_REQUEST ['juicio'];
-      $monto= $_REQUEST ['monto'];
+      $monto= $bg1 + $bg2 + $bp1 + $bp2;
       $consulta= mysql_query("select * from ValoresCajaRentas where Materia = 'SUCESION AB-INTESTATO'") or die ("No se pudo realizar la consulta");
 
       
       $nfilas= mysql_num_rows($consulta);
 
+
+   
 
       if ($oficio)
         {
@@ -86,8 +88,7 @@ if(isset($calcular1))
           $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0495 + ($bp1 + ($bp2 / 3 * 2)) * 0.066;
         }
 
-        $vhonorarios= number_format($vhonorarios, 2);
-
+ 
         if ($sel == 1)
         {
           $poder="Act&uacute;a con Poder";
@@ -112,16 +113,53 @@ if(isset($calcular1))
         {
           $filaMinimos= mysql_fetch_array($consultaMinimos);
         }
+
       $fila= mysql_fetch_array($consulta);
-      $bono_ley= $fila ['bono_ley'];
-      $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_inicio_aporte']);
-      $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_inicio_cont']);
+      $bono_ley= $filaMinimos ['bono_ley'];
+      $caja_inicio_aporte= $filaMinimos ['caja_min_aporte'];
+      $caja_inicio_cont= $filaMinimos ['caja_min_cont'];
       
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
+      
 
+      $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
+
+    
+
+      //total de inicio
+
+      $sumaInicio= $sumaCForense+$rentas_inicio_general;
+
+
+      //Costo previo a inscribir
+
+      $caja_fin_aportes= $vhonorarios * 0.15; 
+
+
+      $caja_fin_cont= $monto * 0.005;
+
+      $tasaVariable=($bp1 + $bp2) * ($fila ['rentas_fin_tvariable'] / 100);
+
+      $sumaFinCajaForense= $caja_fin_aportes + $caja_fin_cont;
+
+      $sumaFin= $caja_fin_aportes + $caja_fin_cont + $tasaVariable;
+
+
+      $caja_fin_aportes= number_format($caja_fin_aportes, 2);
+      $caja_fin_cont= number_format($caja_fin_cont, 2);
+      $monto=number_format($monto, 2);
+      $vhonorarios=number_format($vhonorarios, 2);
+      $tasaVariable=number_format($tasaVariable, 2);
+      $sumaFinCajaForense=number_format($sumaFinCajaForense, 2);
+      $sumaFin= number_format($sumaFin, 2);
+      $sumaCForense= number_format($sumaCForense, 2);
+      $sumaInicio= number_format($sumaInicio, 2);
+
+
+     
       
 ?>
-  <body>
+  <body style="height:900px;">
 
 
 
@@ -155,7 +193,7 @@ if(isset($calcular1))
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="montosJuicios.php">Costos de juicios</a></li>
-                  <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
+                  <li><a href="sucesiones.php">Costos de sucesiones</a></li>
                 </ul>
               </li>
 
@@ -173,7 +211,7 @@ include 'logo.php';
 ?>
 
 
-<div class="container" style="margin-top: 30px; height: 600px;">
+<div class="container" style="margin-top: 30px;">
 
 
   <div class="panel panel-default" id="tabla-juicios">
@@ -181,71 +219,35 @@ include 'logo.php';
 
         <?php
 
-         print "<h3 class='panel-title'>Costos de Acervo Hereditario. Monto: $ ".$bg1.". ".$poder."</h3>";
+         print "<h3 class='panel-title'>Costos de Acervo Hereditario. Monto: $ ".$monto.". ".$poder."</h3>";
          
         ?>
 
       </div>
 <div class="panel-body" id="montos">
-<?php
 
-//Si no hay finalizacion de juicio las tablas se centran en el panel
-
- if($sumaFinCajaForense != 0.00)
- {
-  print "<div class='col-sm-6 col-md-6'>";
-
- }else
- {
-  print "<div class='col-sm-6 col-md-6 col-md-offset-3'>";
- }
-
- ?>
+ <div class="col-sm-6 col-md-6">
 
   <h4>Costo de Iniciaci&oacute;n</h4>
 
     <table class="table-striped">
 
       <?php
-      if($sumaCForense>0)
-      {
+      
+      
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-          if($bono_ley>0)
+          
           print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
 
-          if($caja_inicio_ap_porc == '')
-          {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
-          }else
-          {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte.
-            "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_ap_porc." %</td></tr>";
-          }
+          print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
 
-          if($caja_inicio_cont_porc == '')
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
-          }else
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont.
-            "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont_porc." %</td></tr>";
-          }
-
-          if ($sumaCForense>0)
-          {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
-          }else
-          {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
-          }
-
-
-      }
-
+          print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
+   
+          print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+          <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
+    
 
       ?>
     </table>
@@ -253,120 +255,81 @@ include 'logo.php';
 
 
       <?php
-               //verifico si rentas inicio tiene monto fijo o variable para mostrar la tabla
-
-      if($sumaDGR!=0.00)
-      {
+   
         print "<table class='table-striped'>";
 
         print "<caption>Direcci&oacute;n General de Rentas</caption>";
 
-        if($rentas_inicio_general != 0.00)
-        {
-          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$filaMinimos ['rentas_inicio_general']."</td></tr>";
-        }
-
-        if($rentas_inicio_tasa_variable != 0.00)
-        {
-          print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tasa_variable."</td>
-          <td style='align:right;padding-left:30px;'>".$fila ['rentas_inicio_tvariable']." %</td></tr>";;
-        }
-
-        if($rentas_inicio_tfija != 0.00)
-        {
-          print "<tr><td>Tasa Especial Fija</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tfija."</td></tr>";
-        }
+        print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_general."</td></tr>";
 
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-          <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";
+          <th style='align:right;padding-left:30px;'>".$rentas_inicio_general."</th></tr>";
         print "</table>";
-      }
-
-      print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
+      
+        print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
+      
       ?>
 
+  </div>
 
 <!--=================================================================================================================================================================================-->
 <!--Comienzo de la tabla de finalizacion de Juicios-->
 <!--=================================================================================================================================================================================-->
 
-<?php
-  if ($sumaFinCajaForense!=0.00)
-  {
-    ?>
-    </div>
 
-    <div class="col-sm-6 col-md-6">
+<div class="col-sm-6 col-md-6">
 
-    <h4>Costo de Finalizaci&oacute;n</h4>
+    <h4>Costo previo a inscribir los bienes</h4>
 
     <table class="table-striped">
 
       <?php
-      if($sumaCForense>0)
-      {
+   
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-        if($caja_fin_ap_porc != ''|| $caja_fin_aporte != 0.00)
-        {
-          if($caja_fin_aporte != 0.00)
-          {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
-          }else
-          {
-            if($caja_fin_ap_porc != '')
-            {
-              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes.
-              "</td><td style='align:right;padding-left:30px;'>".$caja_fin_ap_porc." %</td></tr>";
-            }
-          }
-        }
-
-          if($caja_fin_cont_porc == '')
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
-          }else
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont.
-            "</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont_porc." %</td></tr>";
-          }
-
-          if ($sumaCForense>0)
-          {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
-          }else
-          {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaFinalJuicio."</th></tr>";
-          }
-
-
-      }
-
+        print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
+  
+        print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
+    
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+        <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
 
       ?>
     </table>
 
 
-    <?php
-    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFinalJuicio."</div>";
-  }
-?>
+    <table class="table-striped">
+
+      <?php
+   
+
+        print "<caption>Direcci&oacute;n General de Rentas</caption>";
+
+        print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$tasaVariable."</td></tr>";
+    
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+        <th style='align:right;padding-left:30px;'>".$tasaVariable."</th></tr>";
+
+      ?>
+    </table>
+
+     <?php
+    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFin."</div>";
+    ?>
    
 </div>
-
-  <?php
-    print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
-  ?>
-
 </div>
+
+<?php 
+  print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
+ ?>
+ 
 <div id="noprint" class="panel-footer">
 
  
    <button type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
-   <button type='button' class='btn btn-info  btn-lg' name='volver' onclick= 'volver ()' style='margin-left:15px;'>Volver</button>
+   <a href="sucesiones.php"><button type='button' class='btn btn-info  btn-lg' name='volver' style='margin-left:15px;'>Volver</button></a>
  
 
 </div>
@@ -405,17 +368,6 @@ $i=0;
       print ('"'.$fila["materia"].'",');
      }
   }
-// funcion verifica montos
-
- function verifica ($a,$b,$minimo)
-      {
-        $valor1=$a * ($b/100);
-
-        if($valor1>$minimo)
-          return $valor1;
-        else
-          return $minimo;
-      }
 
 ?>
 
@@ -424,11 +376,12 @@ $( "#juicio" ).autocomplete({
   source: juicios
 });
 
+/*
 function volver ()
 {
  window.history.back();
 }
-
+*/
 
 function doPrint(){
  document.all.item("noprint").style.visibility="hidden"
@@ -442,5 +395,12 @@ function doPrint(){
 <?php
   
   session_unregister ("juicio1");
+
+
+  function calculaAportes ($a, $b)
+      {
+        $valor=$a * ($b/100);
+        return $valor;
+      }
 
 ?>

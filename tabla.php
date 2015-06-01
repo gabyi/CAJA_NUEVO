@@ -262,17 +262,8 @@ include 'logo.php';
             "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont_porc." %</td></tr>";
           }
 
-          if ($sumaCForense>0)
-          {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
             <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
-          }else
-          {
-            print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-            <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
-          }
-
-
       }
 
 
