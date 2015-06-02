@@ -64,11 +64,11 @@ if(isset($calcular1))
       $monto= $bg1 + $bg2 + $bp1 + $bp2;
       $consulta= mysql_query("select * from ValoresCajaRentas where Materia = 'SUCESION AB-INTESTATO'") or die ("No se pudo realizar la consulta");
 
-      
+
       $nfilas= mysql_num_rows($consulta);
 
 
-   
+
 
       if ($oficio)
         {
@@ -83,12 +83,12 @@ if(isset($calcular1))
             {
               $vhonorarios = $vhonorarios / 3;
             }
-        }else 
+        }else
         {
           $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0495 + ($bp1 + ($bp2 / 3 * 2)) * 0.066;
         }
 
- 
+
         if ($sel == 1)
         {
           $poder="Act&uacute;a con Poder";
@@ -97,7 +97,7 @@ if(isset($calcular1))
           $poder="Act&uacute;a por Derecho Propio";
         }
 
-  
+
         if ($oficio)
           {
             $poder=$poder." y Oficio Ley 22.172";
@@ -118,13 +118,13 @@ if(isset($calcular1))
       $bono_ley= $filaMinimos ['bono_ley'];
       $caja_inicio_aporte= $filaMinimos ['caja_min_aporte'];
       $caja_inicio_cont= $filaMinimos ['caja_min_cont'];
-      
+
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
-      
+
 
       $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
 
-    
+
 
       //total de inicio
 
@@ -133,12 +133,12 @@ if(isset($calcular1))
 
       //Costo previo a inscribir
 
-      $caja_fin_aportes= $vhonorarios * 0.15; 
+      $caja_fin_aportes= $vhonorarios * 0.15;
 
 
       $caja_fin_cont= $monto * 0.005;
 
-      $tasaVariable=($bp1 + $bp2) * ($fila ['rentas_fin_tvariable'] / 100);
+      $tasaVariable=($bp1 + $bg1) * ($fila ['rentas_fin_tvariable'] / 100);
 
       $sumaFinCajaForense= $caja_fin_aportes + $caja_fin_cont;
 
@@ -156,8 +156,8 @@ if(isset($calcular1))
       $sumaInicio= number_format($sumaInicio, 2);
 
 
-     
-      
+
+
 ?>
   <body style="height:900px;">
 
@@ -220,7 +220,7 @@ include 'logo.php';
         <?php
 
          print "<h3 class='panel-title'>Costos de Acervo Hereditario. Monto: $ ".$monto.". ".$poder."</h3>";
-         
+
         ?>
 
       </div>
@@ -233,21 +233,21 @@ include 'logo.php';
     <table class="table-striped">
 
       <?php
-      
-      
+
+
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-          
+
           print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
 
           print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
 
           print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
-   
+
           print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
           <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
-    
+
 
       ?>
     </table>
@@ -255,7 +255,7 @@ include 'logo.php';
 
 
       <?php
-   
+
         print "<table class='table-striped'>";
 
         print "<caption>Direcci&oacute;n General de Rentas</caption>";
@@ -265,9 +265,9 @@ include 'logo.php';
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
           <th style='align:right;padding-left:30px;'>".$rentas_inicio_general."</th></tr>";
         print "</table>";
-      
+
         print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
-      
+
       ?>
 
   </div>
@@ -284,14 +284,14 @@ include 'logo.php';
     <table class="table-striped">
 
       <?php
-   
+
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
         print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
-  
+
         print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
-    
+
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
         <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
 
@@ -302,12 +302,12 @@ include 'logo.php';
     <table class="table-striped">
 
       <?php
-   
+
 
         print "<caption>Direcci&oacute;n General de Rentas</caption>";
 
         print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$tasaVariable."</td></tr>";
-    
+
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
         <th style='align:right;padding-left:30px;'>".$tasaVariable."</th></tr>";
 
@@ -317,20 +317,20 @@ include 'logo.php';
      <?php
     print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFin."</div>";
     ?>
-   
+
 </div>
 </div>
 
-<?php 
+<?php
   print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
  ?>
- 
+
 <div id="noprint" class="panel-footer">
 
- 
+
    <button type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
    <a href="sucesiones.php"><button type='button' class='btn btn-info  btn-lg' name='volver' style='margin-left:15px;'>Volver</button></a>
- 
+
 
 </div>
 </div>
@@ -387,13 +387,13 @@ function doPrint(){
  document.all.item("noprint").style.visibility="hidden"
  window.print()
  document.all.item("noprint").style.visibility="visible"
- 
+
  }
 
 </script>
 
 <?php
-  
+
   session_unregister ("juicio1");
 
 
