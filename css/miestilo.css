@@ -5,32 +5,52 @@ BODY{
 }
 
 #logo{
-    margin-top: 60px;
-    margin-bottom: 10px;/*dejo 10px porque lo tapa el menu*/
-	text-align: center;
+    margin-top:50px;
 }
-
-.imagelogo{
-	width: 100%;
-	border-radius: 15px;
-}
-
 .container{
 	text-align: center;
 }
 
-.slide{
-	margin-left: 19%;
-	width: 63%;
-	height: 25%;
+#myCarousel{
+	background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */ 
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
 }
 
+#texto-foto{
+	background: #E4E4E4;
+	padding-top:20px;
+    padding-left: 30px;
+    padding-right: px;
+	margin-top: 5px;
+    margin-bottom: 5px;
+    float:left;
+    font-family: 'Lobster', cursive;
+}
+
+#texto-foto h3{
+    font-size: 40px;
+}
+
+#texto-foto p{
+    font-size: 20px;
+}
+
+.img-thumbnail{
+    height: 450px;
+    width: 800px;
+}
 .carousel-inner{
 	 text-align: center;
  }
 
 .carousel .item > img{
 	 display: inline-block;
+     height: 600px;
 	}
 
 .dropdown-menu{ /*Alineacion del drop down menu*/
@@ -46,7 +66,11 @@ BODY{
 	text-decoration: none;
 }
 
-.ui-autocomplete { height: 100px; overflow-y: scroll; overflow-x: hidden;} /*este estilo limita y pone un scroll
+.ui-autocomplete { 
+    height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    } /*este estilo limita y pone un scroll
 en el j-query de los juicios*/
 
 #total-IniFin{
@@ -81,3 +105,98 @@ en el j-query de los juicios*/
 .footer a:hover { text-decoration: none; color: #A93531; }
 .widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
 
+
+/*====================================================================================================
+footer1
+=====================================================================================================*/
+
+.extra {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+.extra {
+    border-top: 1px solid #585858;
+    border-bottom: 1px solid #000;
+}
+
+.extra-inner {
+    padding: 20px 0px;
+    font-size: 11px;
+    color: #BBB;
+    background: #1A1A1A none repeat scroll 0% 0%;
+}
+
+.extra .container {
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.extra h4 {
+    margin-bottom: 1em;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+h4, h5, h6 {
+    line-height: 18px;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: inherit;
+    font-weight: bold;
+    color: inherit;
+    text-rendering: optimizelegibility;
+}
+
+.extra ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: outside none disc;
+}
+.extra a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+.extra li {
+    list-style: outside none none;
+    color: #666;
+    text-decoration: none;
+}
+
+.span3 {
+    width: 270px;
+}
+
+[class*="span"] {
+    float: left;
+    margin-left: 30px;
+}
+.span3 {
+    width: 220px;
+}
+[class*="span"] {
+    float: left;
+    margin-left: 20px;
+}
+
+.footer-inner {
+    padding: 15px 0px;
+    font-size: 12px;
+    background: #111 none repeat scroll 0% 0%;
+    color: #999;
+}
+
+.span12 {
+    width: 940px;
+    text-align: left;
+}
+
+.footer-list{
+    
+}

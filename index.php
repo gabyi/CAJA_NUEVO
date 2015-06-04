@@ -15,44 +15,55 @@ session_start();
   		include 'navbar.php';
 
 		  include 'logo.php';
-	?>
+	  ?>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:25px; margin-top:25px;">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div  class="item active">
-      <img class="img-thumbnail" src="imagenes/slider/leaf.jpg" alt="Chania" style="width: 700px;height: 350px;">
-      <div class="caption">
+      <div id="texto-foto" class="col-sm-6 col-md-6">
         <h3>Chania</h3>
         <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+      </div>
+      <div id="foto-foto" class="col-sm-6 col-md-6">
+        <img class="img-thumbnail" src="imagenes/slider/leaf.jpg" alt="Chania">
+      </div>      
+    </div>
+
+    <div class="item">
+      <div id="texto-foto" class="col-sm-6 col-md-6">
+        <h3>Chania</h3>
+        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+      </div>
+      <div id="foto-foto" class="col-sm-6 col-md-6">
+        <img class="img-thumbnail" src="imagenes/slider/bridge.jpg" alt="Chania">
       </div>
     </div>
 
     <div class="item">
-      <img class="img-thumbnail" src="imagenes/slider/bridge.jpg" alt="Chania"style="width: 700px;height: 350px;">
-      <div class="caption">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+
+      <div id="texto-foto" class="col-sm-6 col-md-6">
+        <h3>Ojo con el cuco</h3>
+        <p>Texto de prueba para que mira Fiolela</p>
+      </div>
+      <div id="foto-foto" class="col-sm-6 col-md-6">
+        <img class="img-thumbnail" src="imagenes/slider/tree.jpg" alt="Flower">
       </div>
     </div>
 
-    <div class="item">
-      <img class="img-thumbnail" src="imagenes/slider/tree.jpg" alt="Flower"style="width: 700px;height: 350px;">
-      <div class="caption">
+    <div class="item">     
+      <div id="texto-foto" class="col-sm-6 col-md-6">
         <h3>Chania</h3>
         <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        <p>hola como estas, estas es un a preba para seaber como se comporta el div</p>
+        <p>de una ventana.The atmosphere in Chania has a touch of Florence and Venice.</p>
+      </div>
+      <div id="foto-foto" class="col-sm-6 col-md-6">
+        <img class="img-thumbnail" src="img_flower2.jpg" alt="No hay imagenes">
       </div>
     </div>
-
-    <div class="item">
-      <img class="img-thumbnail" src="img_flower2.jpg" alt="No hay imagenes"style="width: 700px;height: 350px;">
-      <div class="caption">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-      </div>
     </div>
-  </div>
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -82,7 +93,7 @@ session_start();
       <div class="thumbnails">
         <div class="col-sm-4 col-md4">
           <div class="thumbnail">
-            <a class="noticias" href="#"><img data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="width: 300px; height: 200px;">
+            <a class="noticias" href="#"><img id="thumbnail-index" data-src="holder.js/300x200" src="imagenes/slider/tree.jpg" alt="" style="">
             <div class="caption">
               <h3>Boletin Oficial Nº 30</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id quam facilisis, pellentesque ex non, 
@@ -109,7 +120,8 @@ session_start();
 
 
 		<?php
-  include 'footer.php';
+    include 'footer.php';
+    include 'footer1.php';
 
    $user = "usuario";
    session_register ("user");
@@ -122,3 +134,12 @@ session_start();
 
   </body>
   </html>
+
+  <script type="yext/javascript">
+
+     function contancto(){
+
+       window.location.href="index.php";
+}
+
+  </script>
