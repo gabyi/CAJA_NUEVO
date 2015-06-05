@@ -59,14 +59,8 @@
             
             <div id="span12" class="row">
            
-                <div class="span12">
-
-                     Departamento de Sistemas de Caja Forense de La Pampa 2015.- 
-
-                
-
-                </div>
-                <!--/span12-->  
+            Departamento de Sistemas de Caja Forense de La Pampa 2015.- 
+ 
             </div>
             <!--/row-->
         </div>

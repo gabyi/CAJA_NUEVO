@@ -34,10 +34,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a href="index.php">Inicio</a></li>
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
-                     <li><a href="#autoridades">Autoridades</a></li>
+                    <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
-                     <li><a href="#location">Coordinadora de cajas</a></li>
+                    <li><a href="#coordinadora">Coordinadora de cajas</a></li>      
                 </ul>
             </div>
            
@@ -131,6 +132,40 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
         </div>
         </section>
 
+        <section id="normativa" style="background-color:#ededed;" >
+            <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+            <div class="col-md-12">
+                <h2>Marco normativo y financiamiento</h2>
+                <div class="col-md-9">
+                    <br>
+                    <h3>Marco Normativo</h3>
+                    <br>
+                        La Caja Forense constituye lo que la doctrina nacional denomina como entidad intermedia o entidad de derecho público 
+                        no estatal y es una creación del Estado Provincial, cuya competencia fue reafirmada en el artículo 125 de la Constitución 
+                        Nacional (1994), por el cual las provincias tienen la facultad de "…conservar organismos de seguridad social para los 
+                        empleados públicos y los profesionales ...".
+
+                        La ley 1861, sancionada en 1999, es el sustento normativo de nuestro sistema de seguridad social.
+                        Financiamiento
+
+                        Las fuentes primarias de financiamiento de la Caja Forense las constituyen los aportes que realizan los Afiliados a partir 
+                        de los ingresos que generan por los juicios que promueven, y la contribución de los terceros que se vinculan a ella a través 
+                        del ejercicio de su profesión.
+
+                        En esta materia, las modificaciones introducidas en el texto de la nueva Ley Orgánica, exigen la perfecta identificación de 
+                        las fuentes de financiamiento para cada uno de los beneficios que otorga Caja Forense: el Fondo para Prestaciones Previsionales 
+                        Básicas y Fondo Solidario para Otras Coberturas.
+                </div>
+                <div class="col-md-6">
+                    algo por alla
+                </div>
+            </div>
+               
+               </div>
+        </div>
+        </section>
+
          <section id="coordinadora">
                <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
@@ -197,39 +232,7 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
                </div>
         </div>
         </section>
-     <section id="normativa" style="background-color:#ededed;" >
-            <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-            <div class="col-md-12">
-                <h2>Marco normativo y financiamiento</h2>
-                <div class="col-md-9">
-                    <br>
-                    <h3>Marco Normativo</h3>
-                    <br>
-                        La Caja Forense constituye lo que la doctrina nacional denomina como entidad intermedia o entidad de derecho público 
-                        no estatal y es una creación del Estado Provincial, cuya competencia fue reafirmada en el artículo 125 de la Constitución 
-                        Nacional (1994), por el cual las provincias tienen la facultad de "…conservar organismos de seguridad social para los 
-                        empleados públicos y los profesionales ...".
-
-                        La ley 1861, sancionada en 1999, es el sustento normativo de nuestro sistema de seguridad social.
-                        Financiamiento
-
-                        Las fuentes primarias de financiamiento de la Caja Forense las constituyen los aportes que realizan los Afiliados a partir 
-                        de los ingresos que generan por los juicios que promueven, y la contribución de los terceros que se vinculan a ella a través 
-                        del ejercicio de su profesión.
-
-                        En esta materia, las modificaciones introducidas en el texto de la nueva Ley Orgánica, exigen la perfecta identificación de 
-                        las fuentes de financiamiento para cada uno de los beneficios que otorga Caja Forense: el Fondo para Prestaciones Previsionales 
-                        Básicas y Fondo Solidario para Otras Coberturas.
-                </div>
-                <div class="col-md-6">
-                    algo por alla
-                </div>
-            </div>
-               
-               </div>
-        </div>
-        </section>
+     
     
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY  -->
@@ -259,4 +262,8 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
         });
     </script>
 </body>
+<?php 
+    include 'footer.php';
+    include 'footer1.php';
+ ?>
 </html>
