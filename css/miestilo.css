@@ -104,9 +104,9 @@ en el j-query de los juicios*/
 .footer ul { list-style: none outside none;text-align: center;}
 .footer ul li { padding-bottom: 8px;}
 .footer li {text-align: center;}
-.footer a { color: #B18441; }
+.footer a { color: #333333; }
 .footer a:hover { text-decoration: none; color: #A93531; }
-.widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: 900; color: #2E5059; text-transform: uppercase;}
+.widget-title { text-align: center;  padding: 0px 0 8px; border-bottom: 1px solid #424a58; margin-bottom: 24px; margin-left: 40px; font-size: 16px; font-weight: bolder; color: #2E5059; text-transform: uppercase;}
 
 
 /*====================================================================================================
@@ -114,8 +114,7 @@ footer1
 =====================================================================================================*/
 
 .extra {
-    margin-right: -20px;
-    margin-left: -20px;
+    font-family: CajaFont;
 }
 .extra {
     border-top: 1px solid #585858;
