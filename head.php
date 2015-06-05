@@ -11,8 +11,12 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- fuentes -->
+    <link href="css/fuentes.css" rel="stylesheet">
+
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">

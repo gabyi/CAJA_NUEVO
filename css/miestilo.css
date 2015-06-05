@@ -1,5 +1,8 @@
 BODY{
-	background: linear-gradient(rgba(178,197,211,1), rgba(178,197,211,0) );
+    background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
 	background-repeat: none;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2C5D3', endColorstr='#FFFFFF',GradientType=0 );/*graadient para IE*/
 }
@@ -15,10 +18,10 @@ BODY{
 	background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
     background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
-    background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */ 
+    background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
     padding-top: 10px;
     padding-bottom: 10px;
-   
+
 }
 
 #texto-foto{
@@ -57,16 +60,16 @@ BODY{
 	text-align: center;
 }
 
-#noticias-index{
-	width: 80%;
-	margin-left: 10%;
+#noticias{
+   background-color: #F8F8F8;
+    padding-top: 10px;
 }
 
 .noticias a, a:active, a:hover{
 	text-decoration: none;
 }
 
-.ui-autocomplete { 
+.ui-autocomplete {
     height: 100px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -94,7 +97,7 @@ en el j-query de los juicios*/
           border-top: 10px;
           border-top-color: #5E5E5E;
           text-align: center;
-  
+
       }
 .footer p { text-align: center;}
 .footer  {font-size: 18px; line-height: 1.2; margin-top: 50px; }
@@ -142,7 +145,7 @@ h4, h5, h6 {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0px;
-    font-family: inherit;
+    font-family: CajaFont;
     font-weight: bold;
     color: inherit;
     text-rendering: optimizelegibility;
@@ -197,6 +200,29 @@ a:hover {
     text-align: left;
 }
 
-.footer-list{
-    
+#panel-noticia{
+    text-align: center;
 }
+
+#panel-titulo-noticia h3{
+    font-family: CajaFont;
+    font-size: 25px;
+    color: #F8F8F8;
+
+}
+
+#boton-noticia{
+    width: 100px;
+}
+
+#panel-cuerpo-noticia{
+    font-family: CajaFont;
+    font-size: 22px;
+    color: #F8F8F8;
+}
+
+#panel-cuerpo-noticia p{
+    font-size:18px;
+    color: #333333;
+}
+

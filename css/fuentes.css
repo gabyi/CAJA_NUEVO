@@ -1,0 +1,9 @@
+@font-face {
+ font-family: CajaFont;
+ src: url("lightsans.eot") /* EOT file for IE */
+}
+
+@font-face {
+ font-family: CajaFont;
+ src: url("lightsans.ttf") /* TTF file for CSS3 browsers */
+}
