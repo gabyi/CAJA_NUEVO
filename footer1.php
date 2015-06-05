@@ -17,8 +17,9 @@
                     
                         <h4>Caja Forense - Centro Judicial</h4>
                         <ul>
-                            <li>25 de Mayo nº 246</li>
-                            <li>Tel: (02954) 454212 / 454214 / 432787</li>
+                            <li>Av. Uruguay nº 1097</li>
+                            <li>Edificio de las Defensorias</li>
+                            <li>Tel: (02954) 421232</li>
                         </ul>
                     
                     <!-- /span3 -->
@@ -45,7 +46,7 @@
                     
                     <!-- /span3 -->
         </div>
-                </div>
+        </div>
       <!-- /row --> 
     </div>
     <!-- /container --> 

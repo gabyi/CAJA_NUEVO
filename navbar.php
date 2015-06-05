@@ -9,22 +9,13 @@
             <span class="icon-bar"></span>
           </button>
 
-		        <a class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+		        <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
 
-		</div>
-        <div id="navbar" class="collapse navbar-collapse">
+		    </div>
+        <div id="navbar" class=" navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Inicio</a></li>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Institucional <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Creacion y objetivos</a></li>
-              <!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
-              <li><a href="#">Autoridades</a></li>
-              <li><a href="#">Marco normativo y financiamiento</a></li>
-              <li><a href="#">Coordinadora de cajas</a></li>
-            </ul>
-        </li>
+            <li><a href="institucional.php">Institucional</a></li>
 			      <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">

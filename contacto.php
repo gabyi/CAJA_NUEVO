@@ -32,22 +32,13 @@ session_start();
             <span class="icon-bar"></span>
           </button>
 
-		        <a class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+		        <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
 
 		</div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
-             <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Institucional <span class="caret"></span></a>
-              	<ul class="dropdown-menu" role="menu">
-              		<li><a href="#">Creacion y objetivos</a></li>
-              		<!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
-              		<li><a href="#">Autoridades</a></li>
-              		<li><a href="#">Marco normativo y financiamiento</a></li>
-              		<li><a href="#">Coordinadora de cajas</a></li>
-             	</ul>
-             </li>
+            <li><a href="montosJuicios.php">Institucional</a></li>
 			      <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -89,14 +80,12 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 ?>
 
 	<div class="container" style='margin-top: 50px; margin-bottom: 50px;'>
-	<div class="col-md-3">
-		<!--Este div es para centrar el formulario de contacto deltro del container well-->
-	</div>
 	<div class="row">
-		<div class="col-md-6">
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span>Contacto</div>
-					<div class="panel-body">
+		<div class="col-md-3"> </div>
+		<div class="col-md-6 col-sd-6 ">
+			<div id="panel" class="login-panel panel panel-default">
+				<div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Contacto</div>
+					<div id="panel-cuerpo" class="panel-body">
 
 					<?php
 					if(isset($enviar))
@@ -219,7 +208,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								<div class="form-group">
 									<div class="col-md-12">
                                     	<div class="col-md-6">
-										 <img src="captcha.php" class="img-thumbnail"></img>
+										 <img src="captcha.php" class=""></img>
 										</div>
                                         <div class="col-md-6">
                                        <input id="name" name="codigo" title="Por favor ingrese codigo" type="text" placeholder="Captcha" class="form-control" required>
@@ -228,7 +217,8 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
                                     </div>
 
                                      <div class="col-md-12 widget-left">
-                                        <button type="submit" class="btn btn-primary btn-lg" name='enviar'>Enviar</button>
+                                        <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-primary btn-lg" 
+                                        name='enviar'>Enviar</button>    
 								    </div>
  							</fieldset>
 						</form>

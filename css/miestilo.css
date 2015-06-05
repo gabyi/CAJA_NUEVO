@@ -5,10 +5,12 @@ BODY{
     background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
 	background-repeat: none;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2C5D3', endColorstr='#FFFFFF',GradientType=0 );/*graadient para IE*/
+    font-family: CajaFont;
+    font-size: 15px;
 }
 
 #logo{
-    margin-top:50px;
+    margin-top:80px;
 }
 .container{
 	text-align: center;
@@ -80,9 +82,12 @@ en el j-query de los juicios*/
 	margin-top:15px;
 	font-weight: bold;
 	background-color: #D1E8D7;
+    color:#333333;
 }
 
-
+.navbar-header li{
+    font-size: 18px;
+}
 
 
 /* ================================================================================
@@ -214,14 +219,80 @@ a:hover {
     width: 100px;
 }
 
-#panel-cuerpo-noticia{
+#panel-cuerpo-noticia, #home, #contact{
     font-family: CajaFont;
     font-size: 22px;
     color: #F8F8F8;
 }
 
-#panel-cuerpo-noticia p{
+#panel-cuerpo-noticia p, #panel-cuerpo{
     font-size:18px;
     color: #333333;
 }
 
+#panel, #creacion, #coordinadora{
+    font-family: CajaFont;
+    font-size: 20px;
+    color: #F8F8F8;
+}
+
+#marca{
+
+    font-weight: bold;
+}
+/*====================================================================*/
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+.pad-top {
+    padding-top:60px;
+}
+.text-center {
+    text-align:center;
+}
+/*JUST ADDED PADDING IN SECTIONS OF TEMPLATE */
+section {
+    padding-top:50px;
+}
+/* ADDED PADDING IN NAVBAR */
+.navbar {
+    padding:15px;
+     -webkit-transition: background .8s ease-out,padding .8s ease-out;
+        -moz-transition: background .8s ease-out,padding .8s ease-out;
+        transition: background .8s ease-out,padding .8s ease-out;
+}
+/* CLASS FOR REMOVING PADDING IN NAVBAR*/
+.navbar-pad-original {
+      padding:0px;
+}
+/*TO SET MINIMUM HEIGHT OF THE SECTION: YOU CAN REMOVE THIS CLASS IF WANT */
+.min-height-cls {
+    min-height:500px; 
+}
+/*CHANGING COLOR AND ROUNDING BORDER OF SCROLLSPY ON LINK ACTIVE  */
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+color: #fff;
+background-color: #7EACFF;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+/*TO MAKING NAV BAR LINKS WHITE COLORED */
+.navbar-inverse .navbar-nav > li > a {
+color: #FFF;
+}
+
+.navbar-inverse .navbar-brand {
+color: #FFF;
+}
+
+.active{
+    background-color: #E7E7E7;
+}
+
+#autoridades, #normativa{
+    color: #333333;
+    font-size: 22px;
+}

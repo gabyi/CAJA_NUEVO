@@ -28,6 +28,9 @@ session_start();
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!--Estilo de fuentes-->
+    <link href="css/fuentes.css" rel="stylesheet">
+
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
@@ -70,22 +73,13 @@ session_start();
             <span class="icon-bar"></span>
           </button>
 
-		        <a class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+		        <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
 
 		</div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
-             <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional <span class="caret"></span></a>
-              	<ul class="dropdown-menu" role="menu">
-              		<li><a href="#">Creacion y objetivos</a></li>
-              		<!--<li class="divider"><li> Este se pone para hacer una linea divisoria entre los li-->
-              		<li><a href="#">Autoridades</a></li>
-              		<li><a href="#">Marco normativo y financiamiento</a></li>
-              		<li><a href="#">Coordinadora de cajas</a></li>
-             	  </ul>
-             </li>
+            <li><a href="institucional.php">Institucional</a></li>
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -107,11 +101,12 @@ include 'logo.php';
 
 <div class="container" style="margin-top: 80px;">
 
-	<div class="panel panel-default">
+	<div id="panel" class="panel panel-default">
   		<div class="panel-heading">
-    		<h3 class="panel-title">Costos de Juicios</h3>
-  		</div>
-  		<div class="panel-body" id="montos">
+        Costos de Juicios
+      </div>   		
+  		
+  		<div id="panel-cuerpo" class="panel-body">
     		<form name="form-sus" class="form-horizontal" method="post">
 
 <!-- =================================================================================================================================-->
@@ -172,7 +167,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()" >Calcular de Sucesiones</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()" >Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
