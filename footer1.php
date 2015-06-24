@@ -7,6 +7,7 @@
                         <h4>Caja Forense - Santa Rosa</h4>
                         <ul>
                             <li>25 de Mayo nº 246</li>
+                            <li><a href="https://www.google.com.ar/maps/place/25+de+Mayo+246,+L6300DVE+Santa+Rosa,+La+Pampa/@-36.6193222,-64.2887295,18z">Acaaa</a></li>
                             <li>Tel: (02954) 454212 / 454214 / 432787</li>
                             <li>Mail: info@cforense.org</li>
                         </ul>

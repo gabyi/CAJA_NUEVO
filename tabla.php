@@ -78,10 +78,54 @@ if(isset($calcular))
         }
       $fila= mysql_fetch_array($consulta);
       $bono_ley= $fila ['bono_ley'];
-      $caja_inicio_ap_porc= $fila ['caja_inicio_ap_porc'];
-      $caja_inicio_cont_porc= $fila ['caja_inicio_cont_porc'];
-      $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_min_aporte']);
-      $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_min_cont']);
+
+      //Verificacion de valores de aportes
+
+      if($fila ['caja_inicio_ap_porc'] == '' && $fila ['caja_inicio_aporte'] == '' )
+      {
+        $caja_inicio_ap_porc='';
+        $controlAporte= '';
+      }else
+      {
+        if($fila ['caja_inicio_ap_porc'] != '' && $fila ['caja_inicio_aporte'] == '' )
+      {
+        $caja_inicio_ap_porc=$fila ['caja_inicio_ap_porc'];
+        $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_min_aporte']);
+        $controlAporte=2;
+      }else
+        {
+          if($fila ['caja_inicio_ap_porc'] == '' && $fila ['caja_inicio_aporte'] != '' )
+          {
+            $caja_inicio_aporte= $filaMinimos ['caja_min_aporte'];
+            $controlAporte=1;
+          }
+        }
+      }
+      
+      //Verificacion de valores de contribuciones
+      
+      if($fila ['caja_inicio_cont_porc'] == '' && $fila ['caja_inicio_cont'] == '' )
+      {
+        $caja_inicio_cont='';
+        $controlCont= '';
+      }else
+      {
+        if($fila ['caja_inicio_cont_porc'] != '' && $fila ['caja_inicio_cont'] == '' )
+      {
+        $caja_inicio_cont_porc =$fila ['caja_inicio_cont_porc'];
+        $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_min_cont']);
+        $controlCont=2;
+      }else
+        {
+          if($fila ['caja_inicio_cont_porc'] == '' && $fila ['caja_inicio_cont'] != '' )
+          {
+            $caja_inicio_cont= $filaMinimos ['caja_min_cont'];
+            $controlCont=1;
+          }
+        }
+      }
+      
+      
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
 
       //redondeo aportes a 2 decimales
@@ -129,7 +173,7 @@ if(isset($calcular))
         $caja_fin_aportes=number_format($caja_fin_aportes,2);
       }else
       {
-        if($fila ['caja_fin_ap_porc']!='')
+        if($fila ['caja_fin_ap_porc'] != 0.000000)
         {
           $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_min_aporte']);
           $caja_fin_aportes=number_format($caja_fin_aportes,2);
@@ -145,7 +189,7 @@ if(isset($calcular))
         $caja_fin_cont= $filaMinimos ['caja_min_cont'];
       }else
       {
-        if($fila ['caja_fin_cont_porc'])
+        if($fila ['caja_fin_cont_porc'] != 0.00)
         {
           $caja_fin_cont= verifica ($mont, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_min_cont']);
           $caja_fin_cont_porc= $fila ['caja_fin_cont_porc'];
@@ -238,29 +282,43 @@ include 'logo.php';
           if($bono_ley>0)
           print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
 
-          if($caja_inicio_ap_porc == '')
-          {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
-          }else
-          {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte.
+
+          switch ($controlAporte) {
+            case 1:
+              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
+              break;
+
+            case 2:
+              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte.
             "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_ap_porc." %</td></tr>";
+              break;
+            
+            case '':
+              
+              break;
           }
 
-          if($caja_inicio_cont_porc == '')
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
-          }else
-          {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont.
+          switch ($controlCont) {
+            case 1:
+              print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
+              break;
+
+            case 2:
+              print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont.
             "</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont_porc." %</td></tr>";
+              break;
+              
+            case '':
+             
+              break;  
           }
 
+            //TOTAL DE CAJA FORENSE INICIO
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
             <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
       }
 
-
+   
       ?>
     </table>
 
@@ -322,14 +380,14 @@ include 'logo.php';
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-        if($caja_fin_ap_porc != ''|| $caja_fin_aporte != 0.00)
+        if($caja_fin_ap_porc != 0.000000|| $caja_fin_aporte != '')
         {
-          if($caja_fin_aporte != 0.00)
+          if($caja_fin_aporte != '')
           {
             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
           }else
           {
-            if($caja_fin_ap_porc != '')
+            if($caja_fin_ap_porc != 0.000000)
             {
               print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes.
               "</td><td style='align:right;padding-left:30px;'>".$caja_fin_ap_porc." %</td></tr>";
@@ -337,7 +395,7 @@ include 'logo.php';
           }
         }
 
-          if($caja_fin_cont_porc == '')
+          if($caja_fin_cont_porc == 0.00)
           {
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
           }else

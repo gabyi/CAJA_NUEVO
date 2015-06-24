@@ -230,15 +230,23 @@ a:hover {
     color: #333333;
 }
 
-#panel, #creacion, #coordinadora{
+/* Texto blanco*/
+#panel, #creacion, #normativa, #coordinadora{
     font-family: CajaFont;
     font-size: 20px;
     color: #F8F8F8;
 }
 
+/*Texto Negro*/
+#autoridades, {
+    color: #333333;
+    font-size: 22px;
+}
+
 #marca{
 
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 23px;
 }
 /*====================================================================*/
 
@@ -288,11 +296,26 @@ color: #FFF;
 color: #FFF;
 }
 
-.active{
+.active
+    {
     background-color: #E7E7E7;
-}
+    }
 
-#autoridades, #normativa{
-    color: #333333;
-    font-size: 22px;
-}
+#prueba
+    {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    }
+
+.prueba-titulo
+    {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    }
+
+#prueba-last
+    {
+    padding-top: 26px;
+    padding-bottom: 15px;
+    }

@@ -63,7 +63,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 			$email  = "From:".$_REQUEST['email']; //siempre hay que poner from, sino sale como el cuerpo del mensaje
 			$asunto =$_REQUEST['asunto'];
 			$mensaje = $_REQUEST['message'];
-			$webmail="gabrielisabella@hotmail.com";
+			$webmail="administracion@cforense.org";
 
 			if(mail($webmail, $asunto, $nombre." dice: \r\n".$mensaje, $email )) //\r\n hace solo el salto de linea
   				$aviso="Su Mensaje fue enviado";
@@ -136,6 +136,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 <?php
 
 	include 'footer.php';
+	include 'footer1.php';
 ?>
 </body>
 </html>
@@ -175,7 +176,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="name">Nombre</label>
 									<div class="col-md-9">
-									<input id="name" name="name" title="Por favor ingrese un nombre" type="text" placeholder="Su nombre.." class="form-control" required autofocus>
+									<input id="name" name="name" title="Por favor ingrese un nombre" type="text" placeholder="Nombre y Apellido" class="form-control" required autofocus>
 									</div>
 								</div>
 
@@ -232,6 +233,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 	<?php
 
 		include 'footer.php';
+		include 'footer1.php';
 	}
 }
 

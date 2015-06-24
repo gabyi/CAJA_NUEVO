@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -30,15 +31,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+                <a id="marca" class="navbar-brand" href="index.php"><h3>Caja Forense de La Pampa</h3></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Inicio</a></li>
+                    <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">            
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
                     <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
+                    <li><a href="#comision">Comisión de Jóvenes</a></li> 
                     <li><a href="#coordinadora">Coordinadora de cajas</a></li>      
+                </ul>
+                <li><a href="contacto.php">Contacto</a></li>
                 </ul>
             </div>
            
@@ -46,17 +53,14 @@
     </div>
    
         
-       <section id="creacion" class="text-center">
+       <section id="creacion" class="text-center"> <!--azul-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
                 <h1>Creaci&oacute;n y Objetivos</h1>
-                <div class="col-md-6">
-                    algo por aca
-                </div>
-                <div class="col-md-6">
+
                     <br>
-                        <p>La Caja Forense de La Pampa fue creada en 1975 con el objetivo
+                        La Caja Forense de La Pampa fue creada en 1975 con el objetivo
                         fundamental de atender, mejorar y mantener el sistema previsional
                         y de asistencia social para los abogados y procuradores de la
                          provincia.
@@ -75,56 +79,56 @@
                         para los empleados públicos y los profesionales; ...". A su vez,
                         tiene características propias que se adecúan a la realidad local y
                         a una visión particular sobre la forma de asegurar la proyección
-                        del sistema en el tiempo.</p>
-                </div>
+                        del sistema en el tiempo.
+                
             </div>
                
-               </div>
+            </div>
         </div>
        </section>
 
-        <section id="autoridades" style="background-color:#ededed;" >
+        <section id="autoridades" style="background-color:#ededed;" > <!--blanco-->
             <div class="container">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
                 <h2>Autoridades</h2>
                 <div class="col-md-6">
-    <br>
-  <h3><p>Asamblea</h3>
-    Afiliados.
-  <br>
-  <h3><p>Directorio</h3>
-    Presidente: Dr. Roberto Eduardo <strong>ALBA</strong>.<br>
-    Vicepresidente: Dra. Sandra Receda<strong> ABDO</strong>.<br>
-    Directores Titulares:<br>
-    Dr. José Miguel <strong>CAMACHO</strong>.<br>
-    Dra.Marcela Viviana <strong>CAMPO</strong>.<br>
-    Dr. Pablo Luis <strong>LANGLOIS</strong>.<br>
-    Dr. Gustavo César <strong>MASSARA</strong>.<br>
-    Dr. Jorge Alberto <strong>VIÑUELA</strong>.<br>
-  <br>
-    <p>Directores Suplentes:</p>
-        Dr. Víctor María <strong>BENSUSAN</strong>.<br>
-        Dra. Laura <strong>CAGLIOLO</strong>.<br>
-        Dr. Mario Rubén <strong>GUINDER</strong>.<br>
-        Dr. Raúl José<strong>MAZZOLA</strong>.<br>
-        Dr. Eduardo<strong>PASCUAL</strong>.<br>
-        Dra. Silvana Anabel <strong>RODRIGUEZ MUSSO</strong>.</li>
-  <br>
-  <p>Síndico:</p>
-  <br>
-    Titular: Bernabé Luis <strong>SANCHEZ</strong>.<br>
-    Suplente: Guillermo <strong>BERTONE</strong>.<br>
-  <br>
-  <h3><p>Administración:</h3><br>
-    Gerencia: Luis Héctor <strong>FERNÁNDEZ</strong>.<br>
-    Tesorería: Néstor Horacio <strong>ROSALES</strong>.<br>
-    Sistemas: Roberto Carlos <strong>VELOSO</strong>.
-  <br>
-Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
+                        <br>
+                    <h3><p>Asamblea</h3>
+                        Afiliados.
+                    <br>
+                    <h3><p>Directorio</h3>
+                        Presidente: Dr. Roberto Eduardo <strong>ALBA</strong>.<br>
+                        Vicepresidente: Dra. Sandra Receda<strong> ABDO</strong>.<br>
+                        Directores Titulares:<br>
+                        Dr. José Miguel <strong>CAMACHO</strong>.<br>
+                                        Dra.Marcela Viviana <strong>CAMPO</strong>.<br>
+                        Dr. Pablo Luis <strong>LANGLOIS</strong>.<br>
+                        Dr. Gustavo César <strong>MASSARA</strong>.<br>
+                        Dr. Jorge Alberto <strong>VIÑUELA</strong>.<br>
+                    <br>
+    
                 </div>
                 <div class="col-md-6">
-                    algo por alla
+                    <p>Directores Suplentes:</p>
+                        Dr. Víctor María <strong>BENSUSAN</strong>.<br>
+                        Dra. Laura <strong>CAGLIOLO</strong>.<br>
+                        Dr. Mario Rubén <strong>GUINDER</strong>.<br>
+                        Dr. Raúl José<strong>MAZZOLA</strong>.<br>
+                        Dr. Eduardo<strong>PASCUAL</strong>.<br>
+                        Dra. Silvana Anabel <strong>RODRIGUEZ MUSSO</strong>.</li>
+                    <br>
+                    <p>Síndico:</p>
+                    <br>
+                        Titular: Bernabé Luis <strong>SANCHEZ</strong>.<br>
+                        Suplente: Guillermo <strong>BERTONE</strong>.<br>
+                    <br>
+                    <h3><p>Administración:</h3><br>
+                        Gerencia: Luis Héctor <strong>FERNÁNDEZ</strong>.<br>
+                        Tesorería: Néstor Horacio <strong>ROSALES</strong>.<br>
+                        Sistemas: Roberto Carlos <strong>VELOSO</strong>.
+                    <br>
+                        Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
                 </div>
             </div>
                
@@ -132,12 +136,13 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
         </div>
         </section>
 
-        <section id="normativa" style="background-color:#ededed;" >
+        <section id="normativa" > <!--azul-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
+                
                 <h2>Marco normativo y financiamiento</h2>
-                <div class="col-md-9">
+               
                     <br>
                     <h3>Marco Normativo</h3>
                     <br>
@@ -156,6 +161,23 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
                         En esta materia, las modificaciones introducidas en el texto de la nueva Ley Orgánica, exigen la perfecta identificación de 
                         las fuentes de financiamiento para cada uno de los beneficios que otorga Caja Forense: el Fondo para Prestaciones Previsionales 
                         Básicas y Fondo Solidario para Otras Coberturas.
+
+            </div>
+               
+               </div>
+        </div>
+        </section>
+
+        <section id="comision"  style="background-color:#ededed;" > <!--blanco-->
+            <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+            <div class="col-md-12">
+                <h2>Comisión de Jóvenes</h2>
+                <div class="col-md-9">
+                    <br>
+                    <h3>Marco Normativo</h3>
+                    <br>
+                        Texto de Comision de jovenes
                 </div>
                 <div class="col-md-6">
                     algo por alla
@@ -166,7 +188,7 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
         </div>
         </section>
 
-         <section id="coordinadora">
+         <section id="coordinadora"> <!--azul-->
                <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -175,7 +197,7 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
                     <br>
                     <h3>Inicios</h3>
                     <br>
-                        <p>El 14 de marzo de 1980 fue sancionada la ley 22193, mediante la cual se introdujeron reformas 
+                        El 14 de marzo de 1980 fue sancionada la ley 22193, mediante la cual se introdujeron reformas 
                         al régimen básico para trabajadores autónomos regido por las leyes 18038 y 18826.
 
                         Como esta reforma dio lugar a múltiples especulaciones sobre el destino, funcionamiento, 
@@ -221,7 +243,7 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
                         El bloqueo a la iniciativa del Poder Ejecutivo Nacional de gravar con el 21% los ingresos de los profesionales del interior del país que 
                         no se sometieran voluntariamente a la doble aportación, adhiriendo también al régimen nacional. La incorporación al texto del Constitución 
                         Nacional de la segunda parte del artículo 125, donde se reconoce expresamente la soberanía provincial en materia de seguridad social para 
-                        profesionales.</p>
+                        profesionales.
 
                         Para más información consultar<a style="color:" class="instit" href="http://www.coordinadoradecajas.org.ar/" target="_blank"> 
                          www.coordinadoradecajas.org.ar.</a>
@@ -232,6 +254,8 @@ Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_
                </div>
         </div>
         </section>
+
+
      
     
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
