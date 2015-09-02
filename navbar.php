@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
 
-		        <a id="marca" class="navbar-brand" href="index.php"><h3>Caja Forense de La Pampa</h3></a>
+		        <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
 
 		    </div>
         <div id="navbar" class=" navbar-collapse collapse">
@@ -23,6 +23,7 @@
                   <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
                 </ul>
             </li>
+              <li><a href="noticias.php">Noticias</a></li>
               <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
               <li><a href="contacto.php">Contacto</a></li>            
           </ul>

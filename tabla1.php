@@ -21,43 +21,10 @@ if(isset($calcular1))
 <html lang="es">
 
   <head>
-    <meta charset="utf8_general_ci"><!--para que aparezca la ñ-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="imagenes/logo.ico"/>
-
-    <title>Caja Forense de La Pampa</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!--Estilo de fuentes-->
-    <link href="css/fuentes.css" rel="stylesheet">
-
-    <!--mi estilo -->
-    <link href="css/miestilo.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/offcanvas.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
-     <!--Estos estan agregados para que minimece la barra movil-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
-
-    <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
-
-    <link href="css/jquery-ui.css" rel="stylesheet">
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+    <?php 
+      include 'head2.php';
+     ?>    
+    <title>Costos de Sucesiones</title>
 
   </head>
   <?php
@@ -159,8 +126,6 @@ if(isset($calcular1))
       $sumaInicio= number_format($sumaInicio, 2);
 
 
-
-
 ?>
   <body style="height:900px;">
 
@@ -187,7 +152,7 @@ if(isset($calcular1))
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="montosJuicios.php">Costos de juicios</a></li>
-                  <li><a href="sucesiones.php">Costos de sucesiones</a></li>
+                  <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
                 </ul>
               </li>
 
@@ -337,6 +302,8 @@ include 'logo.php';
 </body>
 
 <?php
+include 'footer.php';
+include 'footer1.php';
  }//aca termina else de isset calcular
 
 }/*termina el else de que si no hay session disponible, o si no entro por el index */

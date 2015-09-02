@@ -23,21 +23,21 @@ session_start();
   <div class="carousel-inner" role="listbox">
     <div  class="item active">
       <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        <h3>BENEFICIOS CON COMERCIOS LOCALES</h3>
+        <p>Para más informacion sobre estos beneficios <a href="archivos/descuentos.jpg">ver imagen</a>.</p>
       </div>
       <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="imagenes/slider/leaf.jpg" alt="Chania">
+        <img class="img-thumbnail" src="archivos/descuentos.jpg" alt="Chania">
       </div>
     </div>
 
     <div class="item">
       <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        <h3>Taller de Mediaci&oacute;n</h3>
+        <p>Para más informacion sobre este taller <a href="archivos/TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA.pdf">ver el programa</a>.</p>
       </div>
       <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="imagenes/slider/bridge.jpg" alt="Chania">
+        <img class="img-thumbnail" src="archivos/taller_de_mediacion.jpg" alt="Chania">
       </div>
     </div>
 
@@ -78,14 +78,33 @@ session_start();
 
 <div id="noticias" class="container-fluid">
     <div class="row" >
+        
+          <div class="col-sm-4 col-md4">
+            <div id="panel-noticia" class="panel panel-default">
+                <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
+                  <h3>Boletín Infotmativo N° 42</h3>
+                </div>
+                <div id="panel-cuerpo-noticia" class="panel-body">
+                   <p>Tenemos el agrado de dirigirnos a Ud. a fin de remitirle adjunto el Boletín Informativo N° 42, 
+                    en relación al taller de Comediación Familiar a Distancia que se dictó el día 11 de Junio en la 
+                    sede del Colegio de Abogados y Procuradores de la provincia de La Pampa.</p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_42.pdf')">Ver Mas</button>
+                </div>
+            </div>
+        </div>
+ 
+
         <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Boletín Infotmativo N° 45</h3>
+                  <h3>Boletín Infotmativo N° 41</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses.-</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);">Ver Mas</button>
+                   <p>Tenemos el agrado de dirigirnos a Ud. a fin de remitirle adjunto el Boletín Informativo N° 41, 
+                    en relación con la charla de la Ley de Mediación Prejudicial Obligatoria realizada el día 12 de 
+                    mayo próximo pasado y organizada por la Comisión de Jóvenes de Caja Forense junto con el Centro 
+                    de Mediación de Santa Rosa y el Colegio de Abogados.</p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_41.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -93,32 +112,17 @@ session_start();
           <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Boletín Infotmativo N° 44</h3>
+                  <h3>Boletín Infotmativo N° 40</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses.
-                   Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses
-                 Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses
-               Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses
-             Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);">Ver Mas</button>
+                   <p>Tenemos el agrado de dirigirnos a Ud. a fin de remitirle adjunto el Boletín Informativo N° 40, 
+                    con información relacionada con el criterio adoptado por la DGR para la liquidación de la Tasa 
+                    de Justicia en los juicios promovidos con Beneficio de Litigar sin Gastos.</p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_40.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
 
-
-
-        <div class="col-sm-4 col-md4">
-            <div id="panel-noticia" class="panel panel-default">
-                <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Boletín Infotmativo N° 43</h3>
-                </div>
-                <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>Informacion sobre los préstamos de linea de turismo con 24 cuotas sin intereses.-</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);">Ver Mas</button>
-                </div>
-            </div>
-        </div>
   </div>
 </div>
 
@@ -179,11 +183,11 @@ session_start();
   </body>
   </html>
 
-  <script type="yext/javascript">
+  <script type="text/javascript">
 
-     function contancto(){
+     function irA(direccion){
 
-       window.location.href="index.php";
+       window.location.href="archivos/"+direccion;
 }
 
   </script>

@@ -87,6 +87,7 @@ session_start();
                   <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
                 </ul>
             </li>
+            <li><a href="noticias.php">Noticias</a></li>
             <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
@@ -145,6 +146,7 @@ include 'logo.php';
 <?php
 
 include 'footer.php';
+include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>

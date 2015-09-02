@@ -39,13 +39,8 @@ session_start();
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
             <li><a href="montosJuicios.php">Institucional</a></li>
-			      <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="montosJuicios.php">Costos de juicios</a></li>
-                  <li><a href="sucesiones.php">Costos de sucesiones</a></li>
-                </ul>
-              </li>
+			 <li><a href="noticias.php">Noticias</a></li>
+              <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>     
             <li class="active"><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->

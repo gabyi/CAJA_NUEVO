@@ -18,8 +18,6 @@
 
     <title>Institucional</title>
 
-
-
 </head>
 <body data-spy="scroll" data-target=".navbar-fixed-top">
     
@@ -31,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="marca" class="navbar-brand" href="index.php"><h3>Caja Forense de La Pampa</h3></a>
+                <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,9 +40,10 @@
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
                     <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
-                    <li><a href="#comision">Comisión de Jóvenes</a></li> 
                     <li><a href="#coordinadora">Coordinadora de cajas</a></li>      
                 </ul>
+                <li><a href="noticias.php">Noticias</a></li>
+                <li><a href="#comision">Comisión de Jóvenes</a></li> 
                 <li><a href="contacto.php">Contacto</a></li>
                 </ul>
             </div>
@@ -53,7 +52,7 @@
     </div>
    
         
-       <section id="creacion" class="text-center"> <!--azul-->
+       <section id="creacion" class="azul"> <!--azul-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -87,7 +86,7 @@
         </div>
        </section>
 
-        <section id="autoridades" style="background-color:#ededed;" > <!--blanco-->
+        <section id="autoridades" class="blanco"> <!--blanco-->
             <div class="container">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -128,7 +127,7 @@
                         Tesorería: Néstor Horacio <strong>ROSALES</strong>.<br>
                         Sistemas: Roberto Carlos <strong>VELOSO</strong>.
                     <br>
-                        Para más información consultar<a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
+                        Para más información consultar <a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
                 </div>
             </div>
                
@@ -136,7 +135,7 @@
         </div>
         </section>
 
-        <section id="normativa" > <!--azul-->
+        <section id="normativa" class="azul">
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -168,7 +167,7 @@
         </div>
         </section>
 
-        <section id="comision"  style="background-color:#ededed;" > <!--blanco-->
+        <section id="comision" class="blanco">
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -188,7 +187,7 @@
         </div>
         </section>
 
-         <section id="coordinadora"> <!--azul-->
+         <section id="coordinadora" class="azul">
                <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">

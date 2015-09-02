@@ -16,49 +16,13 @@ session_start();
 <html lang="en">
 
   <head>
-   <!--<meta charset="utf-8"> se lo saque para que tome las ñ en la busqueda de los juicios-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="imagenes/logo.ico"/>
-
-    <title>Caja Forense de La Pampa</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!--Estilo de fuentes-->
-    <link href="css/fuentes.css" rel="stylesheet">
-
-    <!--mi estilo -->
-    <link href="css/miestilo.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/offcanvas.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
-     <!--Estos estan agregados para que minimece la barra movil-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
-    <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
-
-    <link href="css/jquery-ui.css" rel="stylesheet">
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-
+     <?php
+      include 'head2.php';
+      include 'conexion.php';
+      ?>
+  <title>Costos de Sucesiones</title>
   </head>
-  <?php
 
-    	include 'conexion.php';
-
-  ?>
   <body>
 
 
@@ -73,22 +37,15 @@ session_start();
             <span class="icon-bar"></span>
           </button>
 
-		        <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
+		        <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
 
 		</div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
             <li><a href="institucional.php">Institucional</a></li>
-             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Costos<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="montosJuicios.php">Costos de juicios</a></li>
-                  <li class="active"><a href="sucesiones.php">Costos de sucesiones</a></li>
-                </ul>
-              </li>
-
-             <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
 
@@ -119,7 +76,20 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bg1" name="bg1" placeholder="En la Provincia de La Pampa" value="">
+                      <?php 
+                        if (isset($calcular1))
+                        {
+                          if($_REQUEST ['bg1']=="")
+                          {
+                          print "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>";
+                          print "<span class='label label-warning'>Se debe colcar un valor</span>"; 
+                          }
+                        }else
+                          {
+                             print "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>";
+                          }  
+                       ?>
+                      
                     </div>
 
 
@@ -167,7 +137,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()" >Calcular de Sucesiones</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
@@ -181,6 +151,7 @@ include 'logo.php';
 <?php
 
 include 'footer.php';
+include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
@@ -213,21 +184,59 @@ if(bp1 == "" && bp2 == "")
   var errorbp="TRUE";
 }
 
-if(errorbp == "" && errorbg == "")
+var numero= control();
+
+if(errorbp != "" && errorbg != "")
 {
-  document.all.item("form-sus").action="";
-}else
-{
-  document.all.item("form-sus").action="tabla1.php";
+  control();
+  //document.all.item("form-sus").action="tabla1.php";
+  //document.all.item("form-sus").action="sucesiones.php";
 }
 
-};
+}
 
+function control()
+{
+  var bg1 = document.getElementById("bg1").value;
+  var bg2 = document.getElementById("bg2").value;
+  var bp1 = document.getElementById("bp1").value;
+  var bp2 = document.getElementById("bp2").value;
+  
+
+  var v1=parseInt(bg1);
+  var v2=parseInt(bg2);
+  var v3=parseInt(bp1);
+  var v4=parseInt(bp2);
+
+  if(!isNaN(v1))
+  {
+    document.all.item("form-sus").action="tabla1.php";
+  }else
+  {
+    if(!isNaN(v2))
+    {
+      document.all.item("form-sus").action="tabla1.php";
+    }else
+    {
+      if(!isNaN(v3))
+    {
+      document.all.item("form-sus").action="tabla1.php";
+    }else
+    {
+      if(!isNaN(v4))
+    {
+      document.all.item("form-sus").action="tabla1.php";
+    }else
+      document.all.item("form-sus").action="sucesiones.php";
+    }
+    }
+  }
+}
 
 var juicios = [
 <?php
 
-$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*buca todo menos los que tenga suces*/
+$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
 $i=0;
