@@ -70,19 +70,19 @@
                 <div class="table-responsive">
                     <table class="table-mix">
                         <tr>
-                            <th>Año</th>
-                            <th>Enero</th>
-                            <th>Febrero</th>                            
-                            <th>Marzo</th>                            
-                            <th>Abril</th>                                
-                            <th>Mayo</th>
-                            <th>Junio</th>
-                            <th>Julio</th>
-                            <th>Agosto</th>
-                            <th>Septiembre</th>
-                            <th>Octubre</th>
-                            <th>Noviembre</th>
-                            <th>Diciembre</th>
+                            <th class="mesTmix">Año</th>
+                            <th class="mesTmix">Enero</th>
+                            <th class="mesTmix">Febrero</th>                            
+                            <th class="mesTmix">Marzo</th>                            
+                            <th class="mesTmix">Abril</th>                                
+                            <th class="mesTmix">Mayo</th>
+                            <th class="mesTmix">Junio</th>
+                            <th class="mesTmix">Julio</th>
+                            <th class="mesTmix">Agosto</th>
+                            <th class="mesTmix">Septiembre</th>
+                            <th class="mesTmix">Octubre</th>
+                            <th class="mesTmix">Noviembre</th>
+                            <th class="mesTmix">Diciembre</th>
                         </tr>                        
                         
                         <?php 
@@ -97,10 +97,10 @@
                                     print"<tr class='trmix'>";
                                 
                                     print "<th class='tdmix'>".$fila[0]."</th>";
-
+ 
                                 for ($j=1; $j < 13; $j++) { 
             
-                                    print "<td class='tdmix'>".$fila[$j]."</td>";
+                                    print "<td class='tdmix'>".number_format($fila[$j], 2)."</td>";
                                    
                                 }
 
@@ -134,42 +134,43 @@
                         <div class="table-responsive">
                             <table class="table-mix">
                                 <tr>
-                                <th>Año</th>
-                                <th>Enero</th>
-                                <th>Febrero</th>                            
-                                <th>Marzo</th>                            
-                                <th>Abril</th>                                
-                                <th>Mayo</th>
-                                <th>Junio</th>
-                                <th>Julio</th>
-                                <th>Agosto</th>
-                                <th>Septiembre</th>
-                                <th>Octubre</th>
-                                <th>Noviembre</th>
-                                <th>Diciembre</th>
+                            <th class="mesTmix">Año</th>
+                            <th class="mesTmix">Enero</th>
+                            <th class="mesTmix">Febrero</th>                            
+                            <th class="mesTmix">Marzo</th>                            
+                            <th class="mesTmix">Abril</th>                                
+                            <th class="mesTmix">Mayo</th>
+                            <th class="mesTmix">Junio</th>
+                            <th class="mesTmix">Julio</th>
+                            <th class="mesTmix">Agosto</th>
+                            <th class="mesTmix">Septiembre</th>
+                            <th class="mesTmix">Octubre</th>
+                            <th class="mesTmix">Noviembre</th>
+                            <th class="mesTmix">Diciembre</th>
                                 </tr>                        
                         
                         <?php 
 
-                            $consulta="select * from tmix";
-                            $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
-                            $numFil= mysql_num_rows($query);
-                            $suma=0;
+                        $consulta=" select * from TasaMix";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        $sumTasa=0;
 
                             for ($i=0; $i < $numFil; $i++) { 
-                                
                                 $fila=mysql_fetch_array($query);    
 
                                     print"<tr class='trmix'>";
                                 
-                                    print "<th class='tdmix'>".date("d-m-Y",strtotime($fila[0]))."</th>";
+                                    print "<th class='tdmix'>".$fila[0]."</th>";
 
-                                    
+                                for ($j=1; $j < 13; $j++) { 
 
-                                for ($j=1; $j < 2; $j++) { 
-                                    
+                                    $sumTasa=$sumTasa + $fila[$j];
 
-                                    print "<td class='tdmix'>".$fila[$j]."</td>";
+                                    if($fila[$j]==0)
+                                        print "<td class='tdmix'>0.00</td>";
+                                    else
+                                        print "<td class='tdmix'>".number_format($sumTasa, 2)."</td>";
                                    
                                 }
 
@@ -192,78 +193,7 @@
        </section>
         <!--fin seccion 1-->
 
-        <section id="mensual"  class="blanco" > <!--1-->
-            <div class="container-fluid">
-                <div class="row text-center pad-top  min-height-cls" >
-            
-            <div class="col-md-12">
-                        <h2>Tasa Mix Mensual</h2>
-                        <div class="col-md-9 col-md-offset-3">
-                        <br>
-
-                        <div class="table-responsive">
-                            <table class="table-mix">
-                                <tr>
-                                <th>Año</th>
-                                <th>Enero</th>
-                                <th>Febrero</th>                            
-                                <th>Marzo</th>                            
-                                <th>Abril</th>                                
-                                <th>Mayo</th>
-                                <th>Junio</th>
-                                <th>Julio</th>
-                                <th>Agosto</th>
-                                <th>Septiembre</th>
-                                <th>Octubre</th>
-                                <th>Noviembre</th>
-                                <th>Diciembre</th>
-                                </tr>                        
-                        
-                        <?php 
-
-                            $consulta="select * from tmix";
-                            $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
-                            $numFil= mysql_num_rows($query);
-                            $suma=0;
-
-                            for ($i=0; $i < $numFil; $i++) { 
-                                
-                                $fila=mysql_fetch_array($query); 
-
-                                    $arraymes = array();
-                                    
-                                    list($dia, $mes, $año)=split('[/.-]',date("d-m-Y",strtotime($fila[0])));
-
-                                    print"<tr class='trmix'>";
-                                
-                                    print "<th class='tdmix'>".$año."</th>";
-
-                                    
-
-
-                                
-                                    
-                                    /*
-                                    print "<td class='tdmix'>".$fila[$j]."</td>";
-                                    print"</tr>";*/
-                                
-
-                               
-                            }
-
-                         ?>
-                        
-                    </table>
-                </div>
-
-
-                </div>
-
-            </div>
-               
-               </div>
-            </div>
-        </section>
+ 
 
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY  -->

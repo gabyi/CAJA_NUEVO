@@ -33,16 +33,16 @@ if (!isset($boton)) {
     <![endif]-->
   </head>
 <body>
-<form method=post role="form">
+<form method= "post" role="form" action="mix.php">
   <div class="form-group">
-    <label for="ejemplo_email_1">Fecha de Inicio</label>
-    <input type="date" class="form-control" name="vfdesde" placeholder="Fecha Inicio">
+    <label>Fecha de Inicio</label>
+    <input type="date" class="form-control" name="vfdesde" placeholder="Fecha Inicio" required>
     <br>
-	<label for="ejemplo_email_1">Fecha Final</label>
-    <input type="date" class="form-control" name="vfhasta" placeholder="Fecha Fin">
+	<label>Fecha Final</label>
+    <input type="date" class="form-control" name="vfhasta" placeholder="Fecha Fin" required>
 	<br>
-	<label for="ejemplo_email_1">Monto a Actualizar</label>
-    <input type="number" class="form-control" name="vmonto" placeholder="Monto Actualizar">
+	<label>Monto a Actualizar</label>
+    <input type="number" class="form-control" name="vmonto" placeholder="Monto Actualizar" required>
   </div>
   <button type="submit" name="boton" class="btn btn-default">Calcular</button>
 </form>
@@ -52,11 +52,11 @@ if (!isset($boton)) {
 	include("conexion.php");
 
 	// realiza la consulta toma las variables del formulario
-	$vfdesde = $_REQUEST["vfdesde"];
+	$vfdesde =str_replace("/", "-", $_REQUEST["vfdesde"]); 
 	$vfhasta= $_REQUEST["vfhasta"];
 	$vmonto = $_REQUEST["vmonto"];
 	// incremente 1 mes para calcular los indices entre las 2 fechas
-	list($dia, $mes, $año)=split('[/.-]',date("d-m-Y",strtotime($vfdesde)));
+	list($dia, $mes, $año)=split('[/.-]',date("d-n-Y",strtotime($vfdesde)));
 	if ($mes == 12) {
 		$mes = 1;
 		$año ++;
@@ -70,7 +70,10 @@ if (!isset($boton)) {
 	$consulta="select sum(indice) as indice from tmix where fecha > '$vfecha1' and fecha < '$vfecha2' ";		
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
 	$vindice_final =  (mysql_result($query, 0, "indice"));
-	
+	print "fecha 1: ".$vfecha1."<br>";
+	print "fecha 2: ".$vfecha2."<br>";
+	print "1er indice:!!!!!".$vindice_final."<br>";
+
 	
 	// consulta 2 de 3 el mes inicial
 	$mes = date("m", strtotime($vfdesde));	

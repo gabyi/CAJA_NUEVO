@@ -58,7 +58,7 @@
     </div>
 
     <div id="prueba" class="col-md-2">
-        <a href="sucesiones.php">Costos de Sucesiones</a>
+        <a href="sucesiones.php">Presupuesto de Sucesiones</a>
     </div>
 
     <div id="prueba-last" class="col-md-2">       

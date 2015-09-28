@@ -60,7 +60,7 @@ include 'logo.php';
 
 	<div id="panel" class="panel panel-default">
   		<div class="panel-heading">
-        Presupuesto de Juicios
+        Cálculo de intereses
       </div>   		
   		
   		<div id="panel-cuerpo" class="panel-body">
@@ -76,8 +76,8 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-              
-                      <input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>
+            
+                       <input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>
                       
                     </div>
 

@@ -1,3 +1,43 @@
+@media print{
+        body{
+            height:600px;
+            }
+        #logo{
+            margin-top: -150px;
+            margin-bottom: -10px;
+            
+        }
+        .footer{
+            visibility: hidden;
+            height: 0px;
+               }
+        .navbar{
+            visibility:hidden;
+            height: 0px;
+        }
+        #noprint {
+            visibility: hidden;
+            height: 0px;
+        }
+        #printno{
+            visibility: hidden;
+            height: 0px;
+        }
+        .container{
+            height: 200px;
+        }
+        .table-striped{
+            width: 300px;
+        }
+        .col-sm-6{
+            width: 400px;
+            float: left;
+            margin-right: 10px;
+        }
+
+}
+
+
 BODY{
     background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
     background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
@@ -337,6 +377,15 @@ color: #FFF;
 }
 
 .tdmix{
+    padding-left: 10px;
     padding-right: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
+
+.mesTmix{
+    padding-left: 7px;
+    padding-right:7px;
+}
+
+/*===================================================================================================================================================================*/
+/*==========================================caldulo de intereses=====================================================================================================*/
