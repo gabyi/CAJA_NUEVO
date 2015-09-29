@@ -70,7 +70,7 @@ include 'logo.php';
 								<!-- Juicio input-->
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-4 col-md-4 control-label" for="bg1">
                       <h4>Bienes Gananciales</h4>
                     </div>
 
@@ -88,7 +88,7 @@ include 'logo.php';
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-4 col-md-4 control-label" for="bp1">
                       <h4>Bienes Propios</h4>
                     </div>
 

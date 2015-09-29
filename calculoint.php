@@ -20,6 +20,8 @@ session_start();
       include 'head2.php';
       include 'conexion.php';
       ?>
+      <!--mi estilo -->
+    <link href="css/mestilocalculo.css" rel="stylesheet">
   <title>Presupuesto de Sucesiones</title>
   </head>
 
@@ -58,77 +60,93 @@ include 'logo.php';
 
 <div class="container" style="margin-top: 80px;">
 
-	<div id="panel" class="panel panel-default">
+	<div id="" class="panel panel-default">
   		<div class="panel-heading">
-        Cálculo de intereses
+        C&aacute;lculo de intereses
       </div>   		
   		
-  		<div id="panel-cuerpo" class="panel-body">
+  		<div id="" class="panel-body">
     		<form name="form-sus" class="form-horizontal" method="post">
 
-<!-- =================================================================================================================================-->
+     <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-md-4">
-                      <h4>Bienes Gananciales</h4>
+                    <div class="col-md-3 col-sm-3 control-label" for="carat">
+                      <h4>Car&aacute;tula</h4>
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
             
-                       <input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>
+                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value='' required>
                       
                     </div>
 
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>Fecha C&aacute;lculo</h4>
+                    </div>
 
-                    <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bg2" name="bg2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
+                    <div class="col-sm-3 col-md-3">
+
+                      <input type="date" class="form-control" id="fachacalc" name="fechacalc" placeholder="" value="" required>
+
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-md-4">
-                      <h4>Bienes Propios</h4>
+                    <div class="col-sm-3 col-md-3 control-label" for="concep">
+                      <h4>Concepto</h4>
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp1" name="bp1" placeholder="En la Provincia de La Pampa" value="">
+                      <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="" required>
                     </div>
 
 
-                    <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp2" name="bp2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>Fecha Origen</h4>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">
+
+                      <input type="date" class="form-control" id="fechaorig" name="fechaorig" placeholder="" value="" required>
+
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-4 col-md-4">
-                      <div class="checkbox">
-                        <label><input type="checkbox" name="oficio"> Oficio Ley 22.172 </label>
-                      </div>
+                    <div class="col-sm-3 col-md-3 control-label" for="importe">
+                      <h4>Importe</h4>
                     </div>
 
-                    <div class="col-sm-4 col-md-4">
-                      <div class="radio">
-                        <label><input type="radio" value="1" name="sel" option="opcion1" checked> Act&uacute;a con poder (Apoderado) </label>
-                      </div>
-                    </div>
 
                     <div class="col-sm-4 col-md-4">
-                      <div class="radio">
-                        <label><input type="radio" value="2" name="sel" option="opcion2"> Act&uacute;a por derecho propio (Letrado) </label>
-                      </div>
+                      <input type="text" class="form-control" id="importe" name="importe" placeholder="" value="" required>
+                    </div>
+
+
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>M&eacute;todo de C&aacute;lculo</h4>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">                      
+
+                        <select name="programa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
+                            <option value="mix" selected="selected">Tasa Mix</option>
+                            <option value="bna">Activa BNA</option>
+                            <option value="blp">Activa BLP</option>
+                        </select>
+
                     </div>
                 </div>
-
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Sucesiones</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Intereses</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
-								</div>
+								  </div>
                 </div>
 
 						</form>
@@ -136,7 +154,7 @@ include 'logo.php';
 	</div>
 
 </div>
-
+</div>
 <?php
 
 include 'footer.php';
@@ -152,12 +170,14 @@ include 'footer1.php';
 function doSend()
 {
 
-  var bg1 = document.getElementById("bg1").value;
-  var bg2 = document.getElementById("bg2").value;
-  var bp1 = document.getElementById("bp1").value;
-  var bp2 = document.getElementById("bp2").value;
+  var carat = document.getElementById("carat").value;
+  var fachacalc = document.getElementById("fachacalc").value;
+  var concep = document.getElementById("concep").value;
+  var fechaorig = document.getElementById("fechaorig").value;
+  var importe = document.getElementById("importe").value;
+  var fechacalc = document.getElementById("fechacalc").value;
 
-if(bg1 == "" && bg2 == "")
+if(carat == "" && fachacalc == "")
 {
   var errorbg="";
 }else
@@ -186,14 +206,14 @@ if(errorbp != "" && errorbg != "")
 
 function control()
 {
-  var bg1 = document.getElementById("bg1").value;
-  var bg2 = document.getElementById("bg2").value;
+  var carat = document.getElementById("carat").value;
+  var fachacalc = document.getElementById("fachacalc").value;
   var bp1 = document.getElementById("bp1").value;
   var bp2 = document.getElementById("bp2").value;
   
 
-  var v1=parseInt(bg1);
-  var v2=parseInt(bg2);
+  var v1=parseInt(carat);
+  var v2=parseInt(fachacalc);
   var v3=parseInt(bp1);
   var v4=parseInt(bp2);
 
@@ -216,36 +236,10 @@ function control()
     {
       document.all.item("form-sus").action="tabla1.php";
     }else
-      document.all.item("form-sus").action="sucesiones.php";
+      document.all.item("form-sus").action="calculoint.php";
     }
     }
   }
 }
-
-var juicios = [
-<?php
-
-$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
-$result=mysql_query($consulta, $conexion);
-$n= mysql_num_rows($result);
-$i=0;
-
-
-  for($i;$i<=$n;$i++)
-  {
-    $fila= mysql_fetch_array($result);
-    if($fila["materia"]!="")
-    {
-
-      print ('"'.$fila["materia"].'",');
-     }
-  }
-?>
-
-];
-$( "#juicio" ).autocomplete({
-  source: juicios
-});
-
 
 </script>

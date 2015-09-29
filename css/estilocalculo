@@ -1,0 +1,44 @@
+@media print{
+        body{
+            height:600px;
+            }
+        #logo{
+            margin-top: -150px;
+            margin-bottom: -10px;
+            
+        }
+        .footer{
+            visibility: hidden;
+            height: 0px;
+               }
+
+        .navbar{
+            visibility:hidden;
+            height: 0px;
+        }
+        #noprint {
+            visibility: hidden;
+            height: 0px;
+        }
+        #printno{
+            visibility: hidden;
+            height: 0px;
+        }
+        .container{
+            height: 200px;
+        }
+        .table-striped{
+            width: 300px;
+        }
+        .col-sm-6{
+            width: 400px;
+            float: left;
+            margin-right: 10px;
+        }
+
+}
+
+#tasalist
+{
+    font-family: CajaFont;
+}

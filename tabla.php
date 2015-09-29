@@ -410,6 +410,7 @@ include 'logo.php';
 
 </body>
 
+<div id="printno">
 <?php
 include 'footer.php';
 include 'footer1.php';
@@ -418,6 +419,7 @@ include 'footer1.php';
 }/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
+</div>
   </html>
 <script type="text/javascript">
 var juicios = [
