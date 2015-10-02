@@ -22,6 +22,11 @@ session_start();
       ?>
       <!--mi estilo -->
     <link href="css/mestilocalculo.css" rel="stylesheet">
+
+    <!--script para validar las fechas y los valores numericos-->
+
+    <script scr="js/validar_interes.js" type="text/javascript"></script>
+
   <title>Presupuesto de Sucesiones</title>
   </head>
 
@@ -66,7 +71,7 @@ include 'logo.php';
       </div>   		
   		
   		<div id="" class="panel-body">
-    		<form name="form-sus" class="form-horizontal" method="post">
+    		<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">
 
      <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -79,7 +84,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
             
-                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value='' required>
+                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=''>
                       
                     </div>
 
@@ -89,7 +94,7 @@ include 'logo.php';
 
                     <div class="col-sm-3 col-md-3">
 
-                      <input type="date" class="form-control" id="fachacalc" name="fechacalc" placeholder="" value="" required>
+                      <input type="date" class="form-control" id="fachacalc" name="fechacalc" placeholder="dd/mm/aaaa" value="">
 
                     </div>
                 </div>
@@ -101,7 +106,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="">
                     </div>
 
 
@@ -111,7 +116,7 @@ include 'logo.php';
 
                     <div class="col-sm-3 col-md-3">
 
-                      <input type="date" class="form-control" id="fechaorig" name="fechaorig" placeholder="" value="" required>
+                      <input type="date" class="form-control" id="fechaorig" name="fechaorig" placeholder="dd/mm/aaaa" value="">
 
                     </div>
                 </div>
@@ -123,7 +128,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="importe" name="importe" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="importe" name="importe" placeholder="" value="">
                     </div>
 
 
@@ -135,8 +140,8 @@ include 'logo.php';
 
                         <select name="programa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="mix" selected="selected">Tasa Mix</option>
-                            <option value="bna">Activa BNA</option>
-                            <option value="blp">Activa BLP</option>
+                            <!--<option value="bna">Activa BNA</option>
+                            <option value="blp">Activa BLP</option> -->
                         </select>
 
                     </div>
@@ -144,7 +149,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Intereses</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick="control()">Calcular Intereses</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -165,81 +170,106 @@ include 'footer1.php';
   </body>
   </html>
 
-<script type="text/javascript">
+<script language = "Javascript">
 
-function doSend()
-{
+/**
+ * DHTML date validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/datevalidation.asp)
+ */
+// Declaring valid date character, minimum year and maximum year
+var dtCh= "/";
+var minYear=1900;
+var maxYear=2100;
 
-  var carat = document.getElementById("carat").value;
-  var fachacalc = document.getElementById("fachacalc").value;
-  var concep = document.getElementById("concep").value;
-  var fechaorig = document.getElementById("fechaorig").value;
-  var importe = document.getElementById("importe").value;
-  var fechacalc = document.getElementById("fechacalc").value;
-
-if(carat == "" && fachacalc == "")
-{
-  var errorbg="";
-}else
-{
-  var errorbg="TRUE";
-}
-
-if(bp1 == "" && bp2 == "")
-{
-  var errorbp="";
-}else
-{
-  var errorbp="TRUE";
-}
-
-var numero= control();
-
-if(errorbp != "" && errorbg != "")
-{
-  control();
-  //document.all.item("form-sus").action="tabla1.php";
-  //document.all.item("form-sus").action="sucesiones.php";
-}
-
-}
-
-function control()
-{
-  var carat = document.getElementById("carat").value;
-  var fachacalc = document.getElementById("fachacalc").value;
-  var bp1 = document.getElementById("bp1").value;
-  var bp2 = document.getElementById("bp2").value;
-  
-
-  var v1=parseInt(carat);
-  var v2=parseInt(fachacalc);
-  var v3=parseInt(bp1);
-  var v4=parseInt(bp2);
-
-  if(!isNaN(v1))
-  {
-    document.all.item("form-sus").action="tabla1.php";
-  }else
-  {
-    if(!isNaN(v2))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-    {
-      if(!isNaN(v3))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-    {
-      if(!isNaN(v4))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-      document.all.item("form-sus").action="calculoint.php";
+function isInteger(s){
+  var i;
+    for (i = 0; i < s.length; i++){   
+        // Check that current character is number.
+        var c = s.charAt(i);
+        if (((c < "0") || (c > "9"))) return false;
     }
+    // All characters are numbers.
+    return true;
+}
+
+function stripCharsInBag(s, bag){
+  var i;
+    var returnString = "";
+    // Search through string's characters one by one.
+    // If character is not in bag, append to returnString.
+    for (i = 0; i < s.length; i++){   
+        var c = s.charAt(i);
+        if (bag.indexOf(c) == -1) returnString += c;
     }
+    return returnString;
+}
+
+function daysInFebruary (year){
+  // February has 29 days in any year evenly divisible by four,
+    // EXCEPT for centurial years which are not also divisible by 400.
+    return (((year % 4 == 0) && ( (!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28 );
+}
+function DaysArray(n) {
+  for (var i = 1; i <= n; i++) {
+    this[i] = 31
+    if (i==4 || i==6 || i==9 || i==11) {this[i] = 30}
+    if (i==2) {this[i] = 29}
+   } 
+   return this
+}
+
+function isDate(dtStr){
+  var daysInMonth = DaysArray(12)
+  var pos1=dtStr.indexOf(dtCh)
+  var pos2=dtStr.indexOf(dtCh,pos1+1)
+  var strDay=dtStr.substring(0,pos1)
+  var strMonth=dtStr.substring(pos1+1,pos2)
+  var strYear=dtStr.substring(pos2+1)
+  strYr=strYear
+  if (strDay.charAt(0)=="0" && strDay.length>1) strDay=strDay.substring(1)
+  if (strMonth.charAt(0)=="0" && strMonth.length>1) strMonth=strMonth.substring(1)
+  for (var i = 1; i <= 3; i++) {
+    if (strYr.charAt(0)=="0" && strYr.length>1) strYr=strYr.substring(1)
   }
+  month=parseInt(strMonth)
+  day=parseInt(strDay)
+  year=parseInt(strYr)
+  if (pos1==-1 || pos2==-1){
+    alert("The date format should be : dd/mm/yyyy")
+    return false
+  }
+  if (strMonth.length<1 || month<1 || month>12){
+    alert("Por favor ingrese un mes valido")
+    return false
+  }
+  if (strDay.length<1 || day<1 || day>31 || (month==2 && day>daysInFebruary(year)) || day > daysInMonth[month]){
+    alert("Por favor ingrese un dia valido")
+    return false
+  }
+  if (strYear.length != 4 || year==0 || year<minYear || year>maxYear){
+    alert("El año debe ser entre "+minYear+" y "+maxYear)
+    return false
+  }
+  if (dtStr.indexOf(dtCh,pos2+1)!=-1 || isInteger(stripCharsInBag(dtStr, dtCh))==false){
+    alert("Por favor ingrese una fecha valida")
+    return false
+  }
+return true
 }
+
+function ValidateForm(){
+  var dt=document.frmSample.fechaorig
+  if (isDate(dt.value)==false){
+    dt.focus()
+    return false
+  }
+    return true
+    
+ }
+
+ function control(){
+  if(ValidateForm()){
+    alert("EXITOOOOOOOOOOOOOOOOOOOOOOOOO");
+  }
+ }
 
 </script>
