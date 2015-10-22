@@ -234,7 +234,7 @@ function isDate(dtStr){
   day=parseInt(strDay)
   year=parseInt(strYr)
   if (pos1==-1 || pos2==-1){
-    alert("The date format should be : dd/mm/yyyy")
+    alert("La fecha deberia ser del formato : dd/mm/yyyy")
     return false
   }
   if (strMonth.length<1 || month<1 || month>12){
@@ -267,8 +267,9 @@ function ValidateForm(){
  }
 
  function control(){
-  if(ValidateForm()){
-    alert("EXITOOOOOOOOOOOOOOOOOOOOOOOOO");
+  if(ValidateForm())
+  {
+   document.all.item("form-sus").action="calculoint.php";
   }
  }
 
