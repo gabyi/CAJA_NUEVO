@@ -44,24 +44,28 @@ if(isset($calcular))
           $filaMinimos= mysql_fetch_array($consultaMinimos);
         }
       $fila= mysql_fetch_array($consulta);
-      $bono_ley= $fila ['bono_ley'];
+      if ($fila['bono_ley']!=0.00)
+        {
+          $bono_ley= $filaMinimos['bono_ley'];
+         }
+      
 
       //Verificacion de valores de aportes
 
-      if($fila ['caja_inicio_ap_porc'] == '' && $fila ['caja_inicio_aporte'] == '' )
+      if($fila ['caja_inicio_ap_porc'] == 0.00 && $fila ['caja_inicio_aporte'] == 0.00 )
       {
-        $caja_inicio_ap_porc='';
-        $controlAporte= '';
+        $caja_inicio_ap_porc=0.00;
+        $controlAporte= 0.00;
       }else
       {
-        if($fila ['caja_inicio_ap_porc'] != '' && $fila ['caja_inicio_aporte'] == '' )
+        if($fila ['caja_inicio_ap_porc'] != 0.00 && $fila ['caja_inicio_aporte'] == 0.00 )
       {
         $caja_inicio_ap_porc=$fila ['caja_inicio_ap_porc'];
         $caja_inicio_aporte= verifica ($monto,$caja_inicio_ap_porc,$filaMinimos ['caja_min_aporte']);
         $controlAporte=2;
       }else
         {
-          if($fila ['caja_inicio_ap_porc'] == '' && $fila ['caja_inicio_aporte'] != '' )
+          if($fila ['caja_inicio_ap_porc'] == 0.00 && $fila ['caja_inicio_aporte'] != 0.00 )
           {
             $caja_inicio_aporte= $filaMinimos ['caja_min_aporte'];
             $controlAporte=1;
@@ -71,20 +75,20 @@ if(isset($calcular))
       
       //Verificacion de valores de contribuciones
       
-      if($fila ['caja_inicio_cont_porc'] == '' && $fila ['caja_inicio_cont'] == '' )
+      if($fila ['caja_inicio_cont_porc'] == 0.00 && $fila ['caja_inicio_cont'] == 0.00)
       {
-        $caja_inicio_cont='';
-        $controlCont= '';
+        $caja_inicio_cont=0.00;
+        $controlCont= 0.00;
       }else
       {
-        if($fila ['caja_inicio_cont_porc'] != '' && $fila ['caja_inicio_cont'] == '' )
+        if($fila ['caja_inicio_cont_porc'] != 0.00 && $fila ['caja_inicio_cont'] == 0.00)
       {
         $caja_inicio_cont_porc =$fila ['caja_inicio_cont_porc'];
         $caja_inicio_cont= verifica ($monto,$caja_inicio_cont_porc,$filaMinimos ['caja_min_cont']);
         $controlCont=2;
       }else
         {
-          if($fila ['caja_inicio_cont_porc'] == '' && $fila ['caja_inicio_cont'] != '' )
+          if($fila ['caja_inicio_cont_porc'] == 0.00 && $fila ['caja_inicio_cont'] != 0.00 )
           {
             $caja_inicio_cont= $filaMinimos ['caja_min_cont'];
             $controlCont=1;
@@ -95,14 +99,7 @@ if(isset($calcular))
       
       $sumaCForense= $caja_inicio_aporte + $caja_inicio_cont + $bono_ley;
 
-      //redondeo aportes a 2 decimales
-      $caja_inicio_aporte=number_format($caja_inicio_aporte, 2);
-
-      //redondeo contibuciones a 2 decimales
-      $caja_inicio_cont=number_format($caja_inicio_cont, 2);
-
-      //redondeo suma de aportes y contribuciones a 2 decimales
-      $sumaCForense= number_format($sumaCForense, 2);
+      
 
       // valores rentas inicio
 
@@ -120,11 +117,8 @@ if(isset($calcular))
          $rentas_inicio_tasa_variable= verifica ($monto, $fila ['rentas_inicio_tvariable'], $filaMinimos ['rentas_minimo']);
       }
 
-      $rentas_inicio_tasa_variable= number_format($rentas_inicio_tasa_variable,2);
-
       $sumaDGR=$rentas_inicio_general+$rentas_inicio_tasa_variable+$rentas_inicio_tfija;
 
-      $sumaDGR=number_format($sumaDGR, 2);
 
       //total de inicio
 
@@ -134,7 +128,7 @@ if(isset($calcular))
 
       //Verifico que haya valores para
 
-      if($fila ['caja_fin_aportes']!= '')
+      if($fila ['caja_fin_aportes']!= 0.00)
       {
         $caja_fin_aportes=$fila['caja_fin_aportes'];
         $caja_fin_aportes=number_format($caja_fin_aportes,2);
@@ -151,7 +145,7 @@ if(isset($calcular))
         }
       }
 
-      if($fila ['caja_fin_cont'] != '')
+      if($fila ['caja_fin_cont'] != 0.00)
       {
         $caja_fin_cont= $filaMinimos ['caja_min_cont'];
       }else
@@ -167,6 +161,24 @@ if(isset($calcular))
       $sumaFinCajaForense= $caja_fin_aportes+$caja_fin_cont;
       $sumaFinCajaForense= number_format($sumaFinCajaForense, 2);
       $sumaFinalJuicio=$sumaFinCajaForense;
+
+      //se hacen los redondeos a lo ultimo de todas las sumas ya que sino las comas que agrega el number_format alteran el esultado final
+
+      //redondeos de inicio de caja
+      //redondeo aportes a 2 decimales
+      $caja_inicio_aporte=number_format($caja_inicio_aporte, 2);
+
+      //redondeo contibuciones a 2 decimales
+      $caja_inicio_cont=number_format($caja_inicio_cont, 2);
+
+      //redondeo suma de aportes y contribuciones a 2 decimales
+      $sumaCForense= number_format($sumaCForense, 2);
+
+      //redondeo e tasas de DGR
+      $rentas_inicio_tasa_variable= number_format($rentas_inicio_tasa_variable,2);
+
+      //redondeo de suma de DGR 
+      $sumaDGR=number_format($sumaDGR, 2);
 
   ?>
   <body>
@@ -309,7 +321,7 @@ include 'logo.php';
           print "<tr><td>Tasa Especial Fija</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tfija."</td></tr>";
         }
 
-        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Rentas: </th>
           <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";
         print "</table>";
       }

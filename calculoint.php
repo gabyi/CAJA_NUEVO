@@ -269,7 +269,7 @@ function ValidateForm(){
  function control(){
   if(ValidateForm())
   {
-   document.all.item("form-sus").action="calculoint.php";
+   document.all.item("form-sus").action="tabla2.php";
   }
  }
 
