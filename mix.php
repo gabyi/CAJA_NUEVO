@@ -48,6 +48,7 @@ if (!isset($boton)) {
 <? 
 }else{
 	include("conexion.php");
+
 	// realiza la consulta toma las variables del formulario
 	$vfdesde =$_REQUEST["vfdesde"]; 
 	$vfhasta= $_REQUEST["vfhasta"];
@@ -55,37 +56,52 @@ if (!isset($boton)) {
 	// incremente 1 mes para calcular los indices entre las 2 fechas
 	list($dia, $mes, $año)=split('[/.-]',$vfdesde);
 	list($dia1, $mes1, $año1)=split('[/.-]',$vfhasta);
+	$vfecha0=$año."-".$mes."-".$dia;
 	if ($mes == 12) {
 		$mes = 1;
 		$año ++;
 	}else {
 		$mes ++;
 	}
+
+	if($mes<10)
+		$mes="0".$mes;
+
 	$vfecha1 = $año."-".$mes."-".$dia;
 	$vfecha2 = $año1."-".$mes1."-".$dia1;
-	// realiza la consulta 1 de 3
-	$consulta="select sum(indice) as indice from tmix where fecha > '".$vfecha1."' and fecha < '".$vfecha2."' ";		
-	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
-	$vindice_final =  (mysql_result($query, 0, "indice"));
 	print "fecha 1: ".$vfecha1."<br>";
 	print "fecha 2: ".$vfecha2."<br>";
-	
+
+	// realiza la consulta 1 de 3
+	$consulta="select sum(indice) as indice from tmix where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha <= '".date("Y-m-d", strtotime($vfecha2))."' ";		
+	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
+	$fila= mysql_fetch_array($query);
+	$vindice_final =  $fila["indice"];
+	print "fecha 1: ".$vfecha0."<br>";
+	print "fecha 2: ".$vfecha2."<br>";
+	print "primer indice: ".$vindice_final."<br>";
+
 	// consulta 2 de 3 el mes inicial
-	$mes = date("m", strtotime($vfdesde));	
-	$año = date("Y", strtotime($vfdesde));
+
 	$consulta="select indice from tmix where MONTH(fecha) = '".$mes."' AND YEAR(fecha) = '".$año."' ";	
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
-		
+
+/*	print "Dia :".$dia."<br>";
+	print "Mes :".$mes."<br>";
+	print "Ano :".$año."<br>";
+*/		
+	$fila= mysql_fetch_array($query);
 	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes, $año);	
-	$vindice_final =  $vindice_final + (mysql_result($query, 0, "indice")/$numeroDias* ($numeroDias-$dia+1));
+	$vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia+1));
 	
 	// consulta 3 de 3 el mes final
 
 	
 	$consulta="select indice from tmix where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";	
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
-	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);	
-	$vindice_final =  round($vindice_final + ((mysql_result($query, 0, "indice")/$numeroDias* $dia1)),2);
+	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
+	$fila=	mysql_fetch_array($query);
+	$vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
 	print $vindice_final;
 }
  ?>
