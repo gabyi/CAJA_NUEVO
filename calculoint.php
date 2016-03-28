@@ -13,7 +13,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
      <?php
@@ -65,19 +65,22 @@ include 'logo.php';
 
 <div class="container" style="margin-top: 80px;">
 
+  <div class="row">
+
 	<div id="" class="panel panel-default">
   		<div class="panel-heading">
         C&aacute;lculo de intereses
       </div>   		
   		
   		<div id="" class="panel-body">
-    		<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">
-
+    	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
+      
+        <form name="frmSample" class="form-horizontal" method="post" action="tabla2.php">
      <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
                 <div class="form-group">
-                    <div class="col-md-3 col-sm-3 control-label" for="carat">
+                    <div class="col-md-2 col-sm-2 control-label" for="carat">
                       <h4>Car&aacute;tula</h4>
                     </div>
 
@@ -88,19 +91,22 @@ include 'logo.php';
                       
                     </div>
 
+
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
                       <h4>Fecha C&aacute;lculo</h4>
                     </div>
 
-                    <div class="col-sm-3 col-md-3">
+                    <div class="col-sm-4 col-md-4">
 
                       <input type="date" class="form-control" id="fachacalc" name="fechacalc" placeholder="dd/mm/aaaa" value="">
 
                     </div>
                 </div>
 
+                
+
                 <div class="form-group">
-                    <div class="col-sm-3 col-md-3 control-label" for="concep">
+                    <div class="col-sm-2 col-md-2 control-label" for="concep">
                       <h4>Concepto</h4>
                     </div>
 
@@ -114,7 +120,7 @@ include 'logo.php';
                       <h4>Fecha Origen</h4>
                     </div>
 
-                    <div class="col-sm-3 col-md-3">
+                    <div class="col-sm-4 col-md-4">
 
                       <input type="date" class="form-control" id="fechaorig" name="fechaorig" placeholder="dd/mm/aaaa" value="">
 
@@ -122,7 +128,7 @@ include 'logo.php';
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-3 col-md-3 control-label" for="importe">
+                    <div class="col-sm-2 col-md-2 control-label" for="importe">
                       <h4>Importe</h4>
                     </div>
 
@@ -136,7 +142,7 @@ include 'logo.php';
                       <h4>M&eacute;todo de C&aacute;lculo</h4>
                     </div>
 
-                    <div class="col-sm-3 col-md-3">                      
+                    <div class="col-sm-4 col-md-4">                      
 
                         <select name="programa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="mix" selected="selected">Tasa Mix</option>
@@ -155,11 +161,63 @@ include 'logo.php';
                 </div>
 
 						</form>
+
   		</div>
+
 	</div>
+</div>
+
+<div class="row">
+  <div id="" class="panel panel-default">
+      <div class="panel-heading">
+        Tabla de C&aacute;lculo
+      </div>      
+      
+      <div id="" class="panel-body">
+       <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
+        <table class="table table-hover">
+          <thead>
+            <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table
+       
+        <div class="form-group">
+                  <div class="col-sm-12 col-md-12" style="text-align:center;">
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="">Imprimir</button>
+                  <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
+                  </div>
+                </div>     
+
+  </div>
+</div>
 
 </div>
-</div>
+
 <?php
 
 include 'footer.php';
@@ -174,7 +232,7 @@ include 'footer1.php';
 
 /**
  * DHTML date validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/datevalidation.asp)
- */
+ 
 // Declaring valid date character, minimum year and maximum year
 var dtCh= "/";
 var minYear=1900;
@@ -272,5 +330,5 @@ function ValidateForm(){
    document.all.item("form-sus").action="tabla2.php";
   }
  }
-
+*/
 </script>
