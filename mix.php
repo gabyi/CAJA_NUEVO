@@ -34,13 +34,13 @@ if (!isset($boton)) {
 <form method= "post" role="form" action="mix.php">
   <div class="form-group">
     <label>Fecha de Inicio</label>
-    <input type="date" class="form-control" name="vfdesde" placeholder="Fecha Inicio" required>
+    <input type="text" class="form-control" name="vfdesde" placeholder="Fecha Inicio" required>
     <br>
 	<label>Fecha Final</label>
-    <input type="date" class="form-control" name="vfhasta" placeholder="Fecha Fin" required>
+    <input type="text" class="form-control" name="vfhasta" placeholder="Fecha Fin" required>
 	<br>
 	<label>Monto a Actualizar</label>
-    <input type="number" class="form-control" name="vmonto" placeholder="Monto Actualizar" required>
+    <input type="text" class="form-control" name="vmonto" placeholder="Monto Actualizar" required>
   </div>
   <button type="submit" name="boton" class="btn btn-default">Calcular</button>
 </form>
@@ -54,18 +54,21 @@ if (!isset($boton)) {
 	$vfhasta= $_REQUEST["vfhasta"];
 	$vmonto = $_REQUEST["vmonto"];
 	// incremente 1 mes para calcular los indices entre las 2 fechas
-	list($dia, $mes, $año)=split('[/.-]',$vfdesde);
+	list($dia0, $mes0, $año0)=split('[/.-]',$vfdesde);
 	list($dia1, $mes1, $año1)=split('[/.-]',$vfhasta);
-	$vfecha0=$año."-".$mes."-".$dia;
-	if ($mes == 12) {
+	$vfecha0=$año0."-".$mes0."-".$dia0;
+	$dia=$dia0;
+	$mes=$mes0;
+	$año=$año0;
+	if ($mes0 == 12) {
 		$mes = 1;
 		$año ++;
 	}else {
 		$mes ++;
 	}
 
-	if($mes<10)
-		$mes="0".$mes;
+	if($mes0<10)
+		$mes="0".$mes0;
 
 	$vfecha1 = $año."-".$mes."-".$dia;
 	$vfecha2 = $año1."-".$mes1."-".$dia1;
@@ -83,7 +86,7 @@ if (!isset($boton)) {
 
 	// consulta 2 de 3 el mes inicial
 
-	$consulta="select indice from tmix where MONTH(fecha) = '".$mes."' AND YEAR(fecha) = '".$año."' ";	
+	$consulta="select indice from tmix where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";	
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
 
 /*	print "Dia :".$dia."<br>";
@@ -91,8 +94,9 @@ if (!isset($boton)) {
 	print "Ano :".$año."<br>";
 */		
 	$fila= mysql_fetch_array($query);
-	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes, $año);	
-	$vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia+1));
+	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);	
+	$vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
+	print "segundo indice: ".$vindice_final."<br>";
 	
 	// consulta 3 de 3 el mes final
 
