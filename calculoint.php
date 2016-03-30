@@ -23,9 +23,15 @@ session_start();
       <!--mi estilo -->
     <link href="css/mestilocalculo.css" rel="stylesheet">
 
-    <!--script para validar las fechas y los valores numericos-->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  
 
-    <script scr="js/validar_interes.js" type="text/javascript"></script>
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
   <title>Presupuesto de Sucesiones</title>
   </head>
@@ -98,7 +104,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input type="date" class="form-control" id="fachacalc" name="fechacalc" placeholder="dd/mm/aaaa" value="">
+                      <input type="text" class="form-control" id="fechacalc" name="fechacalc" placeholder="dd/mm/aaaa" value="">  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
                 </div>
@@ -122,7 +128,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input type="date" class="form-control" id="fechaorig" name="fechaorig" placeholder="dd/mm/aaaa" value="">
+                      <input type="text" class="form-control" id="fechaorig" name="fechaorig" placeholder="dd/mm/aaaa" value="">  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -331,4 +337,15 @@ function ValidateForm(){
   }
  }
 */
+
+
+    $(function() {
+    $( "#fechacalc" ).datepicker();
+    $( "#fechaorig" ).datepicker();
+  });
+
+
+  
+
+  </script>
 </script>
