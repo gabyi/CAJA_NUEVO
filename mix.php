@@ -29,18 +29,26 @@ if (!isset($boton)) {
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+
+    <!--PARA EL DATEPICKER-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+   </head>
 <body>
 <form method= "post" role="form" action="mix.php">
   <div class="form-group">
     <label>Fecha de Inicio</label>
-    <input type="text" class="form-control" name="vfdesde" placeholder="Fecha Inicio" required>
+    <input class="form-control" id="datepicker1" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>
     <br>
 	<label>Fecha Final</label>
-    <input type="text" class="form-control" name="vfhasta" placeholder="Fecha Fin" required>
+    <input class="form-control" id="datepicker2" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" disabled/>
 	<br>
 	<label>Monto a Actualizar</label>
-    <input type="text" class="form-control" name="vmonto" placeholder="Monto Actualizar" required>
+    <input type="number" class="form-control" name="vmonto" placeholder="Monto Actualizar" required>
   </div>
   <button type="submit" name="boton" class="btn btn-default">Calcular</button>
 </form>
@@ -109,3 +117,43 @@ if (!isset($boton)) {
 	print $vindice_final;
 }
  ?>
+ <script type="text/javascript">
+$("#datepicker1").datepicker();
+$("#datepicker2").datepicker();
+
+$("#datepicker1").change(function() {
+  if ($("#datepicker1").datepicker("getDate") !== null) {
+    $("#datepicker2").val('');
+    $("#datepicker2").prop('disabled', false);
+  } else {
+    $("#datepicker2").prop('disabled', true);
+  }
+});
+
+$('#borrar').click(function() {
+  $("#datepicker1").val('');
+  $("#datepicker2").val('');
+
+});
+
+$(function($){
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+dateFormat: "dd/mm/yyyy",
+prevText: '',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});
+</script>
