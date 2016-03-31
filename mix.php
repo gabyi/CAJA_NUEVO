@@ -75,8 +75,6 @@ if (!isset($boton)) {
 		$mes ++;
 	}
 
-	if($mes0<10)
-		$mes="0".$mes0;
 
 	$vfecha1 = $año."-".$mes."-".$dia;
 	$vfecha2 = $año1."-".$mes1."-".$dia1;
@@ -84,7 +82,7 @@ if (!isset($boton)) {
 	print "fecha 2: ".$vfecha2."<br>";
 
 	// realiza la consulta 1 de 3
-	$consulta="select sum(indice) as indice from tmix where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha <= '".date("Y-m-d", strtotime($vfecha2))."' ";		
+	$consulta="select sum(indice) as indice from tmix where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha < '".date("Y-m-d", strtotime($vfecha2))."' ";		
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
 	$fila= mysql_fetch_array($query);
 	$vindice_final =  $fila["indice"];
@@ -97,10 +95,7 @@ if (!isset($boton)) {
 	$consulta="select indice from tmix where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";	
 	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta");	
 
-/*	print "Dia :".$dia."<br>";
-	print "Mes :".$mes."<br>";
-	print "Ano :".$año."<br>";
-*/		
+	
 	$fila= mysql_fetch_array($query);
 	$numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);	
 	$vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
