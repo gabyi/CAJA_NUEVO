@@ -14,7 +14,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="es">
-
+<meta charset="utf-8">
   <head>
      <?php
       include 'head2.php';
@@ -29,9 +29,11 @@ session_start();
   <link rel="stylesheet" href="css/style.css">
   
 
-  <link href="css/jquery-ui.css" rel="stylesheet">
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<!--PARA EL DATEPICKER-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 
   <title>Presupuesto de Sucesiones</title>
   </head>
@@ -81,7 +83,7 @@ include 'logo.php';
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
       
-        <form name="frmSample" class="form-horizontal" method="post" action="tabla2.php">
+        <form name="frmSample" class="form-horizontal" method="post" action="">
      <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
@@ -104,7 +106,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input type="text" class="form-control" id="fechacalc" name="fechacalc" placeholder="dd/mm/aaaa" value="">  <!--FECHA PARA EL CALCULO ORIGEN-->
+                     <input class="form-control" id="datepicker2" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" disabled/>  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
                 </div>
@@ -128,7 +130,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input type="text" class="form-control" id="fechaorig" name="fechaorig" placeholder="dd/mm/aaaa" value="">  <!--FECHA PARA EL CALCULO FIN-->
+                      <input class="form-control" id="datepicker1" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -329,14 +331,20 @@ function ValidateForm(){
     return true
     
  }
+*/
 
  function control(){
-  if(ValidateForm())
-  {
-   document.all.item("form-sus").action="tabla2.php";
-  }
+
+  var fech0= document.getElementById("datepicker2").value;
+  var fech1=document.getElementById("datepicker1").value;
+
+  if(fech0>fech1)
+    document.all.item("form-sus").action="calculoint.php";
+  else
+    alert ("La fecha de cálculo tiene que ser mayor a la fecha de origen");
+
  }
-*/
+
 
 
     $(function() {
@@ -347,5 +355,46 @@ function ValidateForm(){
 
   
 
-  </script>
+
+$("#datepicker1").datepicker();
+$("#datepicker2").datepicker();
+
+$("#datepicker1").change(function() {
+  if ($("#datepicker1").datepicker("getDate") !== null) {
+    $("#datepicker2").val('');
+    $("#datepicker2").prop('disabled', false);
+  } else {
+    $("#datepicker2").prop('disabled', true);
+  }
+});
+
+$('#borrar').click(function() {
+  $("#datepicker1").val('');
+  $("#datepicker2").val('');
+
+});
+
+$(function($){
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+dateFormat: "dd/mm/yyyy",
+prevText: '',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});
+
+
+
 </script>
