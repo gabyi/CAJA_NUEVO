@@ -152,10 +152,10 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">                      
 
-                        <select name="programa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
-                            <option value="mix" selected="selected">Tasa Mix</option>
-                            <!--<option value="bna">Activa BNA</option>
-                            <option value="blp">Activa BLP</option> -->
+                        <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
+                            <option value="tmix" selected="selected">Tasa Mix</option>
+                            <option value="bna">Activa BNA</option>
+                            <option value="blp">Activa BLP</option>
                         </select>
 
                     </div>
@@ -163,7 +163,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick="control()">Calcular Intereses</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onclick="control()">Calcular Intereses</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -231,6 +231,68 @@ include 'logo.php';
 include 'footer.php';
 include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
+
+if(isset($calcular))
+  {
+  include("conexion.php");
+
+  // realiza la consulta toma las variables del formulario
+  $vfdesde =$_REQUEST["vfdesde"]; 
+  $vfhasta= $_REQUEST["vfhasta"];
+  $vmonto = $_REQUEST["vmonto"];
+  $tasa= $_REQUEST["tasa"];
+
+  print $tasa;
+  // incremente 1 mes para calcular los indices entre las 2 fechas
+  list($dia0, $mes0, $año0)=split('[/.-]',$vfdesde);
+  list($dia1, $mes1, $año1)=split('[/.-]',$vfhasta);
+  $vfecha0=$año0."-".$mes0."-".$dia0;
+  $dia=$dia0;
+  $mes=$mes0;
+  $año=$año0;
+  if ($mes0 == 12) {
+    $mes = 1;
+    $año ++;
+  }else {
+    $mes ++;
+  }
+
+
+  $vfecha1 = $año."-".$mes."-".$dia;
+  $vfecha2 = $año1."-".$mes1."-".$dia1;
+  print "fecha 1: ".$vfecha1."<br>";
+  print "fecha 2: ".$vfecha2."<br>";
+
+  // realiza la consulta 1 de 3
+  $consulta="select sum(indice) as indice from tmix where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha < '".date("Y-m-d", strtotime($vfecha2))."' ";   
+  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+  $fila= mysql_fetch_array($query);
+  $vindice_final =  $fila["indice"];
+  print "fecha 1: ".$vfecha0."<br>";
+  print "fecha 2: ".$vfecha2."<br>";
+  print "primer indice: ".$vindice_final."<br>";
+
+  // consulta 2 de 3 el mes inicial
+
+  $consulta="select indice from tmix where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
+  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+
+  
+  $fila= mysql_fetch_array($query);
+  $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0); 
+  $vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
+  print "segundo indice: ".$vindice_final."<br>";
+  
+  // consulta 3 de 3 el mes final
+
+  
+  $consulta="select indice from tmix where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";  
+  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+  $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
+  $fila=  mysql_fetch_array($query);
+  $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
+  print $vindice_final;
+}
 
 ?>
   </body>
@@ -346,33 +408,39 @@ function ValidateForm(){
  }
 
 
-
-    $(function() {
-    $( "#fechacalc" ).datepicker();
-    $( "#fechaorig" ).datepicker();
-  });
+//$("#datepicker1").datepicker();
+//$("#datepicker2").datepicker();
 
 
-  
+    $("#datepicker1").datepicker({
+        onSelect: function() {      
+          var minDate = $(this).datepicker('getDate');
+          minDate.setDate(minDate.getDate()+1);
+          $("#datepicker2").datepicker("option","minDate", minDate);
+          $("#datepicker2").val('');
+          $("#datepicker2").prop('disabled', false);
+        }
+    });
 
-
-$("#datepicker1").datepicker();
-$("#datepicker2").datepicker();
-
+    $("#datepicker2").datepicker();  
+/*
 $("#datepicker1").change(function() {
+
   if ($("#datepicker1").datepicker("getDate") !== null) {
     $("#datepicker2").val('');
     $("#datepicker2").prop('disabled', false);
   } else {
     $("#datepicker2").prop('disabled', true);
   }
-});
+
+});*/
 
 $('#borrar').click(function() {
   $("#datepicker1").val('');
   $("#datepicker2").val('');
 
 });
+
 
 $(function($){
 $.datepicker.regional['es'] = {
@@ -394,7 +462,6 @@ yearSuffix: ''
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 });
-
 
 
 </script>
