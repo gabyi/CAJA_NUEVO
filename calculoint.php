@@ -23,16 +23,13 @@ session_start();
       <!--mi estilo -->
     <link href="css/mestilocalculo.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+
   
 
 <!--PARA EL DATEPICKER-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
 
   <title>Presupuesto de Sucesiones</title>
@@ -266,7 +263,6 @@ if(isset($calcular))
 
   // realiza la consulta toma las variables del formulario
 
-  print $tasa;
   // incremente 1 mes para calcular los indices entre las 2 fechas
   list($dia0, $mes0, $año0)=split('[/.-]',$vfdesde);
   list($dia1, $mes1, $año1)=split('[/.-]',$vfhasta);
@@ -274,6 +270,7 @@ if(isset($calcular))
   $dia=$dia0;
   $mes=$mes0;
   $año=$año0;
+
   if ($mes0 == 12) {
     $mes = 1;
     $año ++;
@@ -284,40 +281,45 @@ if(isset($calcular))
 
   $vfecha1 = $año."-".$mes."-".$dia;
   $vfecha2 = $año1."-".$mes1."-".$dia1;
-  print "fecha 1: ".$vfecha1."<br>";
-  print "fecha 2: ".$vfecha2."<br>";
+  
 
-  // realiza la consulta 1 de 3
-  $consulta="select sum(indice) as indice from ".$tasa." where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha < '".date("Y-m-d", strtotime($vfecha2))."' ";   
-  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
-  $fila= mysql_fetch_array($query);
-  $vindice_final =  $fila["indice"];
-  print "fecha 1: ".$vfecha0."<br>";
-  print "fecha 2: ".$vfecha2."<br>";
-  print "primer indice: ".$vindice_final."<br>";
+  if($mes1==$mes0)
+    {
+      $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
+      $dias=$dia1-$dia0;
+      $fila=  mysql_fetch_array($query);
+      $vindice_final =  round($fila['indice']/$numeroDias* $dias,2);
+    }else
+      {
+      // realiza la consulta 1 de 3 
 
-  // consulta 2 de 3 el mes inicial
+      $consulta="select sum(indice) as indice from ".$tasa." where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha < '".date("Y-m-d", strtotime($vfecha2))."' ";   
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $fila= mysql_fetch_array($query);
+      $vindice_final =  $fila["indice"];
 
-  $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
-  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      // consulta 2 de 3 el mes inicial
+
+      $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $fila= mysql_fetch_array($query);
+      $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0); 
+      $vindice_final = $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
 
   
-  $fila= mysql_fetch_array($query);
-  $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0); 
-  $vindice_final =  $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
-  print "segundo indice: ".$vindice_final."<br>";
+      // consulta 3 de 3 el mes final
   
-  // consulta 3 de 3 el mes final
+      $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
+      $fila=  mysql_fetch_array($query);
+      $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
+    }//del else si es un mismo mes el calculo
 
-  
-  $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";  
-  $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
-  $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
-  $fila=  mysql_fetch_array($query);
-  $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
-  print $vindice_final;
-  print "Ultimo dia:!!!!!!!!!".date("d/m/Y",(mktime(0,0,0,$mes1+1,1,$año1)-1));
-}
+}//del isset calcular
+
 
 ?>
   </body>
