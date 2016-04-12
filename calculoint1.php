@@ -69,7 +69,6 @@ session_start();
 <?php
 include 'logo.php';
 
-
 ?> <!-- php para las sucesiones-->
 
 <div class="container" style="margin-top: 80px;">
@@ -83,36 +82,9 @@ include 'logo.php';
   		
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-
-<?php  
-if(isset($calcular))
-{
-
-    //esto es para que salga cartel de error por falta de importe o mal puesta la fecha
-  
-  $vfdesde =$_REQUEST["vfdesde"]; 
-  $vfhasta= $_REQUEST["vfhasta"];
-  $vmonto = $_REQUEST["vmonto"];
-  $tasa= $_REQUEST["tasa"];
-  $carat= $_REQUEST["carat"];
-  $concep= $_REQUEST["concep"];
-  $importe= $_REQUEST["importe"];
-
- if($importe!="" && is_numeric($importe))
-  {
-   print "<form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>";
-  }
-  else
-    {
-      $texto="Tiene que colocar un valor numerico en Importe!";
-      print "<script type='text/javascript'>alert('$texto')</script>";
-    }
-}
-
-?>
-        
-    <form name='frmSample' class='form-horizontal' method='post' action=''>
-   <!--   =================================================================================================================================-->
+      
+        <form name="frmSample" class="form-horizontal" method="post" action="">
+     <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
                 <div class="form-group">
@@ -265,6 +237,13 @@ if(isset($calcular))
   include("conexion.php");
 
   // realiza la consulta toma las variables del formulario
+  $vfdesde =$_REQUEST["vfdesde"]; 
+  $vfhasta= $_REQUEST["vfhasta"];
+  $vmonto = $_REQUEST["vmonto"];
+  $tasa= $_REQUEST["tasa"];
+  $carat= $_REQUEST["carat"];
+  $concep= $_REQUEST["concep"];
+  $importe= $_REQUEST["importe"];
 
   print $tasa;
   // incremente 1 mes para calcular los indices entre las 2 fechas
@@ -316,7 +295,6 @@ if(isset($calcular))
   $fila=  mysql_fetch_array($query);
   $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
   print $vindice_final;
-  print "Ultimo dia:!!!!!!!!!".date("d/m/Y",(mktime(0,0,0,$mes1+1,1,$año1)-1));
 }
 
 ?>
@@ -325,28 +303,49 @@ if(isset($calcular))
 
 <script language = "Javascript">
 
+/*
+
+function ValidateForm(){
+  var dt=document.frmSample.fechaorig
+  if (isDate(dt.value)==false){
+    dt.focus()
+    return false
+  }
+    return true
+    
+ }
+*/
+
     $("#vfdesde").datepicker({
         onSelect: function() {      
           var minDate = $(this).datepicker('getDate');
-       
           minDate.setDate(minDate.getDate()+1);
-
           $("#vfhasta").datepicker("option","minDate", minDate);
-          $("#vfhasta").datepicker("option", "maxDate", <?php
-          $day=date('d');
-          $month=date('m');
-          $year=date('Y');
-          print '"'.date("d/m/Y",(mktime(0,0,0,$month+1,1,$year)-1)).'"'; ?>); //toma el ultimo dia del mes actual
           $("#vfhasta").val('');
           $("#vfhasta").prop('disabled', false);
         }
     });
 
     $("#vfhasta").datepicker();  
+/*
 
-    $('#borrar').click(function() {
-    $("#vfdesde").val('');
-    $("#vfhasta").val('');
+$("#datepicker1").datepicker();
+$("#datepicker2").datepicker();
+
+$("#datepicker1").change(function() {
+
+  if ($("#datepicker1").datepicker("getDate") !== null) {
+    $("#datepicker2").val('');
+    $("#datepicker2").prop('disabled', false);
+  } else {
+    $("#datepicker2").prop('disabled', true);
+  }
+
+});*/
+
+$('#borrar').click(function() {
+  $("#vfdesde").val('');
+  $("#vfhasta").val('');
 
 });
 
