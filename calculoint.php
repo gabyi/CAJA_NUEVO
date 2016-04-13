@@ -269,15 +269,19 @@ if(isset($calcular))
         Tabla de C&aacute;lculo
       </div>      
       
-      <div id="" class="panel-body">
+      <div id="interes" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover">
           <thead>
             <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Concepto</th>
+            <th>Método</th>
+            <th>Fecha Origen</th>
+            <th>Importe</th>
+            <th>Tasa</th>
+            <th>Intereses</th>
+            <th>Total</th>
+            <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
