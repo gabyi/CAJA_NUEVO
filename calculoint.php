@@ -3,13 +3,12 @@ session_start();
 ?>
 <?php
 
-
-
   if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
   }else /*<!-- aca termina el if si no paso por el index*/
 {
+
 ?>
 
 <!DOCTYPE html>
@@ -82,11 +81,16 @@ include 'logo.php';
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
 
 <?php  
+if(!isset($calcular))
+{
+  session_register('contador'); //cuenta las veces que aprete el isset
+  session_register('valores');
+}
+
 if(isset($calcular))
 {
 
-    //esto es para que salga cartel de error por falta de importe o mal puesta la fecha
-  
+    
   $vfdesde =$_REQUEST["vfdesde"]; 
   $vfhasta= $_REQUEST["vfhasta"];
   $vmonto = $_REQUEST["vmonto"];
@@ -94,6 +98,7 @@ if(isset($calcular))
   $carat= $_REQUEST["carat"];
   $concep= $_REQUEST["concep"];
   $importe= $_REQUEST["importe"];
+  
 
   include("conexion.php");
 
@@ -154,21 +159,11 @@ if(isset($calcular))
       $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
     }//del else si es un mismo mes el calculo
 
-
-
- if($importe!="" && is_numeric($importe))
-  {
-   print "<form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>";
-  }
-  else
-    {
-      $texto="Tiene que colocar un valor numerico en Importe!";
-      print "<script type='text/javascript'>alert('$texto')</script>";
-    }
 }
 
 ?>
-        
+  <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
+
     <form name='frmSample' class='form-horizontal' method='post' action=''>
    <!--   =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -178,10 +173,10 @@ if(isset($calcular))
                       <h4>Car&aacute;tula</h4>
                     </div>
 
-
+                      
                     <div class="col-sm-4 col-md-4">
-            
-                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=''>
+                        
+                        <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($calcular)){ print '"'.$carat.'"';}?>>
                       
                     </div>
 
@@ -249,7 +244,8 @@ if(isset($calcular))
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onclick="llenar()">Calcular Intereses</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onclick="">Calcular Intereses</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="limpiar" onclick="">Limpiar Tabla</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -262,6 +258,41 @@ if(isset($calcular))
 </div>
 
 <!-- PONER EL CONTROS QUE SI EL VALOR TOTAL DE LA TABLA ES != DE 0 HACER LA TABLA, SINO LLEMARLA-->
+<?php 
+
+if (isset($limpiar))
+  {
+    session_unregister('contador');
+    session_unregister('valores');
+  }
+
+if(isset($calcular))
+  {
+    if(!isset($_SESSION['contador']))
+    {
+      $_SESSION['contador']=0;
+      $contador=$_SESSION['contador'];
+    } else
+       {
+        $contador=$_SESSION['contador']+1; // cambia +1 por ++
+        }
+
+    //lleno la matriz de sessiones con los valores de la consulta y los del formulario
+      $interes=($importe*$vindice_final);
+      $valorFila= array($concep,$tasa,$vfdesde,$importe,$vindice_final,$interes,$importe+$interes);
+      $_SESSION['valores'] [$contador]= $valorFila;
+      
+         
+
+     if($importe=="" || !is_numeric($importe))
+      {
+        $texto="Tiene que colocar un valor numerico en Importe!";
+        print "<script type='text/javascript'>alert('$texto')</script>";
+      }
+  else
+    {
+      
+ ?>
 
 <div class="row">
   <div id="" class="panel panel-default">
@@ -271,39 +302,25 @@ if(isset($calcular))
       
       <div id="interes" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-        <table class="table table-hover">
-          <thead>
-            <tr>
-            <th>Concepto</th>
-            <th>Método</th>
-            <th>Fecha Origen</th>
-            <th>Importe</th>
-            <th>Tasa</th>
-            <th>Intereses</th>
-            <th>Total</th>
-            <th>Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            </tr>
-          </tbody>
+        <table class="table table-hover" id="tablaint">
+          <th>Concepto</th>
+          <th>Método</th>
+          <th>Fecha Origen</th>
+          <th>Importe</th>
+          <th>Tasa</th>
+          <th>Intereses</th>
+          <th>Total</th>
+          <th>Eliminar</th>
+          <?php 
+
+            for ($i=0; $i <= $contador ; $i++) { 
+
+                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][3].'</td><td>'.$_SESSION['valores'] [$i][4];
+                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td>'.$_SESSION['valores'] [$i][7].'</td><td>aca va Boton</td></tr>';
+                }
+
+           ?>
+           <tr><td>Total</td><td></td><td></td><td></td><td></td><td></td><td><?php print "no suma!!!!!!!!!!" ?></td></tr>
         </table
        
         <div class="form-group">
@@ -316,9 +333,13 @@ if(isset($calcular))
   </div>
 </div>
 
-</div>
 
 <?php
+      //las 2 {} son si se presiona el boton
+    }
+  }
+
+print '</div>';
 
 include 'footer.php';
 include 'footer1.php';
