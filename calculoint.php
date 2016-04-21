@@ -312,15 +312,19 @@ if(isset($calcular))
           <th>Total</th>
           <th>Eliminar</th>
           <?php 
+            $total=array(); //cuenta el total de la suma de los valores
 
             for ($i=0; $i <= $contador ; $i++) { 
 
                 print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][3].'</td><td>'.$_SESSION['valores'] [$i][4];
                 print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td>'.$_SESSION['valores'] [$i][7].'</td><td>aca va Boton</td></tr>';
+                
+                if($i==$contador-1)
+                  print '<tr><td>Total</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
                 }
 
            ?>
-           <tr><td>Total</td><td></td><td></td><td></td><td></td><td></td><td><?php print "no suma!!!!!!!!!!" ?></td></tr>
+           
         </table
        
         <div class="form-group">
