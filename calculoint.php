@@ -84,7 +84,8 @@ include 'logo.php';
 if(!isset($calcular))
 {
   session_register('contador'); //cuenta las veces que aprete el isset
-  session_register('valores');
+  session_register('valores');//guarda los valores de la tabla
+  session_register('totales');//suma los totales
 }
 
 if(isset($calcular))
@@ -264,6 +265,7 @@ if (isset($limpiar))
   {
     session_unregister('contador');
     session_unregister('valores');
+    session_unregister('totales');
   }
 
 if(isset($calcular))
@@ -281,7 +283,7 @@ if(isset($calcular))
       $interes=($importe*$vindice_final);
       $valorFila= array($concep,$tasa,$vfdesde,$importe,$vindice_final,$interes,$importe+$interes);
       $_SESSION['valores'] [$contador]= $valorFila;
-      
+      $_SESSION['totales'] [$contador]= array($importe,$interes,$importe+$interes);
          
 
      if($importe=="" || !is_numeric($importe))
@@ -313,14 +315,18 @@ if(isset($calcular))
           <th>Eliminar</th>
           <?php 
             $total=array(); //cuenta el total de la suma de los valores
-
+              $tot=0;
+              $tot2=0;
+              $tot3=0;
             for ($i=0; $i <= $contador ; $i++) { 
-
+               
                 print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][3].'</td><td>'.$_SESSION['valores'] [$i][4];
                 print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td>'.$_SESSION['valores'] [$i][7].'</td><td>aca va Boton</td></tr>';
-                
-                if($i==$contador-1)
-                  print '<tr><td>Total</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+                $tot= $_SESSION['totales'] [$i][0]+ $tot;
+                $tot2= $_SESSION['totales'] [$i][1] + $tot2;
+                $tot3= $_SESSION['totales'] [$i][2] + $tot3;
+                if($i==$contador)
+                  print '<tr><td>Total</td><td></td><td></td><td>'.$tot.'</td><td></td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
                 }
 
            ?>
