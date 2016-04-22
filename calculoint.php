@@ -321,12 +321,12 @@ if(isset($calcular))
             for ($i=0; $i <= $contador ; $i++) { 
                
                 print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][3].'</td><td>'.$_SESSION['valores'] [$i][4];
-                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td>'.$_SESSION['valores'] [$i][7].'</td><td>aca va Boton</td></tr>';
+                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td><button type="sumit" onclick=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
                 $tot= $_SESSION['totales'] [$i][0]+ $tot;
                 $tot2= $_SESSION['totales'] [$i][1] + $tot2;
                 $tot3= $_SESSION['totales'] [$i][2] + $tot3;
                 if($i==$contador)
-                  print '<tr><td>Total</td><td></td><td></td><td>'.$tot.'</td><td></td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
+                  print '<tr><td><b>Total</b></td><td></td><td></td><td>'.$tot.'</td><td></td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
                 }
 
            ?>
