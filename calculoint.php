@@ -165,7 +165,7 @@ if(isset($calcular))
 ?>
   <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
 
-    <form name='frmSample' class='form-horizontal' method='post' action=''>
+  <!--  <form name='frmSample' class='form-horizontal' method='post' action=''>
    <!--   =================================================================================================================================-->
 								<!-- Juicio input-->
 
@@ -279,14 +279,31 @@ if(isset($calcular))
         $contador=$_SESSION['contador']+1; // cambia +1 por ++
         }
 
+    //coloco la tasa en una variable para que se coloque en la tabla
+
+      if($tasa=="tmix")
+        {
+          $metodo="Tasa Mix";
+        }else
+        {
+          if($tasa=="bna")
+          {
+            $metodo="Activa BNA";
+          }else
+          {
+            if($tasa="blp")
+              $metodo="Activa BLP";
+          }
+        }  
+
     //lleno la matriz de sessiones con los valores de la consulta y los del formulario
       $interes=($importe*$vindice_final);
-      $valorFila= array($concep,$tasa,$vfdesde,$importe,$vindice_final,$interes,$importe+$interes);
+      $valorFila= array($concep,$metodo,$vfdesde,$importe,$vindice_final,$interes,$importe+$interes,$contador);
       $_SESSION['valores'] [$contador]= $valorFila;
       $_SESSION['totales'] [$contador]= array($importe,$interes,$importe+$interes);
-         
 
-     if($importe=="" || !is_numeric($importe))
+    
+    if($importe=="" || !is_numeric($importe))
       {
         $texto="Tiene que colocar un valor numerico en Importe!";
         print "<script type='text/javascript'>alert('$texto')</script>";
@@ -305,14 +322,14 @@ if(isset($calcular))
       <div id="interes" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover" id="tablaint">
-          <th>Concepto</th>
-          <th>Método</th>
-          <th>Fecha Origen</th>
-          <th>Importe</th>
-          <th>Tasa</th>
-          <th>Intereses</th>
-          <th>Total</th>
-          <th>Eliminar</th>
+          <th id="thint">Concepto</th>
+          <th id="thint">Método</th>
+          <th id="thint">Fecha Origen</th>
+          <th id="thint">Tasa</th>
+          <th id="thint">Importe</th>
+          <th id="thint">Intereses</th>
+          <th id="thint">Total</th>
+          <!--<th>Eliminar</th>-->
           <?php 
             $total=array(); //cuenta el total de la suma de los valores
               $tot=0;
@@ -320,13 +337,13 @@ if(isset($calcular))
               $tot3=0;
             for ($i=0; $i <= $contador ; $i++) { 
                
-                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][3].'</td><td>'.$_SESSION['valores'] [$i][4];
-                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td><td><button type="sumit" onclick=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
+                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][4].'</td><td>'.$_SESSION['valores'] [$i][3];
+                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td></tr>';
                 $tot= $_SESSION['totales'] [$i][0]+ $tot;
                 $tot2= $_SESSION['totales'] [$i][1] + $tot2;
                 $tot3= $_SESSION['totales'] [$i][2] + $tot3;
                 if($i==$contador)
-                  print '<tr><td><b>Total</b></td><td></td><td></td><td>'.$tot.'</td><td></td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
+                  print '<tr><td><b>Total</b></td><td></td><td></td><td></td><td>'.$tot.'</td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
                 }
 
            ?>
@@ -334,7 +351,7 @@ if(isset($calcular))
         </table
        
         <div class="form-group">
-                  <div class="col-sm-12 col-md-12" style="text-align:center;">
+                  <!--<div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="control()">Imprimir</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
                   </div>
@@ -354,13 +371,7 @@ print '</div>';
 include 'footer.php';
 include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
-
-if(isset($calcular))
-  {
-
-
-}//del isset calcular
-
+  
 
 ?>
   </body>
@@ -414,6 +425,5 @@ yearSuffix: ''
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 });
-
 
 </script>
