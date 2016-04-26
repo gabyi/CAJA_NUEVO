@@ -223,7 +223,7 @@ include 'logo.php';
       <div class="panel-heading">
 
         <?php
-         print "<h3 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".number_format($monto, 2)."</h3>";
+         print "<h4 class='panel-title'>Costos de Juicios: ".$materia.". Monto: $ ".number_format($monto, 2)."</h4>";
         ?>
 
       </div>
@@ -352,9 +352,9 @@ include 'logo.php';
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-        if($caja_fin_ap_porc != 0.000000|| $caja_fin_aporte != '')
+        if($caja_fin_ap_porc != 0.000000|| $caja_fin_aporte != 0.00)
         {
-          if($caja_fin_aporte != '')
+          if($caja_fin_aportes != 0.00)
           {
             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
           }else

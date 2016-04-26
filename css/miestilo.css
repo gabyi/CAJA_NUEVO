@@ -31,8 +31,13 @@
             width: 300px;
         }
         .col-sm-6{
-            width: 400px;
+            width: 333px;
             float: left;
+            margin-right: 10px;
+        }
+        #sucesDer{
+            width: 333px;
+            float: right;
             margin-right: 10px;
         }
 

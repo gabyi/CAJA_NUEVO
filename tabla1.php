@@ -105,16 +105,17 @@ if(isset($calcular1))
 
       $caja_fin_aportes= $vhonorarios * 0.15;
 
-
       $caja_fin_cont= $monto * 0.005;
 
       $tasaVariable=($bp1 + $bg1) * ($fila ['rentas_fin_tvariable'] / 100);
 
+    
+      //haciendo las sumas de las tablas
       $sumaFinCajaForense= $caja_fin_aportes + $caja_fin_cont;
 
       $sumaFin= $caja_fin_aportes + $caja_fin_cont + $tasaVariable;
 
-
+      //casteando los numeros
       $caja_fin_aportes= number_format($caja_fin_aportes, 2);
       $caja_fin_cont= number_format($caja_fin_cont, 2);
       $monto=number_format($monto, 2);
@@ -124,7 +125,6 @@ if(isset($calcular1))
       $sumaFin= number_format($sumaFin, 2);
       $sumaCForense= number_format($sumaCForense, 2);
       $sumaInicio= number_format($sumaInicio, 2);
-
 
 ?>
   <body style="height:900px;">
@@ -178,7 +178,7 @@ include 'logo.php';
 
         <?php
 
-         print "Costos de Acervo Hereditario. Monto: $ ".$monto.". ".$poder."";
+         print "<h3>Costos de Acervo Hereditario. Monto: $ ".$monto.". ".$poder."</h3>";
 
         ?>
 
@@ -236,7 +236,7 @@ include 'logo.php';
 <!--=================================================================================================================================================================================-->
 
 
-<div class="col-sm-6 col-md-6">
+<div class="col-sm-6 col-md-6" id="sucesDer">
 
     <h4>Presupuesto previo a inscribir los bienes</h4>
 

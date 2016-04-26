@@ -58,10 +58,10 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 			$email  = "From:".$_REQUEST['email']; //siempre hay que poner from, sino sale como el cuerpo del mensaje
 			$asunto =$_REQUEST['asunto'];
 			$mensaje = $_REQUEST['message'];
-			$webmail="administracion@cforense.org";
+			$webmail="gabrielisabella@cforense.org ";
 
 			if(mail($webmail, $asunto, $nombre." dice: \r\n".$mensaje, $email )) //\r\n hace solo el salto de linea
-  				$aviso="Su Mensaje fue enviado";
+  				$aviso="Su Mensaje fue enviado. Nos pondremos en contacto con usted si fuese necesario. Muchas Gracias.-";
   			else
   				$aviso="Su Mensaje no fue enviado";
 		}
@@ -139,7 +139,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 								}else
 								{
 							print "<div class='alert bg-success' role='alert' style='margin-top: 80px; margin-bottom: 80px;'>";
-					        print "<a href='contacto.php'><span class='glyphicon glyphicon-check'></span> ".$aviso."</a>
+					        print "<a href='index.php'><span class='glyphicon glyphicon-check'></span> ".$aviso."</a>
 									</div>";
 									?>
 						</div>
