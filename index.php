@@ -13,8 +13,6 @@ session_start();
   <body>
   	<?php
   		include 'navbar.php';
-
-		  include 'logo.php';
 	  ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
