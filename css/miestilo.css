@@ -412,7 +412,6 @@ color: #FFF;
 
 #navPills{
     padding-top: ;
-    float: left;
         }
 
 #navUl{
@@ -420,4 +419,5 @@ color: #FFF;
 }
 
 #navBar{
+    height: 140px;
 }

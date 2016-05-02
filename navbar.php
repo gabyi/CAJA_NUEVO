@@ -1,10 +1,10 @@
 <!-- barra de titulo -->
 
-  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-      <div class="container" id="navBar">
-
+  <nav class="navbar navbar-fixed-top navbar-default scrollclass" role="navigation">
+      <div class="container">
+        <div class="row" id="navBar">
             <div id="navLogo" class="navbar-header">
-              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:30%;" alt="Logo de Caja Forense"></a>
+              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -13,7 +13,7 @@
                 </button>                    
             </div>
          
-            <div class=" navbar-collapse collapse" id="navPills">
+            <div class="navbar-collapse collapse" id="navPills">
               <ul id="navUl" class="nav navbar-nav">
                 <li class="active"><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
@@ -29,6 +29,6 @@
                   <li><a href="contacto.php">Contacto</a></li>            
               </ul>
             </div><!-- /.nav-collapse -->
-         
-       </div><!-- /.container -->
+        </div><!--row-->
+      </div><!-- /.container -->
    </nav><!-- /.navbar -->
