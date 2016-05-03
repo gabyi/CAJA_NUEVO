@@ -5,17 +5,14 @@
         #logo{
             margin-top: -150px;
             margin-bottom: -10px;
-            
+            visibility: visible;
+            height: 100px;
         }
         .footer{
             visibility: hidden;
             height: 0px;
                }
 
-        .navbar{
-            visibility:hidden;
-            height: 0px;
-        }
         #noprint {
             visibility: hidden;
             height: 0px;
@@ -436,4 +433,14 @@ color: #FFF;
      #navPills{
     padding-top: -100px;
         }
+}
+
+#containerCuerpo{
+    padding-top: 300px;
+    padding-bottom: 130px;
+}
+
+#logo{
+    visibility: hidden;
+    height: 0px;
 }

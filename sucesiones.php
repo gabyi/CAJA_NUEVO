@@ -26,7 +26,7 @@ session_start();
   <body>
 
 
-
+<!--===================== VIEJO NAV
   <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -47,16 +47,18 @@ session_start();
             <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
-        </div><!-- /.nav-collapse -->
+        </div><!-- /.nav-collapse 
 
-       </div><!-- /.container -->
-    </nav><!-- /.navbar -->
+       </div><!-- /.container 
+    </nav><!-- /.navbar 
+============================================================================================-->
 <?php
+include 'navbarFooter.php';
 include 'logo.php';
 
 ?> <!-- php para las sucesiones-->
 
-<div class="container" style="margin-top: 80px;">
+<div class="container" id="containerCuerpo">
 
 	<div id="panel" class="panel panel-default">
   		<div class="panel-heading">

@@ -182,34 +182,8 @@ if(isset($calcular))
 
   ?>
   <body>
-
-
-
-  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-		        <a id="marca" class="navbar-brand" href="index.php">Caja Forense de La Pampa</a>
-
-		</div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="institucional.php">Institucional</a></li>
-            <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
-          </ul>
-        </div><!-- /.nav-collapse -->
-
-       </div><!-- /.container -->
-    </nav><!-- /.navbar -->
 <?php
+include 'navbarFooter.php';
 include 'logo.php';
 
     if(isset($calcular))
@@ -217,7 +191,7 @@ include 'logo.php';
 ?>
 
 
-<div class="container" style="margin-top: 30px;">
+<div class="container" id="containerCuerpo">
 
   <div class="panel panel-default" id="tabla-juicios">
       <div class="panel-heading">
@@ -478,9 +452,9 @@ function volver ()
 
 
 function doPrint(){
- document.all.item("noprint").style.visibility="hidden"
+ //document.all.item("noprint").style.visibility="hidden"
  window.print()
- document.all.item("noprint").style.visibility="visible"
+ //document.all.item("noprint").style.visibility="visible"
  
  }
 
