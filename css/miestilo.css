@@ -44,7 +44,7 @@
 }
 
 
-BODY{
+body{
     background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
     background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
@@ -55,9 +55,7 @@ BODY{
     font-size: 15px;
 }
 
-#logo{
-    margin-top:80px;
-}
+
 .container{
 	text-align: center;
 }
@@ -67,7 +65,7 @@ BODY{
     background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
     background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
-    padding-top: 10%;
+    padding-top: 7%;
     padding-bottom: 10px;
 
 }
@@ -266,6 +264,11 @@ a:hover {
     width: 100px;
 }
 
+#cuerpoContacto{
+    padding-top: 10%;
+    padding-bottom: 1.6%;
+    }
+
 #panel-cuerpo-noticia, #home, #contact{
     font-family: CajaFont;
     font-size: 22px;
@@ -283,6 +286,7 @@ a:hover {
     font-size: 20px;
     color: #F8F8F8;
     padding-bottom: 20px;
+    margin-top: 3%;
 }
 
 /*Texto Negro*/
@@ -291,6 +295,7 @@ a:hover {
     font-size: 22px;
     background-color:#ededed;
     padding-bottom: 20px;
+    margin-top: 3%;
 }
 
 
@@ -404,20 +409,31 @@ color: #FFF;
     }
 
 #navLogo{
-    padding-bottom: ;
-    margin-top: ;
-    padding-left:;
-    margin-right: ;
+    height: 130px;
+    margin-right: 60px;
      }
 
 #navPills{
-    padding-top: ;
+    padding-top: 50px;
+    font-size: 110%;
         }
 
 #navUl{
-    font-size: ;
+
 }
 
 #navBar{
-    height: 140px;
+
+}
+
+@media(min-width:768px) {
+
+    
+    #navLogo{
+    height: 130px;
+     }
+
+     #navPills{
+    padding-top: -100px;
+        }
 }

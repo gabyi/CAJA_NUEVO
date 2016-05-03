@@ -20,16 +20,17 @@
 
 </head>
 <body data-spy="scroll" data-target=".navbar-fixed-top">
-    
+
     <div class="navbar navbar-fixed-top navbar-default scrollclass" >
         <div class="container">
-            <div class="navbar-header">
+            <div id="navLogo" class="navbar-header">
+              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
+                </button>                    
             </div>
             <div class="navbar-collapse collapse" id="navPills">
                 <ul class="nav navbar-nav">
@@ -54,13 +55,13 @@
                 <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
                 </ul>
-            </ul>
+                </ul>
             </div>
            
         </div>
     </div>
 
-    <section id="descuentos"  class="blanco" > <!--1-->
+    <section id="descuentos"  class="azul" > <!--1-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -82,7 +83,7 @@
         </section>
    
         <!--seccion 1-->
-       <section id="taller_de_mediacion" class="azul"> <!--2-->
+       <section id="taller_de_mediacion" class="blanco"> <!--2-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div id="foto-foto" class="col-md-6">
@@ -102,7 +103,7 @@
        </section>
         <!--fin seccion 1-->
 
-    <section id="TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA" class="blanco"> <!--3-->
+    <section id="TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA" class="azul"> <!--3-->
         <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
            
@@ -159,7 +160,7 @@
         </div>
     </section>
 
-        <section id="normativa" > <!--4-->
+        <section id="normativa" class="blanco"> <!--4-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -177,7 +178,7 @@
         </div>
         </section>
 
-        <section id="comision"  style="background-color:#ededed;" > <!--5-->
+        <section id="comision"  class="azul"> <!--5-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -224,9 +225,11 @@
             }
         });
     </script>
+
 </body>
 <?php 
     include 'footer.php';
     include 'footer1.php';
  ?>
+
 </html>

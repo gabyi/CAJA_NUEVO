@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-fixed-top navbar-default scrollclass" role="navigation">
       <div class="container">
-        <div class="row" id="navBar">
+
             <div id="navLogo" class="navbar-header">
               <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
@@ -29,6 +29,6 @@
                   <li><a href="contacto.php">Contacto</a></li>            
               </ul>
             </div><!-- /.nav-collapse -->
-        </div><!--row-->
+
       </div><!-- /.container -->
    </nav><!-- /.navbar -->
