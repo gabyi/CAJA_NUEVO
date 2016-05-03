@@ -40,33 +40,8 @@ session_start();
 
   <body>
 
-
-
-  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-		        <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
-
-		</div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="institucional.php">Institucional</a></li>
-            <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
-          </ul>
-        </div><!-- /.nav-collapse -->
-
-       </div><!-- /.container -->
-    </nav><!-- /.navbar -->
 <?php
+include 'navbarFooter.php';
 include 'logo.php';
 
 ?> <!-- php para las sucesiones-->
