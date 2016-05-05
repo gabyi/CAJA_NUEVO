@@ -420,19 +420,26 @@ color: #FFF;
 }
 
 #navBar{
-
+    
 }
 
+@media(max-width: 768px){
+    #carIndex{
+        margin-top: 25%;
+    }
+}
 @media(min-width:768px) {
-
     
+    #carIndex{
+        margin-top: 3%;
+    }
     #navLogo{
     height: 130px;
-     }
+    }
 
      #navPills{
     padding-top: -100px;
-        }
+    }
 }
 
 #containerCuerpo{

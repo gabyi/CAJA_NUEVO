@@ -1,6 +1,6 @@
 <!-- barra de titulo -->
 
-  <nav class="navbar navbar-fixed-top navbar-default scrollclass" role="navigation">
+  <nav class="navbar navbar-fixed-top navbar-default scrollclass" role="navigation" id="navphp">
       <div class="container">
 
             <div id="navLogo" class="navbar-header">
