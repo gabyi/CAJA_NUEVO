@@ -8,8 +8,7 @@
 <div id="logo" class="container-fluid">
 	<div class="row">
 		
-			<img style="width:100%" src="imagenes/logos/Sin titulo.png">
-		
+			<img style="width:100%" src="imagenes/logos/Sin titulo.png">		
 		
 	</div>
 </div>

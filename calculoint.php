@@ -37,13 +37,14 @@ session_start();
   <body>
 <?php 
   include 'navbarFooter.php';
+  include 'logo.php';
  ?>
 
 <div class="container" id="containerCuerpo">
 
   <div class="row">
 
-	<div id="" class="panel panel-default">
+	<div id="forminteres" class="panel panel-default">
   		<div class="panel-heading">
         C&aacute;lculo de intereses
       </div>   		
@@ -285,9 +286,9 @@ if(isset($calcular))
  ?>
 
 <div class="row">
-  <div id="" class="panel panel-default">
+  <div id="tablainteres" class="panel panel-default">
       <div class="panel-heading">
-        Tabla de C&aacute;lculo
+        Tabla de C&aacute;lculo de intereses
       </div>      
       
       <div id="interes" class="panel-body">
@@ -319,11 +320,11 @@ if(isset($calcular))
 
            ?>
            
-        </table
+        </table>
        
-        <div class="form-group">
-                  <!--<div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="control()">Imprimir</button>
+        <div id="noprint" class="form-group">
+                  <div class="col-sm-12 col-md-12" style="text-align:center;">
+                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
                   </div>
                 </div>     
@@ -331,7 +332,7 @@ if(isset($calcular))
   </div>
 </div>
 
-
+</div>
 <?php
       //las 2 {} son si se presiona el boton
     }
@@ -396,5 +397,10 @@ yearSuffix: ''
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 });
+
+function doPrint(){
+ window.print()
+ }
+
 
 </script>

@@ -13,6 +13,9 @@
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
+    <!--estilo para imprimir-->
+    <link href="css/print.css" rel="stylesheet" type="text/css" media="print">
+
 
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">

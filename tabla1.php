@@ -163,6 +163,7 @@ if(isset($calcular1))
        </div><!-- /.container -->
     </nav><!-- /.navbar -->
 <?php
+include 'navbarFooter.php';
 include 'logo.php';
 
     if(isset($calcular1))
@@ -170,7 +171,7 @@ include 'logo.php';
 ?>
 
 
-<div class="container" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px;" id="cuerposuces">
 
 
   <div class="panel panel-default" id="panel">
