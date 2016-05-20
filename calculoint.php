@@ -135,10 +135,10 @@ if(isset($calcular))
 }
 
 ?>
-  <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
+      <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
 
-  <!--  <form name='frmSample' class='form-horizontal' method='post' action=''>
-   <!--   =================================================================================================================================-->
+        <!--  <form name='frmSample' class='form-horizontal' method='post' action=''>
+        <!--=================================================================================================================================-->
 								<!-- Juicio input-->
 
                 <div class="form-group">
@@ -223,24 +223,24 @@ if(isset($calcular))
 								  </div>
                 </div>
 
-						</form>
+      </form>
 
   		</div>
 
 	</div>
 </div>
-
+</div>
 <!-- PONER EL CONTROS QUE SI EL VALOR TOTAL DE LA TABLA ES != DE 0 HACER LA TABLA, SINO LLEMARLA-->
 <?php 
 
-if (isset($limpiar))
+  if (isset($limpiar))
   {
     session_unregister('contador');
     session_unregister('valores');
     session_unregister('totales');
   }
 
-if(isset($calcular))
+  if(isset($calcular))
   {
     if(!isset($_SESSION['contador']))
     {
@@ -285,7 +285,7 @@ if(isset($calcular))
       
  ?>
 
-<div class="row">
+  <div class="row">
   <div id="tablainteres" class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
@@ -327,12 +327,15 @@ if(isset($calcular))
                   <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
                   </div>
-                </div>     
+        </div>     
+
+    </div>
+  </div>
 
   </div>
-</div>
 
-</div>
+
+
 <?php
       //las 2 {} son si se presiona el boton
     }
@@ -340,8 +343,9 @@ if(isset($calcular))
 
 include 'footer.php';
 include 'footer1.php';
-	}/*termina el else de que si no hay session disponible, o si no entro por el index */
-  
+	
+ }/*termina el else de que si no hay session disponible, o si no entro por el index */
+ 
 
 ?>
   </body>

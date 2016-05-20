@@ -57,21 +57,20 @@
   <!-- /extra-inner --> 
 </div>
 <!-- /extra -->
-    <div class="footer-inner" id="footer1-inner">
-        <div class="container">
+        <div class="footer-inner" id="footer1-inner">
+            <div class="container">
             
-            <div id="span12" class="row">
+                <div id="span12" class="row">
            
-            Departamento de Sistemas de Caja Forense de La Pampa 2015.- 
- 
-            </div>
+                Departamento de Sistemas de Caja Forense de La Pampa 2015.- 
+     
+                </div>
             <!--/row-->
-        </div>
+            </div>
         <!--/container--> 
-    </div>
+        </div>
     <!--/footer-inner--> 
-</div>
-<!--/footer--> 
+</div><!--/footer esta en footer.php--> 
 
 
  
