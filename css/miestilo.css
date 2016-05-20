@@ -413,3 +413,14 @@ color: #FFF;
     padding-top: 200px;
     padding-bottom: 130px;
 }
+
+/*oscurece el dropdown del modal*/
+
+.modal-backdrop { 
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+}

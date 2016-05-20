@@ -209,14 +209,18 @@
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
                 <h2>Comisión de Jóvenes</h2>
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <br>
-                    <h3>Marco Normativo</h3>
-                    <br>
-                        Texto de Comision de jovenes
-                </div>
-                <div class="col-md-6">
-                    algo por alla
+                        La Comisión de Jóvenes fue creada en el marco del 40º Aniversario de Caja Forense de La Pampa con el objetivo principal de
+                        lograr mayores niveles de inclusión, conocimiento del sistema previsional y compromiso tanto hacia la participación del profesional
+                        en su Caja como hacia la comunidad en su conjunto.
+
+                        Para fortalecer el objetivo, a fines del año 2014 y en el transcurso del año 2015, se desarrollaron capacitaciones, talleres con 
+                        ejercicio pedagógico y diferentes actividades interactivas que incluyeron la organización de una caminata solidaria por la ciudad de 
+                        Santa Rosa en contacto con entidades sin fines de lucro y convenios de beneficios con comercios locales.
+
+                        La Caja Forense tuvo una experiencia satisfactoria en cuanto al funcionamiento de la Comisión, lográndose arribar a conclusiones muy 
+                        significativas con respecto al interés de los jóvenes en participar en los órganos de conducción de las Cajas Previsionales de Profesionales.
                 </div>
             </div>
                

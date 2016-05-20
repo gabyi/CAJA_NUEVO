@@ -338,8 +338,6 @@ if(isset($calcular))
     }
   }
 
-print '</div>';
-
 include 'footer.php';
 include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
