@@ -6,14 +6,18 @@ session_start();
 <html lang="en">
 
 <?php
+
  include 'head.php';
-
-
 ?>
   <body>
-  	<?php
-  		include 'navbar.php';
-	  ?>
+
+<?php
+  include 'navbar.php';
+
+
+  if(!$_SESSION['user'])  //lo puse asi para que si se accede desde 0 abre el modal, despues no
+  {
+?>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
@@ -29,16 +33,19 @@ session_start();
         <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
       </div>
       <div class="modal-body">
-        El siguiente link <a href="">pdf del tutorial</a> lo llevará al tutorial de la pagina. Ante cualquier recomendación
+        El siguiente link lo llevará al <a href="">tutorial de la pagina</a>. Ante cualquier recomendación
         dirigirse a <a href="contacto.php">contacto</a>. Gracias.-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
 
+<?php
+  }
+  ?>
 
 <div class="container-fluid" id="carIndex">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -194,16 +201,19 @@ session_start();
         </div>
       </div>-->
 
-		<?php
-    include 'footer.php';
-    include 'footer1.php';
+	<?php
+  include 'footer.php';
+  include 'footer1.php';
 
-   $user = "usuario";
-   session_register ("user");
-   //$_SESSION['var']=$var;
-   /* para ver usuario
-   print ("<P>Valor de la variable de sesión:$user</P>\n");
-	*/
+
+  $user = "usuario";
+  session_register ("user");
+  //$_SESSION['var']=$var;
+  /* para ver usuario
+  print ("<P>Valor de la variable de sesión:$user</P>\n");
+  */
+
+
 
 		?>
 
