@@ -14,32 +14,6 @@ session_start();
   	<?php
   		include 'navbar.php';
 	  ?>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
-  Launch modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="mimodal" role="dialog">
-  <div class="modal-dialog" id="mimodalwindow">
-    <div  class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
-      </div>
-      <div class="modal-body">
-        El siguiente link <a href="">pdf del tutorial</a> lo llevará al tutorial de la pagina. Ante cualquier recomendación
-        dirigirse a <a href="contacto.php">contacto</a>. Gracias.-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div class="container-fluid" id="carIndex">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -217,9 +191,4 @@ session_start();
        window.location.href="archivos/"+direccion;
 }
 
-    $(document).ready(function(){
-
-        $("#mimodal").modal('show');
-
-    });
   </script>
