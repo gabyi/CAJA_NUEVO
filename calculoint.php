@@ -100,7 +100,7 @@ if(isset($calcular))
   if($mes1==$mes0)
     {
       $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
-      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 1");  
       $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
       $dias=$dia1-$dia0;
       $fila=  mysql_fetch_array($query);
@@ -110,14 +110,14 @@ if(isset($calcular))
       // realiza la consulta 1 de 3 
 
       $consulta="select sum(indice) as indice from ".$tasa." where fecha >= '".date("Y-m-d", strtotime($vfecha1))."' and fecha < '".date("Y-m-d", strtotime($vfecha2))."' ";   
-      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 2");  
       $fila= mysql_fetch_array($query);
       $vindice_final =  $fila["indice"];
 
       // consulta 2 de 3 el mes inicial
 
       $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
-      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 3");  
       $fila= mysql_fetch_array($query);
       $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0); 
       $vindice_final = $vindice_final + ($fila['indice']/$numeroDias* ($numeroDias-$dia0+1));
@@ -126,7 +126,7 @@ if(isset($calcular))
       // consulta 3 de 3 el mes final
   
       $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";  
-      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");  
+      $query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 4");  
       $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
       $fila=  mysql_fetch_array($query);
       $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
@@ -258,7 +258,7 @@ if(isset($calcular))
           $metodo="Tasa Mix";
         }else
         {
-          if($tasa=="bna")
+          if($tasa=="tactiva")
           {
             $metodo="Activa BNA";
           }else
