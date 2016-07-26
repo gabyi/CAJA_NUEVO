@@ -208,8 +208,8 @@ if(isset($calcular))
 
                         <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="tmix" selected="selected">Tasa Mix</option>
-                            <option value="bna">Activa BNA</option>
-                            <option value="blp">Activa BLP</option>
+                            <option value="tactiva">Activa BLP</option>
+                            <option value="blp">Pasiva BLP</option>
                         </select>
 
                     </div>
