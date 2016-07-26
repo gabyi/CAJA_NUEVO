@@ -78,7 +78,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 
 ?>
 
-	<div class="container" style='' id="cuerpoContacto">
+	<div class="container" style='' id="containerCuerpo">
 	<div class="row">
 		<div class="col-md-3"> </div>
 		<div class="col-md-6 col-sd-6 ">

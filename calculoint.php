@@ -209,7 +209,7 @@ if(isset($calcular))
                         <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="tmix" selected="selected">Tasa Mix</option>
                             <option value="tactiva">Activa BLP</option>
-                            <option value="blp">Pasiva BLP</option>
+                            <option value="tpasiva">Pasiva BLP</option>
                         </select>
 
                     </div>
@@ -284,7 +284,7 @@ if(isset($calcular))
     {
       
  ?>
-
+<div class="container-fluid">
   <div class="row">
   <div id="tablainteres" class="panel panel-default">
       <div class="panel-heading">
@@ -334,7 +334,7 @@ if(isset($calcular))
 
   </div>
 
-
+</div>
 
 <?php
       //las 2 {} son si se presiona el boton
