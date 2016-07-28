@@ -134,14 +134,16 @@
                         Afiliados.
                     <br>
                     <h3><p>Directorio</h3>
-                        Presidente: Dr. Roberto Eduardo <strong>ALBA</strong>.<br>
+                        Presidente: Dr. José Miguel <strong>CAMACHO</strong>.<br>
                         Vicepresidente: Dra. Sandra Receda<strong> ABDO</strong>.<br>
                         Directores Titulares:<br>
                         Dr. José Miguel <strong>CAMACHO</strong>.<br>
-                                        Dra.Marcela Viviana <strong>CAMPO</strong>.<br>
-                        Dr. Pablo Luis <strong>LANGLOIS</strong>.<br>
-                        Dr. Gustavo César <strong>MASSARA</strong>.<br>
+                        Dr. Pablo Luis <strong>LANGLOIS</strong>.<br>
+                        Dra. Sandra Receda <strong>ABDO</strong>.<br>
+                        Dra. Marcela Viviana <strong>CAMPO</strong>.<br>
                         Dr. Jorge Alberto <strong>VIÑUELA</strong>.<br>
+                        Dra. Silvana Anabel <strong>RODRIGUEZ MUSSO</strong>.<br>
+                        Dr. Gustavo César <strong>MASSARA</strong>.
                     <br>
     
                 </div>
@@ -149,10 +151,10 @@
                     <p>Directores Suplentes:</p>
                         Dr. Víctor María <strong>BENSUSAN</strong>.<br>
                         Dra. Laura <strong>CAGLIOLO</strong>.<br>
-                        Dr. Mario Rubén <strong>GUINDER</strong>.<br>
-                        Dr. Raúl José<strong>MAZZOLA</strong>.<br>
-                        Dr. Eduardo<strong>PASCUAL</strong>.<br>
-                        Dra. Silvana Anabel <strong>RODRIGUEZ MUSSO</strong>.</li>
+                        Dr. Martín Alberto <strong>PEQUIS</strong>.<br>
+                        Dra. Cecilia María <strong>OZINO CALIGARIS</strong>.<br>
+                        Dr. Francisco Gabriel<strong>MARULL</strong>.<br>
+                        </li>
                     <br>
                     <p>Síndico:</p>
                     <br>
