@@ -20,7 +20,7 @@ body{
     background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
     background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
-    padding-top: 7%;
+    padding-top: 5%;
     padding-bottom: 10px;
 
 }
