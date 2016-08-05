@@ -53,21 +53,27 @@ session_start();
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div  class="item active">
-      <div id="item" class="">
-        <a href="imagenes/slider/FLYERCOMERCIOS.jpg"><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYERCOMERCIOS.jpg" alt="Chania"></a>
-      </div>
+
+        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/BENEFICIOS GENERAL.jpg" alt="Chania">
+
     </div>
 
     <div  class="item">
-      <div id="item" class="">
-        <a href="imagenes/slider/FLYER BONO MEDIACION Y CONSULTA.jpg"><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYER BONO MEDIACION Y CONSULTA.jpg" alt="Chania"></a>
-      </div>
+   
+        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYER BONO MEDIACION Y CONSULTA.jpg" alt="Chania">
+  
     </div>
 
     <div  class="item">
-      <div id="item" class="">
-        <a href="imagenes/slider/BENEFICIOS GENERAL.jpg"><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/BENEFICIOS GENERAL.jpg" alt="Chania"></a>
-      </div>
+
+        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYER COMERCIOS.jpg" alt="Chania">
+
+    </div>
+
+    <div  class="item">
+
+        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/BENEFICIOS GENERAL fondo solidario.jpg" alt="Chania">
+
     </div>
 <!--
     <div class="item">
