@@ -33,8 +33,8 @@ session_start();
         <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
       </div>
       <div class="modal-body">
-        El siguiente link lo llevará al <a href="">tutorial de la pagina</a>. Ante cualquier recomendación
-        dirigirse a <a href="contacto.php">contacto</a>. Gracias.-
+        <!--El siguiente link lo llevará al <a href="">tutorial de la pagina</a>.--> Ante cualquier recomendación
+        dirigirse a contacto. Gracias.-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -52,28 +52,28 @@ session_start();
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div  class="item active">
-
-        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/BENEFICIOS GENERAL.jpg" alt="Chania">
-
+    <div  class="item active" >
+      <div id="" class="row">
+        <a href=""><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/mini/BENEFICIOS GENERAL.jpg" alt="Chania"></a>
+      </div>
     </div>
 
     <div  class="item">
-   
-        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYER BONO MEDIACION Y CONSULTA.jpg" alt="Chania">
-  
+      <div id="" class="row">
+        <a href=""><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/mini/BENEFICIOS GENERAL fondo solidario.jpg" alt="Chania"></a>
+      </div>
     </div>
 
     <div  class="item">
-
-        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/FLYER COMERCIOS.jpg" alt="Chania">
-
+      <div id="" class="row">
+        <a onclick="window.open('archivos/1188-1200 BONO MEDIACIÓN Y BONO CONSULTA.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/mini/FLYER BONO MEDIACION Y CONSULTA.jpg" alt="Chania"></a>
+      </div>
     </div>
 
     <div  class="item">
-
-        <img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/BENEFICIOS GENERAL fondo solidario.jpg" alt="Chania">
-
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/AFICHE COMERCIOS VIGENTE.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:90%; height:90%" src="imagenes/slider/mini/FLYER COMERCIOS.jpg" alt="Chania"></a>
+      </div>
     </div>
 <!--
     <div class="item">
@@ -136,7 +136,7 @@ session_start();
                    <p>El 1° de septiembre próximo entrarán en vigencia los nuevos haberes previsionales establecidos
                     por el Directorio. El segundo aumento en el año para las jubilaciones y pensiones se implementará
                     mediante un subsidio no remunerativo a fin de morigerar su impacto en los aportes anuales.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_42.pdf')">Ver Mas</button>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1198 INCREMENTO DE LOS HABERES PREVISIONALES - SUBSIDIO NO REMUNERATIVO 2016 - NORMATIVA.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@ session_start();
                     con el objetivo de castigar la falta de solidaridad y desalentar la morosidad y fue desarrollado
                     en base al informe técnico titulado Factor de Actualización Actuarial elaborado por el Estudio de 
                     Actuarios Fastman y Asociados.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_41.pdf')">Ver Mas</button>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1199 VALOR TÉCNICO ACTUARIAL - NORMATIVA.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -167,7 +167,7 @@ session_start();
                     se modificó el valor unitario del bono, habiéndoselo fijado en UN UMED, unidad de medida que
                     permitirá mantener su poder adquisitivo. Los nuevos talonarios de Bonos Consulta estarán a
                     disposición de los interesados a partir del 16 de agosto próximo.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_40.pdf')">Ver Mas</button>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1200 BONO CONSULTA - MODIFICACIÓN DEL VALOR UNITARIO.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -239,7 +239,7 @@ session_start();
 
      function irA(direccion){
 
-       window.location.href="archivos/"+direccion;
+       window.open("archivos/"+direccion,"","width=1100,height=900");
 }
 
     $(document).ready(function(){
