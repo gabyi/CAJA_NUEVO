@@ -380,9 +380,10 @@ color: #FFF;
     
 }
 
+/*===================== diferentes pantallas corrijo la posicion del slider=========================*/
 @media(max-width: 768px){
     #carIndex{
-        margin-top: 25%;
+        margin-top: 30%;
     }
 }
 @media(min-width:768px) {
@@ -395,10 +396,38 @@ color: #FFF;
     }
 
      #navPills{
-    padding-top: -100px;
+    padding-top: 50px;
     }
 }
 
+@media(max-width: 360px){
+    #carIndex{
+        margin-top: 35%;
+                }
+
+    #collapse-boton{
+        margin-left: 50%;
+    }
+}
+
+@media(width: 768px){
+    #carIndex{
+        margin-top: 10%;
+                }
+}
+
+@media(width: 800px){
+    #carIndex{
+        margin-top: 10%;
+                } 
+}
+
+@media(width: 980px){
+    #carIndex{
+        margin-top: 7%;
+                } 
+}
+/*=============================================================================================*/
 #containerCuerpo{
     padding-top: 200px;
     padding-bottom: 130px;
