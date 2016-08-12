@@ -50,7 +50,7 @@ session_start();
 <div class="container-fluid" id="carIndex">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for slides para los sliders las imagenes son de 1400x300 px-->
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
@@ -73,6 +73,12 @@ session_start();
     <div  class="item">
       <div id="" class="row">
         <a onclick="window.open('imagenes/slider/AFICHE COMERCIOS VIGENTE.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/FLYER COMERCIOS300.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/FLYER REPORTES ONLINE GENERAL300.jpg" alt="Chania"></a>
       </div>
     </div>
 <!--
