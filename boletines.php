@@ -4,6 +4,9 @@
 <?php
 
  include 'head.php';
+
+ include 'conexionlocal.php';
+ 
 print'<body>';
 
  include 'navbar.php';
@@ -15,12 +18,10 @@ print'<body>';
           <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Nuevos Haberes Previsionales</h3>
+                  <h3>BOLETIN INFORMATIVO N° 54</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>El 1° de septiembre próximo entrarán en vigencia los nuevos haberes previsionales establecidos
-                    por el Directorio. El segundo aumento en el año para las jubilaciones y pensiones se implementará
-                    mediante un subsidio no remunerativo a fin de morigerar su impacto en los aportes anuales.</p>
+                   <p>BONO CONSULTA - NUEVO VALOR UNITARIO.</p>
                    <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1198 INCREMENTO DE LOS HABERES PREVISIONALES - SUBSIDIO NO REMUNERATIVO 2016 - NORMATIVA.pdf')">Ver Mas</button>
                 </div>
             </div>
