@@ -132,7 +132,7 @@
                         <br>
                     <h3><p>Asamblea</h3>
                         Afiliados.
-                    <br>
+                    <br><br>
                     <h3><p>Directorio</h3>
                         Presidente: Dr. José Miguel <strong>CAMACHO</strong>.<br>
                         Vicepresidente: Dra. Sandra Receda<strong> ABDO</strong>.<br>
@@ -148,7 +148,7 @@
     
                 </div>
                 <div class="col-md-6">
-                    <p>Directores Suplentes:</p>
+                    <h3><p>Directores Suplentes:</p></h3>
                         Dr. Víctor María <strong>BENSUSAN</strong>.<br>
                         Dra. Laura <strong>CAGLIOLO</strong>.<br>
                         Dr. Martín Alberto <strong>PEQUIS</strong>.<br>
@@ -156,16 +156,18 @@
                         Dr. Francisco Gabriel<strong>MARULL</strong>.<br>
                         </li>
                     <br>
-                    <p>Síndico:</p>
-                    <br>
+                    <h3><p>Síndico:</p></h3>
                         Titular: Bernabé Luis <strong>SANCHEZ</strong>.<br>
                         Suplente: Guillermo <strong>BERTONE</strong>.<br>
                     <br>
-                    <h3><p>Administración:</h3><br>
+                    <h3><p>Administración:</h3>
                         Gerencia: Luis Héctor <strong>FERNÁNDEZ</strong>.<br>
+                        Sub-Gerencia: Fiorela <strong>MOCCA</strong>.<br>
                         Tesorería: Néstor Horacio <strong>ROSALES</strong>.<br>
-                        Sistemas: Roberto Carlos <strong>VELOSO</strong>.
-                    <br>
+                        Sub-Tesorería: Wanda Ludmila <strong>BELEN</strong>.<br>
+                        Sistemas: Roberto Carlos <strong>VELOSO</strong><br>
+                                  Gabriel <strong>ISABELLA</strong>.
+                    <br><br>
                         Para más información consultar <a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
                 </div>
             </div>
