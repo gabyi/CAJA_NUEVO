@@ -81,31 +81,37 @@ session_start();
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
-        <a href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/BENEFICIOS GENERAL300.jpg" alt="Chania"></a>
+        <a href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS1.jpg" alt="Chania"></a>
       </div>
     </div>
 
     <div  class="item">
       <div id="" class="row">
-        <a href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/BENEFICIOS GENERAL fondo solidario300.jpg" alt="Chania"></a>
+        <a href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS2.jpg" alt="Chania"></a>
       </div>
     </div>
 
     <div  class="item">
       <div id="" class="row">
-        <a onclick="window.open('archivos/1188-1200 BONO MEDIACIÓN Y BONO CONSULTA.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/BONO MEDIACION Y CONSULTA300.jpg" alt="Chania"></a>
+        <a onclick="window.open('archivos/1188-1200 BONO MEDIACIÓN Y BONO CONSULTA.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS3.jpg" alt="Chania"></a>
       </div>
     </div>
 
     <div  class="item">
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/AFICHE COMERCIOS VIGENTE.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/FLYER COMERCIOS300.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/AFICHE COMERCIOS VIGENTE.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS4.jpg" alt="Chania"></a>
       </div>
     </div>
 
     <div  class="item">
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/mini/FLYER REPORTES ONLINE GENERAL300.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS5.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" style="width:100%" src="imagenes/slider/BENEFICIOS6.jpg" alt="Chania"></a>
       </div>
     </div>
 <!--
