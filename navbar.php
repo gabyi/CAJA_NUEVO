@@ -21,7 +21,8 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
                       <li><a href="institucional.php#autoridades">Autoridades</a></li>
-                      <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
+                      <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
+                      <li><a href="#coordinadora">Coordinadora de cajas</a></li>  
                     </ul>
                 </li>
                   <!--<li><a href="boletines.php">Boletines Informativos</a></li>-->

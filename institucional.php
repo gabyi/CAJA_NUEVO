@@ -25,7 +25,7 @@
       <div class="container">
 
             <div id="navLogo" class="navbar-header">
-              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
+              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016.png" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -43,7 +43,7 @@
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
                     <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
-                    <li><a href="#coordinadora">Coordinadora de cajas</a></li>  
+                    <li><a href="#coordinadora">Coordinadora de Cajas</a></li>  
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
@@ -88,7 +88,8 @@
         </div>
     </div>
    
-===========================================================-->        
+===========================================================-->      
+<body>  
        <section id="creacion" class="azul"> <!--azul-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
@@ -152,8 +153,9 @@
                         Dr. Víctor María <strong>BENSUSAN</strong>.<br>
                         Dra. Laura <strong>CAGLIOLO</strong>.<br>
                         Dr. Martín Alberto <strong>PEQUIS</strong>.<br>
+                        Dr. Raúl José <strong>MAZZOLA</strong>.<br>
                         Dra. Cecilia María <strong>OZINO CALIGARIS</strong>.<br>
-                        Dr. Francisco Gabriel<strong>MARULL</strong>.<br>
+                        Dr. Francisco Gabriel <strong>MARULL</strong>.<br>
                         </li>
                     <br>
                     <h3><p>Síndico:</p></h3>
@@ -236,7 +238,7 @@
                <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
-                <h2>Coordinadora de cajas</h2>
+                <h2>Coordinadora de Cajas</h2>
                 <div class="col-md-12">
                     <br>
                     <h3>Inicios</h3>
