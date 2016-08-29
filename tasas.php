@@ -27,7 +27,7 @@
       <div class="container">
 
             <div id="navLogo" class="navbar-header">
-              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
+              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016.png" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -166,7 +166,7 @@
                 <div class="row text-center pad-top  min-height-cls" >
                 
                     <div class="col-md-12">
-                        <h2>Tasa Mix Mensual</h2>
+                        <h2>Tasa Mix Acumulada</h2>
                         <div class="col-md-9 col-md-offset-3">
                         <br>
 

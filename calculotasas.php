@@ -49,9 +49,10 @@ if(isset($calcular))
       $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
       $query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 1");  
       $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
-      $dias=$dia1-$dia0;
+      $dias=($dia1+1)-$dia0;
       $fila=  mysql_fetch_array($query);
       $vindice_final =  round($fila['indice']/$numeroDias* $dias,2);
+
     }else
       {
       // realiza la consulta 1 de 3 
@@ -61,7 +62,6 @@ if(isset($calcular))
       $fila= mysql_fetch_array($query);
       $vindice_final =  $fila["indice"];
      
-
       // consulta 2 de 3 el mes inicial
 
       $consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes0."' AND YEAR(fecha) = '".$año0."' ";  
@@ -78,6 +78,7 @@ if(isset($calcular))
       $numeroDias = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
       $fila=  mysql_fetch_array($query);
       $vindice_final =  round($vindice_final + (($fila['indice']/$numeroDias* $dia1)),2);
+
     
     }//del else si es un mismo mes el calculo
 

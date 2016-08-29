@@ -46,7 +46,7 @@
                     <li><a href="#coordinadora">Coordinadora de cajas</a></li>  
                     </ul>
                 </li>
-                  <li><a href="noticias.php">Noticias</a></li>
+                  <!--<li><a href="noticias.php">Noticias</a></li>-->
                   <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                   <li><a href="contacto.php">Contacto</a></li>            
               </ul>

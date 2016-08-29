@@ -192,12 +192,11 @@ session_start();
           }
         }  
 
-    //lleno la matriz de sessiones con los valores de la consulta y los del formulario
+    //lleno la matriz de sessiones con los valores de la consulta y los del formulario 
       $interes=($importe*$vindice_final);
-      $valorFila= array($concep,$metodo,$vfdesde,$importe,$vindice_final,$interes,$importe+$interes,$contador);
+      $valorFila= array($concep,$metodo,$vfdesde,$importe,$vindice_final,round(($interes/100),2),($importe+round(($interes/100),2)),$contador,$vfhasta);
       $_SESSION['valores'] [$contador]= $valorFila;
-      $_SESSION['totales'] [$contador]= array($importe,$interes,$importe+$interes);
-
+      $_SESSION['totales'] [$contador]= array($importe,round($interes/100,2),($importe+round($interes/100,2)));
     
     if($importe=="" || !is_numeric($importe))
       {
@@ -221,6 +220,7 @@ session_start();
           <th id="thint">Concepto</th>
           <th id="thint">Método</th>
           <th id="thint">Fecha Origen</th>
+          <th id="thint">Fecha Cálculo</th>
           <th id="thint">Tasa</th>
           <th id="thint">Importe</th>
           <th id="thint">Intereses</th>
@@ -233,13 +233,13 @@ session_start();
               $tot3=0;
             for ($i=0; $i <= $contador ; $i++) { 
                
-                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][4].'</td><td>'.$_SESSION['valores'] [$i][3];
+                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][8].'</td><td>'.$_SESSION['valores'] [$i][4].'</td><td>'.$_SESSION['valores'] [$i][3];
                 print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td></tr>';
                 $tot= $_SESSION['totales'] [$i][0]+ $tot;
                 $tot2= $_SESSION['totales'] [$i][1] + $tot2;
                 $tot3= $_SESSION['totales'] [$i][2] + $tot3;
                 if($i==$contador)
-                  print '<tr><td><b>Total</b></td><td></td><td></td><td></td><td>'.$tot.'</td><td>'.$tot2.'</td><td>'.$tot3.'</td></tr>';
+                  print '<tr><td><b>Total</b></td><td></td><td></td><td></td><td></td><td>'.$tot.'</td><td>'.round($tot2,2).'</td><td>'.round($tot3,2).'</td></tr>';
                 }
 
            ?>
