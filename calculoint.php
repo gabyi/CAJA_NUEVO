@@ -31,7 +31,7 @@ session_start();
   <script src="js/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
 
-  <title>Presupuesto de Sucesiones</title>
+  <title>Presupuesto de Intereses</title>
   </head>
 
   <body>
@@ -249,7 +249,6 @@ session_start();
         <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
-                  <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
                   </div>
         </div>     
 
