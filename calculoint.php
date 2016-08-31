@@ -184,11 +184,11 @@ session_start();
         {
           if($tasa=="tactiva")
           {
-            $metodo="Activa BNA";
+            $metodo="Activa BLA";
           }else
           {
-            if($tasa="blp")
-              $metodo="Activa BLP";
+            if($tasa="tpasiva")
+              $metodo="Pasiva BLP";
           }
         }  
 
