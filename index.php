@@ -11,7 +11,7 @@ session_start();
 ?>
   <body>
 
-<!-- Button trigger modal -->
+<!-- Button trigger modal 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -38,7 +38,7 @@ session_start();
     </div>
     
 
-  </div>
+  </div>-->
 
 
 <?php
