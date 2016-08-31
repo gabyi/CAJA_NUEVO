@@ -74,7 +74,7 @@ include 'navbarFooter.php';
     		Profesionales
   		</div>
   		<div id="panel-cuerpo" class="panel-body" id="montos">
-    		<form class="form-horizontal" action="tabla.php" method="post">
+    		<form class="form-horizontal" action="profesio.php" method="post">
 
 								<!-- profesio input-->
 								<div class="form-group">
