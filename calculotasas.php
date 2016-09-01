@@ -7,7 +7,7 @@ if(!isset($calcular))
   session_register('totales');//suma los totales
 }
 
-if(isset($calcular))
+if(isset($calcular) && $_REQUEST["importe"])
 {
 
     

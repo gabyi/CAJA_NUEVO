@@ -47,7 +47,7 @@ session_start();
 	<div id="forminteres" class="panel panel-default">
   		<div class="panel-heading">
         C&aacute;lculo de intereses
-      </div>   		
+      </div>   	
   		
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
@@ -164,7 +164,7 @@ session_start();
     session_unregister('totales');
   }
 
-  if(isset($calcular))
+  if (isset($calcular) && $importe!="") 
   {
     if(!isset($_SESSION['contador']))
     {
@@ -201,15 +201,15 @@ session_start();
     if($importe=="" || !is_numeric($importe))
       {
         $texto="Tiene que colocar un valor numerico en Importe!";
-        print "<script type='text/javascript'>alert('$texto')</script>";
+        print "<script type='text/javascript'>alert('$texto')</script>"; //poner los valores para que no se borren
       }
   else
     {
       
  ?>
-<div class="container-fluid">
+<div class="container-fluid" id="tablainteres">
   <div class="row">
-  <div id="tablainteres" class="panel panel-default">
+  <div id="" class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
       </div>      
