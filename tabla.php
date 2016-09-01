@@ -379,8 +379,8 @@ include 'logo.php';
 </div>
 
 <div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan
-                                              las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
-                                              Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva año 2009 (Ley 2463).</div>
+                                             las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
+                                             Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>
 
 <div id="noprint" class="panel-footer">
 
