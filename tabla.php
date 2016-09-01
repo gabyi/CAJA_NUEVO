@@ -19,6 +19,7 @@ if(isset($calcular))
 
 <!DOCTYPE html>
 <html lang="es">
+<meta charset="utf-8">
 
   <head>
     <!--<meta charset="utf8">para que aparezca la ñ-->
@@ -377,14 +378,17 @@ include 'logo.php';
 
 </div>
 
+<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan
+                                              las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
+                                              Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva año 2009 (Ley 2463).</div>
+
 <div id="noprint" class="panel-footer">
 
  
-   <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
+    <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
         name='calcular' onclick= 'doPrint ()'>Imprimir</button>
-   <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
-        name='volver' style='margin-left:15px;'>Volver</button></a>
- 
+    <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
+        name='volver' style='margin-left:15px;'>Volver</button></a> 
 
 </div>
 </div>
