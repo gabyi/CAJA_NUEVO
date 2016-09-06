@@ -12,6 +12,11 @@ session_start();
 {
 
     include 'head.php';
+?>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+    <?php 
 
     include 'conexion.php';
 
