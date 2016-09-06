@@ -108,7 +108,7 @@ include 'logo.php';
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <div class="checkbox">
-                        <label><input type="checkbox" name="oficio"> Oficio Ley 22.172 </label>
+                        <label><input type="checkbox" name="oficio" value="oficio_ley"> Oficio Ley 22.172 </label>
                       </div>
                     </div>
 
