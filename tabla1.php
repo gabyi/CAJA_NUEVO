@@ -57,35 +57,37 @@ include 'logo.php';
       </div>
 <div id="panel-cuerpo" class="panel-body">
 
+<?php 
+
+
+
+ ?>
+
  <div class="col-sm-6 col-md-6">
 
   <h4>Costo de Iniciaci&oacute;n</h4>
 
-    <table class="table-striped">
 
       <?php
 
 
+         
+        print "<table class='table-striped'>";
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
 
-          print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
+        print "<tr><td>Bono Ley N&#176; 422</td><td style='align:right;padding-left:30px;'>".$bono_ley."</td></tr>";
 
-          print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
+        print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_inicio_aporte."</td></tr>";
 
-          print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
+        print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_inicio_cont."</td></tr>";
 
-          print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
-          <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+        <th style='align:right;padding-left:30px;'>".$sumaCForense."</th></tr>";
 
+        print "</table>";
 
-      ?>
-    </table>
-
-
-
-      <?php
 
         print "<table class='table-striped'>";
 
@@ -103,19 +105,18 @@ include 'logo.php';
 
   </div>
 
+
+
 <!--=================================================================================================================================================================================-->
 <!--Comienzo de la tabla de finalizacion de Juicios-->
 <!--=================================================================================================================================================================================-->
-
-
-<div class="col-sm-6 col-md-6" id="sucesDer">
-
-    <h4>Presupuesto previo a inscribir los bienes</h4>
-
-    <table class="table-striped">
-
       <?php
 
+        print"<div class='col-sm-6 col-md-6' id='sucesDer'>";
+
+        print "<h4>Presupuesto previo a inscribir los bienes</h4>";
+
+        print "<table class='table-striped'>";
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
@@ -126,14 +127,11 @@ include 'logo.php';
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
         <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
 
-      ?>
-    </table>
+        print "</table>";
 
 
-    <table class="table-striped">
 
-      <?php
-
+        print "<table class='table-striped'>";
 
         print "<caption>Direcci&oacute;n General de Rentas</caption>";
 
@@ -142,18 +140,18 @@ include 'logo.php';
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
         <th style='align:right;padding-left:30px;'>".$tasaVariable."</th></tr>";
 
-      ?>
-    </table>
+        print "</table>";
 
-     <?php
-    print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFin."</div>";
-    ?>
 
-</div>
-</div>
+        print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFin."</div>";
 
-<?php
-  print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
+        print "</div>";
+
+        print "</div>";
+
+
+        print "<div id='total-IniFin' class= 'well well-sm'>Honorarios Minimos segun Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
+        
  ?>
 
 <div id="noprint" class="panel-footer">

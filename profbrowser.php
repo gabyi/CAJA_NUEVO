@@ -11,11 +11,41 @@ session_start();
   }else /*<!-- aca termina el if si no paso por el index*/
 {
 
-    include 'head.php';
+    
 ?>
+    <head>
+    <meta charset="UTF-8" lang="es">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="imagenes/logo.ico"/>
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- fuentes -->
+    <link href="css/fuentes.css" rel="stylesheet">
+
+    <!--mi estilo -->
+    <link href="css/miestilo.css" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+  
     <link href="css/jquery-ui.css" rel="stylesheet">
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/cajascript.js" type="text/javascript"></script>
+
+    </head>
     <?php 
 
     include 'conexion.php';
@@ -36,28 +66,41 @@ include 'navbarFooter.php';
     		Profesionales
   		</div>
   		<div id="panel-cuerpo" class="panel-body" id="montos">
-    		<form class="form-horizontal" action="profesio.php" method="post">
 
-								<!-- profesio input-->
-								<div class="form-group">
+
                   <div class="col-sm-1 col-md-1"></div> <!--lo puse para alinear-->
 
 									<label class="col-md-3 col-sm-3 control-label" for="profesio">Nombre del Profesional</label>
-									<div class="col-md-4 col-sd-4">
-									<input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
-                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" value="" required autofocus/>
+									<div class="col-md-6 col-sd-6">
 
-									</div>
-								</div>
-
-							  <div class="form-horizontal">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+                  <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
+									
+                  <input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
+                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" onChange="" value="" required autofocus/> <br>
+                  
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
                   <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>-->
-								</div>
-
-						</form>
-  		</div>
+									</div>
+      
+      </div>
 	</div>
+
+  <div id="panel" class="panel panel-default">
+
+    <table id="grilla" class="table table-striped">
+        <thead>
+        <tr>
+        <th>Nombre y Apellido</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Localidad</th>
+        </tr>
+        </thead>
+      <tbody></tbody>
+    </table>
+    
+
+  </div>
 </div>
 
 <?php
