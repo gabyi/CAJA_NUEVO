@@ -1,12 +1,13 @@
 <?php
 
-$buscar=$_POST['code'];
+$nombre=$_POST['nombre'];
+$localidad= $_POST['localidad'];
 
-if(isset($buscar))
+if(isset($nombre) || isset($localidad))
 {
 	$conexion=mysql_connect("www.cforense.org","cfore2","O55ur+wodge");
 	mysql_select_db("cfore2",$conexion) or die("error en seleccion de BD: ".mysql_errno());
-	$consulta=mysql_query("SELECT * FROM profesio1 WHERE nombrepro='".$buscar."';",$conexion) or die(	"No se encuentra producto: $buscar " . mysql_errno());
+	$consulta=mysql_query("SELECT * FROM profesio1 WHERE nombrepro='".$nombre."' or locaprof='".$localidad."';",$conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
 	
 	while($fila=mysql_fetch_array($consulta))	
 	{ 

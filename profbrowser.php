@@ -86,7 +86,7 @@ include 'navbarFooter.php';
                   <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
                   
                   <input id="localidad" name="localidad" title="Por favor ingrese localidad"
-                  type="text" placeholder="Ingrese localidad" class="form-control" list="localidades"/> <br>
+                  type="text" placeholder="Ingrese localidad" class="form-control" list="localidad"/> <br>
                   
                   
                   </div>
@@ -147,7 +147,32 @@ $i=0;
 ?>
 
 ];
+
+var localidad = [
+    <?php 
+      $consulta="select locaprof  from profesio1 group by locaprof order by locaprof asc"; /*busca todo menos los que tenga suces*/
+      $result=mysql_query($consulta, $conexion);
+      $n= mysql_num_rows($result);
+      $i=0;
+
+
+      for($i;$i<=$n;$i++)
+        {
+          $fila= mysql_fetch_array($result);
+          if($fila["locaprof"]!="")
+        {
+
+          print ('"'.$fila["locaprof"].'",');
+          }
+        }
+    ?>
+  ];
+
 $( "#profesio" ).autocomplete({
   source: profesionales
+});
+
+$("#localidad").autocomplete({
+  source: localidad
 });
 </script>

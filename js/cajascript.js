@@ -10,11 +10,12 @@ function()
 function buscar()
 {
 	
-	var code=$("#profesio").val();
+	var nombre=$("#profesio").val();
+	var localidad=$("#localidad").val();
 	
 	//if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
 	//{
-		$.post('destino.php', {"code":code},
+		$.post('destino.php', {"nombre":nombre, "localidad":localidad},
 		function(mensaje)
 		{
         	if(mensaje!="")
