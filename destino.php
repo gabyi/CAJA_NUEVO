@@ -11,7 +11,7 @@ if(isset($buscar))
 	while($fila=mysql_fetch_array($consulta))	
 	{ 
         //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
-		$cadena.='<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['locaprof'].'</td>';
+		$cadena.='<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td>';
 	}
 	
 	echo $cadena;

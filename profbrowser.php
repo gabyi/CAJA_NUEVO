@@ -68,21 +68,32 @@ include 'navbarFooter.php';
   		<div id="panel-cuerpo" class="panel-body" id="montos">
 
 
-                  <div class="col-sm-1 col-md-1"></div> <!--lo puse para alinear-->
-
-									<label class="col-md-3 col-sm-3 control-label" for="profesio">Nombre del Profesional</label>
+									
 									<div class="col-md-6 col-sd-6">
+                    <label for="profesional">Nombre del Profesional</label>
 
                   <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
 									
                   <input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
-                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" onChange="" value="" required autofocus/> <br>
+                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" required autofocus/> <br>
                   
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
-                  <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>-->
+                  
 									</div>
+
+                      <div class="col-md-6 col-sd-6">
+                    <label for="profesional">Localidad</label>
+
+                  <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
+                  
+                  <input id="localidad" name="localidad" title="Por favor ingrese localidad"
+                  type="text" placeholder="Ingrese localidad" class="form-control" list="localidades"/> <br>
+                  
+                  
+                  </div>
       
       </div>
+      <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+                  <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>--></div>
 	</div>
 
   <div id="panel" class="panel panel-default">
@@ -93,6 +104,7 @@ include 'navbarFooter.php';
         <th>Nombre y Apellido</th>
         <th>Dirección</th>
         <th>Teléfono</th>
+        <th>Email</th>
         <th>Localidad</th>
         </tr>
         </thead>
