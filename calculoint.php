@@ -207,7 +207,7 @@ session_start();
     {
       
  ?>
-<div class="container-fluid" id="tablainteres">
+<div class="container" id="tablainteres">
   <div class="row">
   <div id="" class="panel panel-default">
       <div class="panel-heading">
