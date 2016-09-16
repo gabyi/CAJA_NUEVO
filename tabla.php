@@ -296,7 +296,7 @@ include 'logo.php';
           print "<tr><td>Tasa Especial Fija</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tfija."</td></tr>";
         }
 
-        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Rentas: </th>
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R: </th>
           <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";
         print "</table>";
       }

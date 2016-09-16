@@ -80,19 +80,20 @@ include 'navbarFooter.php';
                   
 									</div>
 
-                      <div class="col-md-6 col-sd-6">
+                  <div class="col-md-6 col-sd-6">
                     <label for="profesional">Localidad</label>
 
                   <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
                   
-                  <input id="localidad" name="localidad" title="Por favor ingrese localidad"
-                  type="text" placeholder="Ingrese localidad" class="form-control" list="localidad"/> <br>
+                    <input id="localidad" name="localidad" title="Por favor ingrese localidad"
+                    type="text" placeholder="Ingrese localidad" class="form-control" list="localidad"/> <br>
                   
                   
                   </div>
       
       </div>
       <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+      <div id="mensaje"></div>
                   <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>--></div>
 	</div>
 
@@ -111,7 +112,8 @@ include 'navbarFooter.php';
       <tbody></tbody>
     </table>
     
-
+    <ul class="pagination" id="pagination"></ul>
+    
   </div>
 </div>
 

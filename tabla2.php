@@ -267,7 +267,7 @@ include 'logo.php';
 
         print "<tr><td>Tasa Especial Variable</td><td style='align:right;padding-left:30px;'>".$tasaVariable."</td></tr>";
 
-        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
+        print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R.: </th>
         <th style='align:right;padding-left:30px;'>".$tasaVariable."</th></tr>";
 
       ?>
