@@ -184,14 +184,15 @@ session_start();
         <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Valor Técnico Actuarial</h3>
+                  <h3>Subsidios – Nuevos montos</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>A partir del corriente mes se implementó un nuevo método de cálculo del Valor Técnico Actuarial,
-                    con el objetivo de castigar la falta de solidaridad y desalentar la morosidad y fue desarrollado
-                    en base al informe técnico titulado Factor de Actualización Actuarial elaborado por el Estudio de 
-                    Actuarios Fastman y Asociados.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1199.pdf')">Ver Mas</button>
+                   <p>A partir del 1° de septiembre se incrementaron los montos de los Subsidios Solidarios. Los nuevos importes son:<br>
+                      • Matrimonio:           $  6.200<br>
+                      • Nacimiento o Adopción de Hijo:    $  6.200<br>
+                      • Fallecimiento:          $ 17.000<br>
+                      </p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1204.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -199,14 +200,16 @@ session_start();
           <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Bono Consulta</h3>
+                  <h3>Contingencias de salud, graves e imprevistas</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>Respondiendo a la solicitud de muchos afiliados y con la finalidad de facilitar su utilización,
-                    se modificó el valor unitario del bono, habiéndoselo fijado en UN UMED, unidad de medida que
-                    permitirá mantener su poder adquisitivo. Los nuevos talonarios de Bonos Consulta estarán a
-                    disposición de los interesados a partir del 1 de Septiembre próximo.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1200.pdf')">Ver Mas</button>
+                   <p>A partir del 1° de septiembre se establecieron los nuevos montos mínimos y máximos para la cobertura por Contingencias de salud, graves e imprevistas.
+                      El monto mínimo a cubrir será de $ 5.000.
+                      En el caso de contingencias que, si bien no ponen en riesgo la vida del beneficiario, le acarreen a éste una invalidez total y temporal, el 
+                      monto máximo de la cobertura será de $ 75.000.
+                      En los casos de contingencias graves e imprevistas que pongan en riesgo la vida del beneficiario, el monto máximo a cubrir será de $ 100.000.
+                      </p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1205.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
