@@ -92,7 +92,7 @@ include 'navbarFooter.php';
                   </div>
       
       </div>
-      <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+      <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="javascript:buscar('1');" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
       <div id="mensaje"></div>
                   <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>--></div>
 	</div>

@@ -1,13 +1,11 @@
 // JavaScript Document
 $(document).ready(
-function()
+	function()
 {
-    $("#codigo").focus();
-	eliminar();
-	$("#mensaje").html("<p style='color:rgba(247,145,0,0.72)'>No existe busqueda activa</p>");
+    $("#profesio").focus();
 });
 
-function buscar()
+function buscar(partida)
 {
 	
 	var nombre=$("#profesio").val();
@@ -15,15 +13,19 @@ function buscar()
 	
 	//if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
 	//{
-		$.post('destino.php', {"nombre":nombre, "localidad":localidad},
+		$.post('destino.php', {"nombre":nombre, "localidad":localidad, "partida":partida},
 		function(mensaje)
 		{
         	if(mensaje!="")
 			{
-				$("#grilla tbody").append(mensaje);
+				var array= eval(mensaje);
+				$("#grilla tbody").html(array[0]);
+				$("#pagination").html(array[1]);
+				/*$("#grilla tbody").append(array[0]); estos se usan para concatenar a lo que ya habia
+				$("#grilla1 tbody").append(array[1]); estos se utilizan para concatenar a los que ya habian
 				$("#mensaje").html("");
 				$("#profesio").val("");
-				$("#profesio").focus();
+				$("#profesio").focus();*/
 			}
 			else
 				{
@@ -39,4 +41,5 @@ function buscar()
 			$("#codigo").val("");
 			$("#codigo").focus();
 		}*/
+
 }
