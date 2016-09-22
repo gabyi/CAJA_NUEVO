@@ -80,31 +80,33 @@ include 'navbarFooter.php';
         </div>
 
     <div id="panel-cuerpo" class="panel-body" id="montos">
-    <table id="grilla" class="table table-striped">
-        <thead>
-        <tr>
-        <th>Nombre y Apellido</th>
-        <th>Dirección</th>
-        <th>Teléfono</th>
-        <th>Email</th>
-        <th>Localidad</th>
-        </tr>
-        </thead>
-<tbody>
-<?php
+        <div class="table-responsive">
+        <table id="grilla" class="table-striped">
+            <thead>
+            <tr>
+            <th>Nombre y Apellido</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Localidad</th>
+            </tr>
+            </thead>
+        <tbody>
+            <?php
 
    
-    while($fila=mysql_fetch_array($consulta))   
-    { 
-       //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
-        print ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
-    }
+                while($fila=mysql_fetch_array($consulta))   
+                { 
+                //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
+                    print ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
+                }
     
-?>
-</tbody>
-</table>
-</div>
-</div>
+            ?>
+        </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
 </div>
 
 <?php
