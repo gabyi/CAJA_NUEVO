@@ -2,7 +2,7 @@
 $(document).ready(
 	function()
 {
-    $("#profesio").focus();
+    $("#codigo").focus();
 });
 
 function buscar(partida)

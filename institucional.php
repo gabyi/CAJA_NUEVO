@@ -38,6 +38,13 @@
               <ul id="navUl" class="nav navbar-nav">
                 <li><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="cuenta.php">Estado Previsional</a></li>
+                      <li><a href="profbrowser1.php">Padrón de afiliados</a></li>   
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Institucional<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>

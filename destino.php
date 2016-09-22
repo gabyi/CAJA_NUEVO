@@ -56,7 +56,7 @@ if($localidad=="" || $nombre=="")
 
 		if($localidad!="")
 		{
-			$consulta=mysql_query("SELECT * FROM profesio1 WHERE locaprof='".$localidad."' LIMIT $limit, $nroLotes;",$conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
+			$consulta=mysql_query("SELECT * FROM profesio1 WHERE locaprof='".$localidad."' order by nombrepro asc LIMIT $limit, $nroLotes;",$conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
 			$nroprofesio= mysql_num_rows($consulta);
 		}else
 			{
