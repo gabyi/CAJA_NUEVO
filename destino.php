@@ -2,9 +2,9 @@
 
 $nombre=$_POST['nombre'];
 $localidad= $_POST['localidad'];
-$paginaactual= $_POST['partida'];
-$nrolotes=5;
-$lista="";
+$paginaActual= $_POST['partida'];
+$nroLotes=22;
+$lista = '';
 
 include "conexion.php";
 
@@ -31,22 +31,40 @@ if($localidad=="" || $nombre=="")
 
 	$nroPaginas = ceil($nroprofesio/$nroLotes);
 
-
-	if($paginaActual > 1){
-        $lista = $lista.'<li><a href="javascript:pagination('.($paginaActual-1).');">Anterior</a></li>';
+	 if($paginaActual > 1){
+        $lista = $lista.'<li><a href="javascript:buscar('.($paginaActual-1).');">Anterior</a></li>';
     }
     for($i=1; $i<=$nroPaginas; $i++){
         if($i == $paginaActual){
-            $lista = $lista.'<li class="active"><a href="javascript:pagination('.$i.');">'.$i.'</a></li>';
+            $lista = $lista.'<li class="active"><a href="javascript:buscar('.$i.');">'.$i.'</a></li>';
         }else{
-            $lista = $lista.'<li><a href="javascript:pagination('.$i.');">'.$i.'</a></li>';
+            $lista = $lista.'<li><a href="javascript:buscar('.$i.');">'.$i.'</a></li>';
         }
     }
     if($paginaActual < $nroPaginas){
-        $lista = $lista.'<li><a href="javascript:pagination('.($paginaActual+1).');">Siguiente</a></li>';
+        $lista = $lista.'<li><a href="javascript:buscar('.($paginaActual+1).');">Siguiente</a></li>';
     }
 
+	 if($paginaActual <= 1){
+  		$limit = 0;
+  	}else{
+  		$limit = $nroLotes*($paginaActual-1);
+  	}
 	
+// Hago de nuevo las consultas para paginar con el limite que impongo en nroLotes
+
+
+		if($localidad!="")
+		{
+			$consulta=mysql_query("SELECT * FROM profesio1 WHERE locaprof='".$localidad."' LIMIT $limit, $nroLotes;",$conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
+			$nroprofesio= mysql_num_rows($consulta);
+		}else
+			{
+				$consulta=mysql_query("SELECT * FROM profesio1 WHERE nombrepro='".$nombre."' LIMIT $limit, $nroLotes;;",$conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
+				$nroprofesio= mysql_num_rows($consulta);
+			}
+
+
 	while($fila=mysql_fetch_array($consulta))	
 	{ 
        //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas		
