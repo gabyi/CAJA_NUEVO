@@ -21,10 +21,10 @@ function buscar(partida)
 				var array= eval(mensaje);
 				$("#grilla tbody").html(array[0]);
 				$("#pagination").html(array[1]);
-				$("#profesio").val("");
 				/*$("#grilla tbody").append(array[0]); estos se usan para concatenar a lo que ya habia
 				$("#grilla1 tbody").append(array[1]); estos se utilizan para concatenar a los que ya habian
 				$("#mensaje").html("");
+				$("#profesio").val("");
 				$("#profesio").focus();*/
 			}
 			else
