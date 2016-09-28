@@ -69,12 +69,48 @@ include 'navbarFooter.php';
 
 <div class="container" id="containerCuerpo">
 
+        <div id="panel" class="panel panel-default">
+        <div class="panel-heading">
+            Profesionales
+        </div>
+        <div id="panel-cuerpo" class="panel-body" id="montos">
+
+
+                                    
+                                    <div class="col-md-6 col-sd-6">
+                    <label for="profesional">Nombre del Profesional</label>
+
+                  <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
+                                    
+                  <input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
+                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" value="" required autofocus/> <br>
+                  
+                  
+                                    </div>
+
+                  <div class="col-md-6 col-sd-6">
+                    <label for="profesional">Localidad</label>
+
+                  <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
+                  
+                    <input id="localidad" name="localidad" title="Por favor ingrese localidad"
+                    type="text" placeholder="Ingrese localidad" class="form-control" list="localidad" value=""/> <br>
+                  
+                  
+                  </div>
+      
+      </div>
+
+    </div>
+
+
 <div id="imgLOAD" style="text-align:center;">
 <b>Cargando...</b>
 <img src="imagenes/loadingbar-grey.gif" />
 </div>
 
-  <div id="panel" class="panel panel-default">
+    <div class="panel-footer">
+        <div id="panel" class="panel panel-default">
         <div class="panel-heading">
             <h4>Profesionales</h4>
         </div>
@@ -98,7 +134,7 @@ include 'navbarFooter.php';
                 while($fila=mysql_fetch_array($consulta))   
                 { 
                 //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
-                    print ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
+                    echo ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
                 }
     
             ?>
@@ -107,6 +143,8 @@ include 'navbarFooter.php';
         </div>
     </div>
   </div>
+    </div>
+  
 </div>
 
 <?php
@@ -121,19 +159,17 @@ include 'footer1.php';
 
 <script type="text/javascript">
 
-
-
 window.onload = detectarCarga;
 function detectarCarga(){
+document.getElementById("grilla_filter").style.display="none";
 document.getElementById("imgLOAD").style.display="none";
 document.getElementById("panel").style.display="visible";
 }
 
-
-
     $(document).ready(function() {
+
      
-        $('#grilla').dataTable( {
+       $('#grilla').dataTable( {
 
             "lengthMenu": [5, 10, 15, 20, 25],  
      
@@ -181,14 +217,35 @@ document.getElementById("panel").style.display="visible";
      
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
      
-                }
-     
-        }
-     
-        
-     
+                }    
+            }
         } );
-     
+
+        oTable = $('#grilla').DataTable();
+
+//busca desde text profesio en la columna de profesionales
+
+        $('#profesio').on( 'keyup', function () {
+            oTable
+                .columns( 0 )
+                .search( this.value )
+                .draw();
+        } );
+
+//busca desde el text localidad en la columna de localidades
+
+        $('#localidad').on( 'keyup', function () {
+            oTable
+                .columns( 4 )
+                .search( this.value )
+                .draw();
+        } );
+
     } );
  
+
+
+ 
 </script>
+
+
