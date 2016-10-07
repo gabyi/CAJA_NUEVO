@@ -166,7 +166,7 @@ session_start();
 <div id="noticias" class="container-fluid">
     <div class="row" >
         
-          <div class="col-sm-4 col-md4">
+          <!--<div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
                   <h3>Nuevos Haberes Previsionales</h3>
@@ -178,8 +178,22 @@ session_start();
                    <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1198.pdf')">Ver Mas</button>
                 </div>
             </div>
+        </div>-->
+        
+        
+         <div class="col-sm-4 col-md4">
+            <div id="panel-noticia" class="panel panel-default">
+                <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
+                  <h3>Coordinadora Regional de la Patagonia</h3>
+                </div>
+                <div id="panel-cuerpo-noticia" class="panel-body">
+                   <p> Los días 6 y 7 de octubre se llevará a cabo el Encuentro Región Sur de Cajas de Previsión Social en la ciudad de Santa Rosa,
+                    organizado por las tres Cajas de Profesionales de la Provincia.</p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('ProgRegPatagonica.pdf')">Ver Mas</button>
+                </div>
+            </div>
         </div>
- 
+        
 
         <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">

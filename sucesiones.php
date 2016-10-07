@@ -5,11 +5,11 @@ session_start();
 
 
 
-  if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+ /* if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
-  }else /*<!-- aca termina el if si no paso por el index*/
-{
+  }else /*<!-- aca termina el if si no paso por el index
+{*/
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ include 'logo.php';
       </div>   		
   		
   		<div id="panel-cuerpo" class="panel-body">
-    		<form name="form-sus" class="form-horizontal" method="post">
+    		<form name="form-sus" class="form-horizontal" method="post" action="" onsubmit="return validacion()">
 
 <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
@@ -77,16 +77,27 @@ include 'logo.php';
                       <h4>Bienes Gananciales</h4>
                     </div>
 
-
+                    
                     <div class="col-sm-4 col-md-4">
-              
-                      <input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>
+                        <?php 
+                            if(isset($calcular1))
+                              echo "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value='".$_POST['bg1']."'>";
+                            else
+                              echo "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>";
+                         ?>
+                      
                       
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bg2" name="bg2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
+                      <?php 
+                            if(isset($calcular1))
+                              echo "<input type='text' class='form-control' id='bg2' name='bg2' placeholder='En la Provincia de La Pampa' value='".$_POST['bg2']."'>";
+                            else
+                              echo "<input type='text' class='form-control' id='bg2' name='bg2' placeholder='Extra&ntilde;a Jurisdicci&oacute;n' value=''>";
+                         ?>
+                      
                     </div>
                 </div>
 
@@ -97,31 +108,65 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp1" name="bp1" placeholder="En la Provincia de La Pampa" value="">
+                      <?php 
+                            if(isset($calcular1))
+                              echo "<input type='text' class='form-control' id='bp1' name='bp1' placeholder='En la Provincia de La Pampa' value='".$_POST['bp1']."'>";
+                            else
+                              echo "<input type='text' class='form-control' id='bp1' name='bp1' placeholder='En la Provincia de La Pampa' value=''>";
+                         ?>
+                      
                     </div>
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="bp2" name="bp2" placeholder="Extra&ntilde;a Jurisdicci&oacute;n" value="">
+                      <?php 
+                            if(isset($calcular1))
+                              echo "<input type='text' class='form-control' id='bp2' name='bp2' placeholder='En la Provincia de La Pampa' value='".$_POST['bp2']."'>";
+                            else
+                              echo "<input type='text' class='form-control' id='bp2' name='bp2' placeholder='Extra&ntilde;a Jurisdicci&oacute;n' value=''>";
+                         ?>
+                      
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-4 col-md-4">
                       <div class="checkbox">
-                        <label><input type="checkbox" name="oficio" value="oficio_ley"> Oficio Ley 22.172 </label>
+                          
+                          <?php 
+                            if(isset($calcular1) && isset($_POST['oficio']))
+                              echo "<label><input type='checkbox' name='oficio' value='oficio_ley' checked> Oficio Ley 22.172 </label>";
+                            else
+                              echo "<label><input type='checkbox' name='oficio' value='oficio_ley'> Oficio Ley 22.172 </label>";
+                          ?>
+
                       </div>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" value="1" name="sel" option="opcion1" checked> Act&uacute;a con poder (Apoderado) </label>
+                          <?php 
+
+                            if(isset($_POST['sel']) && $_POST['sel'] == "1" )
+                              echo "<label><input type='radio' value='1' name='sel' option='opcion1' checked> Act&uacute;a con poder (Apoderado)</label>";
+                            else
+                              echo "<label><input type='radio' value='1' name='sel' option='opcion1'> Act&uacute;a con poder (Apoderado)</label>";
+                          ?>
+                        
                       </div>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
                       <div class="radio">
-                        <label><input type="radio" value="2" name="sel" option="opcion2"> Act&uacute;a por derecho propio (Letrado) </label>
+
+                          <?php 
+
+                            if(isset($_POST['sel']) && $_POST['sel'] == "2")
+                              echo "<label><input type='radio' value='2' name='sel' option='opcion2' checked> Act&uacute;a por derecho propio (Letrado) </label>";
+                            else
+                              echo "<label><input type='radio' value='2' name='sel' option='opcion2'> Act&uacute;a por derecho propio (Letrado) </label>";
+                          ?>
+                        
                       </div>
                     </div>
                 </div>
@@ -138,13 +183,26 @@ include 'logo.php';
   		</div>
 	</div>
 
-</div>
-
 <?php
+
+  if(isset($calcular1))
+    {
+
+      include 'calculosucesiones.php';
+      include 'tabla1.php';
+    
+    } 
+    
+
+echo "</div>";
+
+ 
+
+echo ("</div>");
 
 include 'footer.php';
 include 'footer1.php';
-	}/*termina el else de que si no hay session disponible, o si no entro por el index */
+	//}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
   </body>
@@ -152,103 +210,97 @@ include 'footer1.php';
 
 <script type="text/javascript">
 
-function doSend()
-{
+
+function validacion() {
 
   var bg1 = document.getElementById("bg1").value;
   var bg2 = document.getElementById("bg2").value;
   var bp1 = document.getElementById("bp1").value;
   var bp2 = document.getElementById("bp2").value;
-
-if(bg1 == "" && bg2 == "")
-{
-  var errorbg="";
-}else
-{
-  var errorbg="TRUE";
-}
-
-if(bp1 == "" && bp2 == "")
-{
-  var errorbp="";
-}else
-{
-  var errorbp="TRUE";
-}
-
-var numero= control();
-
-if(errorbp != "" && errorbg != "")
-{
-  control();
-  //document.all.item("form-sus").action="tabla1.php";
-  //document.all.item("form-sus").action="sucesiones.php";
-}
-
-}
-
-function control()
-{
-  var bg1 = document.getElementById("bg1").value;
-  var bg2 = document.getElementById("bg2").value;
-  var bp1 = document.getElementById("bp1").value;
-  var bp2 = document.getElementById("bp2").value;
-  
 
   var v1=parseInt(bg1);
   var v2=parseInt(bg2);
   var v3=parseInt(bp1);
   var v4=parseInt(bp2);
 
-  if(!isNaN(v1))
-  {
-    document.all.item("form-sus").action="tabla1.php";
-  }else
-  {
-    if(!isNaN(v2))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-    {
-      if(!isNaN(v3))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-    {
-      if(!isNaN(v4))
-    {
-      document.all.item("form-sus").action="tabla1.php";
-    }else
-      document.all.item("form-sus").action="sucesiones.php";
-    }
-    }
+    
+  if (!isNaN(v1)) {
+
+   return true;
   }
+  else if (!isNaN(v2)) {
+
+    return true;
+  }
+  else if (!isNaN(v3)) {
+
+    return true;
+  }
+  else if (!isNaN(v4)) {
+
+    return true;
+  }
+ 
+  // Si el script ha llegado a este punto, todas las condiciones
+  // se han cumplido, por lo que se devuelve el valor true
+  alert ("Debe llenar las casillas con valores numérico");
+  return false;
 }
 
-var juicios = [
-<?php
-
-$consulta="select * from ValoresCajaRentas where materia LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
-$result=mysql_query($consulta, $conexion);
-$n= mysql_num_rows($result);
-$i=0;
 
 
-  for($i;$i<=$n;$i++)
-  {
-    $fila= mysql_fetch_array($result);
-    if($fila["materia"]!="")
-    {
+/*function doprint(){ 
+ window.print()
+ }*/
 
-      print ('"'.$fila["materia"].'",');
-     }
-  }
-?>
+ function imprJui() {
+  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
+  var doc = juiwin.document; 
+  doc.open(); 
+  doc.write("<head><Title>Caja Forense de Abogados de La Pampa</title>");
+  doc.write("<style>body,table, panel-heading, td, th {font-family:Arial, Helvetica, sans-serif; font-size:10px;}</style>");
+  doc.write("<link href='css/bootstrap.min.css' rel='stylesheet'>");
+  doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
+  doc.write("</head>");
+  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
+  doc.write("<div align='center'><h4>Presupuesto para Iniciación de Juicios</h4>");
+  doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Acervo Hereditario</th></tr>");
+  doc.write("<tr><th>&nbsp;</th><th>Provincia de La Pampa</th><th>Extraña Jurisdiccion</th></tr>");
+  doc.write("<tr><th>Bienes Gananciales</th><td align=\"center\">" + Formato($("#bg1").val()) + "</td><td align=\"center\">" + Formato($("#bg2").val()) + "</td></tr>");
+  doc.write("<tr><th>Bienes Propios</th><td align=\"center\">" + Formato($("#bp1").val()) + "</td><td align=\"center\">" + Formato($("#bp2").val()) + "</td></tr>");
+  doc.write("</table>\n");
+  doc.write("<div id='aca'></div>");
+  doc.getElementById('aca').innerHTML=$("#panel11").html();
+  doc.write('<script>window.print()');
+  doc.close();
 
-];
-$( "#juicio" ).autocomplete({
-  source: juicios
-});
+}
 
+function Formato(imp){
+  var impInt = new String();
+  var impDec = new String();
+  var i, j;
+  txtImp = new String(imp);
+  if (txtImp.indexOf(',') >= 0) {txtImp = txtImp.replace(',', '.'); }
+  i = txtImp.indexOf('.');
+  if (i == -1) { impInt = txtImp; impDec = '0000'; }
+  else { impInt = txtImp.substring(0, i); impDec = txtImp.substring(i + 1) + '0000'; }
+  impDec = impDec.substr(0, 2);
+  txtImp = impInt + ',' + impDec;
+  return txtImp;
+}
 
 </script>
+
+<?php
+
+  session_unregister ("juicio1");
+
+
+  function calculaAportes ($a, $b)
+      {
+        $valor=$a * ($b/100);
+        return $valor;
+      }
+
+?>

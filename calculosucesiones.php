@@ -97,7 +97,13 @@
       //haciendo las sumas de las tablas
       $sumaFinCajaForense= $caja_fin_aportes + $caja_fin_cont;
 
-      $sumaFin= $caja_fin_aportes + $caja_fin_cont + $tasaVariable;
+      if($oficio)
+      
+        $sumaFin= $caja_fin_aportes + $caja_fin_cont;
+      
+        else
+
+        $sumaFin= $caja_fin_aportes + $caja_fin_cont + $tasaVariable;
 
       //casteando los numeros
       $caja_fin_aportes= number_format($caja_fin_aportes, 2);
