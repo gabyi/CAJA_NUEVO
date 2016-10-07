@@ -51,6 +51,7 @@
                     <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
                     <li><a href="#coordinadora">Coordinadora de Cajas</a></li>  
+                    <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
@@ -96,8 +97,11 @@
     </div>
    
 ===========================================================-->      
-<body>  
-       <section id="creacion" class="azul"> <!--azul-->
+<body> 
+
+<div class="container-fluid">
+
+           <section id="creacion" class="azul"> <!--azul-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
@@ -132,7 +136,7 @@
        </section>
 
         <section id="autoridades" class="blanco"> <!--blanco-->
-            <div class="container">
+            <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
                 <h2>Autoridades</h2>
@@ -177,7 +181,7 @@
                         Sistemas: Roberto Carlos <strong>VELOSO</strong><br>
                                   Gabriel <strong>ISABELLA</strong>.
                     <br><br>
-                        Para más información consultar <a href="http://www.cforense.org.ar/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a>
+                        Para más información consultar <a href="archivos/Autoridades_historial.pdf" target="_blank">Historial de Autoridades de la Caja Forense</a><br><br>
                 </div>
             </div>
                
@@ -300,13 +304,35 @@
 
                         Para más información consultar<a style="color:" class="instit" href="http://www.coordinadoradecajas.org.ar/" target="_blank"> 
                          www.coordinadoradecajas.org.ar.</a>
-                         <br>
+                         <br><br>
                 </div>
             </div>
                
                </div>
         </div>
         </section>
+
+        <section id="comision" class="blanco">
+            <div class="container-fluid">
+                <div class="row text-center pad-top  min-height-cls" >
+                    <h2>Informacion útil</h2>
+                    <div class="col-md-6">
+                        <ul class="ulseparado">
+                            <li>
+                                <a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                        <div class="col-md-6">
+                           
+
+                        </div>            
+                </div>
+            </div>
+        </section>
+
+</div> 
 
 
      

@@ -239,8 +239,7 @@ a:hover {
     font-family: CajaFont;
     font-size: 20px;
     color: #F8F8F8;
-    padding-bottom: 20px;
-    margin-top: 3%;
+    padding-top:5%;
 }
 
 /*Texto Negro*/
@@ -248,8 +247,7 @@ a:hover {
     color: #333333;
     font-size: 22px;
     background-color:#ededed;
-    padding-bottom: 20px;
-    margin-top: 3%;
+    padding-top:5%;
 }
 
 
