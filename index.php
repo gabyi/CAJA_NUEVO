@@ -11,7 +11,7 @@ session_start();
 ?>
   <body>
 
-<!-- Button trigger modal 
+<!-- Modal Foto 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -50,8 +50,8 @@ session_start();
 ?>
 
 
-  
-<!--Modal<div class="modal fade" id="mimodal" role="dialog">
+<!--Modal  
+<div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
     <div  class="modal-content">
       <div class="modal-header">
@@ -59,7 +59,7 @@ session_start();
         <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
       </div>
       <div class="modal-body">
-        <!--<img src="imagenes/slider/dia_abogado" alt="..." class="img-rounded">
+        <img src="imagenes/slider/dia_abogado" alt="..." class="img-rounded">
         El siguiente link lo llevará al <a href="">tutorial de la pagina</a>.-- ""aca va cierre comentario===== Ante cualquier recomendación
         dirigirse a contacto. Gracias.-
       </div>
@@ -69,6 +69,36 @@ session_start();
     </div>
   </div>
 </div>-->
+
+<!--Modal foto -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
+  Launch modal
+</button>
+
+  <div class="modal fade" id="mimodal">
+
+    <div class="modal-dialog modal-lg" style="width: 840px">      
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Caminata Solidaria "Caminar Ayuda 2016".</h4>
+        </div>
+        
+        <div class="modal-body">
+          <img src="imagenes/slider/caminar_2016.jpg" alt="..." class="img-rounded" id="img-modal">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+
+    </div>
+    
+
+  </div>
+
 
 <?php
   }
