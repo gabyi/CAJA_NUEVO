@@ -70,7 +70,7 @@ session_start();
   </div>
 </div>-->
 
-<!--Modal foto -->
+<!--Modal foto 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -97,7 +97,7 @@ session_start();
     </div>
     
 
-  </div>
+  </div>-->
 
 
 <?php
