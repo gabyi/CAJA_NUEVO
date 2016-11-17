@@ -127,11 +127,12 @@ if(isset($calcular))
 
       $sumaInicio= number_format($sumaInicio, 2);
 
+
       //Verifico que haya valores para caja final
 
       if($fila ['caja_fin_aportes']!= 0.00)
       {
-        $caja_fin_aportes=$fila['caja_fin_aportes'];
+        $caja_fin_aportes=$filaMinimos['caja_min_aportes'];
 
       }else
       {
@@ -166,21 +167,29 @@ if(isset($calcular))
         $rentas_fin_general= $filaMinimos['rentas_inicio_general'];
       }else
       {
-        $rentas_fin_general= $filaMinimos['rentas_fin_general'];
+        $rentas_fin_general= 0.00;
       }
 
       //verifico valor de tasa variable rentas
+
+      if ($fila['rentas_fin_tfija'] != 0.00) {
+
+        $rentas_fin_tfija= verifica ($monto, $fila['rentas_fin_tfija'], $filaMinimos ['rentas_minimo']);
+      }else
+      {
+        $rentas_fin_tfija= 0.00;
+      }
 
       if($fila ['rentas_fin_tvariable']!= 0.00)
       {
         $rentas_fin_tasa_variable= verifica ($monto, $fila ['rentas_fin_tvariable'], $filaMinimos ['rentas_minimo']);
       }else
         {
-          $rentas_fin_tasa_variable= $filaMinimos['rentas_inicio_general'];
+          $rentas_fin_tasa_variable= 0.00;
         }
         
 
-      $sumaFinDGR=$rentas_fin_general+$rentas_fin_tasa_variable;
+      $sumaFinDGR=$rentas_fin_general+$rentas_fin_tasa_variable+$rentas_fin_tfija;
 
 
 
@@ -349,36 +358,39 @@ include 'logo.php';
     <table class="table-striped">
 
       <?php
-      if($sumaCForense>0)
+      if($sumaFinCajaForense>0)
       {
 
         print "<caption>Caja Forense de La Pampa</caption>";
 
-        if($caja_fin_ap_porc != 0.000000|| $caja_fin_aporte != 0.00)
+        if($sumaFinCajaForense > 0)
         {
-          if($caja_fin_aportes != 0.00)
+          if($fila['caja_fin_aportes'] != 0.00)
           {
-            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes."</td></tr>";
+            print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".number_format($caja_fin_aportes,2)."</td></tr>";
           }else
           {
-            if($caja_fin_ap_porc != 0.000000)
+            if($fila['caja_fin_ap_porc'] != 0.000000)
             {
-              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".$caja_fin_aportes.
-              "</td><td style='align:right;padding-left:30px;'>".$caja_fin_ap_porc." %</td></tr>";
+              print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>".number_format($caja_fin_aportes,2).
+              "</td><td style='align:right;padding-left:30px;'>".number_format($fila['caja_fin_ap_porc'],2)." %</td></tr>";
             }
           }
         }
 
-          if($caja_fin_cont_porc == 0.00)
+          if($fila['caja_fin_cont'] != 0.00)
           {
             print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont."</td></tr>";
           }else
           {
-            print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont.
-            "</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont_porc." %</td></tr>";
+            if ($fila['caja_fin_cont_porc'] != 0.000000) {
+              print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>".$caja_fin_cont.
+              "</td><td style='align:right;padding-left:30px;'>".number_format($fila['caja_fin_cont_porc'],2)." %</td></tr>";
+            }
+            
           }
 
-          if ($sumaCForense>0)
+          if ($sumaFinCajaForense > 0)
           {
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total Caja Forense: </th>
             <th style='align:right;padding-left:30px;'>".$sumaFinCajaForense."</th></tr>";
@@ -406,7 +418,7 @@ include 'logo.php';
 
         if($rentas_fin_general != 0.00)
         {
-          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_general."</td></tr>";
+          print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$rentas_fin_general."</td></tr>";
         }
 
         if($rentas_inicio_tasa_variable != 0.00)
