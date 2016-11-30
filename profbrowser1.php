@@ -1,13 +1,13 @@
 <?php
-session_start();
+//session_start();
 ?>
 <?php
 include "conexion.php";
 
-    $consulta=mysql_query("select *  from profesio1 order by nombrepro asc",$conexion) or die("No se encuentra profesionales" . mysql_errno());
+    $consulta=mysqli_query($conexion, 'select * from profesio1 order by nombrepro asc') or die("No se encuentra profesionales" . mysql_errno());
 
 
-  if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  /*if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
   }else /*<!-- aca termina el if si no paso por el index*/
@@ -131,7 +131,7 @@ include 'navbarFooter.php';
             <?php
 
    
-                while($fila=mysql_fetch_array($consulta))   
+                while($fila=mysqli_fetch_array($consulta))   
                 { 
                 //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
                     echo ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
