@@ -4,7 +4,7 @@
 <?php
 include "conexion.php";
 
-    $consulta=mysqli_query($conexion, 'select * from profesio1 order by nombrepro asc') or die("No se encuentra profesionales" . mysql_errno());
+    $consulta=mysql_query('select * from profesio1 order by nombrepro asc', $conexion) or die("No se encuentra profesionales" . mysql_errno());
 
 
   /*if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
@@ -109,14 +109,14 @@ include 'navbarFooter.php';
 <img src="imagenes/loadingbar-grey.gif" />
 </div>
 
-    <div class="panel-footer">
+    
         <div id="panel" class="panel panel-default">
         <div class="panel-heading">
             <h4>Profesionales</h4>
         </div>
 
     <div id="panel-cuerpo" class="panel-body" id="montos">
-        <div class="table-responsive">
+        
         <table id="grilla" class="table-striped">
             <thead>
             <tr>
@@ -131,7 +131,7 @@ include 'navbarFooter.php';
             <?php
 
    
-                while($fila=mysqli_fetch_array($consulta))   
+                while($fila=mysql_fetch_array($consulta))   
                 { 
                 //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
                     echo ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
@@ -140,10 +140,10 @@ include 'navbarFooter.php';
             ?>
         </tbody>
         </table>
-        </div>
+        
     </div>
   </div>
-    </div>
+    
   
 </div>
 
