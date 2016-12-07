@@ -3,10 +3,12 @@ session_start();
 ?>
 <?php
 
-if(isset($calcular))
+if(isset($_POST['calcular']))
 {
   $juicio= "juicio";
-  session_register ("juicio");
+  //session_register ("juicio");
+  $_SESSION ['juicio']=$juicio;
+
 }
 
   if( $_SESSION ['juicio']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
@@ -223,7 +225,7 @@ if(isset($calcular))
 include 'navbarFooter.php';
 include 'logo.php';
 
-    if(isset($calcular))
+    if(isset($_POST['calcular']))
       {
 ?>
 

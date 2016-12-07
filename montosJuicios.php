@@ -3,7 +3,9 @@ session_start();
 ?>
 <?php
 
-
+ $juicio= "juicio";
+  //session_register ("juicio");
+  $_SESSION ['juicio']=$juicio;
 
   if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
@@ -110,7 +112,8 @@ include 'navbarFooter.php';
 </div>
 
 <?php
-
+print ("Valor de la variable de sesión: ".$_SESSION ['user']);
+print ("<br>Valor de la variable de sesión:".$_SESSION ['juicio']);
 include 'footer.php';
 include 'footer1.php';
 	}/*termina el else de que si no hay session disponible, o si no entro por el index */
@@ -146,9 +149,10 @@ $( "#juicio" ).autocomplete({
 });
 </script>
 <?PHP
-if(isset($calcular))
+if(!isset($_POST['calcular']))
 {
   $juicio= "juicio";
-  session_register ("juicio");
+  //session_register ("juicio");
+  $_SESSION ['juicio']=$juicio;
 }
 ?>

@@ -5,11 +5,11 @@ session_start();
 
 
 
- /* if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  if($_SESSION['user']=="")  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
-  }else /*<!-- aca termina el if si no paso por el index
-{*/
+  }else //<!-- aca termina el if si no paso por el index
+{
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ include 'logo.php';
                     
                     <div class="col-sm-4 col-md-4">
                         <?php 
-                            if(isset($calcular1))
+                            if(isset($_POST['calcular1']))
                               echo "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value='".$_POST['bg1']."'>";
                             else
                               echo "<input type='text' class='form-control' id='bg1' name='bg1' placeholder='En la Provincia de La Pampa' value=''>";
@@ -92,7 +92,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
                       <?php 
-                            if(isset($calcular1))
+                            if(isset($_POST['calcular1']))
                               echo "<input type='text' class='form-control' id='bg2' name='bg2' placeholder='En la Provincia de La Pampa' value='".$_POST['bg2']."'>";
                             else
                               echo "<input type='text' class='form-control' id='bg2' name='bg2' placeholder='Extra&ntilde;a Jurisdicci&oacute;n' value=''>";
@@ -109,7 +109,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
                       <?php 
-                            if(isset($calcular1))
+                            if(isset($_POST['calcular1']))
                               echo "<input type='text' class='form-control' id='bp1' name='bp1' placeholder='En la Provincia de La Pampa' value='".$_POST['bp1']."'>";
                             else
                               echo "<input type='text' class='form-control' id='bp1' name='bp1' placeholder='En la Provincia de La Pampa' value=''>";
@@ -120,7 +120,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
                       <?php 
-                            if(isset($calcular1))
+                            if(isset($_POST['calcular1']))
                               echo "<input type='text' class='form-control' id='bp2' name='bp2' placeholder='En la Provincia de La Pampa' value='".$_POST['bp2']."'>";
                             else
                               echo "<input type='text' class='form-control' id='bp2' name='bp2' placeholder='Extra&ntilde;a Jurisdicci&oacute;n' value=''>";
@@ -134,7 +134,7 @@ include 'logo.php';
                       <div class="checkbox">
                           
                           <?php 
-                            if(isset($calcular1) && isset($_POST['oficio']))
+                            if(isset($_POST['calcular1']) && isset($_POST['oficio']))
                               echo "<label><input type='checkbox' name='oficio' value='oficio_ley' checked> Oficio Ley 22.172 </label>";
                             else
                               echo "<label><input type='checkbox' name='oficio' value='oficio_ley'> Oficio Ley 22.172 </label>";
@@ -185,7 +185,7 @@ include 'logo.php';
 
 <?php
 
-  if(isset($calcular1))
+  if(isset($_POST['calcular1']))
     {
 
       include 'calculosucesiones.php';
@@ -202,7 +202,7 @@ echo ("</div>");
 
 include 'footer.php';
 include 'footer1.php';
-	//}/*termina el else de que si no hay session disponible, o si no entro por el index */
+	}/*termina el else de que si no hay session disponible, o si no entro por el index */
 
 ?>
   </body>

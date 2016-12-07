@@ -70,7 +70,7 @@ session_start();
   </div>
 </div>-->
 
-<!--Modal foto -->
+<!--Modal foto 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -98,7 +98,7 @@ session_start();
     
 
   </div>
-
+-->
 
 <?php
   }
@@ -308,8 +308,8 @@ session_start();
 
 
   $user = "usuario";
-  session_register ("user");
-  //$_SESSION['var']=$var;
+  //session_register ("user");
+  $_SESSION['user']=$user;
   /* para ver usuario
   print ("<P>Valor de la variable de sesión:$user</P>\n");
   */
