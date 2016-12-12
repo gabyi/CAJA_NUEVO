@@ -41,6 +41,23 @@ session_start();
   </div>-->
 
 
+<div class="modal fade" id="mimodal" role="dialog">
+  <div class="modal-dialog" id="mimodalwindow">
+    <div  class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Atención!</h4>
+      </div>
+      <div class="modal-body">
+        Por cuestiones ajenas a la Institución, los módulos de cálculo no funcionan correctamente. Se está trabajando en solucionar el problema. Sepa disculpar los inconvenientes.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php
   include 'navbar.php';
 

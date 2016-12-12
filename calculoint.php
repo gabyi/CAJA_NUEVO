@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php
 
-  if($_SESSION['user']=="" && !isset($calcular))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
+  if($_SESSION['user']=="" && !isset($post['calcular']))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
   {
     include'redir.php';
   }else /*<!-- aca termina el if si no paso por el index*/
