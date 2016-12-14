@@ -2,12 +2,16 @@
 
 if(!isset($calcular))
 	{
-  	session_register('contador'); //cuenta las veces que aprete el isset
-  	session_register('valores');//guarda los valores de la tabla
-  	session_register('totales');//suma los totales
+  	/*session_register('contador'); //cuenta las veces que aprete el isset
+    session_register('valores');//guarda los valores de la tabla
+    session_register('totales');//suma los totales*/
+    $_SESSION['contador'];//cuenta las veces que aprete el isset
+    $_SESSION['contador'];//guarda los valores de la tabla
+    $_SESSION['contador'];//suma los totales
+  	
 	}
 
-if(isset($calcular) && $_REQUEST["importe"])
+if(isset($_POST['calcular']) && $_REQUEST["importe"])
 {
 
     
@@ -24,7 +28,7 @@ if(isset($calcular) && $_REQUEST["importe"])
 
   // realiza la consulta toma las variables del formulario
 
-  // incremente 1 mes para calcular los indices entre las 2 fechas
+  // le doy diferente formato
   list($dia0, $mes0, $año0)=split('[/.-]',$vfdesde);
   list($dia1, $mes1, $año1)=split('[/.-]',$vfhasta);
 
@@ -38,10 +42,20 @@ if(isset($calcular) && $_REQUEST["importe"])
   $fila=mysql_fetch_array($query);
   $firstdate=$fila['fecha'];
 
+
+  //a la ultima fecha le resto un dia ya que el ultimo dia no corresponde a sumar intereses
+
+  $vfecha2=date('Y-m-d',strtotime('-1 days', strtotime($vfecha2)));
+  list($año1, $mes1, $dia1)=split('[/.-]',$vfecha2);
+  $vfecha2 = $año1."-".$mes1."-".$dia1;
+  /*echo "Ultima fecha restada: ".$vfecha2;
+  echo "dia0: ".$dia0;
+  echo "dia1: ".$dia1;*/
+
   //print("primera fecha de la base de datos: ".$fila['fecha']."<br>");
 
   /*Comparo las fechas para saber si la fecha ingresada esta dentro del mismo mes que la 
-  primer fecha sacda de la base de datos*/
+  primer fecha sacada de la base de datos*/
 
   if($mes1==$mes0 && $año0==$año1)
     {
@@ -105,6 +119,7 @@ if(isset($calcular) && $_REQUEST["importe"])
   			}
 
   		 // consulta y calculo indice mes final mes final
+
   
       	$consulta="select indice from ".$tasa." where MONTH(fecha) = '".$mes1."' AND YEAR(fecha) = '".$año1."' ";  
       	$query= mysql_query($consulta) or die ("no se pudo realizar la consulta paso 4");  

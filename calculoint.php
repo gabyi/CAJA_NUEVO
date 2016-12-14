@@ -71,7 +71,7 @@ session_start();
                       
                     <div class="col-sm-4 col-md-4">
                         
-                        <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($calcular)){ print '"'.$carat.'"';}?>>
+                        <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($_POST['calcular'])){ print '"'.$carat.'"';}?>>
                       
                     </div>
 
@@ -106,7 +106,7 @@ session_start();
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" disabled/>  <!--FECHA PARA EL CALCULO ORIGEN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" />  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
 
@@ -157,24 +157,33 @@ session_start();
 <!-- PONER EL CONTROL QUE SI EL VALOR TOTAL DE LA TABLA ES != DE 0 HACER LA TABLA, SINO LLEMARLA-->
 <?php 
 
-  if (isset($limpiar))
+  if (isset($_POST['limpiar']))
   {
-    session_unregister('contador');
+    /*session_unregister('contador');
     session_unregister('valores');
-    session_unregister('totales');
+    session_unregister('totales');*/
+    $_SESSION['contador']="";
+    $_SESSION['totales']="";
+    $_SESSION['valores']="";
   }
 
-  if (isset($calcular) && $importe!="") 
+  if (isset($_POST['calcular']) && $importe!="") 
   {
-    if(!isset($_SESSION['contador']))
+    if($_SESSION['contador']=="")
     {
       $_SESSION['contador']=0;
       $contador=$_SESSION['contador'];
     } else
        {
-        $contador=$_SESSION['contador']+1; // cambia +1 por ++
+        $_SESSION['contador']=$contador+1;
+        $contador=$_SESSION['contador']; // cambia +1 por ++
         }
-
+echo "Sesion contador: ".$_SESSION['contador']."<br>";
+echo "El contador da: ".$contador;
+if (isset($_POST['calcular']))
+  $contador=$contador+1;
+  echo "Apreaste boton <br>";
+  echo "Impòrte: ".$importe;
     //coloco la tasa en una variable para que se coloque en la tabla
 
       if($tasa=="tmix")
