@@ -169,21 +169,15 @@ session_start();
 
   if (isset($_POST['calcular']) && $importe!="") 
   {
-    if($_SESSION['contador']=="")
+    if(!isset($_SESSION['contador']))
     {
       $_SESSION['contador']=0;
       $contador=$_SESSION['contador'];
     } else
        {
-        $_SESSION['contador']=$contador+1;
-        $contador=$_SESSION['contador']; // cambia +1 por ++
+        $contador=$_SESSION['contador']+1; // cambia +1 por ++
         }
-echo "Sesion contador: ".$_SESSION['contador']."<br>";
-echo "El contador da: ".$contador;
-if (isset($_POST['calcular']))
-  $contador=$contador+1;
-  echo "Apreaste boton <br>";
-  echo "Impòrte: ".$importe;
+
     //coloco la tasa en una variable para que se coloque en la tabla
 
       if($tasa=="tmix")

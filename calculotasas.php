@@ -1,5 +1,6 @@
 <?php 
 
+
 if(!isset($calcular))
 	{
   	/*session_register('contador'); //cuenta las veces que aprete el isset
