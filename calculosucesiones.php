@@ -1,7 +1,7 @@
      <?php 
       include 'conexion.php';
       $materia=$_REQUEST ['juicio'];
-      $monto= $bg1 + $bg2 + $bp1 + $bp2;
+      $monto= $_POST["bg1"] + $_POST["bg2"] + $_POST["bp1"] + $_POST["bp2"];
       $consulta= mysql_query("select * from ValoresCajaRentas where Materia = 'SUCESION AB-INTESTATO'") or die ("No se pudo realizar la consulta");
 
 
@@ -10,14 +10,14 @@
 
 
 
-      if ($oficio)
+      if ($_POST["oficio"])
         {
-          $sel = 1;
+          $_POST["sel"] = 1;
         }
 
-      if ($sel == 1)
+      if ($_POST["sel"] == 1)
        {
-        $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0693 + ($bp1 + ($bp2 / 3 * 2)) * 0.0924;
+        $vhonorarios = ($_POST["bg1"] + ($_POST["bg2"] / 3 * 2)) * 0.0693 + ($_POST["bp1"] + ($_POST["bp2"] / 3 * 2)) * 0.0924;
 
           if ($oficio)
             {
@@ -25,20 +25,21 @@
             }
         }else
         {
-          $vhonorarios = ($bg1 + ($bg2 / 3 * 2)) * 0.0495 + ($bp1 + ($bp2 / 3 * 2)) * 0.066;
+          $vhonorarios = ($_POST["bg1"] + ($_POST["bg2"] / 3 * 2)) * 0.0495 + ($_POST["bp1"] + ($_POST["bp2"] / 3 * 2)) * 0.066;
         }
 
 
-        if ($sel == 1)
+        if ($_POST["sel"] == 1)
         {
           $poder="Act&uacute;a con Poder";
-        }else
-         {
-          $poder="Act&uacute;a por Derecho Propio";
         }
+         
+           if ($_POST["sel"] == 2)
+          $poder="Act&uacute;a por Derecho Propio";
+        
 
 
-        if ($oficio)
+        if ($_POST["oficio"])
           {
             $poder=$poder." y Oficio Ley 22.172";
           }
@@ -75,7 +76,7 @@
 
       $caja_fin_aportes= $vhonorarios * 0.15;
       $caja_fin_cont= $monto * 0.005;
-      $tasaVariable=($bp1 + $bg1) * ($fila ['rentas_fin_tvariable'] / 100);
+      $tasaVariable=($_POST["bp1"] + $_POST["bg1"]) * ($fila ['rentas_fin_tvariable'] / 100);
 
       //veo si los al inscribir bienes se necesita cambiar a minimos
 
@@ -97,7 +98,7 @@
       //haciendo las sumas de las tablas
       $sumaFinCajaForense= $caja_fin_aportes + $caja_fin_cont;
 
-      if($oficio)
+      if($_POST["oficio"])
       
         $sumaFin= $caja_fin_aportes + $caja_fin_cont;
       

@@ -150,7 +150,7 @@ include 'logo.php';
                             if(isset($_POST['sel']) && $_POST['sel'] == "1" )
                               echo "<label><input type='radio' value='1' name='sel' option='opcion1' checked> Act&uacute;a con poder (Apoderado)</label>";
                             else
-                              echo "<label><input type='radio' value='1' name='sel' option='opcion1'> Act&uacute;a con poder (Apoderado)</label>";
+                              echo "<label><input type='radio' value='1' name='sel' option='opcion1' checked> Act&uacute;a con poder (Apoderado)</label>";
                           ?>
                         
                       </div>
