@@ -103,12 +103,6 @@ include 'navbarFooter.php';
 
     </div>
 
-
-<div id="imgLOAD" style="text-align:center;">
-<b>Cargando...</b>
-<img src="imagenes/loadingbar-grey.gif" />
-</div>
-
     
         <div id="panel" class="panel panel-default">
         <div class="panel-heading">
