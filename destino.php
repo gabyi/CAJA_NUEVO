@@ -3,7 +3,7 @@
 $nombre=$_POST['nombre'];
 $localidad= $_POST['localidad'];
 $paginaActual= $_POST['partida'];
-$nroLotes=22;
+$nroLotes=10;
 $lista = '';
 
 include "conexion.php";

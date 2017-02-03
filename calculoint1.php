@@ -65,20 +65,6 @@ include 'logo.php';
                     </div>
 
 
-                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
-                      <h4>Fecha C&aacute;lculo</h4>
-                    </div>
-
-                    <div class="col-sm-4 col-md-4">
-
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" disabled/>  <!--FECHA PARA EL CALCULO ORIGEN-->
-
-                    </div>
-                </div>
-
-                
-
-                <div class="form-group">
                     <div class="col-sm-2 col-md-2 control-label" for="concep">
                       <h4>Concepto</h4>
                     </div>
@@ -87,15 +73,28 @@ include 'logo.php';
                     <div class="col-sm-4 col-md-4">
                       <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="">
                     </div>
+                </div>
 
+                
 
+                <div class="form-group">
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
                       <h4>Fecha Origen</h4>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>  <!--FECHA PARA EL CALCULO FIN-->
+                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>  <!--FECHA PARA EL CALCULO ORIGEN-->
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>Fecha C&aacute;lculo</h4>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfhasta.'"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -202,63 +201,6 @@ include 'footer1.php';
 
 <script language = "Javascript">
 
-$(document).ready(function() {
-            $("#vfdesde").keyup(function(){
-                if ($(this).val().length == 2){
-                    $(this).val($(this).val() + "/");
-                }else if ($(this).val().length == 5){
-                    $(this).val($(this).val() + "/");
-                }
-            });
-});
-
-/*
-
-function ValidateForm(){
-  var dt=document.frmSample.fechaorig
-  if (isDate(dt.value)==false){
-    dt.focus()
-    return false
-  }
-    return true
-    
- }
-*/
-
-    $("#vfdesde").datepicker({
-        onSelect: function() {      
-          var minDate = $(this).datepicker('getDate');
-          minDate.setDate(minDate.getDate()+1);
-          $("#vfhasta").datepicker("option","minDate", minDate);
-          $("#vfhasta").val('');
-          $("#vfhasta").prop('disabled', false);
-        }
-    });
-
-    $("#vfhasta").datepicker();  
-/*
-
-$("#datepicker1").datepicker();
-$("#datepicker2").datepicker();
-
-$("#datepicker1").change(function() {
-
-  if ($("#datepicker1").datepicker("getDate") !== null) {
-    $("#datepicker2").val('');
-    $("#datepicker2").prop('disabled', false);
-  } else {
-    $("#datepicker2").prop('disabled', true);
-  }
-
-});*/
-
-$('#borrar').click(function() {
-  $("#vfdesde").val('');
-  $("#vfhasta").val('');
-
-});
-
-
 $(function($){
 $.datepicker.regional['es'] = {
 closeText: 'Cerrar',
@@ -275,10 +217,40 @@ dateFormat: 'dd/mm/yy',
 firstDay: 1,
 isRTL: false,
 showMonthAfterYear: false,
-yearSuffix: ''
+yearSuffix: '',
+orientation: 'bottom auto',
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 });
+
+    $("#vfdesde").datepicker({
+        onSelect: function() {    
+
+          var minDate = $(this).datepicker('getDate');
+       
+          minDate.setDate(minDate.getDate()+1);
+
+          $("#vfhasta").datepicker("option","minDate", minDate);
+          $("#vfhasta").datepicker("option", "maxDate", <?php
+          $day=date('d');
+          $month=date('m');
+          $year=date('Y');
+          print '"'.date("d/m/Y",(mktime(0,0,0,$month+1,1,$year)-1)).'"'; ?>); //toma el ultimo dia del mes actual
+          $("#vfhasta").val('');
+          $("#vfhasta").prop('disabled', false);
+        }           
+    });
+
+    $("#vfhasta").datepicker();  
+
+    $('#borrar').click(function() {
+      $("#vfdesde").val('');
+      $("#vfhasta").val('');
+    });
+
+function doPrint(){
+ window.print()
+ }
 
 
 </script>
