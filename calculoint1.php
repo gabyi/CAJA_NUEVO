@@ -61,7 +61,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
             
-                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=''>
+                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($_POST['calcular'])){ print '"'.$carat.'"';}?>>
                       
                     </div>
 
@@ -119,8 +119,8 @@ include 'logo.php';
 
                         <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="tmix" selected="selected">Tasa Mix</option>
-                            <option value="bna">Activa BNA</option>
-                            <option value="blp">Activa BLP</option>
+                            <option value="tactiva">Activa BLA</option>
+                            <option value="tpasiva">Pasiva BLP</option>
                         </select>
 
                     </div>
@@ -146,23 +146,26 @@ include 'logo.php';
         Tabla de C&aacute;lculo de intereses
       </div>      
       
-      <div id="interes" class="panel-body">
+      <div id="" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover" id="grilla">
           <thead>
             <th id="thint">Concepto</th>
-            <!--<th id="thint">Método</th>
+            <th id="thint">Método</th>
             <th id="thint">Fecha Origen</th>
             <th id="thint">Fecha Cálculo</th>
             <th id="thint">Tasa</th>
             <th id="thint">Importe</th>
             <th id="thint">Intereses</th>
             <th id="thint">Total</th>
-            <th>Eliminar</th>-->
+            <th id="thint">Eliminar</th>
           </thead>
           <tbody>
             
           </tbody>
+          <tfoot>
+            <th id="thint">Total</th>
+          </tfoot>
                      
         </table>
        

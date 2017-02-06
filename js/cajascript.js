@@ -47,42 +47,21 @@ function buscar(partida)
 
 function calcularTasa()
 			{
-            	var importe=$("#importe").val();
-				var carat=$("#carat").val();
-				var tasa=$("#tasa").val();
-				$.ajax
-				({
-						type: "POST",
-						url: "php/intereses.php",
-						data: {"importe":importe, "carat":carat, "tasa":tasa},
-						function(mensaje)
-							{
-        						if (mensaje!="")
-        							{
-        								$("#grilla tbody").append(mensaje);	
-        								$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+" no se encontr&oacute; en la base de datos");
-        							}
-        							else
-        								$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+" no se encontr&oacute; en la base de datos");
-							}
-				});	
+            	var tasa=$("#tasalist").val();
+            	var vfdesde=$("#vfdesde").val();
+            	var vfhasta=$("#vfhasta").val();
+				var importe=$("#importe").val(); 
 
-            }
-
-function realizaProceso(valorCaja1, valorCaja2){
-        var parametros = {
-                "valorCaja1" : valorCaja1,
-                "valorCaja2" : valorCaja2
-        };
-        $.ajax({
-                data:  parametros,
-                url:   'ejemplo_ajax_proceso.php',
+			$.ajax({
+                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe},
+                url:   'php/intereses.php',
                 type:  'post',
-                beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
-                },
-                success:  function (response) {
-                        $("#resultado").html(response);
+                success:  function (mensaje) {
+                        $("#grilla tbody").append(mensaje);
                 }
         });
-}
+
+//$("#grilla tbody").append("<tr><td>"+importe+"</td></tr>");
+$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+tasa+"</strong>"+" no se encontr&oacute; en la base de datos");
+            
+           }

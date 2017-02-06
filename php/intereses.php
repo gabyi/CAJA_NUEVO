@@ -1,15 +1,18 @@
 <?php 
+  // es por un warning de strtotime function
+  date_default_timezone_set('UTC');
 
+  $tasa= $_REQUEST["tasa"];
   $vfdesde =$_REQUEST["vfdesde"]; 
   $vfhasta= $_REQUEST["vfhasta"];
-  $vmonto = $_REQUEST["vmonto"];
-  $tasa= $_REQUEST["tasa"];
-  $carat= $_REQUEST["carat"];
+  //$vmonto = $_REQUEST["vmonto"];
+  $importe=  $_REQUEST['importe'];
+  //$carat= $_REQUEST["carat"];
   $concep= $_REQUEST["concep"];
-  $importe= $_REQUEST["importe"];
   
-/*
-  include("conexion.php");
+  
+
+  include("../conexion.php");
 
   // realiza la consulta toma las variables del formulario
 
@@ -71,7 +74,24 @@
     
     }//del else si es un mismo mes el calculo
 
-*/
-    $cadena.='<tr><td>'.$importe.'</td></tr>';
+    //coloco la tasa en una variable para que se coloque en la tabla
+
+      if($tasa=="tmix")
+        {
+          $metodo="Tasa Mix";
+        }else
+        {
+          if($tasa=="tactiva")
+          {
+            $metodo="Activa BLP";
+          }else
+          {
+            if($tasa="tpasiva")
+              $metodo="Pasiva BLP";
+          }
+        }  
+
+    $cadena.='<tr><td>'.$concep.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$metodo.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td></tr>';
+
     echo $cadena;
  ?>
