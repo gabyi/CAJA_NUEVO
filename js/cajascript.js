@@ -2,7 +2,7 @@
 $(document).ready(
 	function()
 {
-    $("#codigo").focus();
+    //$("#codigo").focus();
 });
 
 function buscar(partida)
@@ -47,14 +47,14 @@ function buscar(partida)
 
 function calcularTasa()
 			{
-            	//var vmonto=$("#vmonto").val();
-				//var carat=$("#carat").val();
-				//var tasa=$("#tasa").val();
+            	var importe=$("#importe").val();
+				var carat=$("#carat").val();
+				var tasa=$("#tasa").val();
 				$.ajax
 				({
 						type: "POST",
 						url: "php/intereses.php",
-						//data: {"vmonto":vmonto, "carat":carat, "tasa":tasa},
+						data: {"importe":importe, "carat":carat, "tasa":tasa},
 						function(mensaje)
 							{
         						if (mensaje!="")
@@ -65,6 +65,24 @@ function calcularTasa()
         							else
         								$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+" no se encontr&oacute; en la base de datos");
 							}
-				}); 	
+				});	
 
             }
+
+function realizaProceso(valorCaja1, valorCaja2){
+        var parametros = {
+                "valorCaja1" : valorCaja1,
+                "valorCaja2" : valorCaja2
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'ejemplo_ajax_proceso.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) {
+                        $("#resultado").html(response);
+                }
+        });
+}

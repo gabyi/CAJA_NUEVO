@@ -72,6 +72,6 @@
     }//del else si es un mismo mes el calculo
 
 */
-    $cadena.='<tr><td>hola</td></tr>';
+    $cadena.='<tr><td>'.$importe.'</td></tr>';
     echo $cadena;
  ?>

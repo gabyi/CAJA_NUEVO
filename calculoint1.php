@@ -20,7 +20,7 @@ session_start();
 
 <!--PARA EL DATEPICKER-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-   <script src="js/jquery-1.10.2.js"></script>
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <link href="css/jquery-ui.css" rel="stylesheet">
@@ -49,7 +49,7 @@ include 'logo.php';
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
       
-        <form name="frmSample" class="form-horizontal" method="post" action="">
+        <form name="frmSample" class="form-horizontal" method="" action="">
      <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
@@ -95,7 +95,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfhasta.'"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" >  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -128,7 +128,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();">Calcular Intereses</button>
+                  <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -140,55 +140,42 @@ include 'logo.php';
 	</div>
 </div>
 <div id="mensaje"></div>
-<div class="row">
+  <div class="row">
   <div id="" class="panel panel-default">
       <div class="panel-heading">
-        Tabla de C&aacute;lculo
+        Tabla de C&aacute;lculo de intereses
       </div>      
       
-      <div id="grilla" class="panel-body">
+      <div id="interes" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-        <table class="table table-hover">
+        <table class="table table-hover" id="grilla">
           <thead>
-            <tr>
-            <!--<th>caratula</th>
-            <th>fecha desde</th>
-            <th>fecha hasta</th>
-            <th>monto</th>-->
-            <th>tasa</th>
-            </tr>
+            <th id="thint">Concepto</th>
+            <!--<th id="thint">Método</th>
+            <th id="thint">Fecha Origen</th>
+            <th id="thint">Fecha Cálculo</th>
+            <th id="thint">Tasa</th>
+            <th id="thint">Importe</th>
+            <th id="thint">Intereses</th>
+            <th id="thint">Total</th>
+            <th>Eliminar</th>-->
           </thead>
           <tbody>
-            <tr>
-            <!--<th scope="row">1</th>-->
-            <td>Mark</td>
-            <!--<td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td><input id="txtDate" type="text" /></td>-->
-            </tr>
+            
           </tbody>
-        </table
+                     
+        </table>
        
-        <div class="form-group">
+        <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="calcularTasa()">Imprimir</button>
-                  <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
+                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
                   </div>
-                </div>     
+        </div>     
+
+    </div>
+  </div>
 
   </div>
-</div>
 
 </div>
 
@@ -200,7 +187,6 @@ include 'footer1.php';
 ?>
   </body>
   </html>
-
 <script language = "Javascript">
 
 $(function($){
