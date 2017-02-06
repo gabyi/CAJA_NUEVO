@@ -43,3 +43,28 @@ function buscar(partida)
 		}*/
 
 }
+
+
+function calcularTasa()
+			{
+            	//var vmonto=$("#vmonto").val();
+				//var carat=$("#carat").val();
+				//var tasa=$("#tasa").val();
+				$.ajax
+				({
+						type: "POST",
+						url: "php/intereses.php",
+						//data: {"vmonto":vmonto, "carat":carat, "tasa":tasa},
+						function(mensaje)
+							{
+        						if (mensaje!="")
+        							{
+        								$("#grilla tbody").append(mensaje);	
+        								$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+" no se encontr&oacute; en la base de datos");
+        							}
+        							else
+        								$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+" no se encontr&oacute; en la base de datos");
+							}
+				}); 	
+
+            }

@@ -14,16 +14,17 @@ session_start();
     <link href="css/mestilocalculo.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/jquery-ui.css">
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 
   <link rel="stylesheet" href="css/style.css">
   
 
 <!--PARA EL DATEPICKER-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   <script src="js/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <script src="js/cajascript.js" type="text/javascript"></script>
 
   <title>Presupuesto de Sucesiones</title>
   </head>
@@ -127,7 +128,7 @@ include 'logo.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onclick="control()">Calcular Intereses</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();">Calcular Intereses</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -138,29 +139,30 @@ include 'logo.php';
 
 	</div>
 </div>
-
+<div id="mensaje"></div>
 <div class="row">
   <div id="" class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo
       </div>      
       
-      <div id="" class="panel-body">
+      <div id="grilla" class="panel-body">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover">
           <thead>
             <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <!--<th>caratula</th>
+            <th>fecha desde</th>
+            <th>fecha hasta</th>
+            <th>monto</th>-->
+            <th>tasa</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-            <th scope="row">1</th>
+            <!--<th scope="row">1</th>-->
             <td>Mark</td>
-            <td>Otto</td>
+            <!--<td>Otto</td>
             <td>@mdo</td>
             </tr>
             <tr>
@@ -173,14 +175,14 @@ include 'logo.php';
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
-            <td><input id="txtDate" type="text" /></td>
+            <td><input id="txtDate" type="text" /></td>-->
             </tr>
           </tbody>
         </table
        
         <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="control()">Imprimir</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="imprimir" onclick="calcularTasa()">Imprimir</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
                   </div>
                 </div>     
