@@ -130,6 +130,7 @@ include 'logo.php';
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
+                  
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
@@ -142,12 +143,12 @@ include 'logo.php';
 </div>
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
   <div class="row">
-  <div id="" class="panel panel-default">
+  <div id="intereses" class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
       </div>      
       
-      <div id="" class="panel-body">
+      <div id="" class="table-responsive">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover" id="grilla">
           <thead>
@@ -172,7 +173,7 @@ include 'logo.php';
        
         <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
+                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>
                   <!--<input type="button" value="Calcular" onclick="calcular_total()"/>-->
                   </div>
         </div>     

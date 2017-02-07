@@ -462,3 +462,9 @@ color: #FFF;
 #container-pagination{
     text-align: center;
 }
+
+/*este estilo es para seleccionar filas de la tabla de intereses*/
+
+.seleccionada{
+        background-color: #F5F5F5;
+    }

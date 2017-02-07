@@ -100,7 +100,7 @@
 
       $total= round($intereses+$importe,2);
 
-    $cadena.='<tr><td>'.$concepto.'</td><td>'.$metodo.'</td><td>'.$vfdesde.'</td><td>'.$vfhasta.'</td><td>'.$vindice_final.'</td><td>'.$importe.'</td><td>'.$intereses.'</td><td class="total">'.$total.'</td><td><input type="button" value="Eliminar" onclick="Eliminar(this.parentNode.parentNode.rowIndex)"/></td></tr>';
+    $cadena='<td>'.$concepto.'</td><td>'.$metodo.'</td><td>'.$vfdesde.'</td><td>'.$vfhasta.'</td><td>'.$vindice_final.'</td><td>'.$importe.'</td><td>'.$intereses.'</td><td class="total">'.$total.'</td><td><input type="button" value="Eliminar" onclick="Eliminar(this)"/></td>';
 
     echo $cadena;
 
