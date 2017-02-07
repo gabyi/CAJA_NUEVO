@@ -50,18 +50,50 @@ function calcularTasa()
             	var tasa=$("#tasalist").val();
             	var vfdesde=$("#vfdesde").val();
             	var vfhasta=$("#vfhasta").val();
-				var importe=$("#importe").val(); 
+				var importe=$("#importe").val();
+				var concepto=$("#concepto").val();
+				var total=0; 
 
 			$.ajax({
-                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe},
+                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe, "concepto":concepto},
                 url:   'php/intereses.php',
                 type:  'post',
                 success:  function (mensaje) {
                         $("#grilla tbody").append(mensaje);
+                        calcular_total();
                 }
         });
 
 //$("#grilla tbody").append("<tr><td>"+importe+"</td></tr>");
-$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+tasa+"</strong>"+" no se encontr&oacute; en la base de datos");
+//$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+concepto+"</strong>"+" no se encontr&oacute; en la base de datos");
             
            }
+
+function Eliminar (i) 
+	{
+    	document.getElementsByTagName("table")[0].setAttribute("id","tableid");
+    	document.getElementById("tableid").deleteRow(i);
+    	calcular_total();
+	}
+
+
+function calcular_total() 
+	{
+		var totalDeuda=0;
+
+		$(".total").each(function()
+			{
+
+				totalDeuda+=parseFloat($(this).html()) || 0;
+
+			});
+		round(totalDeuda,2);
+
+		$("#total").html(totalDeuda);
+	}
+
+
+function round(x, digits)
+	{
+  		return parseFloat(x.toFixed(digits))
+	}

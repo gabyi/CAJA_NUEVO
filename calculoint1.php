@@ -26,6 +26,7 @@ session_start();
   <link href="css/jquery-ui.css" rel="stylesheet">
   <script src="js/cajascript.js" type="text/javascript"></script>
 
+
   <title>Presupuesto de Sucesiones</title>
   </head>
 
@@ -61,7 +62,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
             
-                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($_POST['calcular'])){ print '"'.$carat.'"';}?>>
+                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value="">
                       
                     </div>
 
@@ -72,7 +73,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="">
+                      <input type="text" class="form-control" id="concepto" name="concepto" placeholder="" value="">
                     </div>
                 </div>
 
@@ -85,7 +86,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>  <!--FECHA PARA EL CALCULO ORIGEN-->
+                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfdesde.'"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
 
@@ -95,7 +96,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" >  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfhasta.'"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -139,7 +140,7 @@ include 'logo.php';
 
 	</div>
 </div>
-<div id="mensaje"></div>
+<!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
   <div class="row">
   <div id="" class="panel panel-default">
       <div class="panel-heading">
@@ -164,7 +165,7 @@ include 'logo.php';
             
           </tbody>
           <tfoot>
-            <th id="thint">Total</th>
+            <th>TOTALES</th><th></th><th></th><th></th><th></th><th></th><td></td><th id="total"></th>
           </tfoot>
                      
         </table>
@@ -172,6 +173,7 @@ include 'logo.php';
         <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
+                  <!--<input type="button" value="Calcular" onclick="calcular_total()"/>-->
                   </div>
         </div>     
 

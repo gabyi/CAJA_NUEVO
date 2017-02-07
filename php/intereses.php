@@ -8,7 +8,7 @@
   //$vmonto = $_REQUEST["vmonto"];
   $importe=  $_REQUEST['importe'];
   //$carat= $_REQUEST["carat"];
-  $concep= $_REQUEST["concep"];
+  $concepto= $_REQUEST["concepto"];
   
   
 
@@ -89,9 +89,22 @@
             if($tasa="tpasiva")
               $metodo="Pasiva BLP";
           }
-        }  
+        } 
 
-    $cadena.='<tr><td>'.$concep.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$metodo.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td><td>'.$vindice_final.'</td></tr>';
+      // calcula intereses
+
+      $intereses= round($importe*($vindice_final/100),2); 
+
+
+      //calculo total
+
+      $total= round($intereses+$importe,2);
+
+    $cadena.='<tr><td>'.$concepto.'</td><td>'.$metodo.'</td><td>'.$vfdesde.'</td><td>'.$vfhasta.'</td><td>'.$vindice_final.'</td><td>'.$importe.'</td><td>'.$intereses.'</td><td class="total">'.$total.'</td><td><input type="button" value="Eliminar" onclick="Eliminar(this.parentNode.parentNode.rowIndex)"/></td></tr>';
 
     echo $cadena;
+
+    //$cadenas= array($cadena, $lista);
+
+  //echo json_encode($cadenas);
  ?>
