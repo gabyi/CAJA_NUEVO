@@ -1,15 +1,6 @@
 <?php
 session_start();
 ?>
-<?php
-
-  if($_SESSION['user']=="" && !isset($post['calcular']))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
-  {
-    include'redir.php';
-  }else /*<!-- aca termina el if si no paso por el index*/
-{
-
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -22,45 +13,45 @@ session_start();
       <!--mi estilo -->
     <link href="css/mestilocalculo.css" rel="stylesheet">
 
-
+  <link rel="stylesheet" href="css/jquery-ui.css">
+ 
+  <link rel="stylesheet" href="css/style.css">
   
 
 <!--PARA EL DATEPICKER-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">  
+  <script src="js/cajascript.js" type="text/javascript"></script>
 
-  <title>Presupuesto de Intereses</title>
+
+
+  <title>Presupuesto de Sucesiones</title>
   </head>
 
   <body>
-<?php 
-  include 'navbarFooter.php';
-  include 'logo.php';
- ?>
 
-<div class="container" id="containerCuerpo">
+<?php
+include 'navbarFooter.php';
+include 'logo.php';
+
+?> <!-- php para las sucesiones-->
+
+<div class="container" style="margin-top: 200px;">
 
   <div class="row">
 
-	<div id="forminteres" class="panel panel-default">
+	<div id="" class="panel panel-default">
   		<div class="panel-heading">
         C&aacute;lculo de intereses
-      </div>   	
+      </div>   		
   		
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-
-<?php  
-
-  include ("calculotasas.php");
-
-?>
-      <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
-
-        <!--  <form name='frmSample' class='form-horizontal' method='post' action=''>
-        <!--=================================================================================================================================-->
+      
+        <form name="frmSample" class="form-horizontal" method="" action="">
+     <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
                 <div class="form-group">
@@ -68,12 +59,13 @@ session_start();
                       <h4>Car&aacute;tula</h4>
                     </div>
 
-                      
+
                     <div class="col-sm-4 col-md-4">
-                        
-                        <input type='text' class='form-control' id='carat' name='carat' placeholder='' value=<?php if(isset($_POST['calcular'])){ print '"'.$carat.'"';}?>>
+            
+                       <input type='text' class='form-control' id='carat' name='carat' placeholder='' value="">
                       
                     </div>
+
 
                     <div class="col-sm-2 col-md-2 control-label" for="concep">
                       <h4>Concepto</h4>
@@ -81,24 +73,22 @@ session_start();
 
 
                     <div class="col-sm-4 col-md-4">
-                      <input type="text" class="form-control" id="concep" name="concep" placeholder="" value="">
+                      <input type="text" class="form-control" id="concepto" name="concepto" placeholder="" value="">
                     </div>
-
                 </div>
 
                 
 
                 <div class="form-group">
-
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
                       <h4>Fecha Origen</h4>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=""/>  <!--FECHA PARA EL CALCULO FIN-->
+                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfdesde.'"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
 
-                    </div>                 
+                    </div>
 
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
                       <h4>Fecha C&aacute;lculo</h4>
@@ -106,11 +96,9 @@ session_start();
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value="" />  <!--FECHA PARA EL CALCULO ORIGEN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfhasta.'"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
-
-                    
                 </div>
 
                 <div class="form-group">
@@ -132,7 +120,7 @@ session_start();
 
                         <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
                             <option value="tmix" selected="selected">Tasa Mix</option>
-                            <option value="tactiva">Activa BLP</option>
+                            <option value="tactiva">Activa BLA</option>
                             <option value="tpasiva">Pasiva BLP</option>
                         </select>
 
@@ -141,117 +129,52 @@ session_start();
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular" onclick="">Calcular Intereses</button>
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="limpiar" onclick="">Limpiar Tabla</button>
+                  <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
+                  
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								  </div>
                 </div>
 
-      </form>
+						</form>
 
   		</div>
 
 	</div>
 </div>
-</div>
-<!-- PONER EL CONTROL QUE SI EL VALOR TOTAL DE LA TABLA ES != DE 0 HACER LA TABLA, SINO LLEMARLA-->
-<?php 
-
-  if (isset($_POST['limpiar']))
-  {
-    /*session_unregister('contador');
-    session_unregister('valores');
-    session_unregister('totales');*/
-    $_SESSION['contador']="";
-    $_SESSION['totales']="";
-    $_SESSION['valores']="";
-  }
-
-  if (isset($_POST['calcular']) && $importe!="") 
-  {
-    if(!isset($_SESSION['contador']))
-    {
-      $_SESSION['contador']=0;
-      $contador=$_SESSION['contador'];
-    } else
-       {
-        $contador=$_SESSION['contador']+1; // cambia +1 por ++
-        }
-
-    //coloco la tasa en una variable para que se coloque en la tabla
-
-      if($tasa=="tmix")
-        {
-          $metodo="Tasa Mix";
-        }else
-        {
-          if($tasa=="tactiva")
-          {
-            $metodo="Activa BLP";
-          }else
-          {
-            if($tasa="tpasiva")
-              $metodo="Pasiva BLP";
-          }
-        }  
-
-    //lleno la matriz de sessiones con los valores de la consulta y los del formulario 
-      $interes=($importe*$vindice_final);
-      $valorFila= array($concep,$metodo,$vfdesde,$importe,$vindice_final,round(($interes/100),2),($importe+round(($interes/100),2)),$contador,$vfhasta);
-      $_SESSION['valores'] [$contador]= $valorFila;
-      $_SESSION['totales'] [$contador]= array($importe,round($interes/100,2),($importe+round($interes/100,2)));
-    
-    if($importe=="" || !is_numeric($importe))
-      {
-        $texto="Tiene que colocar un valor numerico en Importe!";
-        print "<script type='text/javascript'>alert('$texto')</script>"; //poner los valores para que no se borren
-      }
-  else
-    {
-      
- ?>
-<div class="container" id="tablainteres">
+<!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
   <div class="row">
-  <div id="" class="panel panel-default">
+  <div class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
       </div>      
       
-      <div id="interes" class="panel-body">
+      <div id="intereses" class="table-responsive">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-        <table class="table table-hover" id="tablaint">
-          <th id="thint">Concepto</th>
-          <th id="thint">Método</th>
-          <th id="thint">Fecha Origen</th>
-          <th id="thint">Fecha Cálculo</th>
-          <th id="thint">Tasa</th>
-          <th id="thint">Importe</th>
-          <th id="thint">Intereses</th>
-          <th id="thint">Total</th>
-          <!--<th>Eliminar</th>-->
-          <?php 
-            $total=array(); //cuenta el total de la suma de los valores
-              $tot=0;
-              $tot2=0;
-              $tot3=0;
-            for ($i=0; $i <= $contador ; $i++) { 
-               
-                print '<tr><td>'.$_SESSION['valores'] [$i][0].'</td><td>'.$_SESSION['valores'] [$i][1].'</td><td>'.$_SESSION['valores'] [$i][2].'</td><td>'.$_SESSION['valores'] [$i][8].'</td><td>'.$_SESSION['valores'] [$i][4].'</td><td>'.$_SESSION['valores'] [$i][3];
-                print '</td><td>'.$_SESSION['valores'] [$i][5].'</td><td>'.$_SESSION['valores'] [$i][6].'</td></tr>';
-                $tot= $_SESSION['totales'] [$i][0]+ $tot;
-                $tot2= $_SESSION['totales'] [$i][1] + $tot2;
-                $tot3= $_SESSION['totales'] [$i][2] + $tot3;
-                if($i==$contador)
-                  print '<tr><td><b>Total</b></td><td></td><td></td><td></td><td></td><td>'.$tot.'</td><td>'.round($tot2,2).'</td><td>'.round($tot3,2).'</td></tr>';
-                }
-
-           ?>
-           
+        <table class="table table-hover" id="grilla">
+          <thead>
+            <th id="thint">Concepto</th>
+            <th id="thint">Método</th>
+            <th id="thint">Fecha Origen</th>
+            <th id="thint">Fecha Cálculo</th>
+            <th id="thint">Tasa</th>
+            <th id="thint">Importe</th>
+            <th id="thint">Intereses</th>
+            <th id="thint">Total</th>
+            <th id="thint">Eliminar</th>
+          </thead>
+          <tbody>
+            
+          </tbody>
+          <tfoot>
+            <th id="thint">Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th>
+          </tfoot>
+                     
         </table>
        
         <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'doPrint ()'>Imprimir</button>
+                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>
+                  <!--<input type="button" value="Calcular" onclick="calcular_total()"/>-->
                   </div>
         </div>     
 
@@ -263,20 +186,13 @@ session_start();
 </div>
 
 <?php
-      //las 2 {} son si se presiona el boton
-    }
-  }
 
 include 'footer.php';
 include 'footer1.php';
-	
- }/*termina el else de que si no hay session disponible, o si no entro por el index */
- 
 
 ?>
   </body>
   </html>
-
 <script language = "Javascript">
 
 $(function($){

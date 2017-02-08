@@ -41,7 +41,7 @@ session_start();
   </div>-->
 
 
-<div class="modal fade" id="mimodal" role="dialog">
+<!--<div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
     <div  class="modal-content">
       <div class="modal-header">
@@ -56,7 +56,7 @@ session_start();
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 <?php
   include 'navbar.php';

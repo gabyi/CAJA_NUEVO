@@ -13,7 +13,7 @@ function buscar(partida)
 	
 	//if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
 	//{
-		$.post('destino.php', {"nombre":nombre, "localidad":localidad, "partida":partida},
+		$.post('php/destino.php', {"nombre":nombre, "localidad":localidad, "partida":partida},
 		function(mensaje)
 		{
         	if(mensaje!="")
