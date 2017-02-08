@@ -61,7 +61,11 @@ function calcularTasa()
                 success:  function (mensaje) {
                         //$("#grilla tbody").append("<tr class='prueba'>"+mensaje+"</tr>");
                         agregar(mensaje);
-                        calcular_total();
+                        //calcular_total();
+                        //calcular_interes();
+                        $("#total").html(calcular_total(".total"));
+    					$("#totInteres").html(calcular_total(".totInteres"));
+    					$("#totImporte").html(calcular_total(".totImporte"));
                 }
         });
 
@@ -82,23 +86,28 @@ function Eliminar (t)
         table.removeChild(tr);
 
         //calcula totales
-    	calcular_total();
+    	
+    	$("#total").html(calcular_total(".total"));
+    	$("#totInteres").html(calcular_total(".totInteres"));
+    	$("#totImporte").html(calcular_total(".totImporte"));
+    	//calcular_interes();
 	}
 
 
-function calcular_total() 
+function calcular_total(tipo) 
 	{
-		var totalDeuda=0;
+		var total=0;
 
-		$(".total").each(function()
+		$(tipo).each(function()
 			{
 
-				totalDeuda+=parseFloat($(this).html()) || 0;
+				total+=parseFloat($(this).html()) || 0;
 
 			});
 		
 
-		$("#total").html(round(totalDeuda,2));
+		//$("#total").html(round(total,2));
+		return round(total,2);
 	}
 
 
@@ -114,12 +123,12 @@ function round(x, digits)
 function agregar(mensaje)
 	{
 		cont++;
-		var fila='<tr class="selected" id="fila'+cont+'" onclick="seleccionar(this.id);" selected>'+mensaje+'</tr>';
+		var fila='<tr class="selected" id="fila'+cont+'">'+mensaje+'</tr>';
 		$('#grilla').append(fila);
-		//reordenar();
 	}
 
-function imprInt() {
+
+ function imprInt() {
   var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
   var doc = juiwin.document; 
   doc.open(); 
@@ -129,11 +138,8 @@ function imprInt() {
   doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
   doc.write("</head>");
   doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
-  doc.write("<div align='center'><h4>Presupuesto de Interese</h4>");
-  doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Cálculo de intereses</th></tr>");
-  doc.write("<tr><th>&nbsp;</th><th>Provincia de La Pampa</th><th>Extraña Jurisdiccion</th></tr>");
-  doc.write("<tr><th>Bienes Gananciales</th><td align=\"center\">" + Formato($("#bg1").val()) + "</td><td align=\"center\">" + Formato($("#bg2").val()) + "</td></tr>");
-  doc.write("<tr><th>Bienes Propios</th><td align=\"center\">" + Formato($("#bp1").val()) + "</td><td align=\"center\">" + Formato($("#bp2").val()) + "</td></tr>");
+  doc.write("<div align='center'><h4>Presupuesto de Cálculo de Intereses</h4>");
+  doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Caratula</th><th>"+$("#carat").val()+"</th></tr>");
   doc.write("</table>\n");
   doc.write("<div id='aca'></div>");
   doc.getElementById('aca').innerHTML=$("#intereses").html();

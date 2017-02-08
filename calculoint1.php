@@ -143,12 +143,12 @@ include 'logo.php';
 </div>
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
   <div class="row">
-  <div id="intereses" class="panel panel-default">
+  <div class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
       </div>      
       
-      <div id="" class="table-responsive">
+      <div id="intereses" class="table-responsive">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover" id="grilla">
           <thead>
@@ -166,7 +166,7 @@ include 'logo.php';
             
           </tbody>
           <tfoot>
-            <th>TOTALES</th><th></th><th></th><th></th><th></th><th></th><td></td><th id="total"></th>
+            <th id="thint">Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><td id="totInteres"></td><th id="total"></th>
           </tfoot>
                      
         </table>
