@@ -188,7 +188,7 @@ include 'logo.php';
   if(isset($_POST['calcular1']))
     {
 
-      include 'calculosucesiones.php';
+      include 'php/sucesiones.php';
       include 'tabla1.php';
     
     } 
