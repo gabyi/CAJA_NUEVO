@@ -47,11 +47,12 @@ if(isset($_POST['calcular']))
           $filaMinimos= mysql_fetch_array($consultaMinimos);
         }
       $fila= mysql_fetch_array($consulta);
+
       if ($fila['bono_ley']!=0.00)
         {
           $bono_ley= $filaMinimos['bono_ley'];
          }
-      
+
 
       //Verificacion de valores de aportes
 
@@ -76,6 +77,7 @@ if(isset($_POST['calcular']))
         }
       }
       
+
       //Verificacion de valores de contribuciones
       
       if($fila ['caja_inicio_cont_porc'] == 0.00 && $fila ['caja_inicio_cont'] == 0.00)
@@ -106,10 +108,13 @@ if(isset($_POST['calcular']))
 
       // valores rentas inicio
 
-      if($fila ['rentas_inicio_general'] != 0.00)
+      /*if($fila ['rentas_inicio_general'] != 0.00)
       {
          $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
-      }
+      }*/
+
+      
+      $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
 
       $rentas_inicio_tfija= $fila ['rentas_inicio_tfija'];
 
@@ -138,7 +143,7 @@ if(isset($_POST['calcular']))
 
       }else
       {
-        if($fila ['caja_fin_ap_porc'] != 0.000000)
+        if($fila ['caja_fin_ap_porc'] != 0.00)
         {
           $caja_fin_aportes= verifica ($monto, $fila ['caja_fin_ap_porc'], $filaMinimos ['caja_min_aporte']);
 
@@ -195,11 +200,15 @@ if(isset($_POST['calcular']))
 
 
 
-
       $sumaFinCajaForense= $caja_fin_aportes+$caja_fin_cont;
+
+      $sumaFinalJuicio=$sumaFinCajaForense+$sumaFinDGR;// lo pongo aca porque el format de los numeros no deja sumar bien
+
+      $sumaFinalJuicio= number_format($sumaFinalJuicio,2);
       $sumaFinCajaForense= number_format($sumaFinCajaForense, 2);
+      $rentas_fin_tfija= number_format($rentas_fin_tfija, 2);
       $sumaFinDGR= number_format($sumaFinDGR, 2);
-      $sumaFinalJuicio=$sumaFinCajaForense+$sumaFinDGR;
+     
 
       //se hacen los redondeos a lo ultimo de todas las sumas ya que sino las comas que agrega el number_format alteran el esultado final
 
@@ -423,28 +432,23 @@ include 'logo.php';
           print "<tr><td>Tasa General</td><td style='align:right;padding-left:30px;'>".$rentas_fin_general."</td></tr>";
         }
 
-        if($rentas_inicio_tasa_variable != 0.00)
+        if($rentas_fin_tasa_variable != 0.00)
         {
-          print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tasa_variable."</td>
-          <td style='align:right;padding-left:30px;'>".$fila ['rentas_inicio_tvariable']." %</td></tr>";;
+          print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>".$rentas_fin_tasa_variable."</td>
+          <td style='align:right;padding-left:30px;'>".number_format($fila ['rentas_fin_tvariable'],2)." %</td></tr>";;
         }
 
-        if($rentas_inicio_tfija != 0.00)
+        if($rentas_fin_tfija != 0.00)
         {
-          print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>".$rentas_inicio_tfija."</td></tr>";
+          print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>".$rentas_fin_tfija."</td>
+          <td style='align:right;padding-left:30px;'>".number_format($fila ['rentas_fin_tfija'],2)." %</td></tr>";
         }
 
         print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R: </th>
-          <th style='align:right;padding-left:30px;'>".$sumaDGR."</th></tr>";
+          <th style='align:right;padding-left:30px;'>".$sumaFinDGR."</th></tr>";
         print "</table>";
       }
 
-      print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Inicio: $ ".$sumaInicio."</div>";
-      ?>
-
-
-
-    <?php
     print "<div id='total-IniFin' class= 'well well-sm'>Total a Pagar al Finalizar: $ ".$sumaFinalJuicio."</div>";
   }
 ?>
