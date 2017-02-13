@@ -107,6 +107,10 @@
 
         echo "<div id='total-IniFin' class= 'well well-sm'>Honorarios Mínimos según Ley de Aranceles: $ ".$vhonorarios."</div>"; //cambiar los montos
 
+        echo "<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan
+                                             las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
+                                             Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>";
+
   echo "</div>"; //termina el panel body
 
     echo "<div class='panel panel-default'>";
