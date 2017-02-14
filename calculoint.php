@@ -50,7 +50,7 @@ include 'logo.php';
   		<div id="" class="panel-body">
     	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
       
-        <form name="frmSample" class="form-horizontal" method="" action="">
+        <form id="formint" name="frmSample" class="form-horizontal" method="" action="">
      <!-- =================================================================================================================================-->
 								<!-- Juicio input-->
 
@@ -118,24 +118,26 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">                      
 
-                        <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="">    
+                        <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="" onChange="mirarTasa();">    
                             <option value="tmix" selected="selected">Tasa Mix</option>
                             <option value="tactiva">Activa BLA</option>
                             <option value="tpasiva">Pasiva BLP</option>
+                            <option value="compuesta">Compuesta</option>
+                            <option value="pactada">Pactada</option>
                         </select>
 
                     </div>
                 </div>
 
-							  <div class="form-group">
-                  <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
+						</form>
+
+            <div class="form-group">
+              <div class="col-sm-12 col-md-12" style="text-align:center;">
+                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
                   
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
-								  </div>
-                </div>
-
-						</form>
+              </div>
+            </div>
 
   		</div>
 

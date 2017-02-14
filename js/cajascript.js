@@ -164,3 +164,16 @@ function imprJus() {
   doc.close();
 
 }
+
+function mirarTasa()
+  {
+    var campos= "<div class='form-group' id='tasaPactada'><div class='col-sm-2 col-md-2 control-label' for='tasaPactada'><h4>Tasa Pactada</h4></div><div class='col-sm-4 col-md-4'><input type='text' class='form-control' id='tasaPactada' name='tasaPactada' placeholder='' value=''></div>";
+
+    campos+="<div class='col-md-2 col-sm-2 control-label' for='dias'><h4>Días de tasa pactada</h4></div><div class='col-sm-4 col-md-4'>";
+    campos+="<select name='tasa' class='form-control' id='tasalist' name='fechacalc' placeholder='' value=''><option value='15' selected='selected'>15</option><option value='30'>30</option><option value='60'>60</option></select></div></div>";
+
+  if($("#tasalist").val()=="pactada")
+    $("#formint").append(campos);
+  else
+    $("#tasaPactada").remove();
+}
