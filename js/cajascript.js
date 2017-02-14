@@ -158,9 +158,8 @@ function imprJus() {
   doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
   doc.write("</head>");
   doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
-  
   doc.write("<div id='aca'></div>");
-  doc.getElementById('aca').innerHTML=$("#containerCuerpo").html();
+  doc.getElementById('aca').innerHTML=$("#tabla-juicios").html();
   doc.write('<script>window.print()');
   doc.close();
 

@@ -462,19 +462,18 @@ include 'logo.php';
                                              las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
                                              Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>
 
-<div id="noprint" class="panel-footer">
+</div>
 
- 
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
+      name='calcular' onclick= 'return imprJus();'>Imprimir</button>
     
-
-    <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
-    name='calcular' onclick= 'return imprJus();'>Imprimir</button>
-    
-    <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
+      <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
         name='volver' style='margin-left:15px;'>Volver</button></a> 
+    </div>
+  </div>
 
-</div>
-</div>
 </div>
 
 
