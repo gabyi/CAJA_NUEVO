@@ -54,7 +54,7 @@ session_start();
     <link href="css/jquery-ui.css" rel="stylesheet">
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-
+header("Content-Type: text/html;charset=utf-8") 
   </head>
   <?php
 
@@ -125,7 +125,6 @@ include 'footer1.php';
 <script type="text/javascript">
 var juicios = [
 <?php
-
 $consulta="select * from ValoresCajaRentas where materia NOT LIKE '%SUCES%' order by materia asc"; /*busca todo menos los que tenga suces*/
 $result=mysql_query($consulta, $conexion);
 $n= mysql_num_rows($result);
