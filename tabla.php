@@ -29,6 +29,7 @@ if(isset($_POST['calcular']))
     include 'head2.php';
    ?>
    <title>Costos de Juicios</title>
+ 
   </head>
   <?php
 
@@ -464,8 +465,11 @@ include 'logo.php';
 <div id="noprint" class="panel-footer">
 
  
+    
+
     <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
-        name='calcular' onclick= 'doPrint ()'>Imprimir</button>
+    name='calcular' onclick= 'return imprJus();'>Imprimir</button>
+    
     <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' 
         name='volver' style='margin-left:15px;'>Volver</button></a> 
 

@@ -39,3 +39,5 @@ date_default_timezone_set('UTC');
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
+
+    <script src="js/cajascript.js" type="text/javascript"></script>

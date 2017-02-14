@@ -147,3 +147,21 @@ function agregar(mensaje)
   doc.close();
 
 }
+
+function imprJus() {
+  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
+  var doc = juiwin.document; 
+  doc.open(); 
+  doc.write("<head><Title>Caja Forense de Abogados de La Pampa</title>");
+  doc.write("<style>body,table, panel-heading, td, th {font-family:Arial, Helvetica, sans-serif; font-size:10px;}</style>");
+  doc.write("<link href='css/bootstrap.min.css' rel='stylesheet'>");
+  doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
+  doc.write("</head>");
+  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
+  
+  doc.write("<div id='aca'></div>");
+  doc.getElementById('aca').innerHTML=$("#containerCuerpo").html();
+  doc.write('<script>window.print()');
+  doc.close();
+
+}
