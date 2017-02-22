@@ -50,12 +50,13 @@ function calcularTasa()
             	var tasa=$("#tasalist").val();
             	var vfdesde=$("#vfdesde").val();
             	var vfhasta=$("#vfhasta").val();
+              var pactada=$("#tPactadasimple").val();
 				var importe=$("#importe").val();
 				var concepto=$("#concepto").val();
 				var total=0; 
 
 			$.ajax({
-                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe, "concepto":concepto},
+                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe, "concepto":concepto, "pactada":pactada},
                 url:   'php/intereses.php',
                 type:  'post',
                 success:  function (mensaje) {
@@ -167,13 +168,15 @@ function imprJus() {
 
 function mirarTasa()
   {
-    var campos= "<div class='form-group' id='tasaPactada'><div class='col-sm-2 col-md-2 control-label' for='tasaPactada'><h4>Tasa Pactada</h4></div><div class='col-sm-4 col-md-4'><input type='text' class='form-control' id='tasaPactada' name='tasaPactada' placeholder='' value=''></div>";
+    var campos= "<div class='form-group' id='tasaPactada'><div class='col-sm-2 col-md-2 control-label' for='tasaPactada'><h4>Tasa Pactada</h4></div><div class='col-sm-4 col-md-4'><input type='text' class='form-control' id='tPactadasimple' name='tasaPactada' placeholder='' value=''></div>";
 
-    campos+="<div class='col-md-2 col-sm-2 control-label' for='dias'><h4>Días de tasa pactada</h4></div><div class='col-sm-4 col-md-4'>";
-    campos+="<select name='tasa' class='form-control' id='tasalist' name='fechacalc' placeholder='' value=''><option value='15' selected='selected'>15</option><option value='30'>30</option><option value='60'>60</option></select></div></div>";
+    //campos+="<div class='col-md-2 col-sm-2 control-label' for='dias'><h4>Días de tasa pactada</h4></div><div class='col-sm-4 col-md-4'>";
+    //campos+="<select name='tasa' class='form-control' id='tasalist' name='fechacalc' placeholder='' value=''><option value='15' selected='selected'>15</option><option value='30'>30</option><option value='60'>60</option></select></div></div>";
 
-  if($("#tasalist").val()=="pactada")
+  if($("#tasalist").val()=="pactadasimple")
     $("#formint").append(campos);
   else
     $("#tasaPactada").remove();
 }
+
+
