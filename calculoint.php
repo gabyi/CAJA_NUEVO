@@ -133,7 +133,7 @@ include 'logo.php';
 
             <div class="form-group">
               <div class="col-sm-12 col-md-12" style="text-align:center;">
-                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:validacion();" value="Calcular Intereses" />
+                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
                   
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
               </div>
@@ -243,45 +243,4 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       $("#vfdesde").val('');
       $("#vfhasta").val('');
     });
-
-function doPrint(){
- window.print()
- }
-
-
-function validacion() {
-
-  var vfdesde = document.getElementById("vfdesde").value;
-  var vfhasta = document.getElementById("vfhasta").value;
-  var importe = document.getElementById("importe").value;
-  var bp2 = document.getElementById("bp2").value;
-
-  var v1=parseInt(bg1);
-  var v2=parseInt(bg2);
-  var v3=parseInt(bp1);
-  var v4=parseInt(bp2);
-
-    
-  if (!isNaN(v1)) {
-
-   return true;
-  }
-  else if (!isNaN(v2)) {
-
-    return true;
-  }
-  else if (!isNaN(v3)) {
-
-    return true;
-  }
-  else if (!isNaN(v4)) {
-
-    return true;
-  }
- 
-  // Si el script ha llegado a este punto, todas las condiciones
-  // se han cumplido, por lo que se devuelve el valor true
-  alert ("Debe llenar las casillas con valores numérico");
-  return false;
-}
 </script>

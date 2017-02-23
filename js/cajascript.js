@@ -47,10 +47,10 @@ function buscar(partida)
 
 function calcularTasa()
 			{
-            	var tasa=$("#tasalist").val();
-            	var vfdesde=$("#vfdesde").val();
-            	var vfhasta=$("#vfhasta").val();
-              var pactada=$("#tPactadasimple").val();
+        var tasa=$("#tasalist").val();
+        var vfdesde=$("#vfdesde").val();
+        var vfhasta=$("#vfhasta").val();
+        var pactada=$("#tPactadasimple").val();
 				var importe=$("#importe").val();
 				var concepto=$("#concepto").val();
 				var total=0; 
