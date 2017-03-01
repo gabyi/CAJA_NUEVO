@@ -358,7 +358,9 @@ function doPrint(){
 
 <?php
 
-  session_unregister ("juicio1");
+ //session_unregister ("juicio");
+
+  unset($_SESSION['juicio']);
 
 
   function calculaAportes ($a, $b)
