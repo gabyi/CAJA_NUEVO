@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    
+
         <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" />
 
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>                    
+                </button>
             </div>
             <div class="navbar-collapse collapse" id="navPills">
                 <ul class="nav navbar-nav">
@@ -39,7 +39,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
-                      <li><a href="profbrowser1.php">Padrón de afiliados</a></li>   
+                      <li><a href="profbrowser1.php">Padrón de afiliados</a></li>
                     </ul>
                 </li>
                     <li class="dropdown">
@@ -47,24 +47,24 @@
                         <ul class="dropdown-menu" role="menu">
                         <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
                         <li><a href="institucional.php#autoridades">Autoridades</a></li>
-                        <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
+                        <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Noticias<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">            
+                <ul class="dropdown-menu" role="menu">
                     <li><a href="#descuentos">Beneficios Para Afiliados</a></li>
                     <li><a href="#taller_de_mediacion">Taller de Mediaci&oacute;n</a></li>
                     <li><a href="#TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA">Curso de Mediacion</a></li>
-                    <li><a href="#normativa">Curso de Mediacion</a></li> 
-                    <li><a href="#coordinadora">Coordinadora de cajas</a></li>      
+                    <li><a href="#normativa">Curso de Mediacion</a></li>
+                    <li><a href="#coordinadora">Coordinadora de cajas</a></li>
                 </ul>
                 <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
                 </ul>
                 </ul>
             </div>
-           
+
         </div>
     </div>
 
@@ -81,30 +81,30 @@
                 </div>
                 <div id="foto-foto" class="col-md-6">
                     <div class="col-md-7 col-md-offset-3"><img class="img-thumbnail" src="archivos/descuentos.jpg" alt="foto"></div>
-                
+
                 </div>
             </div>
-               
+
                </div>
         </div>
         </section>
-   
+
         <!--seccion 1-->
        <section id="taller_de_mediacion" class="blanco"> <!--2-->
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div id="foto-foto" class="col-md-6">
                 <div class="col-md-7 col-md-offset-3"><img class="img-thumbnail" src="archivos/taller_de_mediacion.jpg" alt="foto"></div>
-                
+
             </div>
             <div class="col-md-6">
                 <h1>Taller de Mediaci&oacute;n</h1>
 
                     <br>
                        <p>Para m&aacute;s informaci&oacute;n sobre este taller <a href="archivos/TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA.pdf">ver el programa</a>.</p>
-                
+
             </div>
-               
+
             </div>
         </div>
        </section>
@@ -113,8 +113,8 @@
     <section id="TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA" class="azul"> <!--3-->
         <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
-           
-          
+
+
                 <div class="col-md-6">
                     <h1>Curso de Mediacion</h1>
 
@@ -135,7 +135,7 @@
                              <!-- fotos for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="imagenes/fotos/1.jpg" alt="...">                               
+                                    <img src="imagenes/fotos/1.jpg" alt="...">
                                 </div>
                                 <div class="item">
                                     <img src="imagenes/fotos/2.jpg" alt="...">
@@ -163,7 +163,7 @@
                 </div>
                 </div>
             </div>
-               
+
         </div>
     </section>
 
@@ -171,16 +171,16 @@
             <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
             <div class="col-md-12">
-                
+
                 <h2>titulo 3</h2>
-               
+
                     <br>
                     <h3>Algo 3</h3>
                     <br>
                         Mas texto
 
             </div>
-               
+
                </div>
         </div>
         </section>
@@ -200,7 +200,7 @@
                     algo por alla
                 </div>
             </div>
-               
+
                </div>
         </div>
         </section>
@@ -234,9 +234,9 @@
     </script>
 
 </body>
-<?php 
-    include 'footer.php';
-    include 'footer1.php';
- ?>
+<?php
+include 'footer.php';
+include 'footer1.php';
+?>
 
 </html>

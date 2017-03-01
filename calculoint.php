@@ -7,22 +7,22 @@ session_start();
 <meta charset="utf-8">
   <head>
      <?php
-      include 'head2.php';
-      include 'conexion.php';
-      ?>
+include 'head2.php';
+include 'conexion.php';
+?>
       <!--mi estilo -->
     <link href="css/mestilocalculo.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/jquery-ui.css">
- 
+
   <link rel="stylesheet" href="css/style.css">
-  
+
 
 <!--PARA EL DATEPICKER-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">  
+  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="js/cajascript.js" type="text/javascript"></script>
 
 
@@ -42,17 +42,17 @@ include 'logo.php';
 
   <div class="row">
 
-	<div id="" class="panel panel-default">
-  		<div class="panel-heading">
+  <div id="" class="panel panel-default">
+      <div class="panel-heading">
         C&aacute;lculo de intereses
-      </div>   		
-  		
-  		<div id="" class="panel-body">
-    	 <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-      
+      </div>
+
+      <div id="" class="panel-body">
+       <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
+
         <form id="formint" name="frmSample" class="form-horizontal" method="" action="">
      <!-- =================================================================================================================================-->
-								<!-- Juicio input-->
+                <!-- Juicio input-->
 
                 <div class="form-group">
                     <div class="col-md-2 col-sm-2 control-label" for="carat">
@@ -61,9 +61,9 @@ include 'logo.php';
 
 
                     <div class="col-sm-4 col-md-4">
-            
+
                        <input type='text' class='form-control' id='carat' name='carat' placeholder='' value="">
-                      
+
                     </div>
 
 
@@ -77,7 +77,7 @@ include 'logo.php';
                     </div>
                 </div>
 
-                
+
 
                 <div class="form-group">
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
@@ -86,7 +86,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfdesde.'"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
+                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=<?php if (isset($_POST['calcular'])) {print '"' . $vfdesde . '"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
 
@@ -96,7 +96,7 @@ include 'logo.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if(isset($_POST['calcular'])){ print '"'.$vfhasta.'"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -116,40 +116,40 @@ include 'logo.php';
                       <h4>M&eacute;todo de C&aacute;lculo</h4>
                     </div>
 
-                    <div class="col-sm-4 col-md-4">                      
+                    <div class="col-sm-4 col-md-4">
 
-                        <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="" onChange="mirarTasa();">    
+                        <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="" onChange="mirarTasa();">
                             <option value="tmix" selected="selected">Tasa Mix</option>
-                            <option value="tactiva">Activa BLA</option>
+                            <option value="tactiva">Activa BLP</option>
                             <option value="tpasiva">Pasiva BLP</option>
                             <option value="pactadasimple">Pactada Simple Mensual</option>
-                            <!--<option value="compuesta">Compuesta</option> -->                           
+                            <!--<option value="compuesta">Compuesta</option> -->
                         </select>
 
                     </div>
                 </div>
 
-						</form>
+            </form>
 
             <div class="form-group">
               <div class="col-sm-12 col-md-12" style="text-align:center;">
                 <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
-                  
+
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
               </div>
             </div>
 
-  		</div>
+      </div>
 
-	</div>
+  </div>
 </div>
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
   <div class="row">
   <div class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
-      </div>      
-      
+      </div>
+
       <div id="intereses" class="table-responsive">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
         <table class="table table-hover" id="grilla">
@@ -165,20 +165,20 @@ include 'logo.php';
             <th id="thint">Eliminar</th>
           </thead>
           <tbody>
-            
+
           </tbody>
           <tfoot>
             <th id="thint">Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th>
           </tfoot>
-                     
+
         </table>
-       
+
         <div id="noprint" class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
                   <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>
                   <!--<input type="button" value="Calcular" onclick="calcular_total()"/>-->
                   </div>
-        </div>     
+        </div>
 
     </div>
   </div>
@@ -220,24 +220,24 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 });
 
     $("#vfdesde").datepicker({
-        onSelect: function() {    
+        onSelect: function() {
 
           var minDate = $(this).datepicker('getDate');
-       
+
           minDate.setDate(minDate.getDate()+1);
 
           $("#vfhasta").datepicker("option","minDate", minDate);
           $("#vfhasta").datepicker("option", "maxDate", <?php
-          $day=date('d');
-          $month=date('m');
-          $year=date('Y');
-          print '"'.date("d/m/Y",(mktime(0,0,0,$month+1,1,$year)-1)).'"'; ?>); //toma el ultimo dia del mes actual
+$day   = date('d');
+$month = date('m');
+$year  = date('Y');
+print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
           $("#vfhasta").val('');
           $("#vfhasta").prop('disabled', false);
-        }           
+        }
     });
 
-    $("#vfhasta").datepicker();  
+    $("#vfhasta").datepicker();
 
     $('#borrar').click(function() {
       $("#vfdesde").val('');

@@ -7,24 +7,24 @@ session_start();
 
 <?php
 
- include 'head.php';
+include 'head.php';
 ?>
   <body>
 
-<!-- Modal Foto 
+<!-- Modal Foto
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog modal-lg" style="width: 1235px">      
+    <div class="modal-dialog modal-lg" style="width: 1235px">
       <div class="modal-content">
 
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
         </div>
-        
+
         <div class="modal-body">
           <img src="imagenes/slider/dia_abogado.jpg" alt="..." class="img-rounded" id="img-modal">
         </div>
@@ -36,7 +36,7 @@ session_start();
       </div>
 
     </div>
-    
+
 
   </div>-->
 
@@ -59,15 +59,14 @@ session_start();
 </div>-->
 
 <?php
-  include 'navbar.php';
+include 'navbar.php';
+
+if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el modal, despues no
+{
+    ?>
 
 
-  if(!$_SESSION['user'])  //lo puse asi para que si se accede desde 0 abre el modal, despues no
-  {
-?>
-
-
-<!--Modal  
+<!--Modal
 <div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
     <div  class="modal-content">
@@ -87,20 +86,20 @@ session_start();
   </div>
 </div>-->
 
-<!--Modal foto 
+<!--Modal foto
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog modal-lg" style="width: 840px">      
+    <div class="modal-dialog modal-lg" style="width: 840px">
       <div class="modal-content">
 
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Caminata Solidaria "Caminar Ayuda 2016".</h4>
         </div>
-        
+
         <div class="modal-body">
           <img src="imagenes/slider/caminar_2016.jpg" alt="..." class="img-rounded" id="img-modal">
         </div>
@@ -112,14 +111,14 @@ session_start();
       </div>
 
     </div>
-    
+
 
   </div>
 -->
 
 <?php
-  }
-  ?>
+}
+?>
 
 <div class="container-fluid" id="carIndex">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -212,7 +211,7 @@ session_start();
 
 <div id="noticias" class="container-fluid">
     <div class="row" >
-        
+
           <!--<div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
@@ -226,8 +225,8 @@ session_start();
                 </div>
             </div>
         </div>-->
-        
-        
+
+
          <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
@@ -240,7 +239,7 @@ session_start();
                 </div>
             </div>
         </div>
-        
+
 
         <div class="col-sm-4 col-md4">
             <div id="panel-noticia" class="panel panel-default">
@@ -266,7 +265,7 @@ session_start();
                 <div id="panel-cuerpo-noticia" class="panel-body">
                    <p>A partir del 1° de septiembre se establecieron los nuevos montos mínimos y máximos para la cobertura por Contingencias de salud, graves e imprevistas.
                       El monto mínimo a cubrir será de $ 5.000.
-                      En el caso de contingencias que, si bien no ponen en riesgo la vida del beneficiario, le acarreen a éste una invalidez total y temporal, el 
+                      En el caso de contingencias que, si bien no ponen en riesgo la vida del beneficiario, le acarreen a éste una invalidez total y temporal, el
                       monto máximo de la cobertura será de $ 75.000.
                       En los casos de contingencias graves e imprevistas que pongan en riesgo la vida del beneficiario, el monto máximo a cubrir será de $ 100.000.
                       </p>
@@ -319,21 +318,18 @@ session_start();
         </div>
       </div>-->
 
-	<?php
-  include 'footer.php';
-  include 'footer1.php';
+  <?php
+include 'footer.php';
+include 'footer1.php';
 
+$user = "usuario";
+//session_register ("user");
+$_SESSION['user'] = $user;
+/* para ver usuario
+print ("<P>Valor de la variable de sesión:$user</P>\n");
+ */
 
-  $user = "usuario";
-  //session_register ("user");
-  $_SESSION['user']=$user;
-  /* para ver usuario
-  print ("<P>Valor de la variable de sesión:$user</P>\n");
-  */
-
-
-
-		?>
+?>
 
   </body>
   </html>
