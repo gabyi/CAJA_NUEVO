@@ -109,13 +109,16 @@ if(isset($_POST['calcular']))
 
       // valores rentas inicio
 
-      /*if($fila ['rentas_inicio_general'] != 0.00)
+      if($fila ['rentas_inicio_general'] != 0.00)
       {
          $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
-      }*/
+      }else
+        {
+          $rentas_inicio_general=0.00;
+        }      
 
       
-      $rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
+      //$rentas_inicio_general= $filaMinimos ['rentas_inicio_general'];
 
       $rentas_inicio_tfija= $fila ['rentas_inicio_tfija'];
 
