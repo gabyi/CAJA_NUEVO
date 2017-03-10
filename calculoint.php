@@ -123,7 +123,7 @@ include 'logo.php';
                             <option value="tactiva">Activa BLP</option>
                             <option value="tpasiva">Pasiva BLP</option>
                             <option value="pactadasimple">Pactada Simple Mensual</option>
-                            <!--<option value="compuesta">Compuesta</option> -->
+                            <option value="compuestaSimple">Interes Compuesta</option>
                         </select>
 
                     </div>

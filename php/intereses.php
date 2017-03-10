@@ -130,6 +130,15 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
     echo $cadena;
 
 } else {
+    if ($_REQUEST["tasa"]== "compuestaSimple") {
+        $tasa=$_REQUEST["tasa"];
+        $cadena = '<td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td class="totImporte">'.$tasa.'</td><td class="totInteres">'.$tasa.'</td><td class="total">'.$tasa.'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+        
+      echo $cadena;
+
+    } else {
+
+//======================================================================================Si las tasas son mix pasiva o activa =========================================================================
 
     $tasa    = $_REQUEST["tasa"];
     $vfdesde = $_REQUEST["vfdesde"];
@@ -269,4 +278,5 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
     //$cadenas= array($cadena, $lista);
 
     //echo json_encode($cadenas);
+    }
 }

@@ -35,7 +35,7 @@
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
                   <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                   <li><a href="contacto.php">Contacto</a></li>
-                  <!--<li><a href="../oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li> -->            
+                  <li><a href="www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>          
               </ul>
             </div><!-- /.nav-collapse -->
 
