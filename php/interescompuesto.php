@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
 	<title>Calculo compuesto</title>
 </head>
@@ -25,7 +26,7 @@
 	</form> 
 
 	<?php 
-
+date_default_timezone_set('UTC');
 	if(isset($_POST['boton'] ) && $_POST['tipoTasa']=="intCapitalizacion")
 	{
 	
@@ -71,6 +72,8 @@
 
 	$final=$final1+$final2;
 
+	echo "los Saltos son:".$saltos."<br>";
+	echo "el resto de los dias: ".$reston."<br>";
 	echo "Tasa Final :".$tasaTotal."<br>";
 	echo "El importe :".$importe."<br>";
 	
@@ -83,7 +86,13 @@
 	{
 		echo "Mensual Compuesto";
 	}
+
+$fecha="2000-11-28";
+$segundos=strtotime($fecha) - strtotime('now');
+$diferencia_dias=intval($segundos/60/60/24);
+echo "La cantidad de días entre el ".$fecha." y hoy es <b>".$diferencia_dias."</b>";
 	 ?>
+
 
 </body>
 </html>

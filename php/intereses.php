@@ -131,8 +131,73 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
 
 } else {
     if ($_REQUEST["tasa"]== "compuestaSimple") {
-        $tasa=$_REQUEST["tasa"];
-        $cadena = '<td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td>'.$tasa.'</td><td class="totImporte">'.$tasa.'</td><td class="totInteres">'.$tasa.'</td><td class="total">'.$tasa.'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+        $tasa=$_REQUEST['pactada'];
+
+        //corrijo si es punto o coma en la tasa pactada
+        list($peso, $centavo) = split('[,.]', $tasa);
+        if ($centavo == "") {
+            $centavo = "00";
+        }
+
+        $tasa0 = $peso . "." . $centavo;
+        $tasa = $tasa0/100;
+        //////////////////////////////////////////////////////////
+
+        $importe = $_REQUEST['importe'];
+        $concepto = $_REQUEST["concepto"];
+        $saltos=$_REQUEST['saltos'];
+
+
+        // le doy diferente formato
+        list($dia0, $mes0, $año0) = split('[/.-]', $_REQUEST["vfdesde"]);
+        list($dia1, $mes1, $año1) = split('[/.-]', $_REQUEST["vfhasta"]);
+        $vfecha0 = $año0 . "-" . $mes0 . "-" . $dia0;
+        $vfecha1 = $año1 . "-" . $mes1 . "-" . $dia1;
+        ////////////////////////////////////////////////////////// 
+
+        $vfdesde=strtotime($vfecha0);
+        $vfhasta=strtotime($vfecha1);
+
+
+
+        $difSegundos= $vfhasta-$vfdesde;
+        $dias=intval($difSegundos/60/60/24); //cant de dias entre las fechas
+
+
+        //Calculo la cantidad de saltos que tiene que dar la funcion (cantidad de veces que se computa el interes) para K.(1+i)^n 
+
+        $n= floor($dias/$saltos);
+           
+
+        if ($n==0) { ////tomo el criterio de que si $n=0 tomo como 1 y si es mas tomo los intereses de $n
+
+            $tasaInteres= (1+$tasa)**1;
+            $final= $importe*$tasaInteres;
+            $reston= $dias%$saltos;
+            $final= ($final/$saltos)*$reston;
+        }else{//Tengo que sacar los dias que quedan en el medio///
+
+            $tasaInteres=(1+$tasa)**$n;
+            $finaln= $importe*$tasaInteres;
+            $reston=$dias%$saltos;
+                if ($reston!=0) {
+                    $finalReston=($finaln/$dias)*$reston;
+                    $final=$finaln+$finalReston;
+                }else{
+                    $final=$finaln;
+                }
+        }
+
+          //ahora veo el interes total que tiene los montos finales en plata y en porcentaje
+            //en plata
+            $interesDinero=$final-$importe;
+            $interesTasa=($final*100)/$importe;
+            $interesTasa=round(($interesTasa-100),2);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        $cadena = '<td>'.$concepto.'</td><td>Interes Compuesto Simple</td><td>'.$_REQUEST["vfdesde"].'</td><td>'.$_REQUEST["vfhasta"].'</td><td>'.$interesTasa.'</td><td class="totImporte">'.round($importe,2).'</td><td class="totInteres">'.round($interesDinero,2).'</td><td class="total">'.round($final,2).'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
         
       echo $cadena;
 
