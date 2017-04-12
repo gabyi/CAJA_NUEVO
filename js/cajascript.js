@@ -43,10 +43,23 @@ function buscar(partida)
 		}*/
 
 }
+function controlIntereses()
+      {
+        var tipoTasa=$("#tasalist").val();
+        var fechaOrigen=$("#vfdesde").val;
+        var fechaCalculo=$("#vfhasta").val;
+        var tasa=$("#tasalist").val;
+        var importe=$("#importe").val;
+        var valido= false;
 
+        return valido;
+      }
 
-function calcularTasa()
+function calcularTasa() //funcion para controlar los valores de intereses que no se pasen y que no pongan vacios
 			{
+        //if(controlIntereses())
+        if(true)
+        {
         var tasa=$("#tasalist").val();
         var vfdesde=$("#vfdesde").val();
         var vfhasta=$("#vfhasta").val();
@@ -60,21 +73,22 @@ function calcularTasa()
                 data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe, "concepto":concepto, "pactada":pactada, "saltos":saltos},
                 url:   'php/intereses.php',
                 type:  'post',
-                success:  function (mensaje) {
+                success:  function (mensaje) 
+                      {
                         //$("#grilla tbody").append("<tr class='prueba'>"+mensaje+"</tr>");
                         agregar(mensaje);
                         //calcular_total();
                         //calcular_interes();
                         $("#total").html(calcular_total(".total"));
-    					$("#totInteres").html(calcular_total(".totInteres"));
-    					$("#totImporte").html(calcular_total(".totImporte"));
-                }
-        });
-
-//$("#grilla tbody").append("<tr><td>"+importe+"</td></tr>");
-//$("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+concepto+"</strong>"+" no se encontr&oacute; en la base de datos");
-            
-           }
+    					          $("#totInteres").html(calcular_total(".totInteres"));
+    					          $("#totImporte").html(calcular_total(".totImporte"));
+                      }
+              });
+        }else
+          {
+            alert("aca pongo el control!!!!");
+          }
+      }
 
 function Eliminar (t) 
 	{	//no funciona porque no me deja agregar campos despues de borrar alguna fila
@@ -144,6 +158,7 @@ function agregar(mensaje)
   doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Caratula</th><th>"+$("#carat").val()+"</th></tr>");
   doc.write("</table>\n");
   doc.write("<div id='aca'></div>");
+  doc.write("<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas. Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>");
   doc.getElementById('aca').innerHTML=$("#intereses").html();
   doc.write('<script>window.print()');
   doc.close();

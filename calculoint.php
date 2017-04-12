@@ -172,14 +172,9 @@ include 'logo.php';
           </tfoot>
 
         </table>
-
-        <div id="noprint" class="form-group">
-                  <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>
-                  <!--<input type="button" value="Calcular" onclick="calcular_total()"/>-->
-                  </div>
-        </div>
-
+    </div>
+    <div class="panel-footer">       
+      <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>       
     </div>
   </div>
 
@@ -228,10 +223,10 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
           $("#vfhasta").datepicker("option","minDate", minDate);
           $("#vfhasta").datepicker("option", "maxDate", <?php
-$day   = date('d');
-$month = date('m');
-$year  = date('Y');
-print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
+          $day   = date('d');
+          $month = date('m');
+          $year  = date('Y');
+          print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
           $("#vfhasta").val('');
           $("#vfhasta").prop('disabled', false);
         }
