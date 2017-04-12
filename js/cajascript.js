@@ -145,6 +145,11 @@ function agregar(mensaje)
 
 
  function imprInt() {
+
+  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  var f=new Date();
+  document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+
   var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
   var doc = juiwin.document; 
   doc.open(); 
@@ -158,7 +163,7 @@ function agregar(mensaje)
   doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Caratula</th><th>"+$("#carat").val()+"</th></tr>");
   doc.write("</table>\n");
   doc.write("<div id='aca'></div>");
-  doc.write("<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas. Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>");
+  doc.write("<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas. Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.<br> Valor Provisorio de Tasas mes de " + meses[f.getMonth()] + " de " + f.getFullYear()+".-</div>");
   doc.getElementById('aca').innerHTML=$("#intereses").html();
   doc.write('<script>window.print()');
   doc.close();
