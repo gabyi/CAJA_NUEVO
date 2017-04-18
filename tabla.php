@@ -137,8 +137,7 @@ include 'head2.php';
         $caja_fin_cont = $filaMinimos['caja_min_cont'];
     } else {
         if ($fila['caja_fin_cont_porc'] != 0.00) {
-            $caja_fin_cont = verifica($mont, $fila['caja_fin_ap_porc'], $filaMinimos['caja_min_cont']);
-
+            $caja_fin_cont = verifica($monto, $fila['caja_fin_cont_porc'], $filaMinimos['caja_min_cont']);
         } else {
             $caja_fin_cont = 0.00;
         }
@@ -339,7 +338,7 @@ if ($sumaFinCajaForense > 0) {
                     if ($fila['caja_fin_aportes'] != 0.00) {
                         print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>" . number_format($caja_fin_aportes, 2) . "</td></tr>";
                     } else {
-                        if ($fila['caja_fin_ap_porc'] != 0.000000) {
+                        if ($fila['caja_fin_ap_porc'] != 0.00) {
                             print "<tr><td>Aportes</td><td style='align:right;padding-left:30px;'>" . number_format($caja_fin_aportes, 2) .
                             "</td><td style='align:right;padding-left:30px;'>" . number_format($fila['caja_fin_ap_porc'], 2) . " %</td></tr>";
                         }
@@ -347,10 +346,10 @@ if ($sumaFinCajaForense > 0) {
                 }
 
                 if ($fila['caja_fin_cont'] != 0.00) {
-                    print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>" . $caja_fin_cont . "</td></tr>";
+                    print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>" . number_format($caja_fin_cont,2) . "</td></tr>";
                 } else {
-                    if ($fila['caja_fin_cont_porc'] != 0.000000) {
-                        print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>" . $caja_fin_cont .
+                    if ($fila['caja_fin_cont_porc'] != 0.00) {
+                        print "<tr><td>Contribuciones</td><td style='align:right;padding-left:30px;'>" . number_format($caja_fin_cont,2) .
                         "</td><td style='align:right;padding-left:30px;'>" . number_format($fila['caja_fin_cont_porc'], 2) . " %</td></tr>";
                     }
 
@@ -467,7 +466,6 @@ function verifica($a, $b, $minimo)
     } else {
         return $minimo;
     }
-
 }
 
 ?>
