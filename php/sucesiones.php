@@ -56,8 +56,11 @@ $rentas_inicio_general = $filaMinimos['rentas_inicio_general'];
 $sumaInicio = $sumaCForense + $rentas_inicio_general;
 
 //Costo previo a inscribir
+if($_POST["oficio"])
+    $caja_fin_aportes = ($vhonorarios * 0.15)/3;
+else
+    $caja_fin_aportes = $vhonorarios * 0.15;
 
-$caja_fin_aportes = $vhonorarios * 0.15;
 $caja_fin_cont    = $monto * 0.005;
 $tasaVariable     = ($_POST["bp1"] + $_POST["bg1"]) * ($fila['rentas_fin_tvariable'] / 100);
 

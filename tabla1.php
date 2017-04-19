@@ -14,7 +14,7 @@
        
       echo "<div id='panel-cuerpo' class='panel-body'>";
  
-      if (!$oficio)
+      if (!isset($_POST['oficio']))
       { 
 
       echo "<div class='col-sm-6 col-md-6'>";
@@ -83,7 +83,7 @@
 
         echo "</table>";
 
-        if (!$oficio)
+         if (!isset($_POST['oficio']))
         {  
 
         echo "<table class='table-striped'>";

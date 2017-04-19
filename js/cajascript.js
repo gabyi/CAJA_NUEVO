@@ -143,14 +143,14 @@ function agregar(mensaje)
 		$('#grilla').append(fila);
 	}
 
-
+//para imprimir los intereses
  function imprInt() {
 
   var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
   var f=new Date();
   //document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
 
-  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
+  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=670,height=900");
   var doc = juiwin.document; 
   doc.open(); 
   doc.write("<head><Title>Caja Forense de Abogados de La Pampa</title>");
@@ -158,7 +158,7 @@ function agregar(mensaje)
   doc.write("<link href='css/bootstrap.min.css' rel='stylesheet'>");
   doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
   doc.write("</head>");
-  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
+  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width: 100%' src='imagenes/logos/Sin titulo.png'>");
   doc.write("<div align='center'><h4>Presupuesto de Cálculo de Intereses</h4>");
   doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Caratula</th><th>"+$("#carat").val()+"</th></tr>");
   doc.write("</table>\n");
@@ -169,9 +169,9 @@ function agregar(mensaje)
   doc.close();
 
 }
-
+//para imprimir los juicios
 function imprJus() {
-  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=950,height=670");
+  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=670,height=900");
   var doc = juiwin.document; 
   doc.open(); 
   doc.write("<head><Title>Caja Forense de Abogados de La Pampa</title>");
@@ -182,6 +182,31 @@ function imprJus() {
   doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
   doc.write("<div id='aca'></div>");
   doc.getElementById('aca').innerHTML=$("#tabla-juicios").html();
+  doc.write('<script>window.print()');
+  doc.close();
+
+}
+
+//para imprimir las sucesiones
+
+ function imprJui() {
+  var juiwin = window.open("", "juiwin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=670,height=900");
+  var doc = juiwin.document; 
+  doc.open(); 
+  doc.write("<head><Title>Caja Forense de Abogados de La Pampa</title>");
+  doc.write("<style>body,table, panel-heading, td, th {font-family:Arial, Helvetica, sans-serif; font-size:10px;}</style>");
+  doc.write("<link href='css/bootstrap.min.css' rel='stylesheet'>");
+  doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
+  doc.write("</head>");
+  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width:100%' src='imagenes/logos/Sin titulo.png'>");
+  doc.write("<div align='center'><h4>Presupuesto para Iniciación de Juicios</h4>");
+  doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Acervo Hereditario</th></tr>");
+  doc.write("<tr><th>&nbsp;</th><th>Provincia de La Pampa</th><th>Extraña Jurisdiccion</th></tr>");
+  doc.write("<tr><th>Bienes Gananciales</th><td align=\"center\">" + Formato($("#bg1").val()) + "</td><td align=\"center\">" + Formato($("#bg2").val()) + "</td></tr>");
+  doc.write("<tr><th>Bienes Propios</th><td align=\"center\">" + Formato($("#bp1").val()) + "</td><td align=\"center\">" + Formato($("#bp2").val()) + "</td></tr>");
+  doc.write("</table>\n");
+  doc.write("<div id='aca'></div>");
+  doc.getElementById('aca').innerHTML=$("#panel11").html();
   doc.write('<script>window.print()');
   doc.close();
 
