@@ -21,7 +21,8 @@
 
 		<input type="text" name="importe" id="importe" placeholder="importe" required>
 		<input type="text" name="tasa" id="tasa" placeholder="tasa" required>
-		<input type="text" name="dias" id="dias" placeholder="cant de dias de computo" required>
+		<input type="text" name="dias" id="dias0" placeholder="cant de dias0 de computo" required>
+		<input type="text" name="dias" id="dias1" placeholder="cant de dias1 de computo" required>
 		<input type="submit" name="boton" id="boton" value="boton de calculo">
 	</form> 
 
@@ -33,7 +34,14 @@ date_default_timezone_set('UTC');
 	$saltos=$_POST['saltos'];
 	$tasa=$_POST['tasa']/100;
 	$importe=$_POST['importe'];
-	$dias=$_POST['dias'];
+	$dias1=$_POST['dias1'];
+	$dias0=$_POST['dias0'];
+
+	$difSegundos= $dias1-$dias0;
+    $dias=intval($difSegundos/60/60/24);
+
+    echo "Esta es la diferencia en dias que esta implementada: ".$dias."===============<br>";
+
 
 	/*tengo que saber la cantidad de dias los cuales los tengo que dividir por los saltos,
 	pero que pasa cuando la division no da exacta??
@@ -51,6 +59,8 @@ date_default_timezone_set('UTC');
 	//saco el resto para saber si hay dias en el medio
 
 	$reston=$dias%$saltos;
+	if($reston<0)
+        $reston=$reston*(-1);
 
 	//Tengo que sacar los dias que quedan en el medio
 	$tasa0=(1+$tasa)**$n; // es la tasa final

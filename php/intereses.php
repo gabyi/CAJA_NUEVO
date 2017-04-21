@@ -174,25 +174,34 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
             $tasaInteres= (1+$tasa)**1;
             $final= $importe*$tasaInteres;
             $reston= $dias%$saltos;
-            $final= ($final/$saltos)*$reston;
+
+            $interesTasa= ($reston*$tasa)/$saltos;// regla de 3 simpole
+            $interesTasa=round($interesTasa,2);//regla de 3 simple
+            $interesDinero=($interesTasa/100)*$importe; //paso a $ los intereses
+            $final=$interesDinero+$importe; // sumo los intereses en pesos al importe
+
+
         }else{//Tengo que sacar los dias que quedan en el medio///
 
             $tasaInteres=(1+$tasa)**$n;
             $finaln= $importe*$tasaInteres;
             $reston=$dias%$saltos;
+
                 if ($reston!=0) {
                     $finalReston=($finaln/$dias)*$reston;
                     $final=$finaln+$finalReston;
                 }else{
                     $final=$finaln;
                 }
-        }
 
-          //ahora veo el interes total que tiene los montos finales en plata y en porcentaje
+                          //ahora veo el interes total que tiene los montos finales en plata y en porcentaje
             //en plata
-            $interesDinero=$final-$importe;
+            $interesDinero=$final-$importe;         
             $interesTasa=($final*100)/$importe;
             $interesTasa=round(($interesTasa-100),2);
+        }
+
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
