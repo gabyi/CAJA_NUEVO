@@ -56,7 +56,7 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
     if ($mes1 == $mes0 && $año0 == $año1) {
         $numeroDias    = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
         $dias          = ($dia1 + 1) - $dia0;
-        $vindice_final = round($pactada / $numeroDias * $dias, 2);
+        $vindice_final = round($pactada / $numeroDias * $dias, 3);
     } else {
 
 /*Comparo fechas si no son del mismo mes*/
@@ -109,7 +109,7 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
 
         $numeroDias    = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
         $fila          = mysql_fetch_array($query);
-        $vindice_final = round($vindice_final + (($pactada / $numeroDias * $dia1)), 2);
+        $vindice_final = round($vindice_final + (($pactada / $numeroDias * $dia1)), 3);
     }
     //coloco la tasa en una variable para que se coloque en la tabla
 
@@ -117,15 +117,22 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         $metodo = "Pactada Simple Mensual";
     }
 
+    //modifico importe porque no suma si hay comas
+
+    list($pesos,$centavos)=split('[,.]', $importe);
+    if($centavos=="")
+        $centavos=00;
+    $importe= $pesos.".".$centavos;
+
     // calcula intereses
 
-    $intereses = round($importe * ($vindice_final / 100), 2);
+    $intereses = round($importe * ($vindice_final / 100), 3);
 
     //calculo total
 
-    $total = round($intereses + $importe, 2);
+    $total = round($intereses + $importe, 3);
 
-    $cadena = '<td>' . $concepto . '</td><td>' . $metodo . '</td><td>' . $vfdesde . '</td><td>' . $vfhasta . '</td><td>' . $pactada . '</td><td class="totImporte">' . $importe . '</td><td class="totInteres">' . $intereses . '</td><td class="total">' . $total . '</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+    $cadena = '<td>' . $concepto . '</td><td>' . $metodo . '</td><td>' . $vfdesde . '</td><td>' . $vfhasta . '</td><td>' . $pactada . '</td><td class="totImporte">' .round($importe,3). '</td><td class="totInteres">' . $intereses . '</td><td class="total">' . $total . '</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
 
     echo $cadena;
 
@@ -144,6 +151,14 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         //////////////////////////////////////////////////////////
 
         $importe = $_REQUEST['importe'];
+
+        //modifico importe porque no suma si hay comas
+        list($pesos,$centavos)=split('[,.]', $importe);
+        if($centavos=="")
+            $centavos=00;
+
+        $importe= $pesos.".".$centavos;
+
         $concepto = $_REQUEST["concepto"];
         $saltos=$_REQUEST['saltos'];
 
@@ -172,14 +187,15 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         if ($n==0) { ////tomo el criterio de que si $n=0 tomo como 1 y si es mas tomo los intereses de $n
 
             $tasaInteres= (1+$tasa)**1;
-            $final= $importe*$tasaInteres;
-            $reston= $dias%$saltos;
+            $final= $importe*$tasaInteres; //aca saco el interes de un solo periodo
+            $reston= $dias%$saltos; // el resto de los dias
 
-            $interesTasa= ($reston*$tasa)/$saltos;// regla de 3 simpole
-            $interesTasa=round($interesTasa,2);//regla de 3 simple
-            $interesDinero=($interesTasa/100)*$importe; //paso a $ los intereses
-            $final=$interesDinero+$importe; // sumo los intereses en pesos al importe
-
+            $interesTasa=($reston*$tasa)/$saltos;
+            $interesTasa=round($interesTasa,3);
+            $interesDinero=$interesTasa*$importe;
+            $inter=$importe+$interesDinero;
+            //multiplico por 100 aca para que los porcentajes me salgan limpios
+            $interesTasa=$interesTasa*100;
 
         }else{//Tengo que sacar los dias que quedan en el medio///
 
@@ -194,19 +210,18 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
                     $final=$finaln;
                 }
 
-                          //ahora veo el interes total que tiene los montos finales en plata y en porcentaje
+            //ahora veo el interes total que tiene los montos finales en plata y en porcentaje
             //en plata
             $interesDinero=$final-$importe;         
             $interesTasa=($final*100)/$importe;
-            $interesTasa=round(($interesTasa-100),2);
+            $interesTasa=round(($interesTasa-100),3);
         }
-
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-        $cadena = '<td>'.$concepto.'</td><td>Interes Compuesto Simple</td><td>'.$_REQUEST["vfdesde"].'</td><td>'.$_REQUEST["vfhasta"].'</td><td>'.$interesTasa.'</td><td class="totImporte">'.round($importe,2).'</td><td class="totInteres">'.round($interesDinero,2).'</td><td class="total">'.round($final,2).'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+        $cadena = '<td>'.$concepto.'</td><td>Interes Compuesto Simple</td><td>'.$_REQUEST["vfdesde"].'</td><td>'.$_REQUEST["vfhasta"].'</td><td>'.$interesTasa.'</td><td class="totImporte">'.round($importe,3).'</td><td class="totInteres">'.round($interesDinero,3).'</td><td class="total">'.round($final,3).'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
         
       echo $cadena;
 
@@ -260,7 +275,7 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         $numeroDias    = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
         $dias          = ($dia1 + 1) - $dia0;
         $fila          = mysql_fetch_array($query);
-        $vindice_final = round($fila['indice'] / $numeroDias * $dias, 2);
+        $vindice_final = round($fila['indice'] / $numeroDias * $dias, 3);
     } else {
 
         if ($vfecha1 < $firstdate) {
@@ -320,7 +335,7 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         $query         = mysql_query($consulta) or die("no se pudo realizar la consulta paso 4");
         $numeroDias    = cal_days_in_month(CAL_GREGORIAN, $mes1, $año1);
         $fila          = mysql_fetch_array($query);
-        $vindice_final = round($vindice_final + (($fila['indice'] / $numeroDias * $dia1)), 2);
+        $vindice_final = round($vindice_final + (($fila['indice'] / $numeroDias * $dia1)), 3);
     }
     //coloco la tasa en una variable para que se coloque en la tabla
 
@@ -337,15 +352,23 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         }
     }
 
+    //modifico importe porque no suma si hay comas
+
+    list($pesos,$centavos)=split('[,.]', $importe);
+    if($centavos=="")
+        $centavos=00;
+
+    $importe= $pesos.".".$centavos;
+
     // calcula intereses
 
-    $intereses = round($importe * ($vindice_final / 100), 2);
+    $intereses = round($importe * ($vindice_final / 100), 3);
 
     //calculo total
 
-    $total = round($intereses + $importe, 2);
+    $total = round($intereses + $importe, 3);
 
-    $cadena = '<td>' . $concepto . '</td><td>' . $metodo . '</td><td>' . $vfdesde . '</td><td>' . $vfhasta . '</td><td>' . $vindice_final . '</td><td class="totImporte">' . $importe . '</td><td class="totInteres">' . $intereses . '</td><td class="total">' . $total . '</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+    $cadena = '<td>' . $concepto . '</td><td>' . $metodo . '</td><td>' . $vfdesde . '</td><td>' . $vfhasta . '</td><td>' . $vindice_final . '</td><td class="totImporte">' .round($importe,3). '</td><td class="totInteres">' . $intereses . '</td><td class="total">' . $total . '</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
 
     echo $cadena;
 
