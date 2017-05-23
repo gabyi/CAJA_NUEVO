@@ -1,8 +1,34 @@
+<!-- sacado de api de facebook para elk boton de megusta a la pagina de cforense de facebook
+    Include the SDK para JavaScript on your page once, ideally right after the opening <body> tag. -->
+
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+<!--===================================================================================================-->
+
 <div class="extra" id="footer1">
   <div class="extra-inner">
     <div class="container">
       <div id="footer-row" class="row">
-        <div id="footer-list" class="col-sm-3 col-md-3">
+        <div id="footer-list" class="col-md-2 col-md-offset-1">
+                    
+                        <h4>En facebook</h4>
+                        <ul>
+                            <li><div class="fb-like" data-href="https://www.facebook.com/cforense" data-layout="box_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div></li>
+                            <!--<li></li>
+                            <li></li>
+                            <li></li>-->
+                        </ul>
+                   
+         
+        </div>
+
+        <div id="footer-list" class="col-sm-2 col-md-2">
                     
                         <h4>Caja Forense - Santa Rosa</h4>
                         <ul>
@@ -14,7 +40,7 @@
                    
          
         </div>
-        <div id="" class="col-sm-3 col-md-3">
+        <div id="" class="col-sm-2 col-md-2">
                     
                         <h4>Caja Forense - Centro Judicial</h4>
                         <ul>
@@ -26,7 +52,7 @@
                     
                     <!-- /span3 -->
         </div>
-        <div id="" class="col-sm-3 col-md-3">
+        <div id="" class="col-sm-2 col-md-2">
                 
                         <h4>Caja Forense - General Pico</h4>
                         <ul>
@@ -38,7 +64,7 @@
                  
                     <!-- /span3 -->
         </div>
-        <div id="" class="col-sm-3 col-md-3">
+        <div id="" class="col-sm-2 col-md-2">
                    
                         <h4>Caja Forense - General Acha</h4>
                         <ul>
