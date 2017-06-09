@@ -5,7 +5,7 @@
 
  include 'head.php';
 
- include 'conexionlocal.php';
+ include 'conexion.php';
  
 print'<body>';
 

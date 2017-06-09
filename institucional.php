@@ -16,6 +16,9 @@
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
+    <!--Estos estan agregados para que minimece la barra movil-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
     <title>Institucional</title>
 
 </head>
@@ -47,6 +50,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Institucional<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
+                    <li><a href="#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                     <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
                     <li><a href="#autoridades">Autoridades</a></li>
                     <li><a href="#normativa">Marco normativo y financiamiento</a></li>
@@ -55,10 +59,28 @@
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
-                  <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                  <li><a href="contacto.php">Contacto</a></li>            
+                  <li><a href="contacto.php">Contacto</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuario <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm" targett="#myModal">Login</a></li> 
+                    </ul>
+                </li>            
               </ul>
             </div><!-- /.nav-collapse -->
+
+            <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                  ...
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+
+                </div>
+              </div>
+             </div>
 
       </div><!-- /.container -->
    </nav><!-- /.navbar -->

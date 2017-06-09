@@ -10,6 +10,10 @@ session_start();
 include 'head.php';
 ?>
   <body>
+<!--======================================================================================-->
+
+
+<!--======================================================================================-->
 
 <!-- Modal Foto
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
@@ -227,7 +231,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
         </div>-->
 
 
-         <div class="col-sm-4 col-md4">
+         <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
                   <h3>Coordinadora Regional de la Patagonia</h3>
@@ -241,7 +245,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
         </div>
 
 
-        <div class="col-sm-4 col-md4">
+        <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
                   <h3>Subsidios – Nuevos montos</h3>
@@ -257,7 +261,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
             </div>
         </div>
 
-          <div class="col-sm-4 col-md4">
+          <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
                   <h3>Contingencias de salud, graves e imprevistas</h3>
@@ -339,11 +343,12 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
      function irA(direccion){
 
        window.open("archivos/"+direccion,"","width=1100,height=900");
-}
+    }
 
-    $(document).ready(function(){
+    //$("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
 
-        $("#mimodal").modal('show');
+  $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+  })
 
-    });
-  </script>
+</script>

@@ -51,8 +51,6 @@ include "conexion.php";
 
   
 
-  
-
     </head>
     <?php 
 
@@ -117,7 +115,7 @@ include 'navbarFooter.php';
 
     <div id="panel-cuerpo" class="panel-body" id="montos">
         
-        <table id="grilla" class="table-striped">
+        <table id="grilla" class="table-vertical"> <!-- la Clase es table-vertical por el estilo para que sea responsive, sin bootstrap-->
             <thead>
             <tr>
             <th>Nombre y Apellido</th>
