@@ -28,7 +28,7 @@
       <div class="container">
 
             <div id="navLogo" class="navbar-header">
-              <a id="" class="navbar-brand" href="index.php"><img src="imagenes/logos/Logo12016.png" style="width:150px; height:110px;" alt="Logo de Caja Forense"></a>
+              <a id="" class="navbar-brand" href="index.php"><img id="logo" src="imagenes/logos/Logo12016.png" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -59,28 +59,9 @@
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
-                  <li><a href="contacto.php">Contacto</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuario <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm" targett="#myModal">Login</a></li> 
-                    </ul>
-                </li>            
+                  <li><a href="contacto.php">Contacto</a></li>           
               </ul>
             </div><!-- /.nav-collapse -->
-
-            <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-              <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                  ...
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-
-                </div>
-              </div>
-             </div>
 
       </div><!-- /.container -->
    </nav><!-- /.navbar -->
