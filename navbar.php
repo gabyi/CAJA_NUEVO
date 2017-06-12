@@ -5,7 +5,7 @@
 
             <div id="navLogo" class="navbar-header">
               <a id="" class="navbar-brand" href="index.php"><img id="logo" src="imagenes/logos/Logo12016.png" alt="Logo de Caja Forense"></a>
-                <button id="collapse-boton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
