@@ -305,7 +305,7 @@
                         Nacional de la segunda parte del artículo 125, donde se reconoce expresamente la soberanía provincial en materia de seguridad social para 
                         profesionales.
 
-                        Para más información consultar<a style="color:" class="instit" href="http://www.coordinadoradecajas.org.ar/" target="_blank"> 
+                        Para más información consultar<a style="color:" class="instit" href="http://http://www.coord-cajas.org.ar//" target="_blank"> 
                          www.coordinadoradecajas.org.ar.</a>
                          <br><br>
                 </div>

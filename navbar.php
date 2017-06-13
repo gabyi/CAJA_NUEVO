@@ -30,7 +30,7 @@
                       <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
                       <li><a href="institucional.php#autoridades">Autoridades</a></li>
                       <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
-                      <li><a href="#coordinadora">Coordinadora de Cajas</a></li>
+                      <li><a href="institucional.php#coordinadora">Coordinadora de Cajas</a></li>
                       <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>  
                     </ul>
                 </li>
