@@ -412,7 +412,7 @@ color: #FFF;
 @media(width: 768px){
     #carIndex{
         margin-top: 10%;
-                }
+                 }
 }
 
 @media(width: 800px){
@@ -435,6 +435,10 @@ color: #FFF;
 #logo{
     width:150px;
     height:110px;
+}
+
+#boletines{
+    margin-top: 7%;
 }
 
 /*para pantallas de celulares anda bien*/
@@ -461,9 +465,24 @@ color: #FFF;
         }
 
         #myCarousel{
-            padding-top: 0px;
+            margin-top: -70px;
+            margin-bottom: 10px;
+        }
+
+        
+        #foto-carouselIndex{
+            height:250px;
+        }
+
+        #foto-carouselNoticia{
+            height:300px;
+        }
+
+        #boletines{
+            margin-top: 15%;
         }
 }
+
 
 #cuerposuces{
     padding-top: 200px;
@@ -481,9 +500,7 @@ color: #FFF;
   background-color: #000000;
 }
 
-#boletines{
-    margin-top: 7%;
-}
+
 
 #boletines> #row-second,#row-thirt{
     padding-top:1%;
@@ -569,3 +586,7 @@ only screen and (max-width: 760px),
     */
     .table-vertical>tbody>tr>td:before { content: attr(data-th); }
 }
+
+ #foto-carousel{
+            width:100%;
+        }
