@@ -65,7 +65,7 @@
         <a href="tasas.php">Tasa Mix</a>
     </div>
    
-    <div id="prueba" class="col-md-2"><a href="http://www.cforense.org/webmail">Ingreso a mails de Caja Forense</a></div>
+    <div id="prueba" class="col-md-2"><a href="http://www.cforense.org:2084/login.php">Ingreso a mails de Caja Forense</a></div>
 
     <div id="prueba-last" class="col-md-2"><a href="calculoint.php">C&aacute;lculo de Intereses</a></div>
            
