@@ -11,46 +11,53 @@ session_start();
   }else /*<!-- aca termina el if si no paso por el index*/
 {
 
-    
+ include 'conexion.php';    
+
 ?>
-    <head>
-    <meta charset="UTF-8" lang="es">
+<!DOCTYPE html:5>
+<html lang="es">
+
+  <head>
+    <!--<meta charset="utf-8"> se lo saque para que tome las ñ en la busqueda de los juicios-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="imagenes/logo.ico"/>
 
-
+    <title>Caja Forense de La Pampa</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-
-    <!-- fuentes -->
+    <!--Estilo de fuentes-->
     <link href="css/fuentes.css" rel="stylesheet">
 
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
 
-  
+     <!--Estos estan agregados para que minimece la barra movil-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+    <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
+
+    <script src="js/cajascript.js" type="text/javascript"></script>
     <link href="css/jquery-ui.css" rel="stylesheet">
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/cajascript.js" type="text/javascript"></script>
 
-    </head>
-    <?php 
+  </head>
 
-    include 'conexion.php';
-
-  ?>
   <body>
 
 <?php
@@ -92,7 +99,7 @@ include 'navbarFooter.php';
                   </div>
       
       </div>
-      <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="javascript:buscar('1');" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+      <div class="panel-footer"><button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="Javascript:buscar('1');" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
       <div id="mensaje"></div>
                   <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>--></div>
 	</div>

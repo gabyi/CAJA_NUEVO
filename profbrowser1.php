@@ -13,27 +13,23 @@ include "conexion.php";
   }else /*<!-- aca termina el if si no paso por el index*/
 {
 
-    include 'head2.php';
+  
 ?>
+
+<html lang="es">
+
     <head>
+    
     <meta charset="UTF-8" lang="es">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <?php 
+        include 'head2.php';
+    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="imagenes/logo.ico"/>
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- fuentes -->
-    <link href="css/fuentes.css" rel="stylesheet">
-
-    <!--mi estilo -->
-    <link href="css/miestilo.css" rel="stylesheet">
 
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->

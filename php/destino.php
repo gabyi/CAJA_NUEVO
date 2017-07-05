@@ -1,12 +1,12 @@
 <?php
 
-$nombre       = $_POST['nombre'];
-$localidad    = $_POST['localidad'];
-$paginaActual = $_POST['partida'];
+$nombre       = $_REQUEST['nombre'];
+$localidad    = $_REQUEST['localidad'];
+$paginaActual = $_REQUEST['partida'];
 $nroLotes     = 10;
 $lista        = '';
 
-include "conexion.php";
+include "../conexion.php";
 
 //hago la consulta para saber cuantos elementos tiene
 if ($localidad == "" || $nombre == "") {
@@ -21,8 +21,12 @@ if ($localidad == "" || $nombre == "") {
     }
 } else {
 
+    if($localidad !="" && $nombre !="")
+    {
+
     $consulta    = mysql_query("SELECT * FROM profesio1 WHERE nombrepro='" . $nombre . "' and locaprof='" . $localidad . "';", $conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
     $nroprofesio = mysql_num_rows($consulta);
+    }
 }
 //====================================================================================================================
 
@@ -63,6 +67,11 @@ while ($fila = mysql_fetch_array($consulta)) {
     $cadena .= '<tr><td>' . $fila['nombrepro'] . '</td><td>' . $fila['domiciprof'] . '</td><td>' . $fila['teprof'] . '</td><td>' . $fila['correoelec'] . '</td><td>' . $fila['locaprof'] . '</td>';
 }
 
-$cadenas = array($cadena, $lista);
+if($nroprofesio!=0 && ($localidad!="" && $nombre!=""))
+    $cadenas = "";
+else
+    $cadenas = array($cadena, $lista);
 
 echo json_encode($cadenas);
+//echo $lista;
+

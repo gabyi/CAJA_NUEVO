@@ -2,7 +2,6 @@
 // es por un warning de strtotime function
 date_default_timezone_set('UTC');
 ?>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
