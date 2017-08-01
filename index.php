@@ -234,12 +234,15 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
          <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Coordinadora Regional de la Patagonia</h3>
+                  <h3>Subsidios escolaridad – Nuevos Montos</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p> Los días 6 y 7 de octubre se llevará a cabo el Encuentro Región Sur de Cajas de Previsión Social en la ciudad de Santa Rosa,
-                    organizado por las tres Cajas de Profesionales de la Provincia.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('ProgRegPatagonica.pdf')">Ver Mas</button>
+                   <p>A partir del 1° de mayo se incrementaron los montos de los Subsidios por Escolaridad. Los nuevos importes son:<br>
+                      • Escolaridad Primaria: PESOS DOS MIL DOSCIENTOS ($ 2.200,00)<br>
+                      • Escolariad Media: PESOS TRES MIL TRESCIENTOS ($ 3.300,00)<br>
+                      • Escolaridad Superior: PESOS CUATRO MIL CUATROCIENTOS ($ 4.400,00)<br>
+                      </p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1229.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -248,15 +251,14 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
         <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Subsidios – Nuevos montos</h3>
+                  <h3>Más beneficios con comercios locales</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>A partir del 1° de septiembre se incrementaron los montos de los Subsidios Solidarios. Los nuevos importes son:<br>
-                      • Matrimonio:           $  6.200<br>
-                      • Nacimiento o Adopción de Hijo:    $  6.200<br>
-                      • Fallecimiento:          $ 17.000<br>
-                      </p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1204.pdf')">Ver Mas</button>
+                   <p>
+                     Para continuar sumando beneficios a sus afiliados, la Caja Forense realizó convenios de descuentos con distintos comercios locales.
+                      DIARCO, VICTORIANA, POLO CLUB, GABIAND son algunas de las nuevas vinculaciones.
+                   </p>
+                   <a href="noticias.php#descuentos"><button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);">Ver Mas</button></a>
                 </div>
             </div>
         </div>
@@ -264,16 +266,13 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
           <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Contingencias de salud, graves e imprevistas</h3>
+                  <h3>Incremento de los beneficios previsionales</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>A partir del 1° de septiembre se establecieron los nuevos montos mínimos y máximos para la cobertura por Contingencias de salud, graves e imprevistas.
-                      El monto mínimo a cubrir será de $ 5.000.
-                      En el caso de contingencias que, si bien no ponen en riesgo la vida del beneficiario, le acarreen a éste una invalidez total y temporal, el
-                      monto máximo de la cobertura será de $ 75.000.
-                      En los casos de contingencias graves e imprevistas que pongan en riesgo la vida del beneficiario, el monto máximo a cubrir será de $ 100.000.
+                   <p>En marzo se aplicó un aumento a los haberes previsionales del orden del 12%. Ascendiendo en consecuencia el haber de la Categoría A a la suma de pesos veinticinco mil quinientos ($ 25.500); 
+                    el de la Categoría B a la suma de pesos diecinueve mil ciento veinticinco ($ 19.125) y el de la Categoría C a la suma de pesos doce mil setecientos cincuenta ($ 12.750).
                       </p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1205.pdf')">Ver Mas</button>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1222.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
