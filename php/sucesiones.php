@@ -62,7 +62,7 @@ else
     $caja_fin_aportes = $vhonorarios * 0.15;
 
 $caja_fin_cont    = $monto * 0.005;
-$tasaVariable     = ($_POST["bp1"] + $_POST["bg1"]) * ($fila['rentas_fin_tvariable'] / 100);
+$tasaVariable     = ($_POST["bp1"] + $_POST["bg1"] + $_POST["bp2"] + $_POST["bg2"]) * ($fila['rentas_fin_tvariable'] / 100);
 
 //veo si los al inscribir bienes se necesita cambiar a minimos
 
@@ -74,7 +74,7 @@ if ($caja_fin_cont < $filaMinimos['caja_min_cont']) {
     $caja_fin_cont = $filaMinimos['caja_min_cont'];
 }
 
-if ($tasaVariable < $filaMinimos['rentas_inicio_general']) {
+if ($tasaVariable < $filaMinimos['rentas_minimo']) {
     $tasaVariable = $filaMinimos['rentas_minimo'];
 }
 
