@@ -8,10 +8,10 @@ session_start();
   <head>
      <?php
 include 'head2.php';
-include 'conexion.php';
+
 ?>
-      <!--mi estilo -->
-    <link href="css/mestilocalculo.css" rel="stylesheet">
+    <!--mi estilo -->
+  <link href="css/miestilo.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/jquery-ui.css">
 
@@ -33,18 +33,18 @@ include 'conexion.php';
   <body>
 
 <?php
+include 'conexion.php';
 include 'navbarFooter.php';
-include 'logo.php';
 
 ?> <!-- php para las sucesiones-->
 
-<div class="container" style="margin-top: 200px;">
+<div class="container" id="containerCuerpo">
 
-  <div class="row">
+  
 
-  <div id="" class="panel panel-default">
+  <div id="panel" class="panel panel-default">
       <div class="panel-heading">
-        C&aacute;lculo de intereses
+        C&aacute;lculo de Intereses
       </div>
 
       <div id="" class="panel-body">
@@ -56,7 +56,7 @@ include 'logo.php';
 
                 <div class="form-group">
                     <div class="col-md-2 col-sm-2 control-label" for="carat">
-                      <h4>Car&aacute;tula</h4>
+                      <h5>Car&aacute;tula</h5>
                     </div>
 
 
@@ -68,7 +68,7 @@ include 'logo.php';
 
 
                     <div class="col-sm-2 col-md-2 control-label" for="concep">
-                      <h4>Concepto</h4>
+                      <h5>Concepto</h5>
                     </div>
 
 
@@ -81,7 +81,7 @@ include 'logo.php';
 
                 <div class="form-group">
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
-                      <h4>Fecha Origen</h4>
+                      <h5>Fecha Origen</h5>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
@@ -91,7 +91,7 @@ include 'logo.php';
                     </div>
 
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
-                      <h4>Fecha C&aacute;lculo</h4>
+                      <h5>Fecha C&aacute;lculo</h5>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
@@ -103,7 +103,7 @@ include 'logo.php';
 
                 <div class="form-group">
                     <div class="col-sm-2 col-md-2 control-label" for="importe">
-                      <h4>Importe</h4>
+                      <h5>Importe</h5>
                     </div>
 
 
@@ -113,7 +113,7 @@ include 'logo.php';
 
 
                     <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
-                      <h4>M&eacute;todo de C&aacute;lculo</h4>
+                      <h5>M&eacute;todo de C&aacute;lculo</h5>
                     </div>
 
                     <div class="col-sm-4 col-md-4">
@@ -142,33 +142,33 @@ include 'logo.php';
       </div>
 
   </div>
-</div>
+
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
-  <div class="row">
+
   <div class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
       </div>
 
-      <div id="intereses" class="table-responsive">
+      <div id="intereses" class="table-vertical">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-        <table class="table table-hover" id="grilla">
+        <table class="table-vertical" id="grilla">
           <thead>
-            <th id="thint">Concepto</th>
-            <th id="thint">Método</th>
-            <th id="thint">Fecha Origen</th>
-            <th id="thint">Fecha Cálculo</th>
-            <th id="thint">Tasa</th>
-            <th id="thint">Importe</th>
-            <th id="thint">Intereses</th>
-            <th id="thint">Total</th>
-            <th id="thint">Eliminar</th>
+            <th>Concepto</th>
+            <th>Método</th>
+            <th>Fecha Origen</th>
+            <th>Fecha Cálculo</th>
+            <th>Tasa</th>
+            <th>Importe</th>
+            <th>Intereses</th>
+            <th>Total</th>
+            <th>Eliminar</th>
           </thead>
           <tbody>
 
           </tbody>
           <tfoot>
-            <th id="thint">Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th>
+            <th>Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th>
           </tfoot>
 
         </table>
@@ -178,7 +178,6 @@ include 'logo.php';
     </div>
   </div>
 
-  </div>
 
 </div>
 
