@@ -522,25 +522,21 @@ color: #FFF;
   border-collapse: collapse; 
 }
 /* Zebra striping */
-.table-vertical>tbody>tr:nth-of-type(odd){ 
+.table-vertical>tbody>tr:nth-of-type(odd) { 
   background: #f9f9f9;
 }
-.table-vertical>thead>tr>th{ 
+.table-vertical>thead>tr>th { 
   background: #fff; 
   color: #000; 
   font-weight: bold; 
 }
-.table-vertical>tbody>tr>td, .table-vertical>thead>tr>th{ 
+.table-vertical>tbody>tr>td, .table-vertical>thead>tr>th { 
   padding: 6px; 
   border-top: 1px solid #ddd; 
   text-align: left; 
   vertical-align: middle;
 }
-#totImporte, #totInteres, #total{
-  padding: 6px; 
-  text-align: left; 
-  vertical-align: middle;  
-    }
+
 
 /* 
 Max width before this PARTICULAR table gets nasty
@@ -552,12 +548,10 @@ only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
     /* Force table to not be like tables anymore */
-    table, thead, tbody, tfoot, th, td, tr { 
+    table, thead, tbody, th, td, tr { 
         display: block; 
     }
     
-
-
     /* Hide table headers (but not display: none;, for accessibility) */
     .table-vertical thead tr { 
         position: absolute;
@@ -587,16 +581,6 @@ only screen and (max-width: 760px),
         white-space: nowrap;
     }
     
-    .table-vertical>tfoot{
-               /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%; 
-        padding-right: 10px; 
-        white-space: nowrap; 
-    }
     /*
     Label the data
     */

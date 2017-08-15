@@ -44,7 +44,7 @@
                     </ul>
                 </li>-->
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades</a>
                     <ul class="dropdown-menu" role="menu">
                     <li><a href="noticias.php">Noticias</a></li> 
                     </ul>
