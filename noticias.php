@@ -131,13 +131,13 @@
                              <!-- fotos for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="imagenes/fotos/1.JPG" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000-->
+                                    <img src="imagenes/fotos/1.jpg" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000-->
                                 </div>
                                 <div class="item">
                                     <img src="imagenes/fotos/2.jpg" id="foto-carouselNoticia" alt="...">
                                 </div>
                                 <div class="item">
-                                    <img src="imagenes/fotos/3.JPG" id="foto-carouselNoticia" alt="...">
+                                    <img src="imagenes/fotos/3.jpg" id="foto-carouselNoticia" alt="...">
                                 </div>
                                 <div class="item">
                                     <img src="imagenes/fotos/4.jpg" id="foto-carouselNoticia" alt="...">
