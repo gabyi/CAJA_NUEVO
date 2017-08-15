@@ -17,10 +17,6 @@ date_default_timezone_set('UTC');
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
-    <!--estilo para imprimir-->
-    <link href="css/print.css" rel="stylesheet" type="text/css" media="print">
-
-
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
 
@@ -35,8 +31,6 @@ date_default_timezone_set('UTC');
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
     <script src="js/cajascript.js" type="text/javascript"></script>

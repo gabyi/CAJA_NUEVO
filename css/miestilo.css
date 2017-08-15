@@ -537,6 +537,11 @@ color: #FFF;
   vertical-align: middle;
 }
 
+#totImporte, #totInteres, #total{
+  padding: 6px; 
+  text-align: center; 
+  vertical-align: middle;  
+    }
 
 /* 
 Max width before this PARTICULAR table gets nasty
@@ -548,7 +553,7 @@ only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
     /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr { 
+    table, thead, tbody, th, td, tr{ 
         display: block; 
     }
     
@@ -580,7 +585,18 @@ only screen and (max-width: 760px),
         padding-right: 10px; 
         white-space: nowrap;
     }
-    
+
+    #grilla>tfoot>th, #totImporte, #totInteres, #total, #thint{
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
     /*
     Label the data
     */

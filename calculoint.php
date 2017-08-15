@@ -10,12 +10,6 @@ session_start();
 include 'head2.php';
 include 'conexion.php';
 ?>
-      <!--mi estilo -->
-    <link href="css/mestilocalculo.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/jquery-ui.css">
-
-  <link rel="stylesheet" href="css/style.css">
 
 
 <!--PARA EL DATEPICKER-->
@@ -34,13 +28,12 @@ include 'conexion.php';
 
 <?php
 include 'navbarFooter.php';
-include 'logo.php';
 
 ?> <!-- php para las sucesiones-->
 
-<div class="container" style="margin-top: 200px;">
+<div class="container" id="containerCuerpo">
 
-  <div class="row">
+
 
   <div id="" class="panel panel-default">
       <div class="panel-heading">
@@ -142,9 +135,9 @@ include 'logo.php';
       </div>
 
   </div>
-</div>
+
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
-  <div class="row">
+
   <div class="panel panel-default">
       <div class="panel-heading">
         Tabla de C&aacute;lculo de intereses
@@ -152,7 +145,7 @@ include 'logo.php';
 
       <div id="intereses" class="table-responsive">
        <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">-->
-        <table class="table table-hover" id="grilla">
+        <table class="table" id="grilla">
           <thead>
             <th id="thint">Concepto</th>
             <th id="thint">Método</th>
@@ -168,7 +161,7 @@ include 'logo.php';
 
           </tbody>
           <tfoot>
-            <th id="thint">Totales</th><th></th><th></th><th></th><th></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th>
+            <th id="thint">Totales</th><th id="thint"></th><th id="thint"></th><th id="thint"></th><th id="thint"></th><th id="totImporte"></th><th id="totInteres"></th><th id="total"></th><th></th>
           </tfoot>
 
         </table>
@@ -176,8 +169,6 @@ include 'logo.php';
     <div class="panel-footer">       
       <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg' name='calcular' onclick= 'return imprInt();'>Imprimir</button>       
     </div>
-  </div>
-
   </div>
 
 </div>

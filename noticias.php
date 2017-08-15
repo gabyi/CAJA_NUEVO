@@ -86,14 +86,14 @@
 
                              <!-- fotos for slides -->
                             <div class="carousel-inner" role="listbox">
+                                <div class="item">
+                                    <img src="imagenes/slider/descuento_1.jpg" id="foto-carouselNoticia" alt="...">
+                                </div>
+                                <div class="item">
+                                    <img src="imagenes/slider/descuento_2.jpg" id="foto-carouselNoticia" alt="...">
+                                </div>
                                 <div class="item active">
-                                    <img src="archivos/descuento_1.jpg" id="foto-carouselNoticia" alt="...">
-                                </div>
-                                <div class="item">
-                                    <img src="archivos/descuento_2.jpg" id="foto-carouselNoticia" alt="...">
-                                </div>
-                                <div class="item">
-                                    <img src="archivos/descuentos.jpg" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000-->
+                                    <img src="imagenes/slider/promosagosto2017.jpg" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000-->
                                 </div>
                             </div>
 

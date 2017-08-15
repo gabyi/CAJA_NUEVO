@@ -131,7 +131,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/BENEFICIOS1.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS1.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/promosagosto2017.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/agosto2017.jpg" alt="Chania"></a>
       </div>
     </div>
 
@@ -161,7 +161,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
 
     <div  class="item">
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/comercios.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS6.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/BENEFICIOS1.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS1.jpg" alt="Chania"></a>  
       </div>
     </div>
 <!--
