@@ -117,7 +117,6 @@ include 'navbarFooter.php';
             <th>Nombre y Apellido</th>
             <th>Dirección</th>
             <th>Teléfono</th>
-            <th>Email</th>
             <th>Localidad</th>
             </tr>
             </thead>
@@ -128,7 +127,7 @@ include 'navbarFooter.php';
                 while($fila=mysql_fetch_array($consulta))   
                 { 
                 //Aca le das el formato a tu respuesta. En ste caso creas una fila con sus respectivas columnas
-                    echo ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['correoelec'].'</td><td>'.$fila['locaprof'].'</td></tr>');
+                    echo ('<tr><td>'.$fila['nombrepro'].'</td><td>'.$fila['domiciprof'].'</td><td>'.$fila['teprof'].'</td><td>'.$fila['locaprof'].'</td></tr>');
                 }
     
             ?>
