@@ -82,7 +82,7 @@ include 'navbarFooter.php';
                   <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
 									
                   <input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
-                  type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" required autofocus/> <br>
+                  type="text" placeholder="Ingrese profesional" class="form-control" list="profesionales" required autofocus/> <br>
                   
                   
 									</div>
