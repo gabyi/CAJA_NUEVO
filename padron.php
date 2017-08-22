@@ -43,7 +43,7 @@ include "conexion.php";
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css" media="screen" />
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
     <script src="js/jquery.min.js" type="text/javascript"></script>
-    <!--<script src="js/cajascript.js" type="text/javascript"></script>-->
+
 
   
 
@@ -74,7 +74,7 @@ include 'navbarFooter.php';
 
                   <!--<input type="text" id="codigo" onChange="buscar();" placeholder="Buscar"/>-->
                                     
-                <input id="profesio" name="profesio" title="Por favor ingrese tipo de profesio"
+                <input id="profesio" name="profesio" title="Ingrese profesional" onclick="clearInput();"
                 type="text" placeholder="Ingrese profesio" class="form-control" list="profesionales" value="" required autofocus/> <br>
                   
                   
@@ -83,11 +83,11 @@ include 'navbarFooter.php';
             <div class="col-md-6 col-sd-6">
                 <label for="profesional">Localidad</label>
                   
-                <input id="localidad" name="localidad" title="Por favor ingrese localidad"
+                <input id="localidad" name="localidad" title="Ingrese localidad" onclick="clearInput();"
                 type="text" placeholder="Ingrese localidad" class="form-control" list="localidad" value=""/> <br>
             </div>
 
-            <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit"  onClick="Javascript:buscar();" class="btn btn-info  btn-lg" name="calcular">Buscar Profesional</button>
+            <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="buscar" onClick="buscarProfesional();">Buscar Profesional</button>
       </div>
 
     </div>
@@ -98,7 +98,7 @@ include 'navbarFooter.php';
 <img src="imagenes/loadingbar-grey.gif" />
 </div>-->
 
-<div id="panel" class="panel panel-default">
+<div id="panel_grilla" class="panel panel-default">
 
     <!--<div id="panel-cuerpo" class="panel-body" id="montos">-->
         
@@ -131,17 +131,14 @@ include 'footer1.php';
 </html>
 
 <script type="text/javascript">
-
-
-
-function buscar()
-{
     
-    var nombre=$("#profesio").val();
-    var localidad=$("#localidad").val();
+    function buscarProfesional(){
+        var nombre=$("#profesio").val();
+        var localidad=$("#localidad").val();
+
     
     //if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
-    //{
+
         $.post('php/destino1.php', {"nombre":nombre, "localidad":localidad},
         function(mensaje)
         {
@@ -151,13 +148,60 @@ function buscar()
                 var array= eval(mensaje);
 
                 $("#grilla tbody").html(array[0]);
-                $("#pagination").html(array[1]);
                 $("#profesio").val("");
-        /*$("#localidad").val("");
-                $("#grilla tbody").append(array[0]); estos se usan para concatenar a lo que ya habia
-                $("#grilla1 tbody").append(array[1]); estos se utilizan para concatenar a los que ya habian
-                $("#mensaje").html("");
-                $("#profesio").focus();*/
+                $('#localidad').val("");
+                $('#grilla').dataTable( {
+
+                    "lengthMenu": [5, 10, 15, 20, 25],  
+     
+                    "language": {  
+     
+                    "sProcessing":     "Procesando...",
+     
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+     
+                    "sZeroRecords":    "No se encontraron resultados",
+     
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+     
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+     
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+     
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+     
+                    "sInfoPostFix":    "",
+     
+                    "sSearch":         "Buscar:",
+     
+                    "sUrl":            "",
+     
+                    "sInfoThousands":  ",",
+     
+                    "sLoadingRecords": "Cargando...",
+     
+                    "oPaginate": {
+     
+                        "sFirst":    "Primero",
+     
+                        "sLast":     "Último",
+     
+                        "sNext":     "Siguiente",
+     
+                        "sPrevious": "Anterior"
+     
+                    },
+     
+                    "oAria": {
+     
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+     
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+     
+                        }    
+                    }
+                } );
+                
                 
             }
             else
@@ -166,42 +210,65 @@ function buscar()
                     $("#localidad").val("");
                     $("#profesio").focus(); 
                 }
-
         });
-    /*}
-    else
+    }
+
+//BORRA LA TABLA Y LA REESCRIBE PARA VOLVERLA A LLENAR
+ function clearInput(){
+    
+    var texto="<table id='grilla' class='table-vertical'><thead><tr><th>Nombre y Apellido</th><th>Dirección</th><th>Teléfono</th><th>Localidad</th></tr></thead><tbody></tbody></table>";
+
+    $('#panel_grilla').html(texto);
+ }
+
+var profesionales = [
+<?php
+
+$consulta="select *  from profesio1 order by nombrepro asc"; /*busca todo menos los que tenga suces*/
+$result=mysql_query($consulta, $conexion);
+$n= mysql_num_rows($result);
+$i=0;
+
+
+  for($i;$i<=$n;$i++)
+  {
+    $fila= mysql_fetch_array($result);
+    if($fila["nombrepro"]!="")
+    {
+
+      print ('"'.$fila["nombrepro"].'",');
+     }
+  }
+?>
+
+];
+
+var localidad = [
+    <?php 
+      $consulta="select locaprof  from profesio1 group by locaprof order by locaprof asc"; /*busca todo menos los que tenga suces*/
+      $result=mysql_query($consulta, $conexion);
+      $n= mysql_num_rows($result);
+      $i=0;
+
+
+      for($i;$i<=$n;$i++)
         {
-            $("#mensaje").html("<strong style='color:rgba(247,145,0,0.72)'>"+code+"</strong>"+"  no es un codigo v&aacute;lido");
-            $("#codigo").val("");
-            $("#codigo").focus();
-        }*/
+          $fila= mysql_fetch_array($result);
+          if($fila["locaprof"]!="")
+        {
 
-}
+          print ('"'.$fila["locaprof"].'",');
+          }
+        }
+    ?>
+  ];
 
+$( "#profesio" ).autocomplete({
+  source: profesionales
+});
 
-$('#grilla').dataTable({
-    "lengthMenu": [5, 10, 15, 20, 25],  
-     
-            "language": {  
-     
-            "oPaginate": {
-     
-                "sFirst":    "Primero",
-     
-                "sLast":     "Último",
-     
-                "sNext":     "Siguiente",
-     
-                "sPrevious": "Anterior"
-     
-            }
-}}  );
+$("#localidad").autocomplete({
+  source: localidad
+});
 
-
-
-
-
- 
 </script>
-
-

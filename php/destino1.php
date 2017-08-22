@@ -1,57 +1,12 @@
 <?php
+// ESTE PHP SE UTILIZA EN PADRON.PHP  
 
 $nombre       = $_REQUEST['nombre'];
 $localidad    = $_REQUEST['localidad'];
-//$paginaActual = $_REQUEST['partida'];
-//$nroLotes     = 10;
 $lista        = '';
 
 include "../conexion.php";
-/*
-//hago la consulta para saber cuantos elementos tiene
-if ($localidad == "" || $nombre == "") {
-    if ($localidad == "") {
-        $consulta    = mysql_query("SELECT * FROM profesio1 WHERE nombrepro='" . $nombre . "';", $conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
-        $nroprofesio = mysql_num_rows($consulta);
-    }
 
-    if ($nombre == "") {
-        $consulta    = mysql_query("SELECT * FROM profesio1 WHERE locaprof='" . $localidad . "';", $conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
-        $nroprofesio = mysql_num_rows($consulta);
-    }
-} else {
-
-    if($localidad !="" && $nombre !="")
-    {
-
-    $consulta    = mysql_query("SELECT * FROM profesio1 WHERE nombrepro='" . $nombre . "' and locaprof='" . $localidad . "';", $conexion) or die("No se encuentra producto: $buscar " . mysql_errno());
-    $nroprofesio = mysql_num_rows($consulta);
-    }
-}
-//====================================================================================================================
-
-/*$nroPaginas = ceil($nroprofesio / $nroLotes);
-
-if ($paginaActual > 1) {
-    $lista = $lista . '<li><a href="javascript:buscar(' . ($paginaActual - 1) . ');">Anterior</a></li>';
-}
-for ($i = 1; $i <= $nroPaginas; $i++) {
-    if ($i == $paginaActual) {
-        $lista = $lista . '<li class="active"><a href="javascript:buscar(' . $i . ');">' . $i . '</a></li>';
-    } else {
-        $lista = $lista . '<li><a href="javascript:buscar(' . $i . ');">' . $i . '</a></li>';
-    }
-}
-if ($paginaActual < $nroPaginas) {
-    $lista = $lista . '<li><a href="javascript:buscar(' . ($paginaActual + 1) . ');">Siguiente</a></li>';
-}
-
-if ($paginaActual <= 1) {
-    $limit = 0;
-} else {
-    $limit = $nroLotes * ($paginaActual - 1);
-}
-*/
 // Hago de nuevo las consultas para paginar con el limite que impongo en nroLotes
 
 if ($localidad != "") {
