@@ -55,7 +55,6 @@ session_start();
 ============================================================================================-->
 <?php
 include 'navbarFooter.php';
-include 'logo.php';
 
 ?> <!-- php para las sucesiones-->
 

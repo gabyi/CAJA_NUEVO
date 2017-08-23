@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    
+
         <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" />
 
@@ -16,16 +16,17 @@
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
-    <title>Tasas</title>
+    <title>Noticias</title>
+
+</head>
     <?php 
         include 'conexion.php';
      ?>
 
-</head>
+
 <body data-spy="scroll" data-target=".navbar-fixed-top">
       <nav class="navbar navbar-fixed-top navbar-default scrollclass" role="navigation">
-      <div class="container">
-
+        <div class="container">
             <div id="navLogo" class="navbar-header">
               <a id="" class="navbar-brand" href="index.php"><img id="logo" src="imagenes/logos/Logo12016.png" alt="Logo de Caja Forense"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
@@ -33,32 +34,37 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>                    
+                </button>
             </div>
-         
             <div class="navbar-collapse collapse" id="navPills">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                        <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
-                        <li><a href="institucional.php#autoridades">Autoridades</a></li>
-                        <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tasas<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">            
-                    <li><a href="#mensual">Tasa Mix Mensual</a></li>
-                    <li><a href="#acumulada">Tasa Mix Acumulada</a></li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="cuenta.php">Estado Previsional</a></li>
+                      <li><a href="padron.php">Padrón de afiliados</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
+                      <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
+                      <li><a href="institucional.php#autoridades">Autoridades</a></li>
+                      <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
+                      <li><a href="institucional.php#coordinadora">Coordinadora de Cajas</a></li>
+                      <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>  
+                    </ul>
+                </li>
+                    <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
+                    <li><a href="#descuentos">Noticias</a></li>
+                    <li><a href="contacto.php">Contacto</a></li>
                 </ul>
-                <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-            </div><!-- /.nav-collapse -->
+                </ul>
+            </div>
 
-      </div><!-- /.container -->
+        </div>
    </nav><!-- /.navbar -->
 
 <!--===============================viejo navbar   
