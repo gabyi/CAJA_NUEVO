@@ -15,7 +15,7 @@ include 'head.php';
 
 <!--======================================================================================-->
 
-<!-- Modal Foto
+
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -25,12 +25,8 @@ include 'head.php';
     <div class="modal-dialog modal-lg" style="width: 1235px">
       <div class="modal-content">
 
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Bienvenido a nuestra nueva página!</h4>
-        </div>
-
         <div class="modal-body">
-          <img src="imagenes/slider/dia_abogado.jpg" alt="..." class="img-rounded" id="img-modal">
+          <img src="imagenes/slider/dia_abogado_2017.jpg" alt="..." class="img-rounded" id="img-modal">
         </div>
 
         <div class="modal-footer">
@@ -42,7 +38,7 @@ include 'head.php';
     </div>
 
 
-  </div>-->
+  </div>
 
 
 <!--<div class="modal fade" id="mimodal" role="dialog">
@@ -344,10 +340,6 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
        window.open("archivos/"+direccion,"","width=1100,height=900");
     }
 
-    //$("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
-
-  $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-  })
+  $("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
 
 </script>
