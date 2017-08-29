@@ -26,6 +26,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
+                      <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                       <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
                       <li><a href="institucional.php#autoridades">Autoridades</a></li>
                       <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
@@ -33,7 +34,6 @@
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->
-                  <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
                   <li><a href="contacto.php">Contacto</a></li>
                   <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
                   <li class="dropdown">
