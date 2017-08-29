@@ -22,11 +22,11 @@ include 'head.php';
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog modal-lg" style="width: 1235px">
+    <div class="modal-dialog modal-lg"> <!--el modal dialog lo centra y el lg lo agranda-->
       <div class="modal-content">
 
         <div class="modal-body">
-          <img src="imagenes/slider/dia_abogado_2017.jpg" alt="..." class="img-rounded" id="img-modal">
+          <img src="imagenes/slider/dia_abogado_2017.jpg" alt="..." class="img-responsive" id="img-modal">
         </div>
 
         <div class="modal-footer">
