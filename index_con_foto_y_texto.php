@@ -22,7 +22,8 @@ session_start();
     <div  class="item active">
       <div id="texto-foto" class="col-sm-6 col-md-6">
         <h3>BENEFICIOS CON COMERCIOS LOCALES</h3>
-        <p>Para más informacion sobre estos beneficios <a href="archivos/descuentos.jpg">ver imagen</a>.</p>
+<p class='demo'><a href='pdf.php' target='_blank' class='demo'></p>
+        <p>Para más informacion sobre estos beneficios .</p></a>
       </div>
       <div id="foto-foto" class="col-sm-6 col-md-6">
         <img class="img-thumbnail" src="archivos/descuentos.jpg" alt="Chania">
@@ -119,7 +120,7 @@ session_start();
                    <p>Tenemos el agrado de dirigirnos a Ud. a fin de remitirle adjunto el Boletín Informativo N° 40, 
                     con información relacionada con el criterio adoptado por la DGR para la liquidación de la Tasa 
                     de Justicia en los juicios promovidos con Beneficio de Litigar sin Gastos.</p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN_INFORMATIVO_40.pdf')">Ver Mas</button>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('pdf.php')">Ver Mas</button>
                 </div>
             </div>
         </div>
@@ -188,7 +189,8 @@ session_start();
 
      function irA(direccion){
 
-       window.location.href="archivos/"+direccion;
+       //window.location.href="archivos/"+direccion;
+       window.location.href=direccion;
 }
 
   </script>

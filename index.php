@@ -14,7 +14,7 @@ include 'head.php';
 
 
 <!--======================================================================================-->
-
+<!--
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
@@ -22,7 +22,7 @@ include 'head.php';
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog modal-lg"> <!--el modal dialog lo centra y el lg lo agranda-->
+    <div class="modal-dialog modal-lg"> <!--el modal dialog lo centra y el lg lo agranda>
       <div class="modal-content">
 
         <div class="modal-body">
@@ -38,7 +38,7 @@ include 'head.php';
     </div>
 
 
-  </div>
+  </div>-->
 
 
 <!--<div class="modal fade" id="mimodal" role="dialog">
