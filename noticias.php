@@ -53,10 +53,14 @@
                       <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>  
                     </ul>
                 </li>
-                    <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                    <li><a href="#descuentos">Noticias</a></li>
-                    <li><a href="contacto.php">Contacto</a></li>
-                </ul>
+                <li><a href="contacto.php">Contacto</a></li>
+                  <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li><a href="noticias.php">Noticias</a></li> 
+                    </ul>
+                </li>
                 </ul>
             </div>
 
@@ -79,9 +83,9 @@
                     <div id="carousel-noticias" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                <li data-target="#carousel-noticias" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-noticias" data-slide-to="1"></li>
+                                <li data-target="#carousel-noticias" data-slide-to="2"></li>
                             </ol>
 
                              <!-- fotos for slides -->
@@ -121,11 +125,11 @@
                     <div id="carousel-mediacion" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="4 "></li>
+                                <li data-target="#carousel-mediacion" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-mediacion" data-slide-to="1"></li>
+                                <li data-target="#carousel-mediacion" data-slide-to="2"></li>
+                                <li data-target="#carousel-mediacion" data-slide-to="3"></li>
+                                <li data-target="#carousel-mediacion" data-slide-to="4 "></li>
                             </ol>
 
                              <!-- fotos for slides -->

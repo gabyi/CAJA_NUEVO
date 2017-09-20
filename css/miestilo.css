@@ -240,6 +240,7 @@ a:hover {
     font-size: 20px;
     color: #F8F8F8;
     padding-top:5%;
+    padding-bottom: 2%;
 }
 
 /*Texto Negro*/
@@ -248,6 +249,7 @@ a:hover {
     font-size: 22px;
     background-color:#ededed;
     padding-top:5%;
+    padding-bottom: 2%;
 }
 
 
@@ -324,10 +326,6 @@ color: #FFF;
     {
     padding-top: 26px;
     padding-bottom: 15px;
-    }
-#carousel-noticias
-    {
-        padding-bottom: 20px;
     }
 
 @-moz-document url-prefix() {

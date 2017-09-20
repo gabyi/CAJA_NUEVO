@@ -89,7 +89,7 @@ include 'navbarFooter.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php print($fecha_actual=date("d/m/Y")); if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -218,7 +218,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $month = date('m');
           $year  = date('Y');
           print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
-          $("#vfhasta").val('');
+          //$("#vfhasta").val('');
           $("#vfhasta").prop('disabled', false);
         }
     });

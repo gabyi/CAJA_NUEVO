@@ -16,7 +16,7 @@
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
-    <title>Noticias</title>
+    <title>Tasas</title>
 
 </head>
     <?php 

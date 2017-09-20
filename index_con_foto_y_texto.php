@@ -22,7 +22,7 @@ session_start();
     <div  class="item active">
       <div id="texto-foto" class="col-sm-6 col-md-6">
         <h3>BENEFICIOS CON COMERCIOS LOCALES</h3>
-<p class='demo'><a href='pdf.php' target='_blank' class='demo'></p>
+<p class='demo'><a href='solpres.php' target='_blank' class='demo'></p>
         <p>Para más informacion sobre estos beneficios .</p></a>
       </div>
       <div id="foto-foto" class="col-sm-6 col-md-6">
