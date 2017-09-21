@@ -27,7 +27,7 @@ include 'conexion.php';
   <body>
 
 <?php
-include 'navbarFooter.php';
+include 'navbar.php';
 
 ?> <!-- php para las sucesiones-->
 

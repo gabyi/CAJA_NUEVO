@@ -340,6 +340,4 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
        window.open("archivos/"+direccion,"","width=1100,height=900");
     }
 
-  $("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
-
 </script>

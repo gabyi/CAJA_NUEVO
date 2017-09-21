@@ -15,12 +15,18 @@
          
             <div class="navbar-collapse collapse" id="navPills">
               <ul id="navUl" class="nav navbar-nav">
-                <li class="active"><a href="index.php">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
-                      <li><a href="padron.php">Padrón de afiliados</a></li>   
+                      <li><a href="padron.php">Padrón de afiliados</a></li>
+                      <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#formModal">Formularios</a></li>   
+                            </ul>
+                        </li>   
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -36,6 +42,7 @@
                 </li>
                   <!--<li><a href="boletines.php">Boletines Informativos</a></li>-->
                   <li><a href="contacto.php">Contacto</a></li>
+                  <!--<li><a href="contacto.php" data-toggle="modal" data-target="#myModal">Contacto</a></li> para abrir con modal
                   <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
                   <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario<span class="caret"></span></a>
@@ -46,39 +53,53 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
                     <ul class="dropdown-menu" role="menu">
-                    <li><a href="noticias.php">Noticias</a></li> 
+                    <li><a href="noticias.php">Noticias</a></li>
+                    <!--<li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                              </ul>
+                            </li>-->
                     </ul>
-                </li>
+                  </li>
               </ul>
             </div><!-- /.nav-collapse -->
-
-            <!--<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-              <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                  <div class="modal-title"><span class="glyphicon glyphicon-user"></span> Login </div>
-                  </div>
-                  <div class="modal-body">
-                    <form action="">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="usuario" placeholder="Usuario">
-                      </div>
-                      <div class="form-goup">
-                        <input type="text" class="form-control" id="pass" placeholder="Contraseña">
-                      </div>                      
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <div class="col-sm-4 col-md-4">
-                    <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-primary btn-lg" name='enviar'>Ingresar</button>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                    <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-primary btn-lg" name='enviar'>Registrarse</button>
-                  </div>
-                </div>
-              </div>
-             </div>-->
-
-
       </div><!-- /.container -->
    </nav><!-- /.navbar -->
+   <!-- Modal formularios -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Formularios</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><a href="formPrestamo.php" >Formulario de Préstamos</a></li>
+          <li><a href="#" >Formulario de Subsidios</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

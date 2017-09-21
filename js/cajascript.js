@@ -240,4 +240,4 @@ function mirarTasa()
   
 }
 
-
+$("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla

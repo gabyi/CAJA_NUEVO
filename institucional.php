@@ -44,18 +44,29 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
-                      <li><a href="padron.php">Padrón de afiliados</a></li>   
+                      <li><a href="padron.php">Padrón de afiliados</a></li>
+                      <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formularios</a>
+                                  <ul class="dropdown-menu">
+                                <li><a href="formPrestamo.php">Prestamos</a></li>
+                            </ul>
+                        </li>   
+                            </ul>
+                        </li>   
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Institucional<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                    <li><a href="#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                    <li><a href="#creacion">Creaci&oacute;n y Objetivos</a></li>
-                    <li><a href="#autoridades">Autoridades</a></li>
-                    <li><a href="#normativa">Marco normativo y financiamiento</a></li>
-                    <li><a href="#coordinadora">Coordinadora de Cajas</a></li>  
-                    <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>
+                      <li><a href="#comision">Comisi&oacute;n de J&oacute;venes</a></li>
+                      <li><a href="#creacion">Creación y Objetivos</a></li>
+                      <li><a href="#autoridades">Autoridades</a></li>
+                      <li><a href="#normativa">Marco normativo y financiamiento</a></li> 
+                      <li><a href="#coordinadora">Coordinadora de Cajas</a></li>
+                      <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>  
                     </ul>
                 </li>
                   <!--<li><a href="noticias.php">Noticias</a></li>-->

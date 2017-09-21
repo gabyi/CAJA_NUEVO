@@ -127,9 +127,9 @@ include 'navbar.php';
 							<label class="col-md-2 control-label" for="name">E. civil</label>
 								<div class="col-md-2">
 									<select class="form-control" name="civil">
-  										<option value="soltero">Soltero</option>
-  										<option value="casado">Casado</option>
-  										<option value="divorciado">Divorciado</option>	
+  										<option value="soltera/o">Soltera/o</option>
+  										<option value="casada/o">Casada/o</option>
+  										<option value="divorciada/o">Divorciada/o</option>	
 									</select>
 								</div>
 								<label class="col-md-1 control-label" for="name">Cónyuge</label>
@@ -170,7 +170,7 @@ include 'navbar.php';
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Actividad</label>
 								<div class="col-md-4">
-									<input id="name" name="actAval" title="" type="text" placeholder="" class="form-control" >
+									<input id="name" name="actividad" title="" type="text" placeholder="" class="form-control" >
 								</div>
 
 						</div>
@@ -190,9 +190,9 @@ include 'navbar.php';
 							<label class="col-md-2 control-label" for="name">E. civil</label>
 								<div class="col-md-2">
 									<select class="form-control" name="civilAval">
-  										<option value="soltero">Soltero</option>
-  										<option value="casado">Casado</option>
-  										<option value="divorciado">Divorciado</option>	
+  										<option value="soltera/o">Soltera/o</option>
+  										<option value="casada/o">Casada/o</option>
+  										<option value="divorciada/o">Divorciada/o</option>	
 									</select>
 								</div>
 								<label class="col-md-1 control-label" for="name">Cónyuge</label>

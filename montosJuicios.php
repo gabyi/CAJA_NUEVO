@@ -65,7 +65,7 @@ if ($_SESSION['user'] == "") //lo puse asi para que si se accede desde 0 te mand
 
 <?php
 
-    include 'navbarFooter.php';
+    include 'navbar.php';
 
     ?>
 

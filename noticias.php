@@ -33,13 +33,24 @@
                 </button>
             </div>
             <div class="navbar-collapse collapse" id="navPills">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li class="dropdown">
+              <ul id="navUl" class="nav navbar-nav">
+                <li><a href="index.php">Inicio</a></li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
                       <li><a href="padron.php">Padrón de afiliados</a></li>
+                      <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formularios</a>
+                                  <ul class="dropdown-menu">
+                                <li><a href="formPrestamo.php">Prestamos</a></li>
+                            </ul>
+                        </li>   
+                            </ul>
+                        </li>   
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -50,7 +61,7 @@
                       <li><a href="institucional.php#autoridades">Autoridades</a></li>
                       <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
                       <li><a href="institucional.php#coordinadora">Coordinadora de Cajas</a></li>
-                      <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>  
+                      <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>    
                     </ul>
                 </li>
                 <li><a href="contacto.php">Contacto</a></li>

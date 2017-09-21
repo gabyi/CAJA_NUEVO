@@ -54,7 +54,7 @@ session_start();
     </nav><!-- /.navbar 
 ============================================================================================-->
 <?php
-include 'navbarFooter.php';
+include 'navbar.php';
 
 ?> <!-- php para las sucesiones-->
 

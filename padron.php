@@ -57,7 +57,7 @@ include "conexion.php";
 
 <?php
 
-include 'navbarFooter.php';
+include 'navbar.php';
 
 ?>
 

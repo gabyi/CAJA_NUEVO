@@ -23,12 +23,14 @@ $medioPago="transferencia";
 $cuotas=$_REQUEST['cuotas'];
 $medioPago=$_REQUEST['pago'];
 //avalista
-$nomAval=$_REQUEST[''];
-$tipoDniAval=$_REQUEST[''];
-$numDniAval=$_REQUEST[''];
-$domAval=$_REQUEST[''];
-$telAval=$_REQUEST[''];
-$conyuAval=$_REQUEST[''];
+$nomAval=$_REQUEST['nomAval'];
+$tipoDniAval=$_REQUEST['tipoAval'];
+$numDniAval=$_REQUEST['dniAval'];
+$actividad=$_REQUEST['actividad'];
+$domAval=$_REQUEST['domAval'];
+$telAval=$_REQUEST['telAval'];
+$civilAval=$_REQUEST['civilAval'];
+$conyuAval=$_REQUEST['conyugeAval'];
 
 
 
@@ -67,12 +69,11 @@ Domicilio: '.strtoupper($domTit).' T.E: '.$telTit.'
 Estudio: '.strtoupper($dirEstudio).'     T.E: '.$telEstudio.'
 Inscripción Colegio de Abogados y Procuradores de la Provincia de La Pampa de 
 fecha: '.$fechaCol.' Tº '.$tomo.' Fº '.$folio));
-if ($conyuTit!="") {
-    if ($estCivilTit!="soltero") {
-        $pdf->MultiCell(0,6,utf8_decode('Estado Civil: '.$estCivilTit.' Nombre del Cónyuge: '.$conyuTit));
-      }
+if ($estCivilTit=="casada/o" && $conyuTit!="")
+    $pdf->MultiCell(0,6,utf8_decode('Estado Civil: '.strtoupper($estCivilTit).' Nombre del Cónyuge: '.strtoupper($conyuTit)));
+    else
+        $pdf->MultiCell(0,6,utf8_decode('                                                                                    '));
 
-}
 $pdf->Ln(8);
 $pdf->SetFont('Arial','BU',16);
 $pdf->Cell(85);
@@ -81,13 +82,17 @@ $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(8);
 $pdf->MultiCell(0,6,utf8_decode('
-Apellido y nombre: '.$apeAval.', '.$nomAval.'
+Apellido y nombre: '.$nomAval.'
 Doc. Identidad: '.$tipoDniAval.' Nº '.$numDniAval.'
 Domicilio: '.strtoupper($domAval).'  T.E: '.$telAval.'
-Actividad: '.strtoupper($actividad).'
-Estado Civil: '.strtoupper($civilAval).' Nombre del Cónyuge: '.strtoupper($conyuAval).'
-            
- Declaro bajo juramento que los datos consignados en esta solicitud y demás informaciones suministradas son correctos.-
+Actividad: '.strtoupper($actividad)));
+
+if ($civilAval=="casada/o" && $conyuAval!="") 
+    $pdf->MultiCell(0,6,utf8_decode('Estado Civil: '.strtoupper($civilAval).' Nombre del Cónyuge: '.strtoupper($conyuAval)));
+    else
+        $pdf->MultiCell(0,6,utf8_decode('                                                                                    '));
+
+$pdf->MultiCell(0,6,utf8_decode('Declaro bajo juramento que los datos consignados en esta solicitud y demás informaciones suministradas son correctos.-
    Acompaño a la presente los requisitos que corresponden de acuerdo a la reglamentación de préstamos.-
     Para todos los efectos constituimos domicilios especiales donde se practicarán las diligencias, gestiones y notificaciones:
 Solicitante: '.strtoupper($nomTit).'
