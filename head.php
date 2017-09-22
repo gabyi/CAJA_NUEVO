@@ -38,7 +38,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/cajascritp.js"></script>
+        <script type="text/javascript" src="js/cajascript.js"></script>
         <!--<script src="js/bootstrap.min.js"></script> <!-- == comentada porque se cerrraba el modal-->
         <!--<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script> <!--==comentada porque se cerraba el modal-->
         <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->

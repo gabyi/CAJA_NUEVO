@@ -241,3 +241,24 @@ function mirarTasa()
 }
 
 $("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
+
+function buscarComunica()
+  {
+    var comunica=$("#comunica").val();
+  
+  //if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
+  //{
+    $.post('php/comunicaciones.php', {"comunica":comunica},
+    function(mensaje)
+    {
+      
+       if(mensaje==0)
+              
+        $("#respuesta").html("<div class='alert alert-danger' role='alert'>La comunicacion no existe</div>");
+
+      else
+        
+           $("#respuesta").html("<div class='alert alert-danger' role='alert'>La comunicacion "+mensaje+" existe</div>");
+        
+    });
+  }

@@ -93,8 +93,8 @@
       </div>
       <div class="modal-body">
         <ul>
-          <li><a href="formPrestamo.php" >Formulario de Préstamos</a></li>
-          <li><a href="#" >Formulario de Subsidios</a></li>
+          <li><a href="formPrestamo.php" >Formulario de Solicitud de Préstamos</a></li>
+          <!--<li><a href="#" >Formulario de Solicitud de Subsidios</a></li>-->
         </ul>
       </div>
       <div class="modal-footer">
