@@ -17,7 +17,8 @@ $tomo=$_REQUEST['tomo'];
 $folio=$_REQUEST['folio'];
 $estCivilTit=$_REQUEST['civil'];
 $conyuTit=$_REQUEST['conyugeTit'];
-$impEnLetras=impo_lets($importe);
+//$impEnLetras=impo_lets($importe);
+$impEnLetras=convertir($importe);
 $debito=$_REQUEST['debito'];
 $medioPago="transferencia";
 $cuotas=$_REQUEST['cuotas'];
@@ -55,7 +56,7 @@ $pdf->Ln(10);
 $pdf->MultiCell(0,6,utf8_decode('     Solicito un préstamo de Pesos '.strtoupper($impEnLetras).' ($ '.number_format($importe, 2).') pagadero en '.$cuotas.' cuotas mensuales con aplicación de una tasa de interés de tipo variable, equivalente al 65% de la tasa que cobra el Banco de La Pampa en el segmento III de la línea de préstamos Credisueldos.
 					     Declaro conocer los términos de las disposiciones que rigen estos préstamos, a las cuales me allano.
 				    El señor '.strtoupper($nomAval).' , que también firma la presente, se constituye en avalista de todas obligaciones que asuma.'));
-$pdf->MultiCell(0,6,utf8_decode('     Solicito que el préstamo se efectivice a través de '.$medioPago.'.'));
+$pdf->MultiCell(0,6,utf8_decode('     Solicito que el préstamo se efectivice a través de '.strtoupper($medioPago).'.'));
 $pdf->Ln(8);
 $pdf->SetFont('Arial','BU',16);
 $pdf->Cell(80);
@@ -95,8 +96,8 @@ if ($civilAval=="casada/o" && $conyuAval!="")
 $pdf->MultiCell(0,6,utf8_decode('Declaro bajo juramento que los datos consignados en esta solicitud y demás informaciones suministradas son correctos.-
    Acompaño a la presente los requisitos que corresponden de acuerdo a la reglamentación de préstamos.-
     Para todos los efectos constituimos domicilios especiales donde se practicarán las diligencias, gestiones y notificaciones:
-Solicitante: '.strtoupper($nomTit).'
-Avalista: '.strtoupper($nomAval).'
+Solicitante: '.strtoupper($dirEstudio).'
+Avalista: '.strtoupper($domAval).'
 
 
 
@@ -115,7 +116,7 @@ $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(25);
 $pdf->MultiCell(0,6,utf8_decode('ARTÍCULO 1º.- La Caja Forense otorgará préstamos personales destinados a los afiliados beneficiarios y jubilados de la Institución.-
-ARTÍCULO 2º.- Establécese como monto de cada préstamo las sumas de PESOS VEINTICINCO MIL ($ 25.000,00); CINCUENTA MIL ($ 50.000,00) o PESOS CIEN MIL ($ 100.000,00).- 
+ARTÍCULO 2º.- Establécese como monto de cada préstamo las sumas de PESOS CINCUENTA MIL ($ 50.000,00); PESOS CIEN MIL ($ 100.000,00) o CINCUENTA MIL ($ 150.000,00).- 
 ARTÍCULO 3º.- Los préstamos se cancelarán mediante el sistema francés de amortización del capital en treinta y seis (36) cuotas mensuales y consecutivas, la primera de las cuales vencerá del uno (1) al (10) diez del segundo mes posterior al de la efectivización del mismo, y las restantes del uno (1) al (10) diez de cada mes siguiente. El vencimiento operará el primer día hábil siguiente, si el último día del plazo fuera inhábil.-
 ARTICULO 4º.-  A los efectos del otorgamiento, tendrán prioridad las solicitudes de préstamos nuevos frente a las de renovaciones. A su vez, en los casos de renovaciones, será condición para acceder a la misma tener al menos amortizado el cincuenta por ciento (50 %) del capital objeto del préstamo que se pretende renovar.-  
 ARTÍCULO 5º.- Los préstamos se concederán previa evaluación y aprobación por la Caja acerca de la capacidad económico financiera del solicitante, aptitud del avalista presentado y antecedentes de pago de préstamos anteriores, pudiéndose requerir la presentación de dos avalistas cuando el primer ofrecido no reúna condiciones de suficiente solvencia.  El/los avalista/s no podrá ser afiliado de la Caja ni cónyuge del afiliado. Se documentarán en un pagaré por el importe total del capital prestado, en el que indicará también la tasa de interés y que deberá ser suscripto por el deudor y su avalista.-
@@ -199,20 +200,30 @@ $pdf->Cell(145);
  // Título
 $pdf->Cell(20,10,utf8_decode('Préstamo Nro. ..............'));
 
+// Salto de línea
+$pdf->Ln(26);
+$pdf->SetFont('Arial','',11);
+
+$pdf->Cell(70);
+$pdf->Cell(0,0,'   Santa Rosa,...........de..........................................de 20.......',0,1,'C');
+
 $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
-$pdf->Ln(40);
+$pdf->Ln(25);
 $pdf->MultiCell(0,6,utf8_decode('A LA VISTA PAGARE a la CAJA FORENSE DE LA PAMPA SIN PROTESTO (Art.50 Decreto Ley 5.965/63) la cantidad de '.strtoupper($impEnLetras).'.- ($ '.number_format($importe, 2).'.-) por igual valor recibido a mi entera satisfacción. La suma a pagar devengará intereses compensatorios, a tasa variable, equivalentes al 80 % de la tasa de interés que aplica el Banco de La Pampa S.E.M.en la línea de préstamos Credisueldo -Segmento III- y se incrementará en un 50% más en caso de retraso. A la fecha, la tasa de interés de origen del presente es del 33% anual (TNA), la que se incrementa a 49.5% en caso de retraso.
 Dejamos expresamente aclarado, en nuestro carácter de libradora y avalista, respectivamente, que de conformidad con lo dispuesto en el Art. 36 del Decreto Ley 5.965/63, ampliamos el plazo de presentación del presente hasta un máximo de cinco (5) años, a contar desde la fecha de libramiento indicada.
 Pagadero en 25 de Mayo nº 246 de la ciudad de Santa Rosa, Provincia de La Pampa.
 
     
-                           ............................................                        ............................................
-                                  Firma del Librador                                        Firma del Avalista
-                                  Librador:                                                      Librador:
+                ............................................                                               ............................................
+                         Firma del Librador                                                              Firma del Avalista'));
+$pdf->Ln(3);
+$pdf->Cell(90,0,strtoupper($nomTit),0,0,'C');
+$pdf->Cell(0,0,strtoupper($nomAval),0,0,'C');
+$pdf->Ln(5);
+$pdf->Cell(90,0,strtoupper($dirEstudio),0,0,'C');
+$pdf->Cell(0,0,strtoupper($domAval),0,0,'C');
 
-                                  Domicilio:                                                     Domicilio:
-'));
 
 if($debito=="debito")
     {//paginas debito automatico
@@ -227,10 +238,10 @@ $pdf->Output();
 
 
 
-function impo_lets($importe) {
+/*function impo_lets($importe) {
         $unid=array("", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte", "ventiun", "veintidos", "veintitres", "veinticuatro", "veinticinco", "veintiseis", "veintisiete", "veintiocho", "veintinueve", "treinta");
         $dece=array("cero", "dieci", "veinti", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa");
-        $cente=array("cero", "cien", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos");
+        $cente=array("cero", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos");
         $mile="mil";
         $millo="millones";
         $millo1="millon";
@@ -302,5 +313,73 @@ function impo_lets($importe) {
         }
         if ($Digitos[0]>0) $resu = $resu . "con " . round($Digitos[0]) . " centavos";
         return $resu;
-        }
+        }*/
+function basico($numero) {
+$valor = array ("", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte", "ventiun", "veintidos", "veintitres", "veinticuatro", "veinticinco", "veintiseis", "veintisiete", "veintiocho", "veintinueve");
+return $valor[$numero - 1];
+}
+ 
+function decenas($n) {
+$decenas = array (30=>'treinta',40=>'cuarenta',50=>'cincuenta',60=>'sesenta',
+70=>'setenta',80=>'ochenta',90=>'noventa');
+if( $n <= 29) return basico($n);
+$x = $n % 10;
+if ( $x == 0 ) {
+return $decenas[$n];
+} else return $decenas[$n - $x].' y '. basico($x);
+}
+ 
+function centenas($n) {
+$cientos = array (100 =>'cien',200 =>'doscientos',300=>'trecientos',
+400=>'cuatrocientos', 500=>'quinientos',600=>'seiscientos',
+700=>'setecientos',800=>'ochocientos', 900 =>'novecientos');
+if( $n >= 100) {
+if ( $n % 100 == 0 ) {
+return $cientos[$n];
+} else {
+$u = (int) substr($n,0,1);
+$d = (int) substr($n,1,2);
+return (($u == 1)?'ciento':$cientos[$u*100]).' '.decenas($d);
+}
+} else return decenas($n);
+}
+ 
+function miles($n) {
+if($n > 999) {
+if( $n == 1000) {return 'mil';}
+else {
+$l = strlen($n);
+$c = (int)substr($n,0,$l-3);
+$x = (int)substr($n,-3);
+if($c == 1) {$cadena = 'mil '.centenas($x);}
+else if($x != 0) {$cadena = centenas($c).' mil '.centenas($x);}
+else $cadena = centenas($c). ' mil';
+return $cadena;
+}
+} else return centenas($n);
+}
+ 
+function millones($n) {
+if($n == 1000000) {return 'un millón';}
+else {
+$l = strlen($n);
+$c = (int)substr($n,0,$l-6);
+$x = (int)substr($n,-6);
+if($c == 1) {
+$cadena = ' millón ';
+} else {
+$cadena = ' millones ';
+}
+return miles($c).$cadena.(($x > 0)?miles($x):'');
+}
+}
+function convertir($n) {
+switch (true) {
+case ( $n >= 1 && $n <= 29) : return basico($n); break;
+case ( $n >= 30 && $n < 100) : return decenas($n); break;
+case ( $n >= 100 && $n < 1000) : return centenas($n); break;
+case ($n >= 1000 && $n <= 999999): return miles($n); break;
+case ($n >= 1000000): return millones($n);
+}
+}
 ?>

@@ -243,7 +243,7 @@ function mirarTasa()
 $("#mimodal").modal('show'); //es para que los modal se abran apenas abra la pantalla
 
 function buscarComunica()
-  {
+ {
     var comunica=$("#comunica").val();
   
   //if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
@@ -251,14 +251,81 @@ function buscarComunica()
     $.post('php/comunicaciones.php', {"comunica":comunica},
     function(mensaje)
     {
-      
-       if(mensaje==0)
-              
-        $("#respuesta").html("<div class='alert alert-danger' role='alert'>La comunicacion no existe</div>");
+     if(mensaje==0)
+     {
+      var texto="<br><div class='form-group'><label class='col-md-3 control-label' for='comunica'>Comunicación</label>";
+      texto= texto+"<div class='col-md-3'><input id='comunica' name='comunica' title='' type='text' placeholder='' class='form-control' autofocus></div>";
+      texto= texto+"<div class='col-md-3'><button id='boton-noticia' style='background: url(imagenes/logos/fondo_azul.png);' type='button' class='btn btn-primary btn-lg' name='buscar' onClick='javascript:buscarComunica();''>Buscar</button></div></div>"; 
+      texto= texto+"<div class='alert alert-danger' role='alert'>La comunicacion esta paga o no existe</div>";
+      $("#formComunica").html(texto);
 
-      else
+      }else
+      
+      {
+        var texto="<br><div class='form-group'><label class='col-md-3 control-label' for='comunica'>Comunicación</label>";
+        texto= texto+"<div class='col-md-3'><input id='comunica' name='comunica' title='' type='text' placeholder='' class='form-control' readonly value="+mensaje+"></div></div>";
+        texto=texto+"<div class='form-group'><label class='col-md-3 control-label' for='fecha'>Fecha</label>";
+        texto= texto+"<div class='col-md-5'><div class='input-group'><input class='form-control' id='fHasta' name='fHasta' placeholder='DD/MM/YYYY' type='date' value=''><span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span></div></div>";
+        texto= texto+"<div class='col-md-3'><button id='' style='background: url(imagenes/logos/fondo_azul.png);' type='button' class='btn btn-primary btn-lg' name='actualiza' onClick='javascript:calcularTasaComunica()''>Actualiza</button></div>";
+        texto= texto+"</div><br>";
         
-           $("#respuesta").html("<div class='alert alert-danger' role='alert'>La comunicacion "+mensaje+" existe</div>");
+        $("#formComunica").html(texto);
+        $("#fHasta").datepicker(); 
+        //////////////////////////////////para que el boton y el input extienda el datepicker////////////////////////////
+        $("span.input-group-addon").on("click", function(){
+          $("#fHasta").datepicker("show");
+          });
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+
         
+        $("#fHasta").mask("99/99/9999",{placeholder:" "});
+
+    
+       }   
     });
   }
+
+  function calcularTasaComunica() //funcion para controlar los valores de intereses que no se pasen y que no pongan vacios
+      {
+        var tasa="tmix"
+        //var vfdesde=$("#vfdesde").val();
+        var vfdesde="20/09/2017";
+        var importe="50";
+        var vfhasta=$("#fHasta").val();
+        //var importe=$("#importe").val();
+        var total=0; 
+
+      $.ajax({
+                data:  {"tasa":tasa, "vfdesde":vfdesde, "vfhasta":vfhasta, "importe":importe},
+                url:   'php/intereses.php',
+                type:  'post',
+                success:  function (mensaje) 
+                      {
+                        var res = mensaje.split("<td>");
+                        var i=0;
+                        var desplit="";
+    
+                        for(i=0;res[i]!=null;i++)
+                          {
+                            //alert (res[i]);
+                            desplit=desplit+res[i];
+
+                          }
+
+                        var resu= desplit.split("</td>");  
+                        var total= resu[6].split('<td class="totInteres">');                      
+                        
+                        alert (resu[1]); // tasa
+                        alert (resu[2]); // fecha desde
+                        alert (resu[3]); // fecha hasta
+                        alert (resu[4]); // interes porcentaje
+                        alert (resu[5]); // importe sin interes
+                        alert (resu[6]); // interes sobre el monto
+                        alert (resu[7]); // monto + interes sobre el monto
+                      }
+              });
+     
+            //alert("aca pongo el control "+ total+"!!!!");
+        
+      }
+

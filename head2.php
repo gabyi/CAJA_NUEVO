@@ -33,4 +33,14 @@ date_default_timezone_set('UTC');
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
-    <script src="js/cajascript.js" type="text/javascript"></script>
+    <script src="js/jquery.js" type="text/javascript"></script><!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
+
+
+    <!--PARA EL DATEPICKER-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="js/cajascript.js" type="text/javascript"></script>
+
+  <script src="js/jquery.maskedinput.js" type="text/javascript"></script>  <!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->

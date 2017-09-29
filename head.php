@@ -33,6 +33,9 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+        <script src="js/jquery.js" type="text/javascript"></script><!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
+
         
         <!--Estos estan agregados para que minimece la barra movil-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -42,6 +45,9 @@
         <!--<script src="js/bootstrap.min.js"></script> <!-- == comentada porque se cerrraba el modal-->
         <!--<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script> <!--==comentada porque se cerraba el modal-->
         <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
+
+
+        <script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
         
         <!--script para mover carrussel-->
         <script>

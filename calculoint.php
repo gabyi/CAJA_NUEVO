@@ -11,16 +11,6 @@ include 'head2.php';
 include 'conexion.php';
 ?>
 
-
-<!--PARA EL DATEPICKER-->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="js/cajascript.js" type="text/javascript"></script>
-
-
-
   <title>Presupuesto de Sucesiones</title>
   </head>
 
@@ -79,7 +69,7 @@ include 'navbar.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/YYYY" type="text" value=<?php if (isset($_POST['calcular'])) {print '"' . $vfdesde . '"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
+                      <input class="form-control" id="vfdesde" name="vfdesde" placeholder="DD/MM/AAAA" type="text" value=<?php if (isset($_POST['calcular'])) {print '"' . $vfdesde . '"';}?>>  <!--FECHA PARA EL CALCULO ORIGEN-->
 
                     </div>
 
@@ -89,7 +79,7 @@ include 'navbar.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/YYYY" type="text" value=<?php print($fecha_actual=date("d/m/Y")); if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/AAAA" type="text" value=<?php print($fecha_actual=date("d/m/Y")); if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -183,6 +173,7 @@ include 'footer1.php';
   </html>
 <script language = "Javascript">
 
+
 $(function($){
 $.datepicker.regional['es'] = {
 closeText: 'Cerrar',
@@ -204,6 +195,9 @@ orientation: 'bottom auto',
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 });
+
+    $("#vfdesde").mask("99/99/9999",{placeholder:"DD/MM/AAAA"});
+    $("#vfhasta").mask("99/99/9999",{placeholder:"DD/MM/AAAA"});
 
     $("#vfdesde").datepicker({
         onSelect: function() {
@@ -229,4 +223,5 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       $("#vfdesde").val('');
       $("#vfhasta").val('');
     });
+
 </script>

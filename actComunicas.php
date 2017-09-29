@@ -3,8 +3,6 @@ session_start();
 ?>
 <?php
 
-
-
 	if($_SESSION['user']=="" && !isset($enviar))  //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
 	{
 		include'redir.php';
@@ -15,8 +13,9 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 	<title>Actualizador de Comunicaciones</title>
+
   <?php
-  	include'head.php';
+  	include'head2.php';
 
 	print '<body>';
 
@@ -30,26 +29,30 @@ session_start();
 		<div class="col-md-6 col-sd-6 ">
 			<div id="panel" class="login-panel panel panel-default">
 				<div class="panel-heading">Actualizador de Comunicaciones</div>
-				<div id="panel-cuerpo" class="panel-body">
-					<form class="form-horizontal" action="" method="">
+				<div id="comunicaPanel" class="panel-body">
+					<form class="form-horizontal" action="" method="" id="formComunica">
 
-							<fieldset><br><br>
-								<!-- Comunicacion input-->
-								<div class="form-group">
-
-									<label class="col-md-3 control-label" for="name">Comunicación</label>
-									<div class="col-md-3"><input id="comunica" name="comunica" title="" type="text" placeholder="" class="form-control" autofocus></div>
-									<div class="col-md-3">
-                                        <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type="button" class="btn btn-primary btn-lg" name='buscar' onClick="javascript:buscarComunica();">Buscar</button>    
-								    </div>
-								</div>
+							<fieldset><br>
+							
+								
 								
 
-
-
-								<div class="col-md-12" id="respuesta">
-									<br><br><br><!--<div class="alert alert-danger" role="alert">La comunicación 2578 no existe</div>  o -->								
+								<!-- Comunicacion input-->
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="comunica">Comunicación</label>
+									<div class="col-md-3"><input id="comunica" name="comunica" title="" type="text" placeholder="" class="form-control" value="" autofocus></div>															
+									<div class="col-md-3" id="boton">
+                                        <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type="button" class="btn btn-primary btn-lg" name='buscar' onClick="javascript:buscarComunica();">Buscar</button>
+								    </div>
 								</div>
+
+								<div class="form-group" id="formGroup1">
+									<br><br><br>
+								</div>
+
+
+									 								
+
 	
 
 								<!-- Email input
@@ -96,3 +99,29 @@ session_start();
 ?>
 </body>
 </html>
+
+<script language = "Javascript">
+
+$(function($){
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+dateFormat: "dd/mm/yyyy",
+prevText: '',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: '',
+orientation: 'bottom auto',
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});
+
+</script>

@@ -27,9 +27,9 @@ include 'navbar.php';
 							<label class="col-md-2 control-label" for="name">Monto Préstamo</label>
 								<div class="col-md-3">
 									<select class="form-control" autofocus name="monto">
-  										<option value="25000">25.000,00</option>
   										<option value="50000">50.000,00</option>
   										<option value="100000">100.000,00</option>
+  										<option value="150000">150.000,00</option>
 									</select>
 								</div>
 								<label class="col-md-2 control-label" for="name">Cuotas</label>

@@ -8,13 +8,13 @@ $comunica =$_REQUEST['comunica'];
 if($comunica=="")
 	$comunica=1;
 ///////////////////////////////////////
-$respuesta="";
+$respuesta="hola";
 
 include "../conexion.php";
 
 
 $consulta  = "SELECT * FROM comunicas WHERE nro = ".$comunica;
-$query     = mysql_query($consulta, $conexion) or die("no se puedo hacer la consulta paso 1 de consultatasas.php");
+$query     = mysql_query($consulta, $conexion);
 $fila      = mysql_fetch_array($query);
 $num	= mysql_num_rows($query);
 
