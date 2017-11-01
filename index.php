@@ -127,7 +127,13 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/promosagosto2017.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/agosto2017.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/benefHotelOct.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelOct.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+    <div  class="item" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/promossept2017 (2).jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/promossept2017.jpg" alt="Chania"></a>
       </div>
     </div>
 
@@ -230,18 +236,54 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
          <div class="col-sm-4 col-md-4">
             <div id="panel-noticia" class="panel panel-default">
                 <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Subsidios escolaridad – Nuevos Montos</h3>
+                  <h3>Jubilaciones y pensiones</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>A partir del 1° de mayo se incrementaron los montos de los Subsidios por Escolaridad. Los nuevos importes son:<br>
-                      • Escolaridad Primaria: PESOS DOS MIL DOSCIENTOS ($ 2.200,00)<br>
-                      • Escolariad Media: PESOS TRES MIL TRESCIENTOS ($ 3.300,00)<br>
-                      • Escolaridad Superior: PESOS CUATRO MIL CUATROCIENTOS ($ 4.400,00)<br>
-                      </p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1229.pdf')">Ver Mas</button>
+                   <p>A partir del 1° de septiembre los haberes jubilatorios quedaron fijados de la siguiente manera:</p>
+                      <table class="table table-striped">
+                        <thead>
+                          <th><p>Categoria</p></th>
+                          <th><p>Haber jubilatorio</p></th>
+                          <th><p>Subsidio O.S.</p></th>
+                          <th><p>Haber Total</p></th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><p>A</p></td>
+                            <td><p>$ 30.500,00</p></td>
+                            <td><p>$ 4.800,00</p></td>
+                            <td><p>$ 35.300,00</p></td>
+                          </tr>
+                          <tr>
+                            <td><p>B</p></td>
+                            <td><p>$ 22.875,00</p></td>
+                            <td><p>$ 3.725,00</p></td>
+                            <td><p>$ 26.600,00</p></td>
+                          </tr>
+                          <tr>
+                            <td><p>C</p></td>
+                            <td><p>$ 15.250,00</p></td>
+                            <td><p>$ 2.650,00</p></td>
+                            <td><p>$ 17.900,00</p></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN INFORMATIVO N 59 - AUMENTOS JUBILACIONES Y PRESTAMOS - BENEFICIOS COMERCIOS.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-4 col-md-4">
+            <div id="panel-noticia" class="panel panel-default">
+                <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
+                  <h3>Prestamos: nuevos montos </h3>
+                </div>
+                <div id="panel-cuerpo-noticia" class="panel-body">
+                   <p>A partir del 1º de Octubre se incrementan los montos prestables, estableciéndose las nuevas sumas en tres segmentos: PESOS CINCUENTA MIL ($ 50.000,00), PESOS CIEN MIL ($100.000,00) o PESOS CIENTO CINCUENTA MIL ($ 150.000,00).</p>
+                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN INFORMATIVO N 59 - AUMENTOS JUBILACIONES Y PRESTAMOS - BENEFICIOS COMERCIOS.pdf')">Ver Mas</button>
+                </div>
+            </div>
+        </div>        
 
 
         <div class="col-sm-4 col-md-4">
@@ -255,20 +297,6 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
                       DIARCO, VICTORIANA, POLO CLUB, GABIAND son algunas de las nuevas vinculaciones.
                    </p>
                    <a href="noticias.php#descuentos"><button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);">Ver Mas</button></a>
-                </div>
-            </div>
-        </div>
-
-          <div class="col-sm-4 col-md-4">
-            <div id="panel-noticia" class="panel panel-default">
-                <div id="panel-titulo-noticia" class="panel-heading" style="background: url(imagenes/logos/fondo_azul.png);">
-                  <h3>Incremento de los beneficios previsionales</h3>
-                </div>
-                <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>En marzo se aplicó un aumento a los haberes previsionales del orden del 12%. Ascendiendo en consecuencia el haber de la Categoría A a la suma de pesos veinticinco mil quinientos ($ 25.500); 
-                    el de la Categoría B a la suma de pesos diecinueve mil ciento veinticinco ($ 19.125) y el de la Categoría C a la suma de pesos doce mil setecientos cincuenta ($ 12.750).
-                      </p>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('1222.pdf')">Ver Mas</button>
                 </div>
             </div>
         </div>

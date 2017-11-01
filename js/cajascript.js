@@ -266,7 +266,7 @@ function buscarComunica()
         texto= texto+"<div class='col-md-3'><input id='comunica' name='comunica' title='' type='text' placeholder='' class='form-control' readonly value="+mensaje+"></div></div>";
         texto=texto+"<div class='form-group'><label class='col-md-3 control-label' for='fecha'>Fecha</label>";
         texto= texto+"<div class='col-md-5'><div class='input-group'><input class='form-control' id='fHasta' name='fHasta' placeholder='DD/MM/YYYY' type='date' value=''><span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span></div></div>";
-        texto= texto+"<div class='col-md-3'><button id='' style='background: url(imagenes/logos/fondo_azul.png);' type='button' class='btn btn-primary btn-lg' name='actualiza' onClick='javascript:calcularTasaComunica()''>Actualiza</button></div>";
+        texto= texto+"<div class='col-md-3'><button id='' style='background: url(imagenes/logos/fondo_azul.png);' type='button' class='btn btn-primary btn-lg' name='actualiza' onClick='javascript:ValidarFecha()'>Actualiza</button></div>";
         texto= texto+"</div><br>";
         
         $("#formComunica").html(texto);
@@ -329,3 +329,31 @@ function buscarComunica()
         
       }
 
+// Función para verificar que la fecha escrita sea correcta según el formato dd/mm/aaaa y ademas que seqa correcta
+function ValidarFecha(){
+ // Almacenamos el valor digitado en TxtFecha
+ var f = $("#fHasta").val();
+ 
+
+  re=/^[0-9][0-9]\/[0-9][0-9]\/[0-9][0-9][0-9][0-9]$/
+  if(f.length==0 || !re.exec(f))
+  {
+    alert("La fecha no tiene formato correcto.")
+    return
+  }
+
+  var d = new Date()
+  d.setFullYear(f.substring(6,10), 
+    f.substring(3,5)-1,
+      f.substring(0,2))
+
+  if(d.getMonth() != f.substring(3,5)-1 
+    || d.getDate() != f.substring(0,2))
+  {
+    alert("Fecha no válida.")
+    return
+  }
+
+  alert("La fecha está en formato correcto y además es válida!")
+ 
+}

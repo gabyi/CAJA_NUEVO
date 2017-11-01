@@ -42,8 +42,9 @@
                 </li>
                   <!--<li><a href="boletines.php">Boletines Informativos</a></li>-->
                   <li><a href="contacto.php">Contacto</a></li>
-                  <!--<li><a href="contacto.php" data-toggle="modal" data-target="#myModal">Contacto</a></li> para abrir con modal
                   <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
+                  <!--<li><a href="contacto.php" data-toggle="modal" data-target="#myModal">Contacto</a></li> para abrir con modal
+                  
                   <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">

@@ -53,7 +53,7 @@ $pdf->Cell(0,0,'   Santa Rosa,...........de.....................................
 $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(10);
-$pdf->MultiCell(0,6,utf8_decode('     Solicito un préstamo de Pesos '.strtoupper($impEnLetras).' ($ '.number_format($importe, 2).') pagadero en '.$cuotas.' cuotas mensuales con aplicación de una tasa de interés de tipo variable, equivalente al 65% de la tasa que cobra el Banco de La Pampa en el segmento III de la línea de préstamos Credisueldos.
+$pdf->MultiCell(0,6,utf8_decode('     Solicito un préstamo de Pesos '.strtoupper($impEnLetras).' ($ '.number_format($importe, 2).') pagadero en '.$cuotas.' cuotas mensuales con aplicación de una tasa de interés de tipo variable, equivalente al 70% de la tasa que cobra el Banco de La Pampa en el segmento III de la línea de préstamos Credisueldos.
 					     Declaro conocer los términos de las disposiciones que rigen estos préstamos, a las cuales me allano.
 				    El señor '.strtoupper($nomAval).' , que también firma la presente, se constituye en avalista de todas obligaciones que asuma.'));
 $pdf->MultiCell(0,6,utf8_decode('     Solicito que el préstamo se efectivice a través de '.strtoupper($medioPago).'.'));
@@ -83,7 +83,7 @@ $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(8);
 $pdf->MultiCell(0,6,utf8_decode('
-Apellido y nombre: '.$nomAval.'
+Apellido y nombre: '.strtoupper($nomAval).'
 Doc. Identidad: '.$tipoDniAval.' Nº '.$numDniAval.'
 Domicilio: '.strtoupper($domAval).'  T.E: '.$telAval.'
 Actividad: '.strtoupper($actividad)));
@@ -210,7 +210,7 @@ $pdf->Cell(0,0,'   Santa Rosa,...........de.....................................
 $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(25);
-$pdf->MultiCell(0,6,utf8_decode('A LA VISTA PAGARE a la CAJA FORENSE DE LA PAMPA SIN PROTESTO (Art.50 Decreto Ley 5.965/63) la cantidad de '.strtoupper($impEnLetras).'.- ($ '.number_format($importe, 2).'.-) por igual valor recibido a mi entera satisfacción. La suma a pagar devengará intereses compensatorios, a tasa variable, equivalentes al 80 % de la tasa de interés que aplica el Banco de La Pampa S.E.M.en la línea de préstamos Credisueldo -Segmento III- y se incrementará en un 50% más en caso de retraso. A la fecha, la tasa de interés de origen del presente es del 33% anual (TNA), la que se incrementa a 49.5% en caso de retraso.
+$pdf->MultiCell(0,6,utf8_decode('A LA VISTA PAGARE a la CAJA FORENSE DE LA PAMPA SIN PROTESTO (Art.50 Decreto Ley 5.965/63) la cantidad de '.strtoupper($impEnLetras).'.- ($ '.number_format($importe, 2).'.-) por igual valor recibido a mi entera satisfacción. La suma a pagar devengará intereses compensatorios, a tasa variable, equivalentes al 70 % de la tasa de interés que aplica el Banco de La Pampa S.E.M.en la línea de préstamos Credisueldo -Segmento III- y se incrementará en un 50% más en caso de retraso. A la fecha, la tasa de interés de origen del presente es del 33% anual (TNA), la que se incrementa a 49.5% en caso de retraso.
 Dejamos expresamente aclarado, en nuestro carácter de libradora y avalista, respectivamente, que de conformidad con lo dispuesto en el Art. 36 del Decreto Ley 5.965/63, ampliamos el plazo de presentación del presente hasta un máximo de cinco (5) años, a contar desde la fecha de libramiento indicada.
 Pagadero en 25 de Mayo nº 246 de la ciudad de Santa Rosa, Provincia de La Pampa.
 

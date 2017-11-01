@@ -111,6 +111,10 @@ include 'head2.php';
     //$rentas_inicio_tfija = $fila['rentas_inicio_tfija'];
 
     //verifico valor de tasa variable rentas
+if ($fila['rentas_inicio_tfija'] !=0.00) {
+    $rentas_inicio_tfija = $fila['rentas_inicio_tfija'];
+    }
+
 if($materia=="HOMOLOGACION DE CONVENIO"){
 
     if ($monto == 0.00 || $monto=="") 
@@ -130,7 +134,8 @@ if($materia=="HOMOLOGACION DE CONVENIO"){
     if ($rentas_inicio_tasa_variable==$fila['rentas_inicio_tfija']) {
         $rentas_inicio_tfija=$rentas_inicio_tasa_variable;   
         }    
-}
+    }
+ 
 
 
     $sumaDGR = $rentas_inicio_general + $rentas_inicio_tasa_variable + $rentas_inicio_tfija;
