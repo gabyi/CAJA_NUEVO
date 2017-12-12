@@ -110,10 +110,11 @@ include 'head2.php';
 
     //$rentas_inicio_tfija = $fila['rentas_inicio_tfija'];
 
-    //verifico valor de tasa variable rentas
+    //verifico valor de tasa fija rentas
 if ($fila['rentas_inicio_tfija'] !=0.00) {
     $rentas_inicio_tfija = $fila['rentas_inicio_tfija'];
     }
+
 
 if($materia=="HOMOLOGACION DE CONVENIO"){
 
@@ -129,11 +130,11 @@ if($materia=="HOMOLOGACION DE CONVENIO"){
     }else{
 
     if ($fila['rentas_inicio_tvariable'] != 0.00) {
-        $rentas_inicio_tasa_variable = verifica($monto, $fila['rentas_inicio_tvariable'], $fila['rentas_inicio_tfija']);
+        $rentas_inicio_tasa_variable = verifica($monto, $fila['rentas_inicio_tvariable'], $filaMinimos['rentas_minimo']);
         }
     if ($rentas_inicio_tasa_variable==$fila['rentas_inicio_tfija']) {
         $rentas_inicio_tfija=$rentas_inicio_tasa_variable;   
-        }    
+        } 
     }
  
 
@@ -321,8 +322,13 @@ if ($sumaCForense > 0) {
             }
 
             if ($rentas_inicio_tasa_variable != 0.00 && $rentas_inicio_tfija == 0.00) {
-                print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tasa_variable . "</td>
-          <td style='align:right;padding-left:30px;'>" . $fila['rentas_inicio_tvariable'] . " %</td></tr>";
+                if ($rentas_inicio_tasa_variable!= $filaMinimos['rentas_minimo']) {
+                    print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tasa_variable . "</td>
+                    <td style='align:right;padding-left:30px;'>" . $fila['rentas_inicio_tvariable'] . " %</td></tr>";
+                }else{
+                    print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tasa_variable . "</td></tr>";
+                }
+               
             }
 
             if ($rentas_inicio_tfija != 0.00) {

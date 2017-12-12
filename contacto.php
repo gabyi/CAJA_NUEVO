@@ -25,12 +25,12 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 	{
 		$codigo="bien";
 
-		if(isset($enviar))
+		if(isset($_POST['enviar']))
 		{
-			$nombre =$_REQUEST['name'];
-			$email  = "From:".$_REQUEST['email']; //siempre hay que poner from, sino sale como el cuerpo del mensaje
-			$asunto =$_REQUEST['asunto'];
-			$mensaje = $_REQUEST['message'];
+			$nombre =$_POST['name'];
+			$email  = "From:".$_POST['email']; //siempre hay que poner from, sino sale como el cuerpo del mensaje
+			$asunto =$_POST['asunto'];
+			$mensaje = $_POST['message'];
 			$webmail="gabrielisabella@cforense.org ";
 
 			if(mail($webmail, $asunto, $nombre." dice: \r\n".$mensaje, $email )) //\r\n hace solo el salto de linea
@@ -53,9 +53,9 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 					<div id="panel-cuerpo" class="panel-body">
 
 					<?php
-					if(isset($enviar))
+					if(isset($_POST['enviar']))
 					{
-						if(isset($enviar) && $codigo!="bien")
+						if(isset($_POST['enviar']) && $codigo!="bien")
 						{
 
 							print "<div class='alert bg-danger' role='alert' style='margin-top: 80px; margin-bottom: 80px;'>";
@@ -73,6 +73,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 <?php
 
 	include 'footer.php';
+	include 'footer1.php';
 ?>
 </body>
 </html>
@@ -80,7 +81,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 					<?php
 						}else
 						{
-							if(isset($enviar)&&$codigo=="bien")
+							if(isset($_POST['enviar'])&&$codigo=="bien")
 							{
 								if($aviso=="Su Mensaje no fue enviado")
 								{
@@ -122,6 +123,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 <?php
 
 	include 'footer.php';
+	include 'footer1.php';
 ?>
 </body>
 </html>

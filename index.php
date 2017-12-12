@@ -13,8 +13,8 @@ include 'head.php';
 <!--======================================================================================-->
 
 
-<!--======================================================================================-->
-<!--
+<!--=================================modal caminata=====================================================
+
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
@@ -22,11 +22,11 @@ include 'head.php';
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog modal-lg"> <!--el modal dialog lo centra y el lg lo agranda>
+    <div class="modal-dialog"> <!--el modal dialog lo centra y el lg lo agranda>
       <div class="modal-content">
 
         <div class="modal-body">
-          <img src="imagenes/slider/dia_abogado_2017.jpg" alt="..." class="img-responsive" id="img-modal">
+          <img src="imagenes/slider/afichecacaminata_2017_2.jpg" style="width:7500px;height:800px;" alt="..." class="img-responsive" id="img-modal">
         </div>
 
         <div class="modal-footer">
@@ -127,7 +127,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/benefHotelOct.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelOct.jpg" alt="Chania"></a>
+        <!--<a onclick="window.open('imagenes/slider/afichecacaminata_2017_2.jpg','','imagenes/slider/afichecacaminata_2017.jpg')" href="">--><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/VtaRemeraCaminar2017.jpg" alt="Chania"></a>
       </div>
     </div>
 
@@ -367,5 +367,7 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
 
        window.open("archivos/"+direccion,"","width=1100,height=900");
     }
+
+$('#mimodal').modal('show');
 
 </script>
