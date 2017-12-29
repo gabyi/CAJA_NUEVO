@@ -10,10 +10,9 @@ session_start();
 include 'head.php';
 ?>
   <body>
-<!--======================================================================================-->
 
 
-<!--=================================modal caminata=====================================================
+<!--=================================modal Fotos=====================================================-->
 
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
@@ -22,11 +21,11 @@ include 'head.php';
 
   <div class="modal fade" id="mimodal">
 
-    <div class="modal-dialog"> <!--el modal dialog lo centra y el lg lo agranda>
+    <div class="modal-dialog"> <!--el modal dialog lo centra y el lg lo agranda>-->
       <div class="modal-content">
 
         <div class="modal-body">
-          <img src="imagenes/slider/afichecacaminata_2017_2.jpg" style="width:7500px;height:800px;" alt="..." class="img-responsive" id="img-modal">
+          <img src="imagenes/slider/salutacion2017.jpg" style="width:7500px;height:800px;" alt="..." class="img-responsive" id="img-modal">
         </div>
 
         <div class="modal-footer">
@@ -38,8 +37,11 @@ include 'head.php';
     </div>
 
 
-  </div>-->
+  </div>
 
+<!--======================================================================================-->
+
+<!--===================================modal para avisos=======================================================-->
 
 <!--<div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
@@ -58,6 +60,7 @@ include 'head.php';
   </div>
 </div>-->
 
+<!--================================================================================================================-->
 <?php
 include 'navbar.php';
 

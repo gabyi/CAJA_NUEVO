@@ -46,11 +46,11 @@ include 'navbar.php';
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="form-inline">							
 								<label class="control-label" for="ctdo">Precio Contado (-15%) $</label>
-									<input type="text" id="efectivo" name="efectivo" value="9.119,65" class="form-control" readonly>
+									<input type="text" id="efectivo" name="efectivo" value="9119.65" class="form-control" readonly>
 									<input type="radio" class="form-control" name="opcionPago" value="contado" aria-label="" checked>
 
 								<label class="col-lg-offset-1 control-label" for="cuotas">12 cuotas de $</label>
-									<input type="text" id="cuota" name="cuota" value="894,08" class="form-control" readonly>	
+									<input type="text" id="cuota" name="cuota" value="894.08" class="form-control" readonly>	
 									<input type="radio" id ="opcionPago" name="opcionPago" value="en 12 cuotas de " class="form-control" aria-label="">
 							</div>
 						</div>
@@ -142,27 +142,27 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
     
   	if ($("#modelo").val()=="i3") 
   		{
-  			$("#efectivo").val("9.119,65");
-  			$("#cuota").val("894,08");
+  			$("#efectivo").val("9119.65");
+  			$("#cuota").val("894.08");
   		} else
   			{ if ($("#modelo").val()=="i5") 
   				{
-  					$("#efectivo").val("11.474,15");
-  					$("#cuota").val("1.124,92");
+  					$("#efectivo").val("11474.15");
+  					$("#cuota").val("1124.92");
   				} else
   					{ if ($("#modelo").val()=="i7")
   						{
-  							$("#efectivo").val("12.689,65");
-  							$("#cuota").val("1.244,08");
+  							$("#efectivo").val("12689.65");
+  							$("#cuota").val("1244.08");
   						} else
   							{ if ($("#modelo").val()=="carbon")
   								{
-  									$("#efectivo").val("45.083,15");
-  									$("#cuota").val("4.419,92");
+  									$("#efectivo").val("45083.15");
+  									$("#cuota").val("4419.92");
   								} else
   									{
-  										$("#efectivo").val("28.032,15");
-  										$("#cuota").val("2.748,25");
+  										$("#efectivo").val("28032.15");
+  										$("#cuota").val("2748.25");
   									};
 
   							};
@@ -197,11 +197,12 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
 
 function enviarForm()
 	{
-		if($("#nomTit").val()!="" && $("#dniTit").val()!="" && $("#domicilio").val()!="" && $("#telefono").val()!="" && $("#localidad").val()!="")
+		/*if($("#nomTit").val()!="" && $("#dniTit").val()!="" && $("#domicilio").val()!="" && $("#telefono").val()!="" && $("#localidad").val()!="")
 			document.getElementById('formNotebook').action = "php/pdf/pdfNotebook.php";
 		else
-			alert ("SE DEBEN COMPLETAR TODOS LOS CAMPOS DEL FORMULARIO");
+			alert ("SE DEBEN COMPLETAR TODOS LOS CAMPOS DEL FORMULARIO");*/
 	
+	document.getElementById('formNotebook').action = "php/pdf/pdfNotebook.php";
 	}
 
 </script>
