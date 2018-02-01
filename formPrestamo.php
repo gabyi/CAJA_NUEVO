@@ -130,6 +130,7 @@ include 'navbar.php';
   										<option value="soltera/o">Soltera/o</option>
   										<option value="casada/o">Casada/o</option>
   										<option value="divorciada/o">Divorciada/o</option>	
+  										<option value="viuda/o">Viuda/o</option>
 									</select>
 								</div>
 								<label class="col-md-1 control-label" for="name">Cónyuge</label>
