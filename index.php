@@ -14,7 +14,7 @@ include 'head.php';
 
 <!--=================================modal Fotos=====================================================-->
 
-
+<!--
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
   Launch modal
 </button>
@@ -22,7 +22,7 @@ include 'head.php';
   <div class="modal fade" id="mimodal">
 
     <div class="modal-dialog"> <!--el modal dialog lo centra y el lg lo agranda>-->
-      <div class="modal-content">
+     <!-- <div class="modal-content">
 
         <div class="modal-body">
           <img src="imagenes/slider/salutacion2017.jpg" style="width:7500px;height:800px;" alt="..." class="img-responsive" id="img-modal">
@@ -37,28 +37,33 @@ include 'head.php';
     </div>
 
 
-  </div>
+  </div>-->
 
 <!--======================================================================================-->
 
 <!--===================================modal para avisos=======================================================-->
 
-<!--<div class="modal fade" id="mimodal" role="dialog">
+<div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
     <div  class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Atención!</h4>
+        <h4 class="modal-title" id="myModalLabel">Informacion Importante</h4>
       </div>
-      <div class="modal-body">
-        Por cuestiones ajenas a la Institución, los módulos de cálculo no funcionan correctamente. Se está trabajando en solucionar el problema. Sepa disculpar los inconvenientes.
+      <div class="modal-body" style="text-align:center; font-weight:bold;">
+        NUEVO HORARIO DE ATENCIÓN A PARTIR DEL MARTES 3 DE ABRIL DE 2018: <br>
+        LUNES A VIERNES<br>
+DE<br>
+7:00 A 15:30 HS<br>
+EN TODAS LAS SUCURSALES DE CAJA FORENSE<br>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
-</div>-->
+</div>
 
 <!--================================================================================================================-->
 <?php
@@ -130,13 +135,19 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
   <div class="carousel-inner" role="listbox">
     <div  class="item active" >
       <div id="" class="row">
-        <!--<a onclick="window.open('imagenes/slider/afichecacaminata_2017_2.jpg','','imagenes/slider/afichecacaminata_2017.jpg')" href="">--><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/VtaRemeraCaminar2017.jpg" alt="Chania"></a>
+        <a onclick="window.open('imagenes/slider/aerolineasJubilados.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/aerolineasJubilados.jpg" alt="Chania"></a>
       </div>
     </div>
 
     <div  class="item" >
       <div id="" class="row">
         <a onclick="window.open('imagenes/slider/promossept2017 (2).jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/promossept2017.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+    <div  class="item" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/benefHotelOct.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelOct.jpg" alt="Chania"></a>
       </div>
     </div>
 

@@ -104,7 +104,7 @@ $pdf->Cell(20,10,$producto);
 $pdf->SetFont('Arial','',11);
 $pdf->Cell(60);
 $pdf->Ln(15);
-$pdf->MultiCell(0,6,utf8_decode('     Declaro conocer los términos de las disposiciones que rigen estos préstamos y las condiciones del Convenio referido, a las cuales me allano. Habiendo seleccionado el modelo y su correspondiente financiación, adhiero expresamente al sistema de débito directo en cuenta a fin de que se realicen los pagos mensuales acordados anteriormente –a excepción de que se haya optado por el pago al contado, en cuyo supuesto, el pago lo haré a la cuenta directa de la empresa proveedora.-'));
+$pdf->MultiCell(0,6,utf8_decode('     Declaro conocer los términos de las disposiciones que rigen estos préstamos y las condiciones del Convenio referido, a las cuales me allano. Habiendo seleccionado el modelo y su correspondiente financiación, adhiero expresamente al sistema de débito directo en cuenta a fin de que se realicen los pagos mensuales acordados anteriormente –a excepción de que se haya optado por el pago al contado-, en cuyo supuesto, el pago lo haré a la cuenta directa de la empresa proveedora.-'));
 
 $pdf->Ln(5);
 $pdf->SetFont('Arial','BU',14);
