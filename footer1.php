@@ -20,7 +20,7 @@
                         <a href="https://www.facebook.com/cforense" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a><br>
                         <a href="https://www.instagram.com/cajaforensedelapampa/" target="_blank"><i class="fab fa-instagram fa-3x"></i></a><br>
                         <a href="https://www.facebook.com/cforense" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a><br>
-                        <a href="contacto.php"><i class="fas fa-envelope fa-3x" target="_blank"></i></a>
+                        <a href="contacto.php" target="_blank"><i class="fas fa-envelope fa-3x" ></i></a>
       
          
         </div>
