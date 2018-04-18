@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 
 <?php
-
+include 'conexion.php';
 include 'head.php';
 ?>
 <title>Formulario para compra de notebook</title>
@@ -30,11 +30,27 @@ include 'navbar.php';
 										<label class="col-md-3 col-lg-3 col-lg-offset-1 control-label" for="modelo">Modelo de Notebook</label>
 										<div class="col-md-6">
 											<select class="form-control" autofocus name="modelo" id="modelo" onChange="mirarPrecio()">
-  												<option value="i3" selected="selected">MOD. CI3 - Intel Core I3 – 6200U Processor (3M Cache, 2.3 Ghz)</option>
-  												<option value="i5">Mod. C15 - Intel Core I5 - 6200U Processor (3M Cache, 2.3 Ghz)</option>
-  												<option value="i7">Mod. C17 - Intel Core I7 - 6200U Processor (4M Cache, 2.5 Ghz)</option>
-  												<option value="carbon">Mod. Xi CARBON  CI7 - Intel Core I7 – 7600U</option>
-  												<option value="t470">Mod. T470 S - C15 - Core I5 - 7200U</option>
+												<?php
+
+													$consulta="select * from electronica";													
+													$filas=mysql_query($consulta) or die("No se pudo realizar la consulta");
+													$cant= mysql_num_rows($filas);
+												
+													for($i=0;$i<$cant;$i++)
+													{
+														$fila= mysql_fetch_array($filas);
+
+														if($fila['activo'] && $i==0)
+														{
+															echo "<option value=".$fila['id']." selected='selected' onChange='mirarPrecio()'>".$fila['producto']." ".strtoupper($fila['modelo'])."</option>";
+														}else
+														{
+															if($fila['activo'])
+															echo "<option value=".$fila['id'].">".$fila['producto']." ".strtoupper($fila['modelo'])."</option>";
+														}
+														
+													}
+												?>
 											</select>
 										</div>
 									</div>
@@ -139,42 +155,22 @@ print ("<P>Valor de la variable de sesión:$user</P>\n");
 	
 	function mirarPrecio()
   {
-    
-  	if ($("#modelo").val()=="i3") 
-  		{
-  			$("#efectivo").val("9119.65");
-  			$("#cuota").val("894.08");
-  		} else
-  			{ if ($("#modelo").val()=="i5") 
-  				{
-  					$("#efectivo").val("11474.15");
-  					$("#cuota").val("1124.92");
-  				} else
-  					{ if ($("#modelo").val()=="i7")
-  						{
-  							$("#efectivo").val("12689.65");
-  							$("#cuota").val("1244.08");
-  						} else
-  							{ if ($("#modelo").val()=="carbon")
-  								{
-  									$("#efectivo").val("45083.15");
-  									$("#cuota").val("4419.92");
-  								} else
-  									{
-  										$("#efectivo").val("28032.15");
-  										$("#cuota").val("2748.25");
-  									};
+    <?php 
+    	$consulta="select * from electronica";													
+		$filas=mysql_query($consulta) or die("No se pudo realizar la consulta");
+		$cant= mysql_num_rows($filas);
 
-  							};
+		for ($i=0; $i < $cant; $i++)
+		{	
+			$fila= mysql_fetch_array($filas);
 
-  					};
-
-  			};
-
-
-
-
-
+			echo "if ($('#modelo').val()=='".$fila['id']."')
+			{
+				$('#efectivo').val('".number_format($fila['precioContado'],2)."');
+				$('#cuota').val('".number_format($fila['precioCuota'],2)."');
+			}";
+		}
+     ?>
 
   if($("#tasalist").val()=="pactadasimple")
   {

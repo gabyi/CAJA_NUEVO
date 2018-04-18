@@ -116,8 +116,8 @@ include 'navbar.php';
 
             <div class="form-group">
               <div class="col-sm-12 col-md-12" style="text-align:center;">
-                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />
-
+                <!--<input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" onClick="javascript:calcularTasa();" value="Calcular Intereses" />-->
+                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" id="calcular" onClick="verificaDatos();" value="Calcular Intereses" />
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
               </div>
             </div>
@@ -224,4 +224,50 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       $("#vfhasta").val('');
     });
 
+function verificaDatos()
+  { 
+    //saco los datos de los input
+    var importe= document.getElementById("importe").value;   
+    var tipoTasa= document.getElementById("tasalist").value;
+    var fechaOrigen= document.getElementById("vfdesde").value;
+
+    //convierto a enteros los string
+    var importe= parseInt(importe);
+    var fechaOrigen= parseInt(fechaOrigen);
+
+
+    if(tipoTasa=="pactadasimple" || tipoTasa=="compuestaSimple")
+    {
+      var tasa= document.getElementById("tPactadasimple").value;
+      var tasa= parseInt(tasa);
+    }else
+    {
+      var tasa="";
+    }
+      
+    //hago el control si esta la tasa y si no  para que no haga el calculo
+    if(tasa.length!=0)
+    {
+      if(!isNaN(importe) && !isNaN(fechaOrigen) && !isNaN(tasa))
+        {
+          calcularTasa();
+        }else
+        {
+          alert("Debe colocar valores en importe, tasa y en fecha de origen.");
+        }
+    }else
+    {
+     if(tasa.length=="")
+      {
+        if(!isNaN(importe) && !isNaN(fechaOrigen))
+        {
+          calcularTasa();
+        }else
+        {
+          alert("Debe colocar valores en importe y en fecha de origen.");
+        }
+      }
+    }
+    
+  }
 </script>

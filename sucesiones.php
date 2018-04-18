@@ -173,7 +173,7 @@ include 'navbar.php';
 
 							  <div class="form-group">
                   <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Sucesiones</button>
+                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1">Calcular de Sucesiones</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
 								</div>
                 </div>
@@ -270,7 +270,6 @@ function Formato(imp){
 
 <?php
 
-  session_unregister ("juicio1");
 
 
   function calculaAportes ($a, $b)

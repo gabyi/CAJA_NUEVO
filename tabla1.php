@@ -1,12 +1,8 @@
 <?php 
       echo "<div class='panel panel-default' id='panel11'>";
       echo "<div class='panel-heading'>";
-
-       
-
+  
       echo "<h4>Costos de Acervo Hereditario. Monto: $ ".$monto.". ".$poder."</h4>";
-
-
 
       echo "</div>";
 
@@ -20,9 +16,6 @@
       echo "<div class='col-sm-6 col-md-6'>";
 
       echo "<h4>Costo de Iniciaci&oacute;n</h4>";
-
-
- 
 
 
          

@@ -21,7 +21,8 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
                       <li><a href="padron.php">Padrón de afiliados</a></li>
-                      <li class="dropdown-submenu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formularios</a>
+                      <!--<li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-submenu">
@@ -31,7 +32,7 @@
                             </ul>
                         </li>   
                             </ul>
-                        </li>   
+                        </li>-->  
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -49,9 +50,10 @@
                   <li><a href="contacto.php">Contacto</a></li>
                   <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accesos Directos<span class="caret"></a>
                     <ul class="dropdown-menu" role="menu">
-                    <li><a href="noticias.php">Noticias</a></li> 
+                    <li><a href="jurisprudencia.php">Jurisprudencia</a></li>
+                    <li><a href="Noticias.php">Noticias</a></li>
                     </ul>
                   </li>       
               </ul>
@@ -70,6 +72,7 @@
       </div>
       <div class="modal-body">
         <ul>
+          <li><a onclick="window.open('archivos/solicitudDeInscripcion.pdf','','width=1100,height=900')" href="">Solicitud de Inscripción</a></li>
           <li><a href="formPrestamo.php" >Formulario de Préstamos</a></li>
           <li><a href="#" >Formulario de Subsidios</a></li>
         </ul>

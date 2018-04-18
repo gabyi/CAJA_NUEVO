@@ -16,6 +16,9 @@
         
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!--Awsome icons-->
+        <link rel="stylesheet" href="css/fontawesome/css/fontawesome-all.css">       
         
         <!-- fuentes -->
         <link href="css/fuentes.css" rel="stylesheet">

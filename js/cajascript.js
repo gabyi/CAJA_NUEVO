@@ -48,7 +48,7 @@ function buscar(partida)
 }
 function controlIntereses()
       {
-        var tipoTasa=$("#tasalist").val();
+        var tipoTasa=$("#tasalist").val;
         var fechaOrigen=$("#vfdesde").val;
         var fechaCalculo=$("#vfhasta").val;
         var tasa=$("#tasalist").val;

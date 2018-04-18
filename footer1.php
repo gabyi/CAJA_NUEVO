@@ -17,14 +17,11 @@
       <div id="footer-row" class="row">
         <div id="footer-list" class="col-md-2 col-md-offset-1">
                     
-                        <h4>En facebook</h4>
-                        <ul>
-                            <li><div class="fb-like" data-href="https://www.facebook.com/cforense" data-layout="box_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div></li>
-                            <!--<li></li>
-                            <li></li>
-                            <li></li>-->
-                        </ul>
-                   
+                        <a href="https://www.facebook.com/cforense" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a><br>
+                        <a href="https://www.instagram.com/cajaforensedelapampa/" target="_blank"><i class="fab fa-instagram fa-3x"></i></a><br>
+                        <a href="https://www.facebook.com/cforense" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a><br>
+                        <a href="contacto.php"><i class="fas fa-envelope fa-3x" target="_blank"></i></a>
+      
          
         </div>
 
@@ -35,12 +32,12 @@
                             <li>25 de Mayo n&#186; 246</li>
                             <li>Tel: (02954) 454212 / 454214 / 432787</li>
                             <li>Mail: info@cforense.org</li>
-                            <li><a href="https://www.google.com.ar/maps/place/25+de+Mayo+246,+L6300DVE+Santa+Rosa,+La+Pampa/@-36.6193222,-64.2887295,18z">Donde queda?</a></li>
+                            <li><a href="https://www.google.com.ar/maps/place/25+de+Mayo+246,+L6300DVE+Santa+Rosa,+La+Pampa/@-36.6193211,-64.2892767,19z/data=!3m1!4b1!4m5!3m4!1s0x95c2cda8095ebfb3:0xea98d78312d8dd62!8m2!3d-36.6193222!4d-64.2887295" target="_blank">Donde queda?</a></li>
                         </ul>
                    
          
         </div>
-        <div id="" class="col-sm-2 col-md-2">
+        <div id="footer-list" class="col-sm-2 col-md-2">
                     
                         <h4>Caja Forense - Centro Judicial</h4>
                         <ul>
@@ -52,19 +49,19 @@
                     
                     <!-- /span3 -->
         </div>
-        <div id="" class="col-sm-2 col-md-2">
+        <div id="footer-list" class="col-sm-2 col-md-2">
                 
                         <h4>Caja Forense - General Pico</h4>
                         <ul>
                             <li>Calle 22 n&#186; 501</li>
                             <li>Tel: (02302) 423884 / 431687</li>
                             <li>Mail: infopico@cforense.org</li>
-                            <li><a href="https://www.google.com.ar/maps/place/Calle+22+501,+Gral.+Pico,+La+Pampa/@-35.657207,-63.754256,17z/data=!4m2!3m1!1s0x95c37d596d23e7e3:0x7127dfd37f9400a0">Donde queda?</a></li>
+                            <li><a href="https://www.google.com.ar/maps/place/Calle+22+501,+Gral.+Pico,+La+Pampa/@-35.657207,-63.754256,17z/data=!4m2!3m1!1s0x95c37d596d23e7e3:0x7127dfd37f9400a0" target="_blank">Donde queda?</a></li>
                         </ul>
                  
                     <!-- /span3 -->
         </div>
-        <div id="" class="col-sm-2 col-md-2">
+        <div id="footer-list" class="col-sm-2 col-md-2">
                    
                         <h4>Caja Forense - General Acha</h4>
                         <ul>

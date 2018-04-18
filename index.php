@@ -132,8 +132,15 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides para los sliders las imagenes son de 1400x300 px-->
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" role="listbox"> 
     <div  class="item active" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/benefHotelMarzo2018.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelMarzo2018.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+
+    <div  class="item" >
       <div id="" class="row">
         <a onclick="window.open('imagenes/slider/aerolineasJubilados.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/aerolineasJubilados.jpg" alt="Chania"></a>
       </div>
@@ -142,12 +149,6 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
     <div  class="item" >
       <div id="" class="row">
         <a onclick="window.open('imagenes/slider/promossept2017 (2).jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/promossept2017.jpg" alt="Chania"></a>
-      </div>
-    </div>
-
-    <div  class="item" >
-      <div id="" class="row">
-        <a onclick="window.open('imagenes/slider/benefHotelOct.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelOct.jpg" alt="Chania"></a>
       </div>
     </div>
 
@@ -171,16 +172,15 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
 
     <div  class="item">
       <div id="" class="row">
-        <a onclick="window.open('archivos/informes_riesgo.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS5.jpg" alt="Chania"></a>
-      </div>
-    </div>
-
-    <div  class="item">
-      <div id="" class="row">
         <a onclick="window.open('imagenes/slider/BENEFICIOS1.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS1.jpg" alt="Chania"></a>  
       </div>
     </div>
 <!--
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('archivos/informes_riesgo.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS5.jpg" alt="Chania"></a>
+      </div>
+    </div>
     <div class="item">
       <div id="texto-foto" class="col-sm-6 col-md-6">
         <h3>Taller de Mediaci&oacute;n</h3>
@@ -228,6 +228,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
 </div>
 
 </div>
+</div>
 
 <div id="noticias" class="container-fluid">
     <div class="row" >
@@ -253,36 +254,36 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
                   <h3>Jubilaciones y pensiones</h3>
                 </div>
                 <div id="panel-cuerpo-noticia" class="panel-body">
-                   <p>A partir del 1° de septiembre los haberes jubilatorios quedaron fijados de la siguiente manera:</p>
-                      <table class="table table-striped">
+                   <p>A partir del 1° de Marzo de 2018 los haberes jubilatorios quedaron fijados de la siguiente manera:</p>
+                      <table class="table table-responsive">
                         <thead>
                           <th><p>Categoria</p></th>
-                          <th><p>Haber jubilatorio</p></th>
-                          <th><p>Subsidio O.S.</p></th>
+                          <th><p>Haber jubilatorio</th>
+                          <th><p>Subsidios</p></th>
                           <th><p>Haber Total</p></th>
                         </thead>
                         <tbody>
                           <tr>
                             <td><p>A</p></td>
-                            <td><p>$ 30.500,00</p></td>
-                            <td><p>$ 4.800,00</p></td>
-                            <td><p>$ 35.300,00</p></td>
+                            <td><p>$ 34.400,00</p></td>
+                            <td><p>$ 8.440,00</p></td>
+                            <td><p>$ 42.840,00</p></td>
                           </tr>
                           <tr>
                             <td><p>B</p></td>
-                            <td><p>$ 22.875,00</p></td>
-                            <td><p>$ 3.725,00</p></td>
-                            <td><p>$ 26.600,00</p></td>
+                            <td><p>$ 25.800,00</p></td>
+                            <td><p>$ 6.455,00</p></td>
+                            <td><p>$ 32.255,00</p></td>
                           </tr>
                           <tr>
                             <td><p>C</p></td>
-                            <td><p>$ 15.250,00</p></td>
-                            <td><p>$ 2.650,00</p></td>
-                            <td><p>$ 17.900,00</p></td>
+                            <td><p>$ 17.200,00</p></td>
+                            <td><p>$ 4.470,00</p></td>
+                            <td><p>$ 21.670,00</p></td>
                           </tr>
                         </tbody>
                       </table>
-                   <button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN INFORMATIVO N 59 - AUMENTOS JUBILACIONES Y PRESTAMOS - BENEFICIOS COMERCIOS.pdf')">Ver Mas</button>
+                   <!--<button id="boton-noticia" type='button' class='btn btn-info  btn-lg' name='' style="background: url(imagenes/logos/fondo_azul.png);" onClick="irA('BOLETIN INFORMATIVO N 59 - AUMENTOS JUBILACIONES Y PRESTAMOS - BENEFICIOS COMERCIOS.pdf')">Ver Mas</button>-->
                 </div>
             </div>
         </div>
@@ -315,8 +316,9 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
             </div>
         </div>
 
+    </div>
   </div>
-</div>
+
 
 
       <!--

@@ -21,12 +21,13 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="cuenta.php">Estado Previsional</a></li>
                       <li><a href="padron.php">Padrón de afiliados</a></li>
-                      <li class="dropdown-submenu">
+                      <li><a href="#" data-toggle="modal" data-target="#formModal">Formularios</a></li>
+                      <!--<li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" data-toggle="modal" data-target="#formModal">Formularios</a></li>   
                             </ul>
-                        </li>   
+                        </li>--> 
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -52,9 +53,10 @@
                     </ul>
                 </li>-->
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accesos Directos<span class="caret"></a>
                     <ul class="dropdown-menu" role="menu">
-                    <li><a href="noticias.php">Noticias</a></li>
+                    <li><a href="jurisprudencia.php">Jurisprudencia</a></li>
+                    <li><a href="Noticias.php">Noticias</a></li>
                     <!--<li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
                             <ul class="dropdown-menu">
@@ -94,6 +96,7 @@
       </div>
       <div class="modal-body">
         <ul>
+          <li><a onclick="window.open('archivos/solicitudDeInscripcion.pdf','','width=1100,height=900')" href="">Solicitud de Inscripción</a></li>
           <li><a href="formPrestamo.php" >Formulario de Solicitud de Préstamos</a></li>
           <li><a href="formNotebook.php" >Formulario de Compra de Notebooks</a></li>
         </ul>

@@ -9,6 +9,8 @@
         <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" />
 
+    
+
 
     <!--Estilos de fuentes-->
     <link href="css/fuentes.css" rel="stylesheet">

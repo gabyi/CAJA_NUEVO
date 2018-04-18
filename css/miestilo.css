@@ -128,7 +128,10 @@ footer1
     padding: 20px 0px;
     font-size: 11px;
     color: #BBB;
-    background: #1A1A1A none repeat scroll 0% 0%;
+    background: -webkit-radial-gradient(#065798,#001427); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(#065798,#001427); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(#065798,#001427); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#065798,#001427); /* Standard syntax (must be last) */
 }
 
 .extra .container {
@@ -140,6 +143,7 @@ footer1
     margin-bottom: 1em;
     font-weight: 400;
     font-size: 15px;
+    color: #FFFFFF;
 }
 
 h4, h5, h6 {
@@ -160,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
     list-style: outside none disc;
 }
 .extra a {
-    color: #666;
+    color: #FFFFFF;
     text-decoration: none;
 }
 
@@ -171,7 +175,7 @@ a:hover {
 
 .extra li {
     list-style: outside none none;
-    color: #666;
+    color: #FFFFFF;
     text-decoration: none;
 }
 
