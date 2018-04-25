@@ -17,6 +17,9 @@ date_default_timezone_set('UTC');
     <!--mi estilo -->
     <link href="css/miestilo.css" rel="stylesheet">
 
+      <!--Awsome icons-->
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome-all.css">  
+
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
 

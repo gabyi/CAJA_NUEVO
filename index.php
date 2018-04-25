@@ -128,7 +128,7 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
 }
 ?>
 
-<div class="container-fluid" id="carIndex">
+<div class="container-fluid" id="">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides para los sliders las imagenes son de 1400x300 px-->

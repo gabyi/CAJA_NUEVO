@@ -9,6 +9,9 @@
         <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" />
 
+        <!--Awsome icons-->
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome-all.css">  
+
 
     <!--Estilos de fuentes-->
     <link href="css/fuentes.css" rel="stylesheet">

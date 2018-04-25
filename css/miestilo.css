@@ -240,22 +240,30 @@ a:hover {
 
 /* Texto blanco*/
 .azul{
-    font-family: CajaFont;
     font-size: 20px;
     color: #F8F8F8;
     padding-top:5%;
     padding-bottom: 2%;
 }
 
+.linkNoticia
+ {
+    color:#B52124;
+ }
+
 /*Texto Negro*/
 .blanco {
     color: #333333;
-    font-size: 22px;
+    font-size: 20px;
     background-color:#ededed;
     padding-top:5%;
     padding-bottom: 2%;
 }
 
+.textoNoticia
+    {
+        text-align: justify;
+    }
 
 #marca{
     font-weight: bolder;

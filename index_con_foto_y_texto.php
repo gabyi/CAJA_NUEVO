@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,69 +11,72 @@ session_start();
   	<?php
   		include 'navbar.php';
 	  ?>
-<div class="container-fluid" id="carIndex">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div  class="item active">
-      <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>BENEFICIOS CON COMERCIOS LOCALES</h3>
-<p class='demo'><a href='solpres.php' target='_blank' class='demo'></p>
-        <p>Para más informacion sobre estos beneficios .</p></a>
-      </div>
-      <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="archivos/descuentos.jpg" alt="Chania">
+  <div id="carousel-index" class="carousel slide" data-ride="carousel">
+
+ <div class="carousel-inner" role="listbox"> 
+    <div  class="item active" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/benefHotelMarzo2018.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/benefHotelMarzo2018.jpg" alt="Chania"></a>
       </div>
     </div>
 
-    <div class="item">
-      <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>Taller de Mediaci&oacute;n</h3>
-        <p>Para más informacion sobre este taller <a href="archivos/TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA.pdf">ver el programa</a>.</p>
-      </div>
-      <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="archivos/taller_de_mediacion.jpg" alt="Chania">
+
+    <div  class="item" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/aerolineasJubilados.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/aerolineasJubilados.jpg" alt="Chania"></a>
       </div>
     </div>
 
-    <div class="item">
-
-      <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>Ojo con el cuco</h3>
-        <p>Texto de prueba para que mira Fiolela</p>
-      </div>
-      <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="imagenes/slider/tree.jpg" alt="Flower">
+        <div class="item">
+      <img src="imagenes/slider/aerolineasJubilados.jpg" alt="Chania"></a>
+      <div class="carousel-caption">
+        holllllaaa
       </div>
     </div>
 
-    <div class="item">
-      <div id="texto-foto" class="col-sm-6 col-md-6">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-        <p>hola como estas, estas es un a preba para seaber como se comporta el div</p>
-        <p>de una ventana.The atmosphere in Chania has a touch of Florence and Venice.</p>
-      </div>
-      <div id="foto-foto" class="col-sm-6 col-md-6">
-        <img class="img-thumbnail" src="img_flower2.jpg" alt="No hay imagenes">
+    <div  class="item" >
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/promossept2017 (2).jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/promossept2017.jpg" alt="Chania"></a>
       </div>
     </div>
+
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/BENEFICIOS2.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS2.jpg" alt="Chania"></a>
+      </div>
     </div>
 
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/BENEFICIOS3.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS3.jpg" alt="Chania"></a>
+      </div>
+    </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('archivos/1188-1200.pdf','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS4.jpg" alt="Chania"></a>
+      </div>
+    </div>
+
+    <div  class="item">
+      <div id="" class="row">
+        <a onclick="window.open('imagenes/slider/BENEFICIOS1.jpg','','width=1100,height=900')" href=""><img class="img-thumbnail" id="foto-carouselIndex" src="imagenes/slider/BENEFICIOS1.jpg" alt="Chania"></a>  
+      </div>
+    </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-index" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+  <a class="right carousel-control" href="#carousel-index" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 
-</div>
+
 
 <div id="noticias" class="container-fluid">
     <div class="row" >
@@ -172,14 +172,6 @@ session_start();
 		<?php
     include 'footer.php';
     include 'footer1.php';
-
-   $user = "usuario";
-   session_register ("user");
-   //$_SESSION['var']=$var;
-   /* para ver usuario
-   print ("<P>Valor de la variable de sesión:$user</P>\n");
-	*/
-
 		?>
 
   </body>

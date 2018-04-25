@@ -1,91 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<?php
 
-        <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
+include 'head.php';
 
-    
+include 'navbar.php';
+?>
+<body>
 
+<section id="" class="blanco"> <!--3-->
+        <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
 
-    <!--Estilos de fuentes-->
-    <link href="css/fuentes.css" rel="stylesheet">
+                <div class="col-md-12 textoNoticia" >
+                    <h1>Cursos para aprender idiomas en la UNLPam</h1>
 
-    <!--mi estilo -->
-    <link href="css/miestilo.css" rel="stylesheet">
-
-    <title>Noticias</title>
-
-</head>
-<body data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <div class="navbar navbar-fixed-top navbar-default scrollclass" >
-        <div class="container">
-            <div id="navLogo" class="navbar-header">
-              <a id="" class="navbar-brand" href="index.php"><img id="logo" src="imagenes/logos/Logo12016.png" alt="Logo de Caja Forense"></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navPills">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse" id="navPills">
-              <ul id="navUl" class="nav navbar-nav">
-                <li><a href="index.php">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesionales<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="cuenta.php">Estado Previsional</a></li>
-                      <li><a href="padron.php">Padrón de afiliados</a></li>
-                      <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beneficios</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formularios</a>
-                                  <ul class="dropdown-menu">
-                                <li><a href="formPrestamo.php">Prestamos</a></li>
-                            </ul>
-                        </li>   
-                            </ul>
-                        </li>   
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                      <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
-                      <li><a href="institucional.php#autoridades">Autoridades</a></li>
-                      <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li> 
-                      <li><a href="institucional.php#coordinadora">Coordinadora de Cajas</a></li>
-                      <li><a href="archivos/LEY_1861.pdf" target="_blank">Ley 1861</a></li>    
-                    </ul>
-                </li>
-                <li><a href="contacto.php">Contacto</a></li>
-                  <li><a href="http://www.cforense.org/oldsite/index.php">P&aacute;gina versi&oacute;n anterior</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades<span class="caret"></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li><a href="noticias.php">Noticias</a></li> 
-                    </ul>
-                </li>
-                </ul>
+                    <br>La Caja Forense de La Pampa lanzó diferentes cursos de idiomas junto con la Universidad Nacional de La Pampa a través de un convenio de cooperación científicas y 
+                    académica firmado con la casa de estudios. Los cursos a dictarse son Italiano para viajeros, Portugués temático para viajeros, Curso de Inglés para viajeros-Nivel Inicial,
+                    y Curso Express de francés para viajeros: Bon Voyage!-Nivel Inicial. 
+                    Los cursos están abiertos a afiliados de la Caja Forense y familiares (se debe presentar un formulario por cada persona inscripta), comenzarán a dictarse el sábado 5 de mayo 
+                    y se cursará todos los sábados a las 9 horas. Las inscripciones se podrán realizar hasta el viernes 27 de abril.
+                    Cada idioma tiene un dictado de 30 horas y se entrega certificado de aprobación y asistencia. La supervisión académica está a cargo de la Universidad y se dictarán en caso de completarse el cupo 
+                    mínimo de asistentes en cada idioma.
+                    El valor de cada curso es de 800 pesos con opción de financiación por la Caja Forense de 4 cuotas sin interés por débito automático en cuenta.
+                    Para proceder a la inscripción se deberán completar los formularios de inscripción y presentarlos en Caja Forense.
+                    Por consultas dirigirse por mail a cursosdeidioma@cforense.org.<br>
+                </div>
             </div>
 
         </div>
-    </div>
+    </section>
 
-    <section id="descuentos" class="azul"> <!--3-->
+
+    <section id="" class="azul"> <!--3-->
         <div class="container-fluid">
            <div class="row text-center pad-top  min-height-cls" >
 
 
-                <div class="col-md-6">
+                <div class="col-md-6 textoNoticia">
+                    <h1>Jornada para Jóvenes Profesionales y Adultos Mayores</h1>
+
+                    <br>El jueves 26 de abril se realizará la Jornada Regional para Jóvenes Profesionales y Adultos Mayores, organizada por la Caja Forense, la Caja de Previsión Profesional 
+                    y la Caja de Previsión Médica, con el auspicio de la Coordinadora de Cajas de Previsión y Seguridad Social de la República Argentina. La actividad se desarrollará en las 
+                    instalaciones del Centro Cultural Provincial Medasur de Santa Rosa.
+                    Bajo el lema “Educar para la Previsión-Movilizar para la Participación”, intervendrán principalmente las Cajas que agrupan Profesionales de la región de Cuyo (San Juan, 
+                    San Luis y Mendoza) y de la región Patagónica (Río Negro, Neuquén, Chubut y La Pampa). 
+                    El objetivo principal de la Jornada es lograr mayores niveles de inclusión, conocimiento del sistema previsional y compromiso tanto hacia la participación del 
+                    profesional/adulto mayor –activo y pasivo- en su Caja como hacia la comunidad en su conjunto, resaltando y compartiendo las particularidades regionales.
+                    Esta Jornada es gratuita para profesionales de todas las Cajas de Seguridad Social para Profesionales del país.
+                    Por cuestiones organizativas se solicita a los interesados remitir la ficha de inscripción hasta el 23 de abril inclusive. Se podrá descargar del siguiente 
+                    enlace: <a class ="linkNoticia" href="http://www.coord-cajas.org.ar/comisiones/problematicas-de-los-nuevos-profesionales/jornada-regional-para-jovenes-profesionales-y-adultos-mayores/" target="_blank">Ficha</a>.
+                    Una vez completada se debe enviar la ficha a jornadaLP2018@gmail.com con copia cajaprevprof@cpenet.com.ar y administracion@cforense.org.
+                </div>
+                <div id="carousel1" class="col-md-6">
+                    <div id="" class="carousel slide" data-ride="carousel">
+                             <!-- fotos for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="imagenes/noticias/1.jpg" id="foto-carouselNoticia" alt="...">
+                                </div>
+                            </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="" class="blanco"> <!--3-->
+        <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+
+                <div id="" class="col-md-6">
+                    <div id="" class="carousel slide" data-ride="carousel">
+                             <!-- fotos for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="imagenes/fotos/6.jpg" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000-->
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 textoNoticia" >
+                    <h1>Se firmaron convenios con la UNLPam</h1>
+
+                    <br>La Caja Forense de La Pampa firmó convenio marco con la Universidad Nacional de La Pampa para la colaboración recíproca en programas de interés mutuo ente ambas entidades. 
+                    Además se refrendó un convenio específico para dictar cursos extracurriculares de idioma en Santa Rosa y General Pico. 
+                    De esta manera, se ofrece a las y los afiliados, particularmente jubiladas y jubilados, propuestas de Italiano para viajeros, Portugués temático para viajeros, Curso de Inglés 
+                    para viajeros Nivel Inicial y Curso express de Francés para viajeros: Bon Voyage! Nivel Inicial.
+                    El abogado Rodrigo Villa, apoderado de la Caja Forense, firmó los documentos durante el acto realizado en el salón del Consejo Superior de la UNLPam. Por la casa de estudios 
+                    pampeana lo hizo el rector CPN Sergio Aldo Baudino. También lo hicieron para sus entidades Hugo Alberti por la Caja de Previsión Profesional y Fabio Santillán por la Caja de 
+                    Previsión Médica. Mediante el convenio marco se facilitará "la colaboración recíproca en programas de interés mutuo, sobre todo en el ámbito de la educación y la extensión 
+                    universitaria; fortaleciendo los vínculos institucionales y creando espacios de encuentros, intercambio, celebración y dinamización de prácticas grupales e identidad colectivas".<br>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="" class="azul"> <!--3-->
+        <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+
+
+                <div class="col-md-6 textoNoticia">
                     <h1>Más beneficios con comercios locales</h1>
 
                     <br>
@@ -94,13 +113,6 @@
                 </div>
                 <div id="carousel1" class="col-md-6">
                     <div id="carousel-noticias" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-noticias" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-noticias" data-slide-to="1"></li>
-                                <li data-target="#carousel-noticias" data-slide-to="2"></li>
-                            </ol>
-
                              <!-- fotos for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item">
@@ -136,15 +148,6 @@
 
                 <div id="carousel2" class="col-md-6">
                     <div id="carousel-mediacion" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-mediacion" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-mediacion" data-slide-to="1"></li>
-                                <li data-target="#carousel-mediacion" data-slide-to="2"></li>
-                                <li data-target="#carousel-mediacion" data-slide-to="3"></li>
-                                <li data-target="#carousel-mediacion" data-slide-to="4 "></li>
-                            </ol>
-
                              <!-- fotos for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
@@ -177,183 +180,19 @@
                 </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 textoNoticia">
                     <h1>Curso de Mediacion</h1>
 
                     <br>
                     La Caja Forense de La Pampa, junto con el Centro de Mediación de Santa Rosa y el Colegio de Abogados, organizaron el 11 de Junio de 2016 un taller de 
                     capacitación continua de 10 horas para mediadores, titulado:"COMEDIACIÓN FAMILIAR A DISTANCIA" en la sede del Colegio de ésta ciudad.- <br>
-                        Para ver mas <a href="archivos/BOLETIN_INFORMATIVO_42.pdf">link al pdf</a>
+                        Para ver mas <a class ="linkNoticia" href="archivos/BOLETIN_INFORMATIVO_42.pdf">link al pdf</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!--<section id="descuentos"  class="azul" > <!--1
-            <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-            <div class="col-md-12">
-                <h2>Beneficios Para Afiliados</h2>
-                <div class="col-md-6">
-                    <br>
-                    <h3>Descuentos en comercios Locales</h3>
-                    <br>
-                        Detalles de descuentos. Ver <a href="archivos/descuentos.jpg">ver imagen</a>.
-                </div>
-                <div id="foto-foto" class="col-md-6">
-                    <div class="col-md-7 col-md-offset-3"><img class="img-thumbnail" src="archivos/descuentos.jpg" alt="foto"></div>
-
-                </div>
-            </div>
-
-               </div>
-        </div>
-        </section>
-
-        <!--seccion 1
-       <section id="taller_de_mediacion" class="blanco"> <!--2
-            <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-            <div id="foto-foto" class="col-md-6">
-                <div class="col-md-7 col-md-offset-3"><img class="img-thumbnail" src="archivos/taller_de_mediacion.jpg" alt="foto"></div>
-
-            </div>
-            <div class="col-md-6">
-                <h1>Taller de Mediaci&oacute;n</h1>
-
-                    <br>
-                       <p>Para m&aacute;s informaci&oacute;n sobre este taller <a href="archivos/TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA.pdf">ver el programa</a>.</p>
-
-            </div>
-
-            </div>
-        </div>
-       </section>
-        <!--fin seccion 1
-
-    <section id="TALLER_DE_COMEDIACION_FAMILIAR_A_DISTANCIA_PROGRAMA" class="azul"> <!--3
-        <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-
-
-                <div class="col-md-6">
-                    <h1>Curso de Mediacion</h1>
-
-                    <br>
-                        En este espacio va un breve texto sobre las fotos y si se quiere en <a href="archivos/BOLETIN_INFORMATIVO_42.pdf">link al pdf</a>
-                </div>
-                <div id="carousel-noticias" class="col-md-6">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators 
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="4 "></li>
-                            </ol>
-
-                             <!-- fotos for slides 
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <img src="imagenes/fotos/1.JPG" id="foto-carouselNoticia" alt="..."> <!--tamño de las fotos de 6016x4000
-                                </div>
-                                <div class="item">
-                                    <img src="imagenes/fotos/2.jpg" id="foto-carouselNoticia" alt="...">
-                                </div>
-                                <div class="item">
-                                    <img src="imagenes/fotos/3.JPG" id="foto-carouselNoticia" alt="...">
-                                </div>
-                                <div class="item">
-                                    <img src="imagenes/fotos/4.jpg" id="foto-carouselNoticia" alt="...">
-                                </div>
-                                <div class="item">
-                                    <img src="imagenes/fotos/5.jpg" id="foto-carouselNoticia" alt="...">
-                                </div>
-                            </div>
-
-                <!-- Controls 
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-        <section id="normativa" class="blanco"> <!--4
-            <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-            <div class="col-md-12">
-
-                <h2>titulo 3</h2>
-
-                    <br>
-                    <h3>Algo 3</h3>
-                    <br>
-                        Mas texto
-
-            </div>
-
-               </div>
-        </div>
-        </section>
-
-        <section id="comision"  class="azul"> <!--5
-            <div class="container-fluid">
-           <div class="row text-center pad-top  min-height-cls" >
-            <div class="col-md-12">
-                <h2>Comisi&oacute;n de J&oacute;venes</h2>
-                <div class="col-md-9">
-                    <br>
-                    <h3>Marco Normativo</h3>
-                    <br>
-                        Texto de Comision de jovenes
-                </div>
-                <div class="col-md-6">
-                    algo por alla
-                </div>
-            </div>
-
-               </div>
-        </div>
-        </section>
-
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY  -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="js/bootstrap.js"></script>
-     <!-- EASING SCROLL SCRIPTS PLUGIN  -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script>
-         <!-- CUSTOM SCROLL SCRIPT FUNCTION FOR NAVBAR  -->
-        $(function () {
-            $('.scrollclass a').bind('click', function (event) { //just pass scrollclass in design and start scrolling
-                var $anchor = $(this);
-                $('html, body').stop().animate({
-                    scrollTop: $($anchor.attr('href')).offset().top
-                }, 1000, 'easeInOutQuad');
-                event.preventDefault();
-            });
-        });
-       //ADD REMOVE PADDING CLASS ON SCROLL
-        $(window).scroll(function () {
-            if ($(".navbar").offset().top >40) {
-                $(".navbar-fixed-top").addClass("navbar-pad-original");
-            } else {
-                $(".navbar-fixed-top").removeClass("navbar-pad-original");
-            }
-        });
-    </script>
 
 </body>
 <?php
