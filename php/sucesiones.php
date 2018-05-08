@@ -13,7 +13,7 @@ if ($_POST["oficio"]) {
 if ($_POST["sel"] == 1) {
     $vhonorarios = ($_POST["bg1"] + ($_POST["bg2"] / 3 * 2)) * 0.0693 + ($_POST["bp1"] + ($_POST["bp2"] / 3 * 2)) * 0.0924;
 
-    if ($oficio) {
+    if ($_POST["oficio"]) {
         $vhonorarios = $vhonorarios / 3;
     }
 } else {

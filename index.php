@@ -43,7 +43,7 @@ include 'head.php';
 
 <!--===================================modal para avisos=======================================================-->
 
-<div class="modal fade" id="mimodal" role="dialog">
+<!--<div class="modal fade" id="mimodal" role="dialog">
   <div class="modal-dialog" id="mimodalwindow">
     <div  class="modal-content">
       <div class="modal-header">
@@ -63,7 +63,7 @@ EN TODAS LAS SUCURSALES DE CAJA FORENSE<br>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!--================================================================================================================-->
 <?php

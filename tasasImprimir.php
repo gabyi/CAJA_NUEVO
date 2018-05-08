@@ -106,7 +106,7 @@ $(document).ready(function()
         changeYear: true,
         showButtonPanel: true,
 
-        onClose: function(dateText, inst) {  //cuando se cierra el datepicker
+        onClose: function() {  //cuando se cierra el datepicker
             var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
             var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
             $(this).val($.datepicker.formatDate('MM-yy', new Date(year, month, 1)));

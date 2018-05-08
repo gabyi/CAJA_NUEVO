@@ -79,7 +79,7 @@ include 'navbar.php';
 
                     <div class="col-sm-4 col-md-4">
 
-                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/AAAA" type="text" value=<?php print($fecha_actual=date("d/m/Y")); if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?> disabled>  <!--FECHA PARA EL CALCULO FIN-->
+                     <input class="form-control" id="vfhasta" name="vfhasta" placeholder="DD/MM/AAAA" type="text" value=<?php print($fecha_actual=date("d/m/Y")); if (isset($_POST['calcular'])) {print '"' . $vfhasta . '"';}?>>  <!--FECHA PARA EL CALCULO FIN-->
 
                     </div>
                 </div>
@@ -213,11 +213,23 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $year  = date('Y');
           print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
           //$("#vfhasta").val('');
-          $("#vfhasta").prop('disabled', false);
+          //$("#vfhasta").prop('disabled', false);
         }
     });
 
-    $("#vfhasta").datepicker();
+    $("#vfhasta").datepicker({
+      onSelect:function()
+                {
+                  var hoy=new Date(); //creo una nueva fecha
+            //hoy.setMonth(hoy.getMonth()+1); //le seteo el mes y le sumo uno . Anda a fin de año, le suma un año y el mes
+            var dia= hoy.getDate();
+            var mes = hoy.getMonth();  
+            var anio= hoy.getFullYear();
+            var fecha_actual = String(dia+"/"+(mes+1)+"/"+anio);
+                  //alert("selecciono el datepicker: " +fecha_actual);
+
+                }
+    });
 
     $('#borrar').click(function() {
       $("#vfdesde").val('');
@@ -230,11 +242,13 @@ function verificaDatos()
     var importe= document.getElementById("importe").value;   
     var tipoTasa= document.getElementById("tasalist").value;
     var fechaOrigen= document.getElementById("vfdesde").value;
+    var fechaHasta= document.getElementById("vfhasta").value;
 
     //convierto a enteros los string
     var importe= parseInt(importe);
     var fechaOrigen= parseInt(fechaOrigen);
 
+    //var fecha= verificoFechas();
 
     if(tipoTasa=="pactadasimple" || tipoTasa=="compuestaSimple")
     {
@@ -250,7 +264,8 @@ function verificaDatos()
     {
       if(!isNaN(importe) && !isNaN(fechaOrigen) && !isNaN(tasa))
         {
-          calcularTasa();
+          //calcularTasa();
+          verificoFechas();
         }else
         {
           alert("Debe colocar valores en importe, tasa y en fecha de origen.");
@@ -261,7 +276,8 @@ function verificaDatos()
       {
         if(!isNaN(importe) && !isNaN(fechaOrigen))
         {
-          calcularTasa();
+          //calcularTasa();
+          verificoFechas();
         }else
         {
           alert("Debe colocar valores en importe y en fecha de origen.");
@@ -270,4 +286,162 @@ function verificaDatos()
     }
     
   }
+
+
+  function verificoFechas()
+  {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //busco ultima fecha puesta en la base de datos
+    <?php 
+    $consulta="SELECT fecha FROM tmix order by fecha DESC";
+    $query     = mysql_query($consulta) or die("no se puedo hacer la consulta fechas en calculoInt.php *297");
+    $fila      = mysql_fetch_array($query);
+    $fechaUltiTabla= $fila['fecha'];
+    echo ("ultimoDia= '".$fechaUltiTabla."';");//imprimo ulimo dia de la tabla tmix
+     ?>
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    f1=$('#vfdesde').val();
+    f2=$('#vfhasta').val();
+    
+    aUltDia= ultimoDia.split('-');
+    //alert("ultimo dia de la tabla: "+aUltDia);
+    af1=f1.split('/');
+    af2=f2.split('/');
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //controla que las fechas sean correctas
+
+    if ((af2.length==3) && (af2[3]<100) && (af2[3]>90))
+        af2[3]+=1900;
+      else 
+        if ((af2.length==3) && (af2[3]<90))
+          af2[3]+=2000;
+
+    if ((f1.length!=10) ||(af1.length!=3) || (af1[0]<1) || (af1[0]>31) || (af1[1]<1) || (af1[1]>12) || (af1[2]<1991)) 
+    {
+      alert('Debe introducir una fecha válida');
+      $('#vfdesde').focus();
+      return false;
+    }
+    if ((f2.length!=10) || (af2.length!=3) || (af2[0]<1) || (af2[0]>31) || (af2[1]<1) || (af2[1]>12) || (af2[2]<1991)) 
+    {
+      alert('Debe introducir una fecha válida');
+      $('#vfhasta').focus();
+      return false;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ini=Date.UTC(af1[2],(af1[1]-1),af1[0]);
+    ulti=Date.UTC(af2[2],(af2[1]-1),af2[0]);
+    ultiDiaMes=Date.UTC(aUltDia[0],(aUltDia[1]-1),aUltDia[2]);
+
+    if (ini>ulti) 
+    {
+      alert('La fecha de calculo no puede ser menor a la de origen');
+      $('#vfdesde').focus();
+    }else
+    {
+        if (ulti>ultiDiaMes)
+      {
+        alert('La fecha límite de calculo es: '+ aUltDia[2]+'/'+aUltDia[1]+'/'+aUltDia[0]);
+        $('#vfhasta').focus();
+      }else
+      {
+        //calcularTasa();
+      } 
+    }
+  
+
+  }
+///////////////////////////////////////esta parte es para que controle las fechas, solo que no anda si ponen una fecha de hasta mas grande que la de origen, pero se cambia sola al 
+//////////////////////////////////////ultimo dia del mes corriente
+  /*
+var date = new Date();
+var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    $("#vfdesde").datepicker({
+      maxDate:ultimoDia,
+        onSelect: function() {
+
+          var minDate = $(this).datepicker('getDate');
+
+          minDate.setDate(minDate.getDate()+1);
+
+          $("#vfhasta").datepicker("option","minDate", minDate);
+          $("#vfhasta").datepicker("option", "maxDate", ultimoDia); //toma el ultimo dia del mes actual
+        }
+    });
+
+
+
+$("#vfhasta").datepicker({
+  maxDate:ultimoDia,
+  onSelect: function() {
+    var minDate = $(this).datepicker('getDate');
+
+    minDate.setDate(minDate.getDate()-1);
+
+     $("#vfdesde").datepicker("option","maxDate", minDate);
+  }
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    $("#vfhasta").datepicker();
+
+    $('#borrar').click(function() {
+      $("#vfdesde").val('');
+      $("#vfhasta").val('');
+    });
+
+function verificaDatos()
+  { 
+    //saco los datos de los input
+    var importe= document.getElementById("importe").value;   
+    var tipoTasa= document.getElementById("tasalist").value;
+    var fechaOrigen= document.getElementById("vfdesde").value;
+    var fechaHasta= document.getElementById("vfhasta").value;
+
+    //convierto a enteros los string
+    var importe= parseInt(importe);
+    var fechaO= parseInt(fechaOrigen);
+    var fechaH= parseInt(fechaHasta);    
+  
+     
+    if(tipoTasa=="pactadasimple" || tipoTasa=="compuestaSimple")
+    {
+      var tasa= document.getElementById("tPactadasimple").value;
+      var tasa= parseInt(tasa);
+    }else
+    {
+      var tasa="";
+    }
+      
+    //hago el control si esta la tasa y si no  para que no haga el calculo
+    if(tasa.length!=0)
+    {
+      if(!isNaN(importe) && !isNaN(fechaO) && !isNaN(tasa) && !isNaN(fechaH))
+        {
+          calcularTasa();  
+        }else
+        {
+          alert("Debe colocar valores en importe, tasa y en fechas.");
+        }
+    }else
+    {
+     if(tasa.length=="")
+      {
+        if(!isNaN(importe) && !isNaN(fechaO) && !isNaN(fechaH))
+        {
+         calcularTasa();
+        }else
+        {
+          alert("Debe colocar valores en importe y en fechas.");
+        }
+      }
+    }
+    
+  }
+  */
 </script>

@@ -18,7 +18,7 @@ session_start();
   <head>
     <meta charset="UTF-8" lang="es">
      <?php
-      include 'head2.php';
+      include 'head.php';
       include 'conexion.php';
       ?>
   <title>Presupuesto de Sucesiones</title>
