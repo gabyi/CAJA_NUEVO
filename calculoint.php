@@ -11,7 +11,7 @@ include 'head2.php';
 include 'conexion.php';
 ?>
 
-  <title>Presupuesto de Sucesiones</title>
+  <title>Calculo de Intereses</title>
   </head>
 
   <body>
@@ -348,7 +348,7 @@ function verificaDatos()
         $('#vfhasta').focus();
       }else
       {
-        //calcularTasa();
+        calcularTasa();
       } 
     }
   

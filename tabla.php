@@ -132,14 +132,19 @@ if ($fila['rentas_inicio_general'] != 0.00)
             $rentas_inicio_general = $filaMinimos['rentas_inicio_general'];
 
 
-if ($materia=="MONTO INDETERMINADO" || $materia=="DESALOJO" || $materia=="HOMOLOGACION DE CONVENIO")
+///esto lo hago para comparar $materia con DESALOJO, para las materias que tengan esa palabra rentas tasa fija lo hace
+//se puede hacer la comparacion con 'false' o 'true' y los comparadores '===' o '!==' con str
+if(strpos($materia, "DESALOJO")!==false)
+    $desalojo=true;
+
+if ($materia=="MONTO INDETERMINADO" || $desalojo || $materia=="HOMOLOGACION DE CONVENIO")
    {
     if ($materia=="MONTO INDETERMINADO")
         { 
             $rentas_inicio_tfija = $filaMinimos['rentas_indeterminado'];
         }
     
-    if ($materia=="DESALOJO")
+    if ($desalojo)
         {
             $rentas_inicio_tfija = $filaMinimos['rentas_desalojo'];
 
@@ -158,7 +163,7 @@ if ($materia=="MONTO INDETERMINADO" || $materia=="DESALOJO" || $materia=="HOMOLO
         }
    }else
     {
-        if($fila['rentas_inicio_tvariable'])
+        if($fila['rentas_inicio_tvariable']!=0.00)
             $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $filaMinimos['rentas_minimo']);
         else
             $rentas_inicio_tvariable= $minimos['rentas_minimo'];
@@ -353,7 +358,7 @@ if ($sumaCForense > 0) {
                     print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tvariable . "1</td>
                     <td style='align:right;padding-left:30px;'>" . $fila['rentas_inicio_tvariable'] . " %</td></tr>";
                 }else{
-                    print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "1</td></tr>";
+                    print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "</td></tr>";
                 }
 
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R: </th>

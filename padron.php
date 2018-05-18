@@ -135,11 +135,12 @@ include 'footer1.php';
     function buscarProfesional(){
         var nombre=$("#profesio").val();
         var localidad=$("#localidad").val();
+        var tipo="padron";
 
     
     //if(/^([0-9])*$/.test(code)) // Aca hago cumplir mi patron de codigo a buscar, podes obviarlo. Es solo un if
 
-        $.post('php/destino1.php', {"nombre":nombre, "localidad":localidad},
+        $.post('php/destinoAjax.php', {"campo1":nombre, "campo2":localidad, "tipo":tipo},
         function(mensaje)
         {
             if(mensaje!="")
