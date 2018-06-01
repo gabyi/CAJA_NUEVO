@@ -69,7 +69,7 @@
                 <div class="col-md-9 col-md-offset-3">
                     <br>
 
-                <div class="table-responsive">
+                <div class="table-responsive" id="tasaMix">
                     <table class="table-mix">
                         <tr>
                             <th class="mesTmix">Año</th>
@@ -89,25 +89,76 @@
                         
                         <?php 
 
-                        $consulta=" select * from TasaMix order by 'TmAn' desc";
+                        $consulta=" select * from tmix order by 'fecha' ASC";
                         $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
                         $numFil= mysql_num_rows($query);
+                        $numAnio= $numFil;
+                           
+                        for ($i=0; $i < $numFil; $i++)
+                        {
+                            $anioAnterior=$anio;
+                            $fila=mysql_fetch_array($query);
+                            list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
 
-                            for ($i=0; $i < $numFil; $i++) { 
+                            if($anioAnterior!=$anio)
+                                    {
+                                        echo "<th class='tdmix'>".$anio."</th>";
+                                        imprimirAnio($query, $anio);
+
+
+                                    }
+                                        echo "</tr>";
+                                    
+                        }
+
+                        /*$fila=mysql_fetch_array($query);
+                         echo"<tr class='trmix'>";
+                                list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
+                                    echo "<th class='tdmix'>".$anio."</th></tr>";*/
+
+                            /*for ($i=0; $i < $numFil; $i++)
+                                { 
+                                    $anioAnterior=$anio;
+                                    $fila=mysql_fetch_array($query);
+                                    list($anio, $mes, $dia)=split("[/-]",$fila['fecha']);
+
+                                    echo"<tr class='trmix'>";    
+
+                                    if($anioAnterior!=$anio)
+                                    {
+                                        echo "<th class='tdmix'>".$anio."</th>";
+
+                                        for ($j=1; $j < 13; $j++) 
+                                        { 
+                                            if($mes == $j)
+                                            {
+                                                echo "<td class='tdmix'>=</td>"; 
+                                            }else
+                                                echo "<td class='tdmix'>!=</td>";
+                                        }
+
+                                        echo "</tr>";
+                                    }
+                                
+                                 //echo"<tr class='trmix'>";
+                           // echo "<th class='tdmix'>".$arrayFecha[i]."</th></tr>";
+                                }
+
+                            /*for ($i=0; $i < $numFil; $i++) { 
                                 $fila=mysql_fetch_array($query);    
 
-                                    print"<tr class='trmix'>";
+                                    echo"<tr class='trmix'>";
                                 
-                                    print "<th class='tdmix'>".$fila[0]."</th>";
+                                    echo "<th class='tdmix'>".$fila[0]."</th>";
  
                                 for ($j=1; $j < 13; $j++) { 
             
-                                    print "<td class='tdmix'>".number_format($fila[$j], 2)."</td>";
+                                    echo "<td class='tdmix'>".number_format($fila[$j], 2)."</td>";
                                    
                                 }
 
-                                print"</tr>";
-                            }
+                                echo"</tr>";
+                            }*/
 
                          ?>
                         
@@ -134,7 +185,7 @@
                         <br>
 
                         <div class="table-responsive">
-                            <table class="table-mix">
+                            <table class="table-mix" id="mixAcumulada">
                                 <tr>
                             <th class="mesTmix">Año</th>
                             <th class="mesTmix">Enero</th>
@@ -228,5 +279,19 @@
 <?php 
     include 'footer.php';
     include 'footer1.php';
+
+    function imprimirAnio($consulta, $anio)
+        {
+            
+            for ($i=1; $i <  13; $i++) { 
+                $filaAnio=mysql_fetch_array($consulta);
+                list($anio, $mes, $dia)= split("[/-]",$filaAnio['fecha']);
+
+                if($mes==$i)
+                echo "<th class='tdmix'>".$anio."</th>";
+            }
+
+            
+        }
  ?>
 </html>

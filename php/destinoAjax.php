@@ -49,32 +49,32 @@ switch ($tipo) {
 			//$cadena .= '<tr><td>hay valores</td>';
 			if($campo1!=""&&$campo2==""&&$campo3=="")
 				{
-					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%" . $campo1 . "%'", $conexion) or die("No se encuentra producto: $titulo " . mysql_errno());
+					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%" . $campo1 . "%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $titulo " . mysql_errno());
 				}
 			if($campo1==""&&$campo2!=""&&$campo3=="")
 				{
-					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Sumario LIKE '%" . $campo2 . "%'", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
+					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Sumario LIKE '%" . $campo2 . "%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
 				}
 			if($campo1==""&&$campo2==""&&$campo3!="")
 				{
-					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Fallo LIKE '%" . $campo3 . "%'", $conexion) or die("No se encuentra producto: $fallo " . mysql_errno());
+					$consulta = mysql_query("SELECT * FROM cfjuri WHERE Fallo LIKE '%" . $campo3 . "%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $fallo " . mysql_errno());
 				}else
 					{
 						if ($campo1!=""&&$campo2!=""&&$campo3=="") 
 						{
-							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Sumario LIKE '%".$campo2."%'", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
+							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Sumario LIKE '%".$campo2."%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
 						}
 						if ($campo1!=""&&$campo2==""&&$campo3!="") 
 						{
-							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Fallo LIKE '%".$campo3."%'", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
+							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Fallo LIKE '%".$campo3."%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
 						}
 						if($campo1==""&&$campo2!=""&&$campo3!="")
 						{
-							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Fallo LIKE '%".$campo3."%'AND Sumario LIKE '%".$campo2."%'", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
+							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Fallo LIKE '%".$campo3."%'AND Sumario LIKE '%".$campo2."%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
 						}
 						if($campo1!=""&&$campo2!=""&&$campo3!="")
 						{
-							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Sumario LIKE '%".$campo2."%' AND Fallo LIKE '%".$campo3."%'", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
+							$consulta = mysql_query("SELECT * FROM cfjuri WHERE Titulo LIKE '%".$campo1."%'AND Sumario LIKE '%".$campo2."%' AND Fallo LIKE '%".$campo3."%' ORDER BY ident DESC", $conexion) or die("No se encuentra producto: $sumario " . mysql_errno());
 						}
 					}
 				

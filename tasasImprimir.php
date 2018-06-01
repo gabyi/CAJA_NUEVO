@@ -34,7 +34,7 @@ include 'navbar.php';
 
     <div id="panel" class="panel panel-default">
         <div class="panel-heading">
-        Tesas
+        Tasas
       </div>        
         
         <div id="panel-cuerpo" class="panel-body">
@@ -44,42 +44,61 @@ include 'navbar.php';
                                 <!-- Juicio input-->
 
                 <div class="form-group">
-                    <div class="col-sm-2 col-md-2 control-label" for="bg1">
+                    <div class="col-sm-6 col-md-6" for="month1">
                       <h4>Fecha desde</h4>
-                    </div>
                     
-                    <div class="col-sm-2 col-md-2">
                         <input type="text" id="month1" name="month1" class="monthPicker">                    
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-sm-4 col-md-4 control-label" for="bp1">
-                      <h4>Bienes Propios</h4>
+                    <div class="col-sm-6 col-md-6 " for="bmonth2">
+                      <h4>Fecha hasta</h4>
+               
+                        <input type="text" id="month2" name="month2" class="monthPicker">                    
                     </div>
-
                 </div>
+                
 
 
                 <div class="form-group">
-                  <div class="col-sm-12 col-md-12" style="text-align:center;">
-                  <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "doSend()">Calcular de Sucesiones</button>
+                  <div class="row" style="text-align:center;">
+                    <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="descarga" onclick= "">Descargar</button>
                   <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>-->
-                                </div>
+                  </div>
                 </div>
 
-                        </form>
+            </form>
         </div>
     </div>
 
 <?php
 
-  if(isset($_POST['calcular1']))
+  if(isset($_POST['descarga']))
     {
 
-      include 'php/sucesiones.php';
-      include 'tabla1.php';
+      $fechaDesde= $_REQUEST['month1'];
+      $fechaHasta= $_REQUEST['month2'];
+      
+      ?>
+  <div id="panel" class="panel panel-default">
+    <div id="panel-cuerpo" class="panel-body">
+
+     <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <th>Fecha</th>
+            <th>%</th>
+          </tr>                        
+          <tr>
+            <td>31/05/2018</td>
+            <td>1.92</td>
+          </tr>
+        </table>
+      </div>
     
+    </div>
+  </div>
+
+      <?php     
     } 
     
 
@@ -122,22 +141,13 @@ $(document).ready(function()
                 alert("La fecha ingresada en fecha hasta debe ser menor o igual al mes: "+ fecha_actual);
                 $(this).val("");
             }
-                
+              
+            if($("#month1").val()!="" && $("#month2").val()!="") 
+              alert("el mes de desde esta vacio");
 
-            }
+          }
     });
 
-   $("#month1").datepicker("option", "maxDate", <?php
-          $day   = date('d');
-          $month = date('m');
-          $year  = date('Y');
-          print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
-
-      $("#month2").datepicker("option", "maxDate", <?php
-          $day   = date('d');
-          $month = date('m');
-          $year  = date('Y');
-          print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
 
 
 $.datepicker.regional['es'] = 
@@ -163,6 +173,7 @@ $.datepicker.regional['es'] =
             });
         });
   });
+
 
 
 </script>
