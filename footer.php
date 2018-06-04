@@ -62,7 +62,7 @@
     </div>
 
     <div id="prueba-last" class="col-md-2">       
-        <a href="tasas.php">Tasa Mix</a>
+        <a href="tasas.php">Tasas</a>
     </div>
    
     <div id="prueba" class="col-md-2"><a href="http://www.cforense.org:2084/login.php">Ingreso a mails de Caja Forense</a></div>

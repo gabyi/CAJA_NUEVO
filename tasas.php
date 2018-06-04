@@ -92,73 +92,10 @@
                         $consulta=" select * from tmix order by 'fecha' ASC";
                         $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
                         $numFil= mysql_num_rows($query);
-                        $numAnio= $numFil;
-                           
-                        for ($i=0; $i < $numFil; $i++)
-                        {
-                            $anioAnterior=$anio;
-                            $fila=mysql_fetch_array($query);
-                            list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
+                        
+                        $listaAnio= llenarLista($consulta,$numFil);
 
-                            if($anioAnterior!=$anio)
-                                    {
-                                        echo "<th class='tdmix'>".$anio."</th>";
-                                        imprimirAnio($query, $anio);
-
-
-                                    }
-                                        echo "</tr>";
-                                    
-                        }
-
-                        /*$fila=mysql_fetch_array($query);
-                         echo"<tr class='trmix'>";
-                                list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
-                                    echo "<th class='tdmix'>".$anio."</th></tr>";*/
-
-                            /*for ($i=0; $i < $numFil; $i++)
-                                { 
-                                    $anioAnterior=$anio;
-                                    $fila=mysql_fetch_array($query);
-                                    list($anio, $mes, $dia)=split("[/-]",$fila['fecha']);
-
-                                    echo"<tr class='trmix'>";    
-
-                                    if($anioAnterior!=$anio)
-                                    {
-                                        echo "<th class='tdmix'>".$anio."</th>";
-
-                                        for ($j=1; $j < 13; $j++) 
-                                        { 
-                                            if($mes == $j)
-                                            {
-                                                echo "<td class='tdmix'>=</td>"; 
-                                            }else
-                                                echo "<td class='tdmix'>!=</td>";
-                                        }
-
-                                        echo "</tr>";
-                                    }
-                                
-                                 //echo"<tr class='trmix'>";
-                           // echo "<th class='tdmix'>".$arrayFecha[i]."</th></tr>";
-                                }
-
-                            /*for ($i=0; $i < $numFil; $i++) { 
-                                $fila=mysql_fetch_array($query);    
-
-                                    echo"<tr class='trmix'>";
-                                
-                                    echo "<th class='tdmix'>".$fila[0]."</th>";
- 
-                                for ($j=1; $j < 13; $j++) { 
-            
-                                    echo "<td class='tdmix'>".number_format($fila[$j], 2)."</td>";
-                                   
-                                }
-
-                                echo"</tr>";
-                            }*/
+                        llenarTablaTasa($listaAnio, $consulta);
 
                          ?>
                         
@@ -173,6 +110,108 @@
                </div>
         </div>
         </section>
+
+        <section id="mensual"  class="azul" > <!--1-->
+            <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+            <div class="col-md-12">
+                <h2>Tasa Activa Mensual</h2>
+                <div class="col-md-9 col-md-offset-3">
+                    <br>
+
+                <div class="table-responsive" id="tasaActiva">
+                    <table class="table-mix">
+                        <tr>
+                            <th class="mesTmix">Año</th>
+                            <th class="mesTmix">Enero</th>
+                            <th class="mesTmix">Febrero</th>                            
+                            <th class="mesTmix">Marzo</th>                            
+                            <th class="mesTmix">Abril</th>                                
+                            <th class="mesTmix">Mayo</th>
+                            <th class="mesTmix">Junio</th>
+                            <th class="mesTmix">Julio</th>
+                            <th class="mesTmix">Agosto</th>
+                            <th class="mesTmix">Septiembre</th>
+                            <th class="mesTmix">Octubre</th>
+                            <th class="mesTmix">Noviembre</th>
+                            <th class="mesTmix">Diciembre</th>
+                        </tr>                        
+                        
+                        <?php 
+
+                        $consulta=" select * from tactiva order by 'fecha' ASC";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        
+                        $listaAnio= llenarLista($consulta,$numFil);
+
+                        llenarTablaTasa($listaAnio, $consulta);
+
+                         ?>
+                        
+                    </table>
+                </div>
+
+
+                </div>
+
+            </div>
+               
+               </div>
+        </div>
+        </section>
+
+
+        <section id="mensual"  class="blanco" > <!--1-->
+            <div class="container-fluid">
+           <div class="row text-center pad-top  min-height-cls" >
+            <div class="col-md-12">
+                <h2>Tasa Pasiva Mensual</h2>
+                <div class="col-md-9 col-md-offset-3">
+                    <br>
+
+                <div class="table-responsive" id="tasaPasiva">
+                    <table class="table-mix">
+                        <tr>
+                            <th class="mesTmix">Año</th>
+                            <th class="mesTmix">Enero</th>
+                            <th class="mesTmix">Febrero</th>                            
+                            <th class="mesTmix">Marzo</th>                            
+                            <th class="mesTmix">Abril</th>                                
+                            <th class="mesTmix">Mayo</th>
+                            <th class="mesTmix">Junio</th>
+                            <th class="mesTmix">Julio</th>
+                            <th class="mesTmix">Agosto</th>
+                            <th class="mesTmix">Septiembre</th>
+                            <th class="mesTmix">Octubre</th>
+                            <th class="mesTmix">Noviembre</th>
+                            <th class="mesTmix">Diciembre</th>
+                        </tr>                        
+                        
+                        <?php 
+
+                        $consulta=" select * from tpasiva order by 'fecha' ASC";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        
+                        $listaAnio= llenarLista($consulta,$numFil);
+
+                        llenarTablaTasa($listaAnio, $consulta);
+
+                         ?>
+                        
+                    </table>
+                </div>
+
+
+                </div>
+
+            </div>
+               
+               </div>
+        </div>
+        </section>
+
    
         <!--seccion 1-->
        <section id="acumulada" class="azul"> <!--2-->
@@ -204,7 +243,7 @@
                         
                         <?php 
 
-                        $consulta=" select * from TasaMix";
+                        /*$consulta=" select * from TasaMix";
                         $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
                         $numFil= mysql_num_rows($query);
                         $sumTasa=0;
@@ -228,7 +267,15 @@
                                 }
 
                                 print"</tr>";
-                            }
+                            }*/
+
+                        $consulta=" select * from tmix order by 'fecha' ASC";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        
+                        $listaAnio= llenarLista($consulta,$numFil);
+
+                        llenarTablaTasaAcumulada($listaAnio, $consulta);
 
                          ?>
                         
@@ -245,6 +292,84 @@
             </div>
        </section>
         <!--fin seccion 1-->
+
+         <section id="acumulada" class="blanco"> <!--2-->
+            <div class="container-fluid">
+                <div class="row text-center pad-top  min-height-cls" >
+                
+                    <div class="col-md-12">
+                        <h2>Tasa Activa Acumulada</h2>
+                        <div class="col-md-9 col-md-offset-3">
+                        <br>
+
+                        <div class="table-responsive">
+                            <table class="table-mix" id="activaAcumulada">
+                                <tr>
+                            <th class="mesTmix">Año</th>
+                            <th class="mesTmix">Enero</th>
+                            <th class="mesTmix">Febrero</th>                            
+                            <th class="mesTmix">Marzo</th>                            
+                            <th class="mesTmix">Abril</th>                                
+                            <th class="mesTmix">Mayo</th>
+                            <th class="mesTmix">Junio</th>
+                            <th class="mesTmix">Julio</th>
+                            <th class="mesTmix">Agosto</th>
+                            <th class="mesTmix">Septiembre</th>
+                            <th class="mesTmix">Octubre</th>
+                            <th class="mesTmix">Noviembre</th>
+                            <th class="mesTmix">Diciembre</th>
+                                </tr>                        
+                        
+                        <?php 
+
+                        /*$consulta=" select * from TasaMix";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        $sumTasa=0;
+
+                            for ($i=0; $i < $numFil; $i++) { 
+                                $fila=mysql_fetch_array($query);    
+
+                                    print"<tr class='trmix'>";
+                                
+                                    print "<th class='tdmix'>".$fila[0]."</th>";
+
+                                for ($j=1; $j < 13; $j++) { 
+
+                                    $sumTasa=$sumTasa + $fila[$j];
+
+                                    if($fila[$j]==0)
+                                        print "<td class='tdmix'>0.00</td>";
+                                    else
+                                        print "<td class='tdmix'>".number_format($sumTasa, 2)."</td>";
+                                   
+                                }
+
+                                print"</tr>";
+                            }*/
+
+                        $consulta=" select * from tactiva order by 'fecha' ASC";
+                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                        $numFil= mysql_num_rows($query);
+                        
+                        $listaAnio= llenarLista($consulta,$numFil);
+
+                        llenarTablaTasaAcumulada($listaAnio, $consulta);
+
+                         ?>
+                        
+                    </table>
+                </div>
+
+
+                </div>
+
+            </div>
+               
+                   
+                </div>
+            </div>
+       </section>
 
  
 
@@ -280,18 +405,112 @@
     include 'footer.php';
     include 'footer1.php';
 
-    function imprimirAnio($consulta, $anio)
+
+    function llenarLista($consulta,$numFil)
         {
-            
-            for ($i=1; $i <  13; $i++) { 
-                $filaAnio=mysql_fetch_array($consulta);
-                list($anio, $mes, $dia)= split("[/-]",$filaAnio['fecha']);
+            $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+            $numFil= mysql_num_rows($query);
+            $j=0 ;
 
-                if($mes==$i)
-                echo "<th class='tdmix'>".$anio."</th>";
-            }
+            for ($i=0; $i < $numFil; $i++)
+                {
+                    
+                    $anioAnterior=$anio;
+                    $fila=mysql_fetch_array($query);
+                    list($anio, $mes, $dia) = split('[/.-]', $fila['fecha']);           
+                    
 
-            
+                    if($anioAnterior!=$anio)
+                        {
+                           // echo "<th class='tdmix'>".$anio."</th>";
+                            $arrayAnio[$j]=$anio;
+                            $j++;
+                        }
+                        
+                               
+                }
+            return $arrayAnio; 
         }
+
+    function llenarTablaTasa($listaAnios, $consulta)
+                        { 
+                            $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                            $numFil= mysql_num_rows($query);
+
+                            $fila=mysql_fetch_array($query);
+                            list($anio, $mes, $dia) = split('[/.-]', $fila['fecha']);
+
+                            //echo"<tr class='trmix'>";
+                            //echo "<th class='tdmix'>".$fila['fecha']."</th></tr>";
+
+
+
+                        for ($i=0; $i < count($listaAnios) ; $i++)
+                            { 
+                                echo"<tr class='trmix'>";
+                               
+                                echo "<th class='tdmix'>".$listaAnios[$i]."</th>";
+
+                                for ($j=1; $j < 13; $j++) 
+                                { 
+                                    
+                                    if($mes != $j)
+                                    
+                                        echo "<td class='tdmix'>0.00</td>";
+                                    
+                                    else
+                                    {
+                                        echo "<td class='tdmix'>".$fila['indice']."</td>";
+                                        $fila=mysql_fetch_array($query);
+                                        list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
+                                    }
+                                        
+                                }
+
+                                echo "</tr>";
+                            }  
+                        }
+
+    function llenarTablaTasaAcumulada($listaAnios, $consulta)
+                        { 
+                            $acumulada=0;
+                            $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
+                            $numFil= mysql_num_rows($query);
+
+                            $fila=mysql_fetch_array($query);
+                            list($anio, $mes, $dia) = split('[/.-]', $fila['fecha']);
+
+
+                            //echo"<tr class='trmix'>";
+                            //echo "<th class='tdmix'>".$fila['fecha']."</th></tr>";
+
+
+
+                        for ($i=0; $i < count($listaAnios) ; $i++)
+                            { 
+                                echo"<tr class='trmix'>";
+                               
+                                echo "<th class='tdmix'>".$listaAnios[$i]."</th>";
+
+                                for ($j=1; $j < 13; $j++) 
+                                { 
+                                    
+                                    if($mes != $j)
+                                    
+                                        echo "<td class='tdmix'>0.00</td>";
+                                    
+                                    else
+                                    {
+                                        $acumulada+=$fila['indice'];
+                                        echo "<td class='tdmix'>".$acumulada."</td>";
+                                        $fila=mysql_fetch_array($query);
+                                        list($anio, $mes, $dia) = split('[/.-]', $fila[0]);
+                                    }
+                                        
+                                }
+
+                                echo "</tr>";
+                            }  
+                        }
  ?>
 </html>
