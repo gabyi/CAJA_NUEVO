@@ -1,57 +1,27 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<?php
+        <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
 
-include 'head.php';
-?>
-  <body>
 
+    <!--Estilos de fuentes-->
+    <link href="css/fuentes.css" rel="stylesheet">
+
+    <!--mi estilo -->
+    <link href="css/miestilo.css" rel="stylesheet">
+
+    <title>Tasas</title>
+
+</head>
     <?php 
         include 'conexion.php';
-        include 'navbar.php';
      ?>
-
-<!--===============================viejo navbar   
-    <div class="navbar navbar-fixed-top navbar-default scrollclass" >
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a id="marca" class="navbar-brand" href="index.php"><h4>Caja Forense de La Pampa</h4></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                        <li><a href="institucional.php#creacion">Creación y Objetivos</a></li>
-                        <li><a href="institucional.php#autoridades">Autoridades</a></li>
-                        <li><a href="institucional.php#normativa">Marco normativo y financiamiento</a></li>   
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tasas<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">            
-                    <li><a href="#mensual">Tasa Mix Mensual</a></li>
-                    <li><a href="#acumulada">Tasa Mix Acumulada</a></li>
-                </ul>
-                <li><a href="institucional.php#comision">Comisi&oacute;n de J&oacute;venes</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-            </div>
-           
-        </div>
-    </div>
-======================================================================================================================================-->
 
     <section id="mensual"  class="blanco" > <!--1-->
             <div class="container-fluid">
@@ -235,31 +205,6 @@ include 'head.php';
                         
                         <?php 
 
-                        /*$consulta=" select * from TasaMix";
-                        $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
-                        $numFil= mysql_num_rows($query);
-                        $sumTasa=0;
-
-                            for ($i=0; $i < $numFil; $i++) { 
-                                $fila=mysql_fetch_array($query);    
-
-                                    print"<tr class='trmix'>";
-                                
-                                    print "<th class='tdmix'>".$fila[0]."</th>";
-
-                                for ($j=1; $j < 13; $j++) { 
-
-                                    $sumTasa=$sumTasa + $fila[$j];
-
-                                    if($fila[$j]==0)
-                                        print "<td class='tdmix'>0.00</td>";
-                                    else
-                                        print "<td class='tdmix'>".number_format($sumTasa, 2)."</td>";
-                                   
-                                }
-
-                                print"</tr>";
-                            }*/
 
                         $consulta=" select * from tmix order by 'fecha' ASC";
                         $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");
@@ -394,10 +339,7 @@ include 'head.php';
     </script>
 </body>
 <?php 
-    include 'footer.php';
-    include 'footer1.php';
-
-
+    
     function llenarLista($consulta,$numFil)
         {
             $query= mysql_query($consulta) or die ("no se pudo realizar la consulta");

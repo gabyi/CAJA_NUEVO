@@ -1,7 +1,4 @@
 <?php
-session_start();
-?>
-<?php
 
 if (isset($_POST['calcular'])) {
     $juicio = "juicio";
@@ -10,13 +7,7 @@ if (isset($_POST['calcular'])) {
 
 }
 
-if ($_SESSION['juicio'] == "") //lo puse asi para que si se accede desde 0 te manda al index si apretas enviar entra
-{
-    include 'redir.php';
-
-} else /*<!-- aca termina el if si no paso por el index*/
-{
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -159,7 +150,7 @@ if ($materia=="MONTO INDETERMINADO" || $desalojo || $materia=="HOMOLOGACION DE C
                 $rentas_inicio_tfija = $filaMinimos['rentas_homolog_indet'];              
             else
                 
-                $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $filaMinimos['rentas_minimo']);
+                    $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $filaMinimos['rentas_minimo']);
 
         }
    }else
@@ -264,8 +255,7 @@ if ($materia=="MONTO INDETERMINADO" || $desalojo || $materia=="HOMOLOGACION DE C
     ?>
   <body>
 <?php
-include 'navbarFooter.php';
-    include 'logo.php';
+
 
     if (isset($_POST['calcular'])) {
         ?>
@@ -486,7 +476,7 @@ if ($sumaFinCajaForense > 0) {
       <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg'
       name='calcular' onclick= 'return imprJus();'>Imprimir</button>
 
-      <a id="link-Botones" href="montosJuicios.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg'
+      <a id="link-Botones" href="montosJuicios2.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg'
         name='volver' style='margin-left:15px;'>Volver</button></a>
     </div>
   </div>
@@ -501,11 +491,9 @@ if ($sumaFinCajaForense > 0) {
 
 <div id="printno">
 <?php
-include 'footer.php';
-        include 'footer1.php';
-    } //aca termina else de isset calcular
+} //aca termina else de isset calcular
 
-} /*termina el else de que si no hay session disponible, o si no entro por el index */
+
 
 ?>
 </div>

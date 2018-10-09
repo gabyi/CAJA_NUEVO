@@ -57,7 +57,7 @@ session_start();
   include ("calculotasas.php");
 
 ?>
-      <form name'frmSample' class='form-horizontal' method='post' action='calculoint.php'>
+      <form name'frmSample' class='form-horizontal' method='post' action='calculoint2.php'>
 
         <!--  <form name='frmSample' class='form-horizontal' method='post' action=''>
         <!--=================================================================================================================================-->
