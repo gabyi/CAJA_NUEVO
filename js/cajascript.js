@@ -98,11 +98,12 @@ function Eliminar (t)
     	//document.getElementsByTagName("table")[0].setAttribute("id","tableid");
     	//document.getElementById("tableid").deleteRow(i);
 
+    
     	//esta anda
     	var td = t.parentNode;
-        var tr = td.parentNode;
-        var table = tr.parentNode;
-        table.removeChild(tr);
+      var tr = td.parentNode;
+      var table = tr.parentNode;
+      table.removeChild(tr);
 
         //calcula totales
     	
@@ -142,7 +143,7 @@ function round(x, digits)
 function agregar(mensaje)
 	{
 		cont++;
-		var fila='<tr class="selected" id="fila'+cont+'">'+mensaje+'</tr>';
+		var fila='<tr class="selected" id="'+cont+'">'+mensaje+'</tr>';
 		$('#grilla').append(fila);
 	}
 

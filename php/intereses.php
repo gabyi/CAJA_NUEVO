@@ -1,6 +1,7 @@
-<?php
+<?php 
 // es por un warning de strtotime function
 date_default_timezone_set('UTC');
+
 
 if ($_REQUEST["tasa"] == "pactadasimple") {
 
@@ -225,20 +226,55 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         
       echo $cadena;
 
-    } else {
+    } else 
+    {
+        if($_REQUEST["tasa"]== "credisur")
+        {
+            $tasa    = $_REQUEST["tasa"];
+            $vfdesde = $_REQUEST["vfdesde"];
+            $vfhasta = $_REQUEST["vfhasta"];
+            $importe = $_REQUEST['importe'];
+            $concepto = $_REQUEST["concepto"];
+
+           
+        $lista=listaTasaMix($vfdesde, $vfhasta);
+
+        /*
+        1- hago funcion para que me devuelva las fechas desde hasta mes a mes de la tasa mix. array(array(desde, hasta, indice), sumaIndices, promedioIndice)
+        2- hago otra funcion para sacar la tasa capitalizada con el promedio de la mix y los dias de calculo
+        3- funcion para sacar los dias de calculos en tasa simple al 3% cada 30 dias*/
+
+
+        $cadena = '<td>'.$lista[0].'</td><td>Tasa Credisur SRL c/ Sotelo</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/><input name=credisur type="image" style="height:28px;" src="images/impre.png" onclick="return verDetaJust(this);"/></td>';
+            echo $cadena;
+        }else
+        {
 
 //======================================================================================Si las tasas son mix pasiva o activa =========================================================================
 
     $tasa    = $_REQUEST["tasa"];
     $vfdesde = $_REQUEST["vfdesde"];
     $vfhasta = $_REQUEST["vfhasta"];
-    //$vmonto = $_REQUEST["vmonto"];
     $importe = $_REQUEST['importe'];
-    //$carat= $_REQUEST["carat"];
     $concepto = $_REQUEST["concepto"];
 
-    include "../conexion.php";
+     $lista=tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto);
 
+     $cadena = '<td>'.$lista[0].'</td><td>'.$lista[1].'</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+            echo $cadena;
+    //$cadenas= array($cadena, $lista);
+
+    //echo json_encode($cadenas);
+    }
+  }
+}
+
+
+//la funcion devuelve solamente si es mix, pasiva o activa con un array( $concepto, $metodo, $vfdesde, $vfhasta, $vindice_final, $importe, $intereses, $total);
+function tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto)
+{
+     include "../conexion.php";
+    
     // realiza la consulta toma las variables del formulario
 
     // le doy diferente formato
@@ -368,12 +404,61 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
 
     $total = round($intereses + $importe, 3);
 
-    $cadena = '<td>' . $concepto . '</td><td>' . $metodo . '</td><td>' . $vfdesde . '</td><td>' . $vfhasta . '</td><td>' . $vindice_final . '</td><td class="totImporte">' .round($importe,3). '</td><td class="totInteres">' . $intereses . '</td><td class="total">' . $total . '</td><td><input type="image" style="height:20px;" src="images/boton_eliminar.png" onclick="Eliminar(this)"/></td>';
+    $importe= round($importe,3);
 
-    echo $cadena;
+    $lista=  array( $concepto, $metodo, $vfdesde, $vfhasta, $vindice_final, $importe, $intereses, $total);
 
-    //$cadenas= array($cadena, $lista);
-
-    //echo json_encode($cadenas);
-    }
+    return $lista;
 }
+
+function listaTasaMix($vfdesde, $vfhasta)
+{
+    include "../conexion.php";
+    
+
+    // le doy diferente formato
+    list($dia0, $mes0, $año0) = split('[/.-]', $vfdesde);
+    list($dia1, $mes1, $año1) = split('[/.-]', $vfhasta);
+
+    $vfecha1 = $año0 . "-" . $mes0 . "-" . $dia0;
+    $vfecha2 = $año1 . "-" . $mes1 . "-" . $dia1;
+
+    //busco la primera fecha valida para saber si es mayor a la ingresada
+
+    $consulta  = "select * from tmix where fecha >= '" . $vfecha1 . "'";
+    $query     = mysql_query($consulta) or die("no se puedo hacer la consulta paso 1 de consultatasas.php");
+    $fila      = mysql_fetch_array($query);
+    $firstdate = $fila['fecha'];
+
+    //a la ultima fecha le resto un dia ya que el ultimo dia no corresponde a sumar intereses
+
+    $vfecha2                   = date('Y-m-d', strtotime('-1 days', strtotime($vfecha2)));
+    list($año1, $mes1, $dia1) = split('[/.-]', $vfecha2);
+    $vfecha2                   = $año1 . "-" . $mes1 . "-" . $dia1;
+
+    if ($mes1 == $mes0 && $año0 == $año1) {
+        $consulta      = "select indice from tmix where MONTH(fecha) = '" . $mes0 . "' AND YEAR(fecha) = '" . $año0 . "' ";
+        $query         = mysql_query($consulta) or die("no se pudo realizar la consulta paso 1");
+        $numeroDias    = cal_days_in_month(CAL_GREGORIAN, $mes0, $año0);
+        $dias          = ($dia1 + 1) - $dia0;
+        $fila          = mysql_fetch_array($query);
+
+        if($fila['indice'] < 2)
+            $fila['indice']= 2;
+
+        $vindice_final = round($fila['indice'] / $numeroDias * $dias, 3);
+
+        $listaTabla= array($vfdesde, $vfhasta, $fila['indice']);
+
+        $lista= array($listaTabla, $vindice_final, $vindice_final);
+    }else
+    {
+         
+    }
+
+
+    return $lista;
+
+}
+
+?>

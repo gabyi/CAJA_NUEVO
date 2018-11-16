@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <meta charset="utf-8">
-  <head>
-     <?php
-include 'head2.php';
-include 'conexion.php';
-?>
 
+  <head>
+    <?php
+      include 'head2.php';
+      include 'conexion.php';
+    ?>
   <title>Calculo de Intereses</title>
   </head>
 
@@ -99,6 +99,7 @@ include 'conexion.php';
                             <option value="tpasiva">Pasiva BLP</option>
                             <option value="pactadasimple">Pactada Simple Mensual</option>
                             <option value="compuestaSimple">Interes Compuesta</option>
+                            <option value="credisur">Tasa Credisur SRL c/ Sotelo</option>
                         </select>
 
                     </div>
@@ -430,4 +431,106 @@ function verificaDatos()
     
   }
   */
+
+  function verDetaJust(que) {
+
+    var fila=$(que).closest("tr"); 
+    var concepto=fila.find("td:eq(0)").text(); // get current row 1st TD value
+    var fechaOrigen=fila.find("td:eq(2)").text(); // get current row 3rd TD
+    var fechaCalc=fila.find("td:eq(3)").text(); 
+    var importe=fila.find("td:eq(5)").text();
+
+    window.open("page2.php?concepto="+concepto+"&fOrigen="+fechaOrigen+"&fCalc="+fechaCalc+"&importe="+importe, "mywindow", "width=700, height=300, top=0, screenX=500, screenY=1000, toolbar=0,status=1,menubar=0");
+
+  /*
+  queid=$(que).parents('tr').attr('id')*1;
+
+
+  var calCulos=TAFFY();
+  var cuenTas=TAFFY();
+  var resumen=TAFFY();
+
+   
+  var fila=$(que).closest("tr"); 
+         
+  var concepto=fila.find("td:eq(0)").text(); // get current row 1st TD value
+  var metodo=fila.find("td:eq(1)").text(); // get current row 2nd TD
+  var fechaOrigen=fila.find("td:eq(2)").text(); // get current row 3rd TD
+  var fechaCalc=fila.find("td:eq(3)").text(); 
+  var tasa=fila.find("td:eq(4)").text(); 
+  var importe=fila.find("td:eq(5)").text();
+  var intereses=fila.find("td:eq(6)").text();
+  var total=fila.find("td:eq(7)").text();
+
+
+  var maxid= 1;
+  var nt= 2;
+  var aTasas=3;
+  var init= 4;
+  var ultit= 5;
+  var ini= 6;
+  var ultiN= 7;
+
+  calculo=calCulos({'id':queid}).first();
+  calCulos.insert({id:maxid,nt:nt,tipo:aTasas,init:init,ultit:ultit,ini:ini, ulti:ulti, ultiN:ultiN, importe:$('#importe').val()*1});
+  
+  cuenta=cuenTas().filter({'id':queid});
+  var tasaswin = window.open("", "tasaswin","toolbar=0,status=1,menubar=0,left=50,top=100,scrollbars=1,resizable=1,width=700,height=300");
+  var doc = tasaswin.document; doc.open(); 
+  doc.write ("<head><Title>Caja Forense de Abogados de La Pampa</title>");
+  doc.write("<style>body, td, th {font-family:Arial, Helvetica, sans-serif; font-size:10px;color:#4d4d4d;}</style></head>");
+
+  doc.write('<div align="center"><h2>Cálculo de Intereses mediante el método de Inter&eacute;s Mensual Compuesto</h2></div>');
+  doc.write("<div align='center'><h3>Monto a Calcular:$ " + Formato(importe) + "</h3></div>");
+  doc.write("<br/>");
+  doc.write("<div align='center'><h3>Desde el : " + fechaOrigen + " Hasta el: " + fechaCalc + "</h3></div>");
+  doc.write("<br/>");
+  doc.write("<h2>Períodos Calculados</h2>");
+  doc.write('<table width="100%" border="0"><tr><td width="45%" valign="top"><table border="0" width="100%"><thead><tr><th>Desde</th><th>Hasta</th><th>Tasa</th></thead><tbody>');
+
+  mitad=Math.ceil(resumen().count()/2);
+  cabeza=false;
+  resumen().each(function (c) {
+    if ((c.renglon>mitad) && (!cabeza)) {
+      cabeza=true;
+      doc.write('</tbody></table><td width="5%">&nbsp;</td><td width="45%" valign="top"><table border="0" width="100%"><thead><tr><th>Desde</th><th>Hasta</th><th>Tasa</th></thead><tbody>');
+    }
+    doc.write('<tr><td align="center">' +c.FechaIni+ '</td><td align="center">' + c.FechaFin + '</td><td align="right">' + Formato(c.TasaMes) + '</td></tr>');
+  });
+  doc.write('</tbody></table></table>');
+  doc.write('<br/><div style="width:75%;margin-left:10%;margin-right:15%;border:1px black solid;"><table border="0" width="100%"><tr><td width="20%" rowspan="5">&nbsp;</td>');
+  doc.write('<td>Interes Simple Tasa Mix:</td><td align="right">' + Formato(calculo.SimpleMix) + '</td><td align="right">' + Formato(calculo.SimpleMix/calculo.importe*100) + '%</td><td width="10%" rowspan="5">&nbsp;</td></tr>');
+  doc.write('<tr><td>Interes Compuesto:</td><td align="right">' + Formato(calculo.al2compuesto) + '</td><td align="right">' + Formato(calculo.al2compuesto/calculo.importe*100) + '%</td></tr>');
+  doc.write('<tr><td>Promedio ambas tasas:</td><td align="right">' + Formato(calculo.promedio) + '</td><td align="right">' + Formato(calculo.promedio/calculo.importe*100) + '%</td></tr>');
+  doc.write('<tr><td colspan="3"><hr></td></tr>');
+  doc.write('<tr><td>Interes Simple 3%:(' + calculo.Dias + ' Días)</td><td align="right">' + Formato(calculo.simpleal3) + '</td><td align="right">' + Formato(calculo.simpleal3/calculo.importe*100) + '%</td></tr>');
+  doc.write('</table></div>');
+  doc.write('<br/><div style="width:75%;margin-left:10%;margin-right:15%;border:1px black solid;"><table border="0" width="100%"><tr><td width="20%" rowspan="4">&nbsp;</td>');
+  doc.write('<td>Tasa Definitiva:</td><td align="right">' + calculo.fin + '</td><td width="10%" rowspan="4">&nbsp;</td></tr>');
+  doc.write('<tr><td>Monto:</td><td align="right">' + Formato(calculo.importe) + '</td></tr>');
+  doc.write('<tr><td>Interes:</td><td align="right">' + Formato(calculo.interes) + '</td></tr>');
+  doc.write('<tr><td>Total Monto Actualizado:</td><td align="right">' + Formato((calculo.interes+calculo.importe)) + '</td></tr>');
+  doc.write('</table></div>');
+  doc.write("<br><br>" + $("#legalmix").html());
+  doc.write('</td><td width="5%">&nbsp;</td></table>');
+  console.error();
+}
+
+function Formato(imp,candec){
+  if (!candec) candec=2;
+  var impInt = new String();
+  var impDec = new String();
+  var i, j;
+  txtImp = new String(imp);
+  if (txtImp.indexOf(',') >= 0) {txtImp = txtImp.replace(',', '.'); }
+  i = txtImp.indexOf('.');
+  if (i == -1) { impInt = txtImp; impDec = '0000'; }
+  else { impInt = txtImp.substring(0, i); impDec = txtImp.substring(i + 1) + '0000'; }
+ for (var i = 0; i < Math.floor((impInt.length-(1+i))/3); i++)
+     impInt = impInt.substring(0,impInt.length-(4*i+3))+'.'+impInt.substring(impInt.length-(4*i+3));
+  impDec = impDec.substr(0, candec);
+  txtImp = impInt + ',' + impDec;
+  return txtImp;*/
+}
+
 </script>

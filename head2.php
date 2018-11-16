@@ -47,3 +47,4 @@ date_default_timezone_set('UTC');
   <script src="js/cajascript.js" type="text/javascript"></script>
 
   <script src="js/jquery.maskedinput.js" type="text/javascript"></script>  <!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
+  <script src="js/taffy-min.js"></script> <!--////////////////////taffyDB///////////////////////////////-->
