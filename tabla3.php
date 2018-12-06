@@ -327,18 +327,19 @@ if($fila['rentas_inicio_tfija'] !=0.00 && $fila['rentas_inicio_tvariable'] != 0.
         $rentas_fin_tfija = verifica($monto, $fila['rentas_fin_tfija'], $filaMinimos['rentas_minimo']);
         $controlFinRentas=1;
     } else {
-        $rentas_fin_tfija = 0.00;
-    }
 
-    if ($fila['rentas_fin_tvariable'] != 0.00) 
-    {
-        $rentas_fin_tasa_variable = verifica($monto, $fila['rentas_fin_tvariable'], $filaMinimos['rentas_minimo']);
-        $controlFinRentas=2;
-        if($rentas_fin_tasa_variable == $filaMinimos['rentas_minimo'])
-            $controlFinRentas=1;
-    } else {
-        $rentas_fin_tasa_variable = 0.00;
-    }
+        if ($fila['rentas_fin_tvariable'] != 0.00) 
+            {
+                $rentas_fin_tasa_variable = verifica($monto, $fila['rentas_fin_tvariable'], $filaMinimos['rentas_minimo']);
+                $controlFinRentas=2;
+
+                if($rentas_fin_tasa_variable == $filaMinimos['rentas_minimo'])
+                    $controlFinRentas=3;    
+            }else 
+                {
+                    $rentas_fin_tasa_variable = 0.00;
+                }
+        }
 
     $sumaFinDGR = $rentas_fin_general + $rentas_fin_tasa_variable + $rentas_fin_tfija;
 
@@ -571,13 +572,15 @@ if ($sumaFinCajaForense > 0)
 
                 switch ($controlFinRentas) {
                     case 1:
-                        print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_fin_tfija .
-                         "</td><td style='align:right;padding-left:30px;'>" . number_format($fila['rentas_fin_tfija'], 2) . " %</td></tr>";
+                        print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_fin_tfija ."</tr>";
                         break;
                     case 2:
-                         print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_fin_tasa_variable . 
+                        print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_fin_tasa_variable . 
                          "</td><td style='align:right;padding-left:30px;'>" . number_format($fila['rentas_fin_tvariable'], 2) . " %</td></tr>";
                         break;
+                    case 3:
+                        print "<tr><td>Tasa Esp. Variable</td><td style='align:right;padding-left:30px;'>" . $rentas_fin_tasa_variable . "</td></tr>";
+                        break;    
                 }
 
                 print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R: </th>
