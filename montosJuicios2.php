@@ -43,6 +43,16 @@
                   </div>
                 </div>
 
+                <div class="row" > 
+                  <div class="col-sm-3 col-md-3"></div> <!--lo puse para alinear-->
+                  <div class="col-md-3 col-sm-3">
+                    <label><input type='checkbox' name='oficio' value='oficio_ley'> Oficio Ley 22.172 </label>
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                   <label><input type='checkbox' name='beneficio' value='beneficio'> Beneficio de litigar sin gastos </label>
+                  </div>
+                </div><br>
+
                 <div class="form-horizontal">
                   <button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular">Calcular Juicio</button>
                   <!--<a href="sucesiones.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Calcular de Sucesiones</button></a>-->

@@ -14,10 +14,12 @@ error_reporting(E_ALL);
 // Motrar todos los errores de PHP
 ini_set('error_reporting', E_ALL);
 
-if ($_REQUEST["tasa"] == "pactadasimple") {
+if ($_REQUEST["tasa"] == "pactadasimple") 
+{
 
     $tasa    = $_REQUEST["tasa"];
     $pactada = $_REQUEST["pactada"];
+    $metodo = "Pactada Simple Mensual";
     //corrijo si es punto o coma en la tasa pactada
     list($peso, $centavo) = split('[,.]', $pactada);
     if ($centavo == "") {
@@ -125,9 +127,6 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
     }
     //coloco la tasa en una variable para que se coloque en la tabla
 
-    if ($tasa = "pactadasimple") {
-        $metodo = "Pactada Simple Mensual";
-    }
 
     //modifico importe porque no suma si hay comas
 
@@ -154,13 +153,14 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
         $vfdesde = $_REQUEST["vfdesde"];
         $vfhasta = $_REQUEST["vfhasta"];
         $importe = $_REQUEST['importe'];
+        $saltos = $_REQUEST["saltos"];
         $concepto = $_REQUEST["concepto"];
 
 
-        $lista= tasaPactadaSimple($importe, $tasa, $vfdesde, $vfhasta);
+        $lista= tasaCompuestaSimple($importe, $tasa, $vfdesde, $vfhasta, $saltos);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        $cadena = '<td>'.$concepto.'</td><td>Interes Compuesto Simple</td><td>'.$vfdesde.'</td><td>'. $vfhasta.'</td><td>'.$lista[2].'</td><td class="totImporte">'.round($lista[3],3).'</td><td class="totInteres">'.round($lista[4],3).'</td><td class="total">'.round($lista[5],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
+        $cadena = '<td>'.$lista[0].'</td><td>Interes pactada Simple</td><td>'.$vfdesde.'</td><td>'. $vfhasta.'</td><td>'.$lista[2].'</td><td class="totImporte">'.round($lista[3],3).'</td><td class="totInteres">'.round($lista[4],3).'</td><td class="total">'.round($lista[5],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
         
       echo $cadena;
 
@@ -210,7 +210,7 @@ if ($_REQUEST["tasa"] == "pactadasimple") {
 
      $lista=tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto);
 
-     $cadena = '<td>'.$lista[0].'</td><td>'.$lista[1].'</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
+     $cadena = '<td>'.$concepto.'</td><td>'.$lista[1].'</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
             echo $cadena;
     //$cadenas= array($cadena, $lista);
 
@@ -494,7 +494,7 @@ function tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto)
 
             $vfecha1 = $año0 . "-" . $mes0 . "-" . $dia0;
 
-            $consulta = "select sum(indice) as indice from " . $tasa . " where fecha > '" . date("Y-m-d", strtotime($vfecha1)) . "'
+            $consulta = "select sum(indice) as indice from " . $tasa . " where fecha >= '" . date("Y-m-d", strtotime($vfecha1)) . "'
         and fecha < '" . date("Y-m-d", strtotime($vfecha2)) . "'";
             $query         = mysql_query($consulta) or die("No se puedo hacer la consulta en pàso 3 de consultadetasas.php");
             $fila          = mysql_fetch_array($query);
@@ -573,7 +573,7 @@ function tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto)
 
 
 
-function tasaPactadaSimple($importe, $tasa, $vfdesde, $vfhasta)
+function tasaCompuestaSimple($importe, $tasa, $vfdesde, $vfhasta, $saltos)
 {
     //corrijo si es punto o coma en la tasa pactada
         list($peso, $centavo) = split('[,.]', $tasa);
@@ -585,7 +585,6 @@ function tasaPactadaSimple($importe, $tasa, $vfdesde, $vfhasta)
         $tasa = $tasa0/100;
         //////////////////////////////////////////////////////////
 
-        $importe = $_REQUEST['importe'];
 
         //modifico importe porque no suma si hay comas
         list($pesos,$centavos)=split('[,.]', $importe);
@@ -612,14 +611,13 @@ function tasaPactadaSimple($importe, $tasa, $vfdesde, $vfhasta)
 
         $difSegundos= $vfhasta-$vfdesde;
         $dias=intval($difSegundos/60/60/24); //cant de dias entre las fechas
-
+        $dias--;
 
         //Calculo la cantidad de saltos que tiene que dar la funcion (cantidad de veces que se computa el interes) para K.(1+i)^n 
 
-        $n= $dias;
+        $n= $dias/$saltos;
            
-
-        if ($n==0) { ////tomo el criterio de que si $n=0 tomo como 1 y si es mas tomo los intereses de $n
+        if ($n<1) { ////tomo el criterio de que si $n=0 tomo como 1 y si es mas tomo los intereses de $n
 
             $tasaInteres= (1+$tasa)**1;
             $final= $importe*$tasaInteres; //aca saco el interes de un solo periodo
@@ -652,7 +650,7 @@ function tasaPactadaSimple($importe, $tasa, $vfdesde, $vfhasta)
             $interesTasa=round(($interesTasa-100),3);
         }
 
-    $lista=array($vfdesde, $vfhasta, $interesTasa, $importe, $interesDinero, $final);
+    $lista=array($n, $vfhasta, $interesTasa, $importe, $interesDinero, $final);
 
     return $lista;
 }

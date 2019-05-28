@@ -4,14 +4,14 @@
   	include'head2.php';
   	include "conexion.php";
 
-$consulta  = "select * from tmix ORDER BY `tmix`.`fecha` DESC Limit 3";
+$consulta  = "select * from tmix ORDER BY fecha DESC Limit 3";
 $query     = mysql_query($consulta) or die("no se puedo hacer la consulta paso 1 de consultatasas.php");
 $fila      = mysql_fetch_array($query);
 $lastDate= split("-",$fila['fecha']);
 $minDate=$lastDate[2]."/".$lastDate[1]."/".$lastDate[0];
 
-echo ("ultima fecha:". $fila['fecha']);
 
+ultimaActualizada();
 
 	print '<body>';
 		if(isset($_POST['enviar']))
@@ -29,12 +29,19 @@ echo ("ultima fecha:". $fila['fecha']);
 			echo "activa".$activa.", ";
 			echo "mix".$mix.", ";
 			echo "pasiva".$pasiva;
-			$diaUltimo= date("d-m",(mktime(0,0,0,$ultimoDia[0]+1,1,$ultimoDia[1])-1));
+			$diaUltimo= date("d-m-Y",(mktime(0,0,0,$ultimoDia[0]+1,1,$ultimoDia[1])-1));
 			echo " ".$diaUltimo.", ". $masMes;
 
-			$queryactiva="";
-			$querymix="";
-			$querypasiva="";
+			$queryActiva="select * from tactiva order by fecha desc Limit 2";
+			
+			$queryPasiva="select * from tpasiva order by fecha desc Limit 2";
+			
+			$tpasiva= mysql_query($queryPasiva) or die ("No se pudo acceder a la base de datos de Tasa Pasiva");
+			$tpactiva= mysql_query($queryActiva) or die ("No se pudeo acceder a la base de datos de Tasa Activa");
+
+			actualizaTasa("tmix", $fecha);
+			//actualizaTasa("tpasiva", $pasiva);
+			//actualizaTasa("tpactiva", $activa);
 		}
 
 
@@ -50,9 +57,17 @@ echo ("ultima fecha:". $fila['fecha']);
 					<div id="panel-cuerpo" class="panel-body">
 
   						<form class="form-horizontal" action="agregaTasas.php" method="post">
-							<fieldset>
+							
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="fecha">Fecha Inicio</label>
+									<label class="col-md-3 control-label" for="fecha">Ult. Actualiz. </label>
+									<div class="col-md-9">
+										<?php echo '<input name="fecha" type="text" class="form-control" value='.ultimaActualizada().' readonly>'?>
+									
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="fecha">Fecha </label>
 									<div class="col-md-9">
 									<input id="fecha" name="fecha" type="text" class="form-control" required>
 									</div>
@@ -96,7 +111,6 @@ echo ("ultima fecha:". $fila['fecha']);
 								    </div>
 								</div>
 
- 							</fieldset>
 						</form>
 
 					</div>
@@ -113,7 +127,7 @@ echo ("ultima fecha:". $fila['fecha']);
 $(function($){
 $.datepicker.regional['es'] = {
 closeText: 'Cerrar',
-dateFormat: "mm/yy",
+dateFormat: "dd/mm/yy",
 prevText: '',
 currentText: 'Hoy',
 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -133,6 +147,29 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
 $("#fecha").datepicker();  
 
-$("#fecha").mask("99/9999",{placeholder:"mm/aaaa"});
+
 
 </script>
+<?php 
+function ultimaActualizada()
+{
+	$consulta  = "select * from tmix ORDER BY fecha desc";
+	$query     = mysql_query($consulta) or die("no se puedo hacer la consulta paso 1 de consultatasas.php");
+	for ($i=0; $i < 3; $i++) { 
+		$fila  = mysql_fetch_array($query);
+	}
+
+	$ultimaFecha= date("d-m-Y", strtotime($fila['fecha']));
+
+	return $ultimaFecha;
+}
+
+function actualizaTasa($tabla, $tasa)
+{
+	$queryMix="select * from ".$tabla." order  by fecha desc Limit 2";
+	$tmix= mysql_query($queryMix) or die ("No se pudo acceder a la base de datos de Tasa Mix");
+	//hago la consulta desde al fecha que puso, hago las modificaciones hasta el fin y agrego 1 que es la nueva
+}
+
+
+ ?>

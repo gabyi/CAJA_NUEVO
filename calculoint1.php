@@ -195,17 +195,26 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           minDate.setDate(minDate.getDate()+1);
 
           $("#vfhasta").datepicker("option","minDate", minDate);
-          $("#vfhasta").datepicker("option", "maxDate", <?php
+          /*$("#vfhasta").datepicker("option", "maxDate", <?php
           $day   = date('d');
           $month = date('m');
           $year  = date('Y');
-          print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual
+          print '"' . date("d/m/Y", (mktime(0, 0, 0, $month + 1, 1, $year) - 1)) . '"';?>); //toma el ultimo dia del mes actual*/
+    $("#vfhasta").datepicker("option", "maxDate", <?php 
+    $consulta="SELECT fecha FROM tmix order by fecha DESC";
+    $query     = mysql_query($consulta) or die("no se puedo hacer la consulta fechas en calculoInt.php *297");
+    $fila      = mysql_fetch_array($query);
+    $fechaUltiTabla= $fila['fecha'];
+    $date = new DateTime($fechaUltiTabla);  
+    echo ("'".$date->format('d/m/Y')."'");//imprimo ulimo dia de la tabla tmix
+     ?>)
           //$("#vfhasta").val('');
           //$("#vfhasta").prop('disabled', false);
         }
     });
 
     $("#vfhasta").datepicker({
+      
       onSelect:function()
                 {
                   var hoy=new Date(); //creo una nueva fecha
@@ -292,7 +301,7 @@ function verificaDatos()
     f2=$('#vfhasta').val();
     
     aUltDia= ultimoDia.split('-');
-    //alert("ultimo dia de la tabla: "+aUltDia);
+    alert("ultimo dia de la tabla: "+aUltDia);
     af1=f1.split('/');
     af2=f2.split('/');
 

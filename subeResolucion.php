@@ -50,7 +50,7 @@ echo ("ultima fecha:". $fila['fecha']);
 					<div id="panel-cuerpo" class="panel-body">
 
   						<form class="form-horizontal" action="agregaTasas.php" method="post">
-							<fieldset>
+							
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="fecha">Fecha Inicio</label>
 									<div class="col-md-9">
@@ -96,7 +96,7 @@ echo ("ultima fecha:". $fila['fecha']);
 								    </div>
 								</div>
 
- 							</fieldset>
+ 							
 						</form>
 
 					</div>
