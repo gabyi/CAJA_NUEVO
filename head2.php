@@ -36,7 +36,7 @@ date_default_timezone_set('UTC');
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">-->
 
-    <script src="js/jquery.js" type="text/javascript"></script><!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
+   <script src="js/jquery.js" type="text/javascript"></script><!--/////////////////////////////ULTIMAS AGREGADAS////////////////////////////////////////-->
 
 
     <!--PARA EL DATEPICKER-->

@@ -105,20 +105,12 @@ session_start();
 $(function($){
 $.datepicker.regional['es'] = {
 closeText: 'Cerrar',
-dateFormat: "dd/mm/yyyy",
-prevText: '',
-currentText: 'Hoy',
-monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: '',
+dateFormat: 'mm/yy',
+yearSuffix: ''      // Additional text to append to the year in the month headers
+prevText: 'Prev',   // Display text for previous month link
+nextText: 'Next',   // Display text for next month link
+monthNames: ['January','February','March','April','May','June', 'July','August','September','October', 'November','December'], // Names of months for drop-down and formatting
+monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // For formatting
 orientation: 'bottom auto',
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);

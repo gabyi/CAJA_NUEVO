@@ -28,11 +28,19 @@ include 'head2.php';
     $monto    = $_REQUEST['monto'];
     $oficio   = $_REQUEST['oficio'];
     $beneficio= $_REQUEST['beneficio'];
+    $indeterminado= $_REQUEST['indeterminado'];
+
+  
 
     if($beneficio)
         $consulta = mysql_query("select * from ValoresCajaRentas where materia= 'BENEFICIO DE LITIGAR SIN GASTOS'") or die("No se pudo realizar la consulta");
     else
-        $consulta = mysql_query("select * from ValoresCajaRentas where materia= '" . $materia . "'") or die("No se pudo realizar la consulta");
+       {
+            if($indeterminado)
+                 $consulta = mysql_query("select * from ValoresCajaRentas where materia= 'MONTO INDETERMINADO'") or die("No se pudo realizar la consulta");
+             else
+                 $consulta = mysql_query("select * from ValoresCajaRentas where materia= '" . $materia . "'") or die("No se pudo realizar la consulta");
+       }
 
     //si la consulta devuelve falso que salga un cartel
 
@@ -210,7 +218,13 @@ if($monto == 0.00 || $monto == 0)
             $controlIniRentas=1;
         }else
         {
-            if($fila['sinmonto'] != 0.00)
+            if ($indeterminado) 
+            {
+                $rentas_inicio_tfija= $filaMinimos['rentas_indeterminado'];
+                $controlIniRentas=5;
+            }else
+            {
+                if($fila['sinmonto'] != 0.00)
             {
                 $rentas_inicio_tfija = $fila['sinmonto'];
                 $controlIniRentas=4;
@@ -225,25 +239,26 @@ if($monto == 0.00 || $monto == 0)
                     else
                         $controlIniRentas=1;
                 }else
-            {
-                if($fila['rentas_inicio_tfija']!=0.00 && $fila['rentas_inicio_tvariable'] == 0.00)
-        {
-            $rentas_inicio_tvariable= $fila['rentas_inicio_tvariable'];
-            $rentas_inicio_tfija= $fila['rentas_inicio_tfija'];
-            $controlIniRentas=3;
-        }
-    }
+                {
+                    if($fila['rentas_inicio_tfija']!=0.00 && $fila['rentas_inicio_tvariable'] == 0.00)
+                    {
+                        $rentas_inicio_tvariable= $fila['rentas_inicio_tvariable'];
+                        $rentas_inicio_tfija= $fila['rentas_inicio_tfija'];
+                        $controlIniRentas=3;
+                    }
+                }
 
-        if($fila['rentas_inicio_tfija'] !=0.00 && $fila['rentas_inicio_tvariable'] != 0.00)
-        {
-            $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $fila['sinmonto']);
-            $rentas_inicio_prop= $fila['rentas_inicio_tvariable'];
-            if($rentas_inicio_tvariable== $fila['rentas_inicio_tfija'])
-                $controlIniRentas=2;
-            else
-                $controlIniRentas=1;
-        }
-    }
+                if($fila['rentas_inicio_tfija'] !=0.00 && $fila['rentas_inicio_tvariable'] != 0.00)
+                {
+                    $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $fila['sinmonto']);
+                    $rentas_inicio_prop= $fila['rentas_inicio_tvariable'];
+                    if($rentas_inicio_tvariable== $fila['rentas_inicio_tfija'])
+                        $controlIniRentas=2;
+                    else
+                        $controlIniRentas=1;
+                }
+            }
+            }
         }
         
 }
@@ -410,6 +425,15 @@ if($oficio)
     $sumaFinCajaForense = $caja_fin_aportes + $caja_fin_cont;
 }
 
+//////////////////// LINEAS PARA AGREGAR EL FIN DE JUICIOS SIN CARGO DE LAS DIFERENTES MATERIAS//////////////////////////////////////////////////////////////
+     if (($monto == 0.00 || $monto == 0) && $materia == "DIVORCIO")
+    {
+        $sumaFinDGR = 0;
+
+        $sumaFinCajaForense = 0;   
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     $sumaFinalJuicio = $sumaFinCajaForense + $sumaFinDGR; // lo pongo aca porque el format de los numeros no deja sumar bien
 
     $sumaFinalJuicio    = number_format($sumaFinalJuicio, 2);
@@ -453,7 +477,12 @@ if($oficio)
 if($oficio)
     print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($monto, 2) . ". Oficio Ley 22.172.-</h4>";
 else
-    print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($monto, 2) . "</h4>";
+    {
+        if($indeterminado)
+            print "<h4 class='panel-title'>Costos de Juicios: " . $materia . " por MONTO INDETERMINADO </h4>";
+        else
+            print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($monto, 2) . "</h4>";
+    }
         ?>
 
       </div>
@@ -552,10 +581,14 @@ if ($sumaCForense > 0) {
                 case 3:
                     print "<tr><td>Tasa Esp. Fija</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "</td></tr>";
                     break;
-                 case 4:
-                    print "<tr><td>Tasa Sin Monto</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "</td></tr>";
+                case 4:
+                    print "<tr><td>Tasa Sin Cont. Econom.</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "</td></tr>";
+                    break;
+                case 5:
+                    print "<tr><td>Tasa por Monto Ideterm.</td><td style='align:right;padding-left:30px;'>" . $rentas_inicio_tfija . "</td></tr>";
                     break;
             }
+
 
             print "<tr style='border-style: solid;border-top-width: 2px;border-left: none;border-bottom:none;border-right:none;'><th>Total D.G.R: </th>
             

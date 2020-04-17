@@ -160,7 +160,7 @@ if ($_REQUEST["tasa"] == "pactadasimple")
         $lista= tasaCompuestaSimple($importe, $tasa, $vfdesde, $vfhasta, $saltos);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        $cadena = '<td>'.$lista[0].'</td><td>Interes pactada Simple</td><td>'.$vfdesde.'</td><td>'. $vfhasta.'</td><td>'.$lista[2].'</td><td class="totImporte">'.round($lista[3],3).'</td><td class="totInteres">'.round($lista[4],3).'</td><td class="total">'.round($lista[5],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
+        $cadena = '<td>'.$lista[0].'</td><td>Interes Compuesta</td><td>'.$vfdesde.'</td><td>'. $vfhasta.'</td><td>'.$lista[2].'</td><td class="totImporte">'.round($lista[3],3).'</td><td class="totInteres">'.round($lista[4],3).'</td><td class="total">'.round($lista[5],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
         
       echo $cadena;
 
@@ -199,24 +199,47 @@ if ($_REQUEST["tasa"] == "pactadasimple")
             echo $cadena;
         }else
         {
+            if($_REQUEST["tasa"]== "ipc")
+            {
+                $tasa    = $_REQUEST["tasa"];
+                $vfdesde = $_REQUEST["vfdesde"];
+                $vfhasta = $_REQUEST["vfhasta"];
+                $importe = $_REQUEST['importe'];
+                $concepto = $_REQUEST["concepto"];
 
-//======================================================================================Si las tasas son mix pasiva o activa =========================================================================
+                $indice= indiceIPC($vfdesde, $vfhasta);
 
-    $tasa    = $_REQUEST["tasa"];
-    $vfdesde = $_REQUEST["vfdesde"];
-    $vfhasta = $_REQUEST["vfhasta"];
-    $importe = $_REQUEST['importe'];
-    $concepto = $_REQUEST["concepto"];
+                
+                //falta multiplicar el indice por el monto
+                $total= $indice[2]*$importe;
+                $interes= $total-$importe;
 
-     $lista=tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto);
+                $cadena = '<td>'.$concepto.'</td><td>Indice I.P.C.</td><td>'.$vfdesde.'</td><td>'.$vfhasta.'</td><td>'.round($indice[2],3).'</td><td class="totImporte">'.$importe.'</td><td class="totInteres">'.round($interes,3).'</td><td class="total">'.round($total,3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
+                
+                
+                echo $cadena;
 
-     $cadena = '<td>'.$concepto.'</td><td>'.$lista[1].'</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
-            echo $cadena;
-    //$cadenas= array($cadena, $lista);
+            }else
+            {
+                //======================================================================================Si las tasas son mix pasiva o activa =========================================================================
 
-    //echo json_encode($cadenas);
+                $tasa    = $_REQUEST["tasa"];
+                $vfdesde = $_REQUEST["vfdesde"];
+                $vfhasta = $_REQUEST["vfhasta"];
+                $importe = $_REQUEST['importe'];
+                $concepto = $_REQUEST["concepto"];
+
+                 $lista=tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto);
+
+                 $cadena = '<td>'.$concepto.'</td><td>'.$lista[1].'</td><td>'.$lista[2].'</td><td>'.$lista[3].'</td><td>'.$lista[4].'</td><td class="totImporte">'.$lista[5].'</td><td class="totInteres">'.round($lista[6],3).'</td><td class="total">'.round($lista[7],3).'</td><td><span class="glyphicon glyphicon-trash" onclick="Eliminar(this)"/></td>';
+                        echo $cadena;
+                //$cadenas= array($cadena, $lista);
+
+                //echo json_encode($cadenas);
+            }
+
+        }
     }
-  }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function listaTasaMix($vfdesde, $vfhasta)
@@ -535,18 +558,33 @@ function tasas($tasa, $vfdesde, $vfhasta, $importe, $concepto)
     }
     //coloco la tasa en una variable para que se coloque en la tabla
 
-    if ($tasa == "tmix") {
-        $metodo = "Tasa Mix";
-    } else {
-        if ($tasa == "tactiva") {
-            $metodo = "Activa BLP";
-        } else {
-            if ($tasa = "tpasiva") {
-                $metodo = "Pasiva BLP";
+    if ($tasa == "tmix") 
+        {
+            $metodo = "Tasa Mix";
+        }else
+            {
+                if ($tasa == "tactiva") 
+                    {
+                        $metodo = "Activa BLP";
+                    }else
+                        {
+                            if ($tasa == "tpasiva") 
+                                {
+                                    $metodo = "Pasiva BLP";
+                                }else
+                                    {
+                                        if($tasa =="tactivaBNA")
+                                            {
+                                                $metodo = "Activa BNA";
+                                            }
+                                    }
+                                    
+                        }
+                    
             }
-
-        }
-    }
+        
+                
+        
 
     //modifico importe porque no suma si hay comas
 
@@ -650,9 +688,34 @@ function tasaCompuestaSimple($importe, $tasa, $vfdesde, $vfhasta, $saltos)
             $interesTasa=round(($interesTasa-100),3);
         }
 
-    $lista=array($n, $vfhasta, $interesTasa, $importe, $interesDinero, $final);
+    $lista=array($concepto, $vfhasta, $interesTasa, $importe, $interesDinero, $final);
 
     return $lista;
+}
+
+function indiceIPC($vfdesde, $vfhasta)
+{
+    include "../conexion.php";
+
+     // le doy diferente formato
+    list($dia0, $mes0, $año0) = split('[/.-]', $vfdesde);
+    list($dia1, $mes1, $año1) = split('[/.-]', $vfhasta);
+
+    $vfecha1 = $año0 . "-" . $mes0 . "-" . $dia0;
+    $vfecha2 = $año1 . "-" . $mes1 . "-" . $dia1;
+
+    $consultaDesde= "select * from tindiceipc WHERE MONTH(fecha) = '" . $mes0 . "' AND YEAR(fecha) = '" . $año0 . "'";
+    $consultaHasta= "select * from tindiceipc WHERE MONTH(fecha) = '" . $mes1 . "' AND YEAR(fecha) = '" . $año1 . "'";
+    $queryDesde   = mysql_query($consultaDesde) or die("No se pudo hace la consulta paso 1 de IPC");
+    $queryHasta   = mysql_query($consultaHasta) or die("No se pudo hace la consulta paso 1 de IPC");
+    $filaDesde    = mysql_fetch_array($queryDesde);
+    $filaHasta    = mysql_fetch_array($queryHasta);
+    $indice= $filaHasta[1]/$filaDesde[1];
+
+    $lista=array($filaDesde[1],$filaHasta[1],$indice);
+
+    return $lista;
+
 }
 
 ?>

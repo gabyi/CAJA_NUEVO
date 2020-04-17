@@ -265,21 +265,21 @@ if (!$_SESSION['user']) //lo puse asi para que si se accede desde 0 abre el moda
                         <tbody>
                           <tr>
                             <td><p>A</p></td>
-                            <td><p>$ 50.000,00</p></td>
-                            <td><p>$ 10.600,00</p></td>
-                            <td><p>$ 60.600,00</p></td>
+                            <td><p>$ 77.000,00</p></td>
+                            <td><p>$ 13.090,00</p></td>
+                            <td><p>$ 90.090,00</p></td>
                           </tr>
                           <tr>
                             <td><p>B</p></td>
-                            <td><p>$ 37.500,00</p></td>
-                            <td><p>$  7.995,00</p></td>
-                            <td><p>$ 45.495,00</p></td>
+                            <td><p>$ 57.750,00</p></td>
+                            <td><p>$  9.817,50</p></td>
+                            <td><p>$ 67.567,5,50</p></td>
                           </tr>
                           <tr>
                             <td><p>C</p></td>
-                            <td><p>$ 25.000,00</p></td>
-                            <td><p>$  5.330,00</p></td>
-                            <td><p>$ 30.330,00</p></td>
+                            <td><p>$ 38.500,00</p></td>
+                            <td><p>$  6.545,00</p></td>
+                            <td><p>$ 45.045,00</p></td>
                           </tr>
                         </tbody>
                       </table>

@@ -162,13 +162,15 @@ function agregar(mensaje)
   doc.write("<link href='css/bootstrap.min.css' rel='stylesheet'>");
   doc.write("<link href='css/fuentes.css' rel='stylesheet'>");
   doc.write("</head>");
-  doc.write("<body onload='window.print()' bgcolor='#ffffff'><img style='width: 100%' src='imagenes/logos/Sin titulo.png'>");
+  doc.write("<body onload='window.print()' bgcolor='#ffffff'><div class='row' style='text-align:center'><img style='width: 60%' src='imagenes/logos/Sin titulo.png'></div>");
   doc.write("<div align='center'><h4>Presupuesto de Cálculo de Intereses</h4>");
   doc.write("<table class='table-striped' border=\"0\" width=\"50%\"><tr><th colspan=\"3\">Caratula</th><th>"+$("#carat").val()+"</th></tr>");
   doc.write("</table>\n");
   doc.write("<div id='aca'></div>");
-  doc.write("<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas. Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.<br> Valor Provisorio de Tasas mes de " + meses[f.getMonth()] + " de " + f.getFullYear()+".-</div>");
+  doc.write("<div id='total-IniFin' class= 'well well-sm'>La información que se suministra no tiene validez legal. Los datos son meramente informativos, por lo que no constituyen ni reemplazan las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas. Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva. <br> Valor Provisorio de Tasas mes de " + meses[f.getMonth()] + " de " + f.getFullYear()+".");
+  doc.write("<br>La Tasa Mix corresponde al promedio de la tasa Credito Financiero Préstamo en Pesos hasta 180 días (activa) y de la tasa de plazo fijo (Pasiva), ambas del Banco de La Pampa.-</div>");
   doc.getElementById('aca').innerHTML=$("#intereses").html();
+
   doc.write('<script>window.print()');
   doc.close();
 

@@ -97,10 +97,12 @@
                         <select name="tasa" class="form-control" id="tasalist" name="fechacalc" placeholder="" value="" onChange="mirarTasa();">
                             <option value="tmix" selected="selected">Tasa Mix</option>
                             <option value="tactiva">Activa BLP</option>
+                            <option value="tactivaBNA">Activa BNA</option>
                             <option value="tpasiva">Pasiva BLP</option>
                             <option value="pactadasimple">Pactada Simple Mensual</option>
                             <option value="compuestaSimple">Interes Compuesta</option>
                             <option value="credisur">Tasa Credisur SRL c/ Sotelo</option>
+                            <option value="ipc">Indice I.P.C.</option>
                         </select>
 
                     </div>
@@ -119,6 +121,70 @@
       </div>
 
   </div>
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////prueba ipc///////////////////////////////////////////////////////////
+<div id="" class="panel panel-default">
+      <div class="panel-heading">
+        C&aacute;lculo Indice de Precios al Consumidor IPC
+      </div>
+
+      <div id="" class="panel-body">
+       <!--<form name="frmSample" class="form-horizontal" method="post" onSubmit="return ValidateForm()">
+
+        <form id="formint" name="frmSample" class="form-horizontal" method="" action="">
+     <!-- =================================================================================================================================
+                <!-- Juicio input
+
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>Fecha Origen</h4>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+
+                      <input class="form-control" id="vfdesdeipc" name="vfdesdeipc" placeholder="MM/AAAA" type="text">  <!--FECHA PARA EL CALCULO ORIGEN
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-2 control-label" for="fechcalc">
+                      <h4>Fecha C&aacute;lculo</h4>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+
+                     <input class="form-control" id="vfhastaipc" name="vfhastaipc" placeholder="MM/AAAA" type="text">  <!--FECHA PARA EL CALCULO FIN
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 col-md-2 control-label" for="importe">
+                      <h4>Importe</h4>
+                    </div>
+
+
+                    <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control" id="importe" name="importe" placeholder="" value="">
+                    </div>
+
+                </div>
+
+            </form>
+
+            <div class="form-group">
+              <div class="col-sm-12 col-md-12" style="text-align:center;">
+          
+                <input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="calcular" id="calcular" onClick="verificaDatos();" value="Calcular Intereses" />
+                  <!--<a href="montosJuicios.php"><button type="button" class="btn btn-info  btn-lg" name="sucesiones">Volver a Calculo de Juicios</button></a>
+              </div>
+            </div>
+
+      </div>
+
+  </div>-->
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
 
 <!--<div id="mensaje"></div> // este es para verificar los datos que entrabas al ajax-->
 
@@ -161,6 +227,14 @@
   </html>
 <script language = "Javascript">
 
+  var yea=0;
+
+function tablas()
+{
+  yea=document.getElementById("grilla").rows.length;
+  if(yea >= 21)
+    alert("SOLO SE PUEDEN CARGAR 20 ELEMENTOS EN LA TABLA");
+}
 
 $(function($){
 $.datepicker.regional['es'] = {
@@ -186,6 +260,46 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
     $("#vfdesde").mask("99/99/9999",{placeholder:"DD/MM/AAAA"});
     $("#vfhasta").mask("99/99/9999",{placeholder:"DD/MM/AAAA"});
+    
+
+    $("#vfdesdeipc").mask("99/9999",{placeholder:"MM/AAAA"});
+    $("#vfhastaipc").mask("99/9999",{placeholder:"MM/AAAA"});
+    
+    $("#vfdesdeipc").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'mm/yy'
+    }).focus(function() {
+        var thisCalendar = $(this);
+        $('.ui-datepicker-calendar').detach();
+        $('.ui-datepicker-close').click(function() 
+          {
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            thisCalendar.datepicker('setDate', new Date(year, month, 1));
+          });
+      });
+
+    $("#vfhastaipc").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'mm/yy'
+    }).focus(function() {
+        var thisCalendar = $(this);
+        $('.ui-datepicker-calendar').detach();
+        $('.ui-datepicker-close').click(function() 
+          {
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            thisCalendar.datepicker('setDate', new Date(year, month, 1));
+          });
+      });
+
+    $("#vfdesdeipc").datepicker({dateFormat: 'mm/yy',});
+    
+
 
     $("#vfdesde").datepicker({
         onSelect: function() {
@@ -232,6 +346,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       $("#vfdesde").val('');
       $("#vfhasta").val('');
     });
+
+
 
 function verificaDatos()
   { 
@@ -295,15 +411,53 @@ function verificaDatos()
     $fila      = mysql_fetch_array($query);
     $fechaUltiTabla= $fila['fecha'];
     echo ("ultimoDia= '".$fechaUltiTabla."';");//imprimo ulimo dia de la tabla tmix
+
+    $consultaprimeromix="SELECT fecha FROM tmix";
+    $queryprimermix=mysql_query($consultaprimeromix) or die("no se puedo hacer la consulta fechas en calculoInt.php *297");
+    $filaprimermix= mysql_fetch_array($queryprimermix);
+    $fechaPrimerMix= $filaprimermix["fecha"];
+    echo ("primerdiamix='".$fechaPrimerMix."';");
+
+    $consultaipc="SELECT fecha FROM tindiceipc order by fecha DESC";
+    $queryipc= mysql_query($consultaipc) or die("no se puedo hacer la consulta fechas en calculoIPC.php *297");
+    $filaipc= mysql_fetch_array($queryipc);
+    $fechaUltiTablaipc= $filaipc['fecha'];
+    echo ("ultimodiaipc='".$fechaUltiTablaipc."';");
+
+    $consultaprimeroipc="SELECT fecha FROM tindiceipc";
+    $queryprimeroipc= mysql_query($consultaprimeroipc) or die("no se puedo hacer la consulta fechas en calculoIPC.php *297");
+    $filaprimeripc=mysql_fetch_array($queryprimeroipc);
+    $fechaPrimerTablaipc= $filaprimeripc['fecha'];
+
+    echo ("primerdiaipc='".$fechaPrimerTablaipc."';");
+    
      ?>
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     f1=$('#vfdesde').val();
     f2=$('#vfhasta').val();
     
-    aUltDia= ultimoDia.split('-');
-    alert("ultimo dia de la tabla: "+aUltDia);
-    af1=f1.split('/');
-    af2=f2.split('/');
+
+    if($('#tasalist').val()== "ipc")
+      {
+        //alert("eligio tasa ipc");
+        aPrimDia= primerdiaipc.split('-');
+        aUltDia= ultimodiaipc.split('-');
+        af1=f1.split('/');
+        af2=f2.split('/');
+      }
+    else
+      {
+        //alert("No eligio tasa ipc");
+        aPrimDia= primerdiamix.split('-');
+        aUltDia= ultimoDia.split('-');
+        af1=f1.split('/');
+        af2=f2.split('/');
+      }
+
+    
+    //alert("ultimo dia de la tabla: "+aUltDia);
+    //alert("ultimo dia de ipc "+ultimodiaipc);
+    
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //controla que las fechas sean correctas
@@ -332,6 +486,9 @@ function verificaDatos()
     ini=Date.UTC(af1[2],(af1[1]-1),af1[0]);
     ulti=Date.UTC(af2[2],(af2[1]-1),af2[0]);
     ultiDiaMes=Date.UTC(aUltDia[0],(aUltDia[1]-1),aUltDia[2]);
+    primerDia= Date.UTC(aPrimDia[0],(aPrimDia[1]-1),1);
+    //Date.UTC(año,mes[, dia[, hora[, minutos[, segundos, milisegundos]]]])
+    //cambie de Date.UTC(aPrimDia[0],(aPrimDia[1]-1),aPrimDia[1]);
 
     if (ini>ulti) 
     {
@@ -341,11 +498,24 @@ function verificaDatos()
     {
         if (ulti>ultiDiaMes)
       {
-        alert('La fecha límite de calculo es: '+ aUltDia[2]+'/'+aUltDia[1]+'/'+aUltDia[0]);
+        alert('La fecha límite de calculo es: '+ 1+'/'+aUltDia[1]+'/'+aUltDia[0]);
         $('#vfhasta').focus();
       }else
       {
-        calcularTasa();
+        if(ini<primerDia)
+        {
+          alert('La fecha límite de calculo es: '+ 1+'/'+aPrimDia[1]+'/'+aPrimDia[0]);
+          $('#vfdesde').focus();
+        }else
+        {
+          if(yea <= 21)//es una variable para que o se hagan mas de 20 calculos.
+          {
+            calcularTasa();
+            tablas();
+          }else
+            tablas();
+        }
+
       } 
     }
   
