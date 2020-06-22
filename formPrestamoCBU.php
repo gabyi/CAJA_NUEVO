@@ -14,7 +14,7 @@ include 'head.php';
 			<div class="panel-heading">Formulario de Préstamos Personales</div>
 				
 			<div id="panel-cuerpo" class="panel-body">
-				<form class="form-horizontal" action="php/pdf/pdfPres.php" method="post">
+				<form class="form-horizontal" action="php/pdf/pdfPresCBU.php" method="post" onsubmit="return validar();">
 					<div class="row" id="rowPres">
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Monto Préstamo</label>
@@ -43,14 +43,12 @@ include 'head.php';
 								</div>
 							<label class="col-md-2 control-label" for="name">Forma de pago</label>
 								<div class="col-md-2">
-									<select class="form-control" id="tasalist" onChange="mirarTasa();" name="pago">
+									<select class="form-control" id="pagoList" onChange="mirarTasa();" name="pago">
   										<option value="cheque" selected>Cheque</option>	
   										<option value="transferencia">Transferencia</option>
 									</select>
 								</div>
-						</div>
-
-						
+						</div>				
 
 					</div>					
 
@@ -63,7 +61,7 @@ include 'head.php';
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Nombre y Apellido</label>
 								<div class="col-md-7">
-									<input id="nomTit" name="nomTit" title="Por favor ingrese un nombre" type="text" placeholder="Nombre y Apellido" class="form-control" >
+									<input id="nomTit" name="nomTit" title="Por favor ingrese un nombre" type="text" placeholder="Nombre y Apellido" class="form-control" required>
 								</div>
 						</div>
 
@@ -79,7 +77,13 @@ include 'head.php';
 								</div>
 								<label class="col-md-1 control-label" for="dniTit">Número</label>
 								<div class="col-md-3">
-									<input id="dniTit" name="dniTit" title="" type="text" placeholder="Nº DNI" class="form-control" >
+									<input id="dniTit" name="dniTit" title="" type="text" placeholder="Nº DNI 8 dígitos" class="form-control" >
+								</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="cuit">CUIT/CUIL</label>
+								<div class="col-md-7">
+									<input id="cuit" name="cuit" title="" type="text" class="form-control" required>
 								</div>
 						</div>
 
@@ -123,7 +127,7 @@ include 'head.php';
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">E. civil</label>
 								<div class="col-md-2">
-									<select class="form-control" name="civil">
+									<select class="form-control" name="civil" id="estCivilTit">
   										<option value="soltera/o">Soltera/o</option>
   										<option value="casada/o">Casada/o</option>
   										<option value="divorciada/o">Divorciada/o</option>	
@@ -132,7 +136,7 @@ include 'head.php';
 								</div>
 								<label class="col-md-1 control-label" for="name">Cónyuge</label>
 								<div class="col-md-4">
-									<input id="dniTit" name="conyugeTit" title="" type="text" placeholder="" class="form-control" >
+									<input id="conyugeTit" name="conyugeTit" title="" type="text" placeholder="" class="form-control" >
 								</div>
 						</div>
 							
@@ -145,7 +149,7 @@ include 'head.php';
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Nombre y Apellido</label>
 								<div class="col-md-7">
-									<input id="nomTit" name="nomAval" title="" type="text" placeholder="Nombre y Apellido" class="form-control" >
+									<input id="nomAval" name="nomAval" title="" type="text" placeholder="Nombre y Apellido" class="form-control" required>
 								</div>
 						</div>
 
@@ -161,14 +165,14 @@ include 'head.php';
 								</div>
 								<label class="col-md-1 control-label" for="name">Número</label>
 								<div class="col-md-3">
-									<input id="dniTit" name="dniAval" title="" type="text" placeholder="Nº DNI" class="form-control">
+									<input id="dniAval" name="dniAval" title="" type="text" placeholder="N° DNI 8 dígitos" class="form-control" required>
 								</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Actividad</label>
 								<div class="col-md-4">
-									<input id="name" name="actividad" title="" type="text" placeholder="" class="form-control" >
+									<input id="actAval" name="actividad" title="" type="text" placeholder="" class="form-control" >
 								</div>
 
 						</div>
@@ -176,18 +180,18 @@ include 'head.php';
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">Dirección</label>
 								<div class="col-md-4">
-									<input id="name" name="domAval" title="" type="text" placeholder="" class="form-control" >
+									<input id="domAval" name="domAval" title="" type="text" placeholder="" class="form-control" required>
 								</div>
 								<label class="col-md-1 control-label" for="name">Teléfono</label>
 								<div class="col-md-2">
-									<input id="name" name="telAval" title="" type="text" placeholder="" class="form-control" >
+									<input id="telAval" name="telAval" title="" type="text" placeholder="" class="form-control" required>
 								</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="name">E. civil</label>
 								<div class="col-md-2">
-									<select class="form-control" name="civilAval">
+									<select class="form-control" name="civilAval" id="civilAval">
   										<option value="soltera/o">Soltera/o</option>
   										<option value="casada/o">Casada/o</option>
   										<option value="divorciada/o">Divorciada/o</option>	
@@ -195,7 +199,7 @@ include 'head.php';
 								</div>
 								<label class="col-md-1 control-label" for="name">Cónyuge</label>
 								<div class="col-md-4">
-									<input id="dniTit" name="conyugeAval" title="" type="text" placeholder="" class="form-control" >
+									<input id="conyugeAval" name="conyugeAval" title="" type="text" placeholder="" class="form-control" >
 								</div>
 						</div>
 						
@@ -215,13 +219,13 @@ include 'head.php';
 </html>
 <script type="text/javascript">
 	
-	/*function mirarTasa()
+function mirarTasa()
   {
-    var alias= "<div class='form-group' id='alias'><label class='col-md-2 control-label' for='alias'>Alias *</label><div class='col-sm-5 col-md-5'><input type='text' class='form-control'  name='alias' placeholder='' value=''></div></div>";
-    var banco="<div class='form-group' id='banco'><label class='col-md-2 control-label' for='name'>Banco*</label><div class='col-md-4'><input id='name' name='banco' type='text' class='form-control' ></div><label class='col-md-1 control-label' for='name'>CBU*</label><div class='col-md-4'><input id='name' name='cbu' type='text' class='form-control' ></div></div>";
+    var alias= "<div class='form-group' id='alias'><label class='col-md-2 control-label' for='alias'>Alias *</label><div class='col-sm-5 col-md-5'><input type='text' class='form-control'  name='alias' id='aliasCBU' placeholder='' value='' required></div></div>";
+    var banco="<div class='form-group' id='banco'><label class='col-md-2 control-label' for='name'>Banco*</label><div class='col-md-4'><input id='bancoCBU' name='banco' type='text' class='form-control' required></div><label class='col-md-1 control-label' for='name'>CBU*</label><div class='col-md-4'><input id='cbu' name='cbu' type='text' class='form-control' required></div></div>";
 
    
-  if($("#tasalist").val()=="transferencia")
+  if($("#pagoList").val()=="transferencia")
   {
     $("#rowPres").append(alias);
     $("#rowPres").append(banco)
@@ -231,6 +235,130 @@ include 'head.php';
 	    $("#banco").remove();
 	  } 
   }
+
+function validar()
+	{
+		var nombreTitular= document.getElementById("nomTit").value;
+		var dniTitular= document.getElementById("dniTit").value;
+		var cuit= document.getElementById("cuit").value;
+		var conyugeTit= document.getElementById("conyugeTit").value;
+		var nombreAval= document.getElementById("nomAval").value;
+		var dniAval= document.getElementById("dniAval").value;
+		var domAval= document.getElementById("domAval").value;
+		var telAval= document.getElementById("telAval").value;
+		var conyugeAval= document.getElementById("conyugeAval").value;
+
+		if($("#pagoList").val()=="transferencia")
+		{
+			var alias, cbu, banco;
+			alias= document.getElementById("aliasCBU").value;  
+			cbu= document.getElementById("cbu").value;  
+			banco= document.getElementById("bancoCBU").value; 
+
+			if(alias==="" && cbu==="" && banco==="")
+			{
+				alert("Se tiene que completar el alias o CBU y Banco");
+				$("#aliasCBU").focus();
+				return false;
+			}else
+				{
+					if(alias!=="")
+						{
+							if(banco!=="" && cbu!=="")
+							{
+								return true;
+							}else
+							{
+								alert("El CBU o el Banco estan vacios");
+								$("#bancoCBU").focus();
+								return false;
+							}
+							
+						}else
+						{
+							alert("El Alias está vacio");
+							$("#aliasCBU").focus();
+							return false;
+						}
+				}
+
+		}
+
+		if(nombreTitular!=="")
+		{
+			if(dniTitular!=="" && !isNaN(dniTitular) && dniTitular.length>=8)
+			{
+				if(cuit!=="" && cuit.length>=11)
+				{
+					if($("#estCivilTit").val()=="casada/o" && conyugeTit==="")
+					{
+						alert("El campo cónyuge del titular está vacio");
+							$("#conyugeTit").focus();
+							return false;
+					}else
+					{
+						if(nombreAval!=="")
+						{
+							if(dniAval!=="" && !isNaN(dniAval) && dniAval.length>=8)
+							{
+								if(domAval!=="")
+								{
+									if(telAval!=="" && !isNaN(telAval))
+									{
+										if($("#civilAval").val()=="casada/o" && conyugeAval==="")
+										{
+											alert("El campo cónyuge del avalista está vacio");
+											$("#conyugeAval").focus();
+											return false;
+										}else
+										{
+											return true;
+										}
+									}else
+									{
+										alert("El campo del teléfono del avalista esta vacio o no es un numero");
+										$("#telAval").focus();
+										return false;
+									}
+								}else
+								{
+									alert("El campo domicilio del Avalista esta vacio");
+									$("#domAval").focus();
+									return false;
+								}
+							}else
+							{
+								alert("El DNI del avalista esta vacio, no es numero o es menor a 8 dígitos");
+								$("#dniAval").focus();
+								return false;
+							}
+						}else
+						{
+							alert("El campo nombre del avalista esta vacio");
+							$("#nomAval").focus();
+							return false;
+						}
+					}
+				}else
+				{
+					alert("El CUIT/CUIL esta vacio, o no tiene la longitud que corresponde");
+					$("#cuit").focus();
+					return false;
+				}
+			}else
+			{
+				alert("El campo DNI titular está vacio, no es un número o es menor a 8 dígitos");
+				$("#dniTit").focus();
+				return false;
+			}
+		}else
+		{
+			alert("El campo nombre del Titular está vacio");
+			$("#nomTit").focus();
+			return false
+		}
+	}
+
   
 </script>
 

@@ -19,7 +19,10 @@ $estCivilTit=$_REQUEST['civil'];
 $conyuTit=$_REQUEST['conyugeTit'];
 $alias=$_REQUEST['alias'];
 $cbu=$_REQUEST['cbu'];
+$cuit= $_REQUEST['cuit'];
 $banco=$_REQUEST['banco'];
+$monotributo=$_REQUEST['mono'];
+$categoria=$_REQUEST['categoria'];
 //$impEnLetras=impo_lets($importe);
 $impEnLetras=convertir($importe);
 $debito=$_REQUEST['debito'];
@@ -74,10 +77,15 @@ $pdf->Cell(60);
 $pdf->Ln(8);
 $pdf->MultiCell(0,6,'Apellido y nombre: '.$nomTit.'
 Doc. Identidad: '.$tipoDniTit.' Nº '.$numDniTit.'
+CUIT/CUIL: '.$cuit.'
 Domicilio: '.strtoupper($domTit).' T.E: '.$telTit.'
 Estudio: '.strtoupper($dirEstudio).'     T.E: '.$telEstudio.'
 Inscripción Colegio de Abogados y Procuradores de la Provincia de La Pampa de 
-fecha: '.$fechaCol.' Tº '.$tomo.' Fº '.$folio);
+fecha: '.$fechaCol.' Tº '.$tomo.' Fº '.$folio.'');
+if($monotributo=="si")
+{
+    $pdf->MultiCell(0,6,'Monotributista: '.strtoupper($monotributo).' Categoria: '.strtoupper($categoria));
+}
 if ($estCivilTit=="casada/o" && $conyuTit!="")
     $pdf->MultiCell(0,6,'Estado Civil: '.strtoupper($estCivilTit).' Nombre del Cónyuge: '.strtoupper($conyuTit));
     else
