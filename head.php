@@ -3,6 +3,7 @@
         <?php 
         // es por un warning de strtotime function
         date_default_timezone_set('UTC');
+        
         ?>
         
         <meta charset="utf-8">
