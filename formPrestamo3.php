@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="imagenes/logo.ico"/>
 
-include 'head.php';
-?>
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        
+     
+           <!-- fuentes -->
+<link href="css/fuentes.css" rel="stylesheet">
+
+<!--mi estilo -->
+<link href="https://www.cforense.org/css/miestilo.css" rel="stylesheet">
+
 <title>Formulario de Solicitud de Certificado de Admisibilidad</title>
   <body>
 
@@ -16,7 +36,55 @@ include 'head.php';
 				
 			<div id="panel-cuerpo" class="panel-body">
 				<div class="col-lg-12">
-				<form class="form-horizontal" action="php/pdf/pdfAdmisibilidad.php" method="post">
+				<!--<form class="form-horizontal" action="php/pdf/pdfAdmisibilidad.php" method="post">-->
+				<?php 
+				if(isset($_POST['enviar'])) 
+					{
+						date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+						//Dia-Mes-Año Hora:Minutos:Segundos
+						$fecha = date('Y-m-d H:i:s');
+						//titular
+						$nomTit=mb_strtoupper($_REQUEST['nomTit'],'utf-8');
+						$importe=$_REQUEST['monto'];
+						$tipoDniTit=$_REQUEST['tipoTit']; //L.E./L.C./D.N.I./C.I.
+						$numDniTit=$_REQUEST['dniTit'];
+						$domTit=mb_strtoupper($_REQUEST['domPart'],'utf-8');
+						$telTit=$_REQUEST['telPart'];
+						$mailProfesional=$_REQUEST['mailAfiliado'];
+						$declaro=$_REQUEST['declaro'];
+						$linea=$_REQUEST['linea'];
+						//avalista
+						$nomAval=mb_strtoupper($_REQUEST['nomAval'],'utf-8');
+						$tipoDniAval=$_REQUEST['tipoAval'];
+						$numDniAval=$_REQUEST['dniAval'];
+						$actividad=$_REQUEST['actividad'];
+						$domAval=mb_strtoupper($_REQUEST['domAval'],'utf-8');
+						$telAval=$_REQUEST['telAval'];
+						$mailGarante=$_REQUEST['mailGarante'];
+
+						
+					include 'conexion.php';
+					$consulta= 'INSERT INTO prestamo (tipoDniProfesional,dniProfesional,nombreProfesional,direccionProfesional,telefonoProfesional,mailProfesional,nombreGarante,
+						tipoDniGarante,dniGarante,direccionGarante,telefonoGarante,mailGarante,fechaSolicitud,linea,monto) VALUES ("'.$tipoDniTit.'","'.$numDniTit.'","'.$nomTit.'","'.$domTit.'","'.$telTit.'","'.$mailProfesional.'","'.$nomAval.'"
+						,"'.$tipoDniAval.'","'.$numDniAval.'","'.$domAval.'","'.$telAval.'","'.$mailGarante.'","'.$fecha.'","'.$linea.'","'.$importe.'")';
+
+						
+					if(mysql_query($consulta,$conexion))
+					{
+						echo'<div class="alert alert-success" role="alert">En cuanto se procese su solicitud, nos contactaremos con Ud. vía correo electrónico.</div>';
+
+					}else
+					{
+						echo'<div class="alert alert-danger" role="alert">SU SOLICITUD NO PUDO SER ENVIADA</div>';
+					}
+					mysql_close($conexion);
+
+					}else
+					{
+					?>
+					<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+						<!--<form class="form-horizontal" action="" method="post">-->
 					<div class="row">
 						<div class="form-group">
 								<div class="col-lg-2 col-lg-offset-2">
@@ -50,7 +118,7 @@ include 'head.php';
 								<div class="col-md-12">
 									<label>Nombre y Apellido</label>
 							
-									<input name="nomTit" type="text" placeholder="Nombre y Apellido" class="form-control" >
+									<input name="nomTit" type="text" placeholder="Nombre y Apellido" class="form-control" required>
 								</div>
 							</div>							
 						</div>
@@ -70,7 +138,7 @@ include 'head.php';
 										</div>
 										<div class="col-lg-9">
 											<label>Número</label>
-											<input name="dniTit" type="text" placeholder="Nº DNI" class="form-control" >
+											<input name="dniTit" type="text" placeholder="Nº DNI" class="form-control" required>
 										</div>
 									</div>									
 								</div>
@@ -78,11 +146,11 @@ include 'head.php';
 									<div class="row">
 										<div class="col-lg-8">
 											<label>Domicilio</label>								
-											<input name="domPart" title="" type="text" placeholder="domicilio" class="form-control" >		
+											<input name="domPart" title="" type="text" placeholder="domicilio" class="form-control" required>		
 										</div>
 										<div class="col-lg-4">									
 											<label>Teléfono</label>								
-											<input name="telPart" title="" type="text" placeholder="telefono" class="form-control" >
+											<input name="telPart" title="" type="text" placeholder="telefono" class="form-control" required>
 										</div>
 									</div>
 								</div>
@@ -94,7 +162,7 @@ include 'head.php';
 							<div class="row">
 								<div class="col-lg-6">
 									<label>Mail</label>
-									<input type="text" class="form-control" name="mailAfiliado" placeholder="mail" >
+									<input type="text" class="form-control" name="mailAfiliado" placeholder="mail" required>
 								</div>
 								<div class="col-lg-6">
                                     <div class="form-check">
@@ -116,7 +184,7 @@ include 'head.php';
 							<div class="row">
 								<div class="col-lg-12">
 									<label >Nombre y Apellido</label>								
-									<input name="nomAval" title="" type="text" placeholder="Nombre y Apellido" class="form-control" >	
+									<input name="nomAval" title="" type="text" placeholder="Nombre y Apellido" class="form-control" required>	
 								</div>
 							</div>
 						</div>
@@ -136,7 +204,7 @@ include 'head.php';
 										</div>
 										<div class="col-lg-9">
 											<label>Número</label>								
-											<input name="dniAval" type="text" placeholder="Nº DNI" class="form-control" >				
+											<input name="dniAval" type="text" placeholder="Nº DNI" class="form-control" required>				
 										</div>
 									</div>
 								</div>
@@ -144,11 +212,11 @@ include 'head.php';
 									<div class="row">
 										<div class="col-lg-8">
 											<label>Dirección</label>							
-											<input name="domAval" title="" type="text" placeholder="" class="form-control" >
+											<input name="domAval" title="" type="text" placeholder="" class="form-control" required>
 										</div>
 										<div class="col-lg-4">
 											<label>Teléfono</label>							
-											<input name="telAval" title="" type="text" placeholder="" class="form-control" >
+											<input name="telAval" title="" type="text" placeholder="" class="form-control" required>
 										</div>
 									</div>
 								</div>
@@ -159,7 +227,7 @@ include 'head.php';
 							<div class="row">
 								<div class="col-lg-6">
 									<label>Mail</label>
-									<input type="text" class="form-control" placeholder="mail" name="mailGarante" >
+									<input type="text" class="form-control" placeholder="mail" name="mailGarante" required>
 								</div>
 							</div>
 						</div>
@@ -168,10 +236,13 @@ include 'head.php';
 						<br>
 						<div class="form-group">
                   			<div class="col-sm-12 col-md-12" style="text-align:center;">
-                  			<button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="calcular1" onclick= "">Armar Solicitud</button>
+                  			<button style="background: url(imagenes/logos/fondo_azul.png);" type="submit" class="btn btn-info  btn-lg" name="enviar" onclick= "">Enviar Solicitud</button>
 						</div>
                 </div>
 				</form>
+				<?php 
+					}
+				 ?>
 			</div>
 		</div>
 		</div>
