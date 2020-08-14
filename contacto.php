@@ -33,7 +33,7 @@ if($_SESSION['captcha']==$_REQUEST['codigo'])
 			$mensaje = $_POST['message'];
 			$webmail="gabrielisabella@cforense.org ";
 
-			if(mail($webmail, $asunto, $nombre." dice: \r\n".$mensaje, $email )) //\r\n hace solo el salto de linea
+			if(mail($webmail, $asunto, $nombre." dice: \r\n".$mensaje, $email)) //\r\n hace solo el salto de linea
   				$aviso="Su Mensaje fue enviado. Nos pondremos en contacto con usted si fuese necesario. Muchas Gracias.-";
   			else
   				$aviso="Su Mensaje no fue enviado";
