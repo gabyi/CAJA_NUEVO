@@ -26,11 +26,11 @@ include 'head2.php';
     include 'conexion.php';
     $materia  = $_REQUEST['juicio'];
     $monto    = $_REQUEST['monto'];
+    $montoCalculo= $monto;//USO MONTO CALCULO PARA EL TITULO, SI HAY MATERIA COMO ACEPTACION CARGO DEFENSOR QUE CUALQUIERA SEA EL MONTO TIENE UN SOLO VALOR
     $oficio   = $_REQUEST['oficio'];
     $beneficio= $_REQUEST['beneficio'];
     $indeterminado= $_REQUEST['indeterminado'];
 
-  
 
     if($beneficio)
         $consulta = mysql_query("select * from ValoresCajaRentas where materia= 'BENEFICIO DE LITIGAR SIN GASTOS'") or die("No se pudo realizar la consulta");
@@ -41,6 +41,17 @@ include 'head2.php';
              else
                  $consulta = mysql_query("select * from ValoresCajaRentas where materia= '" . $materia . "'") or die("No se pudo realizar la consulta");
        }
+         /////////////////////////////USO ESTO PARA CUALQUIER MATERIA  QUE TENGA UN MISMO MONTO/////////////////////////////////////////////////////////////////
+
+    if($materia == "ACEPTACION CARGO DEFENSOR")
+    {
+        if($monto != 0 || $monto != 0.00 )
+        {
+            $monto=0;
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //si la consulta devuelve falso que salga un cartel
 
@@ -307,33 +318,7 @@ if($monto != 0.00 || $monto != 0)
     }
 }
 
-
-
-/* esto era antes de usar las bases como van
-if($fila['rentas_inicio_tfija']== 0.00 && $fila['rentas_inicio_tvariable'] != 0.00)
-{
-    $rentas_inicio_tfija= $fila['rentas_inicio_tfija'];
-    $rentas_inicio_tvariable= verifica($monto, $fila['rentas_inicio_tvariable'], $filaMinimos['rentas_minimo']);
-    if($rentas_inicio_tvariable== $filaMinimos['rentas_minimo'])
-        $controlIniRentas=2;
-    else
-        $controlIniRentas=1;
-}else
-{
-    if($fila['rentas_inicio_tfija']!=0.00 && $fila['rentas_inicio_tvariable'] == 0.00)
-    {
-        $rentas_inicio_tvariable= $fila['rentas_inicio_tvariable'];
-        $rentas_inicio_tfija= $fila['rentas_inicio_tfija'];
-        $controlIniRentas=3;
-    }
-}
-
-if($fila['rentas_inicio_tfija'] !=0.00 && $fila['rentas_inicio_tvariable'] != 0.00)
-        {
-            $rentas_inicio_tfija= $fila['rentas_inicio_tfija'];
-            $controlIniRentas=3;
-        }
-*/        
+      
 
     $sumaDGR = $rentas_inicio_general + $rentas_inicio_tvariable + $rentas_inicio_tfija;
 
@@ -475,13 +460,13 @@ if($oficio)
 
         <?php
 if($oficio)
-    print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($monto, 2) . ". Oficio Ley 22.172.-</h4>";
+    print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($montoCalculo, 2) . ". Oficio Ley 22.172.-</h4>";
 else
     {
         if($indeterminado)
             print "<h4 class='panel-title'>Costos de Juicios: " . $materia . " por MONTO INDETERMINADO </h4>";
         else
-            print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($monto, 2) . "</h4>";
+            print "<h4 class='panel-title'>Costos de Juicios: " . $materia . ". Monto: $ " . number_format($montoCalculo, 2) . "</h4>";
     }
         ?>
 
@@ -706,12 +691,18 @@ if($materia=="HOMOLOGACION DE CONVENIO")
                                              las liquidaciones formales que efectúan la Caja Forense de La Pampa y la Dirección General de Rentas.
                                              Para la programación de este aplicativo se han tomado como referencia las disposiciones de la Ley 1861 y de la Ley Impositiva.</div>
 
+<div id='alert-orange' class= 'well well-sm'>Solicitamos que antes de proceder a efectuar el depósito o transferencia bancaria se verifiquen los importes en los siguientes correos: 
+                                            <a href="mailto: intervencionesdigitalessr@cforense.org">intervencionesdigitalessr@cforense.org</a> (I, III y IV CJ) y 
+                                            <a href="mailto: intervencionesdigitalesgp@cforense.org">intervencionesdigitalesgp@cforense.org</a> (II CJ).</div>
+
 </div>
 
   <div class='panel panel-default'>
     <div class='panel-heading'>
       <button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg'
       name='calcular' onclick= 'return imprJus();'>Imprimir</button>
+
+     <!--<input type="button" style="background: url(imagenes/logos/fondo_azul.png);" class="btn btn-info  btn-lg" name="PDF" id="PDF" onClick="enviarAPHP();" value="PDF" /> -->
 
       <a id="link-Botones" href="montosJuicios2.php"><button id="boton-noticia" style="background: url(imagenes/logos/fondo_azul.png);" type='button' class='btn btn-info  btn-lg'
         name='volver' style='margin-left:15px;'>Volver</button></a>
@@ -784,6 +775,25 @@ function doPrint(){
  //document.all.item("noprint").style.visibility="visible"
 
  }
+
+
+
+
+
+<?php
+if (isset($_POST['PDF']))
+    require_once 'dompdf/autoload.inc.php';
+    use Dompdf\Dompdf;
+    $dompdf = new DOMPDF();
+    $dompdf->load_html(ob_get_clean());
+    $dompdf->render();
+    $pdf = $dompdf->output();
+    $filename = "ejemplo.pdf";
+    file_put_contents($filename, $pdf);
+    $dompdf->stream($filename);
+?>
+
+
 
 </script>
 
